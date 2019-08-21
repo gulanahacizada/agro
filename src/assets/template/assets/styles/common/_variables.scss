@@ -1,0 +1,38 @@
+/*====================================================================================================================*/
+/* Variables */
+/*====================================================================================================================*/
+
+$assets: '/assets';
+$fontPath: $assets + '/fonts/';
+$imagePath: $assets + '/images/';
+$iconsPath: $assets + '/icons/fonts/';
+
+$fontFamily: 'Roboto';
+$iconsName: 'icomoon';
+
+$checkIcon: '\e944';
+$starIcon: '\ea88';
+$halfStarIcon: '\ea8a';
+$emptyStarIcon: '\ea8b';
+$ratingStars: ''+$starIcon$starIcon$starIcon$starIcon$starIcon+'';
+
+$xl: '1200px';
+$lg-max: '1199px';
+$lg-min: '992px';
+$md-max: '991px';
+$md-min: '768px';
+$sm-max: '767px';
+$sm-min: '576px';
+$xs: '575px';
+
+$col-count: 12;
+$alignments: (left, right, center);
+$columns: (1,2,3,4,5,6,7,8,9,10,11,12);
+$rowSizes: (2,5,7,10,15,20,30);
+$marginCols: (0,1,2,3,4,5,6,7,8,9,10,11,12,auto);
+$radiusSizes: (1,2,3,4,5,10,15,20,30,40,50);
+$mpSizes: (0,1,2,3,4,5,7,10,15,20,30,40,50,60,70,80,90,100,auto);
+$pbInSizes: (20,25,30,35,40,45,50,56,60,65,70,75,80,85,90,95,100);
+
+@import "colors";
+@import "mixins";

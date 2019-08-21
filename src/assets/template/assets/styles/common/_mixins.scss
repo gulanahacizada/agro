@@ -1,0 +1,279 @@
+/*====================================================================================================================*/
+/* Mixin */
+/*====================================================================================================================*/
+
+@mixin font-face($family, $name, $weight, $meta) {
+  @font-face {
+    $dir: to-lower-case($family);
+
+    font-family: $family;
+    src: url($fontPath + $dir + '/' + $name + '.eot');
+    src: url($fontPath + $dir + '/' + $name + '.woff2') format('woff2'),
+    url($fontPath + $dir + '/' + $name + '.woff') format('woff'),
+    url($fontPath + $dir + '/' + $name + '.ttf') format('truetype'),
+    url($fontPath + $dir + '/' + $name + '.svg#' +  $meta) format('svg'),
+    url($fontPath + $dir + '/' + $name + '.eot?#iefix') format('embedded-opentype');
+    font-weight: $weight;
+  }
+}
+
+@mixin margin-lr-size($values) {
+  margin-left: $values;
+  margin-right: $values;
+}
+
+@mixin padding-lr-size($values) {
+  padding-left: $values;
+  padding-right: $values;
+}
+
+@mixin border-radius($values) {
+  -webkit-border-radius: $values;
+  -moz-border-radius: $values;
+  border-radius: $values;
+}
+
+@mixin box-shadow($values) {
+  -webkit-box-shadow: $values;
+  -moz-box-shadow: $values;
+  box-shadow: $values;
+}
+
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+@mixin line-clamp($value) {
+  -webkit-line-clamp: $value;
+  -moz-line-clamp: $value;
+  -ms-line-clamp: $value;
+  -o-line-clamp: $value;
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -ms-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+@mixin animation-delay($values) {
+  -webkit-animation-delay: $values;
+  -moz-animation-delay: $values;
+  -o-animation-delay: $values;
+  animation-delay: $values;
+}
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($value) {
+  -webkit-box-flex: 1;
+  -webkit-flex: $value 0 auto;
+  -ms-flex: $value 0 auto;
+  flex: $value 0 auto;
+}
+
+@mixin box-orient($value) {
+  -webkit-box-orient: $value;
+  -moz-box-orient: $value;
+  -ms-box-orient: $value;
+}
+
+@mixin gradient($property, $values) {
+  $property: -webkit-linear-gradient($values);
+  $property: -moz-linear-gradient($values);
+  $property: -o-linear-gradient($values);
+  $property: linear-gradient($values);
+}
+
+@mixin background-size($value) {
+  -moz-background-size: $value;
+  -webkit-background-size: $value;
+  -o-background-size: $value;
+  background-size: $value;
+}
+
+@mixin resize($direction) {
+  overflow: auto;
+  resize: $direction;
+}
+
+@mixin float-alignment($media){
+  @each $alignment in $alignments {
+    @if ($media != null) {
+      .float-#{$media}-#{$alignment} {
+        @if $alignment == 'center' {
+          margin-left: auto;
+          margin-right: auto;
+          width: fit-content;
+          width: -moz-fit-content;
+        }
+        @else {
+          float: $alignment;
+        }
+      }
+    }
+    @else {
+      .float-#{$alignment} {
+        @if $alignment == 'center' {
+          margin-left: auto;
+          margin-right: auto;
+          width: fit-content;
+          width: -moz-fit-content;
+        }
+        @else {
+          float: $alignment;
+        }
+      }
+    }
+  }
+}
+
+@mixin row-sizes($media){
+  @each $size in $rowSizes {
+    &.#{$media}-#{$size} {
+      @if $size == 2 {
+        @include margin-lr-size(-2.5px);
+
+        > .col {
+          @include padding-lr-size(2.5px);
+        }
+      }
+      @else if $size == 7{
+        @include margin-lr-size(-7.5px);
+
+        > .col {
+          @include padding-lr-size(7.5px);
+        }
+      }
+      @else {
+        @include margin-lr-size(-#{$size + px});
+
+        > .col {
+          @include padding-lr-size(#{$size + px});
+        }
+      }
+    }
+  }
+}
+
+@mixin col-size($value) {
+  -ms-flex: 0 0 ((100% / $col-count) * $value);
+  flex: 0 0 ((100% / $col-count) * $value);
+  max-width: ((100% / $col-count) * $value);
+}
+
+@mixin col-sizes($media){
+  @each $col in $columns {
+    &.#{$media}-#{$col} {
+      @include col-size($col);
+    }
+  }
+}
+
+@mixin col-margins($media, $key, $alignment){
+  @each $col in $marginCols {
+    &.#{$media}-#{$key}-#{$col} {
+
+      @if $col == 'auto' {
+        margin-#{$alignment}: auto;
+      }
+      @else {
+        margin-#{$alignment}: 100% / 12 * $col;
+      }
+    }
+  }
+}
+
+@mixin orders($media){
+  @each $col in $columns {
+    &.#{$media}-or-#{$col} {
+      order: $col;
+    }
+  }
+}
+
+@mixin padding-sizes($key, $alignment){
+  @each $size in $mpSizes {
+    @if($size != 'auto'){
+      @if $key {
+        .p#{$key}-#{$size} {
+          padding-#{$alignment}: $size + px;
+        }
+      }
+      @else {
+        .p-#{$size} {
+          padding: $size + px;
+        }
+      }
+    }
+  }
+}
+
+@mixin margin-sizes($key, $media, $alignment){
+  @each $size in $mpSizes {
+
+    $unit: '';
+    @if ($size != 'auto') {
+      $unit: px;
+    }
+
+    @if ($key) {
+      @if ($media != null) {
+        .m#{$key}-#{$media}-#{$size} {
+          margin-#{$alignment}: $size + $unit;
+        }
+      }
+
+      @else {
+        .m#{$key}-#{$size} {
+          margin-#{$alignment}: $size + $unit;
+        }
+      }
+    }
+    @else {
+      @if ($media != null) {
+        .m-#{$media}-#{$size} {
+          margin: $size + px;
+        }
+      }
+      @else {
+        .m-#{$size} {
+          margin: $size + px;
+        }
+      }
+    }
+  }
+}
