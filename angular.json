@@ -30,7 +30,9 @@
               "src/assets/template/assets/styles/app.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {
