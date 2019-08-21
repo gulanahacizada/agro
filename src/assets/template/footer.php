@@ -203,16 +203,10 @@
 <script src="assets/scripts/lazyload.min.js"></script>
 <script src="assets/scripts/owl.carousel.min.js"></script>
 <script src="assets/scripts/pi.js"></script>
-<script src="assets/scripts/sticky.js"></script>
 <script src="assets/scripts/ripple.min.js"></script>
-<script src="assets/scripts/popper.min.js"></script>
-<script src="assets/scripts/tooltip.min.js"></script>
-<script defer src="assets/scripts/autosize.min.js"></script>
-
-<!--[if IE]>
-<script defer src="assets/scripts/html5shiv.min.js"></script>
-<script defer src="assets/scripts/respond.min.js"></script>
-<![endif]-->
+<!-- <script src="assets/scripts/popper.min.js"></script>
+<script src="assets/scripts/tooltip.min.js"></script> -->
+<!-- <script defer src="assets/scripts/autosize.min.js"></script> -->
 
 <!--Carousels-->
 <script>
@@ -310,44 +304,6 @@
                 items: 4
             }
         }
-    });
-
-</script>
-
-<!--Static scripts-->
-<script>
-    const body = $('body');
-    const pageUrl = window.location;
-
-    $('header nav li a').filter(function () {
-        return this.href == pageUrl;
-    }).parent('li').addClass('active');
-
-    $('.nav-toggle').on('click', function () {
-        body.toggleClass('nav-shown');
-    });
-
-    /*================================================================================================================*/
-    // Back To Top
-    /*================================================================================================================*/
-
-    const $backToTop = $(".back-top");
-
-    $backToTop.hide();
-
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 400) {
-            $backToTop.fadeIn();
-        } else {
-            $backToTop.fadeOut();
-        }
-    });
-
-    $backToTop.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 400);
-        return false;
     });
 
 </script>

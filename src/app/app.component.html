@@ -1,8 +1,517 @@
 <!-- The content below is only a placeholder and can be replaced. -->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<header class="main-header" aria-label="agrobirja.az" itemscope itemtype="https://schema.org/WPHeader">
+  <div class="container xl-15 lg-15 clear">
+
+      <span role="button"
+            aria-label="Nav toggle"
+            aria-controls="main-nav"
+            aria-haspopup="true"
+            aria-expanded="true"
+            id="nav-toggle"
+            class="nav-toggle ripple-effect float-left show-md show-sm show-xs mr-20 legitRipple">
+          <i aria-hidden="true"></i>
+      </span>
+
+      <a href="index.php" title="AgroBirja.az" class="logo d-block relative float-left">
+          <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="">
+      </a>
+
+      <div class="right-side clear d-flex-center">
+
+          <div class="right-side-top w-100p clear text-right">
+
+              <span class="btn bg-main light-ripple border-0 radius-20 mr-5" data-target-modal="login">
+                  <i aria-hidden="true" class="icon-user"></i>
+                  <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
+              </span>
+
+              <span class="btn bg-special light-ripple border-0 radius-20" data-target-modal="registration" data-target-tab="reg-types">
+                  <i aria-hidden="true" class="icon-user-plus"></i>
+                  <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
+              </span>
+
+          </div>
+
+          <nav class="main-nav relative light clear tr-3s" id="main-nav" aria-labelledby="nav-toggle">
+
+              <ul class="nav-menu type-none m-0 p-0 float-xl-right float-lg-right clear" role="menu">
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s current-page">
+                          <i aria-hidden="true" class="icon-home-1 v-align-middle mr-10"></i>
+                           <span class="v-align-middle">Ana Səhifə</span>
+                      </a>
+                  </li>
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Birja" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                          <i aria-hidden="true" class="icon-currency-usd v-align-middle mr-10"></i>
+                           <span class="v-align-middle">Birja</span>
+                      </a>
+                  </li>
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Üzvlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                          <i aria-hidden="true" class="icon-home-building v-align-middle mr-10"></i>
+                          <span class="v-align-middle">Üzvlər</span>
+                      </a>
+                  </li>
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Aqronomlar" class="menu-item  ripple-effect light-ripple d-block tr-3s">
+                          <i aria-hidden="true" class="icon-users v-align-middle mr-10"></i>
+                          <span class="v-align-middle">Aqronomlar</span>
+                      </a>
+                  </li>
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                          <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
+                          <span class="v-align-middle">Xəbərlər</span>
+                      </a>
+                  </li>
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Agro TV" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                          <i aria-hidden="true" class="icon-tv v-align-middle mr-10"></i>
+                          <span class="v-align-middle">Agro TV</span>
+                      </a>
+                  </li>
+              </ul>
+
+              <span class="bold pt-40 border-top pl-40 show-md show-sm show-xs" role="presentation">
+                  <i aria-hidden="true" class="icon-language mr-10"></i>
+                  Dili dəyişin
+              </span>
+
+              <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
+
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Azərbaycan dili" class="menu-item d-block tr-3s ripple-effect active">
+                          AZ
+                      </a>
+                  </li>
+
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="English language" class="menu-item d-block tr-3s ripple-effect">
+                          EN
+                      </a>
+                  </li>
+
+                  <li role="presentation">
+                      <a href="#" role="menuitem" title="Русский язык" class="menu-item d-block tr-3s ripple-effect">
+                          RU
+                      </a>
+                  </li>
+
+              </ul>
+
+          </nav>
+
+      </div>
+
+  </div>
+</header>
+<aside class="sub-header-side bg-white shadow-big relative">
+  <div class="container xl-15 lg-15 clear pt-7 pb-7">
+      <div class="row xl-15 lg-15">
+
+          <div class="col as-12 lg-3">
+              <div class="v-widget widget-1 owl-carousel owl-theme">
+
+                  <div class="item d-table" title="1 ton BioMarvel (Heyvanlar üçün maye yem əlavəsi): 1200 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle pr-15 w-100p">
+                              <b class="d-block text-main">BioMarvel</b>
+                              <small class="text-gray line-clamp line-1 mt-2">Heyvanlar üçün maye yem əlavəsi</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  1200
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <span class="text-green">ton</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="item d-table" title="1 ton Alma (Qrin Smit): 1000 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle pr-15 w-100p">
+                              <b class="d-block text-main">Alma</b>
+                              <small class="text-gray line-clamp line-1 mt-2">Qrin Smit</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  1000
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <span class="text-green">ton</span>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="col as-12 lg-3">
+              <div class="v-widget widget-1 owl-carousel owl-theme">
+
+                  <div class="item d-table" title="1 ABŞ dolları: 1.70 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-currency-usd i1"></i>
+                          </div>
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">USD</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 ABŞ dolları</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  1.70
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-green">▲</i>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="item d-table" title="1 ABŞ dolları: 1.70 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-currency-euro i1"></i>
+                          </div>
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">EUR</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 Avro</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  1.88
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-green">▲</i>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="item d-table" title="1 ABŞ dolları: 1.70 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-currency-rubl i1"></i>
+                          </div>
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">RUB</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 Rubl</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  1.70
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-green">▲</i>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="col as-12 lg-3">
+              <div class="v-widget widget-1 owl-carousel owl-theme">
+
+                  <div class="item d-table" title="1 qram Gümüş: 28.74 manat">
+                      <div class="d-row">
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-golds-fill i1"></i>
+                          </div>
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">Gümüş</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 qram</small>
+                          </div>
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  28.74
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-red">▼</i>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="col as-12 lg-3">
+              <div class="v-widget widget-1 owl-carousel owl-theme">
+
+                  <div class="item d-table" title="1 Barel Neft: 0.90 manat">
+                      <div class="d-row">
+
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-oil-pump i1"></i>
+                          </div>
+
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">Neft</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 Barel</small>
+                          </div>
+
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  110
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-red">▼</i>
+                          </div>
+
+                      </div>
+                  </div>
+
+                  <div class="item d-table" title="1 Litr Benzin (Aİ-92): 0.90 manat">
+                      <div class="d-row">
+
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-gas-station i1"></i>
+                          </div>
+
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">Benzin (Aİ-92)</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 Litr</small>
+                          </div>
+
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  0.90
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-red">▼</i>
+                          </div>
+
+                      </div>
+                  </div>
+
+                  <div class="item d-table" title="1 Litr Dizel: 0.60 manat">
+                      <div class="d-row">
+
+                          <div class="d-cell v-align-middle">
+                              <i aria-hidden="true" class="icon-gas-station i1"></i>
+                          </div>
+
+                          <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                              <b class="d-block text-main">Dizel</b>
+                              <small class="text-gray line-clamp line-1 mt-2">1 Litr</small>
+                          </div>
+
+                          <div class="d-cell text-center">
+                              <span class="d-block bold no-wrap">
+                                  0.60
+                                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                              </span>
+                              <i aria-hidden="true" class="text-green">▲</i>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+</aside>
+
+<div class="main-container">
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+<footer class="main-footer bg-main" style="height:400px"></footer>
+
+<div class="fixed-buttons" hidden>
+  <span class="button back-top pointer icon-arrow-up shadow ripple-effect mt-10"
+        role="button"
+        data-toggle="tooltip"
+        data-placement="left"
+        title="Yuxarı qayıt"
+        aria-hidden="true"
+        aria-label="Yuxarı qayıt">
+  </span>
+</div>
+
+<div class="modal login-modal"
+   data-modal="login"
+   data-open-animation="zoomIn"
+   data-close-animation="zoomOut"
+   role="dialog"
+   tabindex="-1"
+   aria-label="Login Modal">
+
+  <form class="modal-content panel">
+
+      <span role="button" class="close fixed-close icon-close" data-close="login" aria-label="Bağla"></span>
+
+      <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
+          <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hesabınıza daxil olun</span>
+      </div>
+
+      <div class="clear p-40">
+          <div class="row as-10 justify-content-center">
+
+              <div class="col as-6 xs-12 mb-20">
+                  <label for="u-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
+                  <input type="text" id="u-name" class="input border-0 radius-20 shadow-big">
+              </div>
+
+              <div class="col as-6 xs-12 mb-20">
+                  <label for="u-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+                  <input type="password" id="u-pass" class="input border-0 radius-20 shadow-big" placeholder="*****">
+              </div>
+
+              <div class="col as-3 xs-6">
+                  <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">Daxil ol</button>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="panel-footer text-center">
+          <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="registration">
+              Bağla
+          </button>
+      </div>
+
+  </form>
+
+</div>
+
+<div class="modal registration-modal"
+   data-modal="registration"
+   data-open-animation="zoomIn"
+   data-close-animation="zoomOut"
+   role="dialog"
+   tabindex="-1"
+   aria-label="Login Modal">
+
+  <div class="modal-content tab-content panel">
+
+      <span role="button" class="close fixed-close icon-close" data-close="registration" aria-label="Bağla"></span>
+
+      <div class="tab-panel active" role="tabpanel" data-tab="reg-types">
+
+          <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-60 pb-30 ripple-effect light-ripple">
+
+              <span class="h3 text-center text-uppercase thin text-white mb-60 d-block">Yeni hesab yaradın</span>
+
+              <div class="reg-types row as-10">
+
+                  <div class="col as-6 xs-12 mb-30">
+                      <button class="btn lg border-0 shadow-big w-100p tr-3s" data-target-tab="fr-registration">Fiziki şəxs olaraq</button>
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-30">
+                      <button class="btn lg border-0 shadow-big w-100p tr-3s" data-target-tab="hr-registration">Hüquqi şəxs olaraq</button>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="panel-footer text-center">
+              <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="registration">Bağla</button>
+          </div>
+
+      </div>
+
+      <div class="tab-panel" role="tabpanel" data-tab="fr-registration">
+
+          <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
+              <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Fiziki şəxs qeydiyyatı</span>
+          </div>
+
+          <div class="clear p-40">
+              <div class="row as-10 justify-content-center">
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="fr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+                      <input type="text" id="fr-full-name" class="input border-0 radius-20 shadow-big">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="fr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
+                      <input type="email" id="fr-email" class="input border-0 radius-20 shadow-big">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="fr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+                      <input type="password" id="u-pass" class="input border-0 radius-20 shadow-big" placeholder="*****">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="fr-pass-again" class="pl-10">Şifrənin təkrarı <sup class="text-red">*</sup></label>
+                      <input type="password" id="u-pass-again" class="input border-0 radius-20 shadow-big" placeholder="*****">
+                  </div>
+
+                  <div class="col as-4 xs-6">
+                      <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">Qeydiyyatı tamamla</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="panel-footer pl-40 pr-40">
+              <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big" data-target-tab="reg-types">
+                  <i aria-hidden="true" class="icon-arrow-left mr-"></i>
+                  Geri
+              </button>
+              <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right" data-close="registration">
+                  Bağla
+              </button>
+          </div>
+
+      </div>
+
+      <div class="tab-panel" role="tabpanel" data-tab="hr-registration">
+
+          <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
+              <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hüquqi şəxs qeydiyyatı</span>
+          </div>
+
+          <div class="clear p-40">
+              <div class="row as-10 justify-content-center">
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="hr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+                      <input type="text" id="hr-full-name" class="input border-0 radius-20 shadow-big">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="hr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
+                      <input type="email" id="hr-email" class="input border-0 radius-20 shadow-big">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="hr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+                      <input type="password" id="hr-pass" class="input border-0 radius-20 shadow-big" placeholder="*****">
+                  </div>
+
+                  <div class="col as-6 xs-12 mb-20">
+                      <label for="hr-pass-again" class="pl-10">Şifrənin təkrarı <sup class="text-red">*</sup></label>
+                      <input type="password" id="uhrpass-again" class="input border-0 radius-20 shadow-big" placeholder="*****">
+                  </div>
+
+                  <div class="col as-4 xs-6">
+                      <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">Qeydiyyatı tamamla</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="panel-footer pl-40 pr-40">
+              <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big" data-target-tab="reg-types">
+                  <i aria-hidden="true" class="icon-arrow-left mr-"></i>
+                  Geri
+              </button>
+              <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right" data-close="registration">
+                  Bağla
+              </button>
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
+
+<div class="overlay tr-3s" role="presentation"></div>
