@@ -27,11 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/template/assets/styles/app.min.css",
+              "src/assets/styles/app.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-              
+
             ]
           },
           "configurations": {

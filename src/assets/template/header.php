@@ -96,13 +96,13 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com"/>
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="assets/images/favicon.png"/>
-    <link rel="apple-touch-icon" href="assets/images/favicon.png"/>
+<!--    <link rel="shortcut icon" href="asset/images/favicon.png"/>
+    <link rel="apple-touch-icon" href="asset/images/favicon.png"/>-->
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="assets/styles/app.min.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="asset/styles/app.min.css"/>
 
-    <script src="assets/scripts/jquery-3.4.1.min.js"></script>
+    <script src="asset/scripts/jquery-3.4.1.min.js"></script>-->
 
 </head>
 
@@ -122,7 +122,7 @@
         </span>
 
         <a href="index.php" title="AgroBirja.az" class="logo d-block relative float-left">
-            <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="">
+            <img src="asset/images/logo.png" alt="AgroBirja.az" width="" height="">
         </a>
 
         <div class="right-side clear d-flex-center">

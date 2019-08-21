@@ -200,16 +200,16 @@
 <div class="overlay tr-3s" role="presentation"></div>
 
 <!-- Scripts -->
-<script src="assets/scripts/lazyload.min.js"></script>
-<script src="assets/scripts/owl.carousel.min.js"></script>
-<script src="assets/scripts/pi.js"></script>
-<script src="assets/scripts/ripple.min.js"></script>
+<!--<script src="asset/scripts/lazyload.min.js"></script>
+<script src="asset/scripts/owl.carousel.min.js"></script>
+<script src="asset/scripts/pi.js"></script>
+<script src="asset/scripts/ripple.min.js"></script>-->
 <!-- <script src="assets/scripts/popper.min.js"></script>
 <script src="assets/scripts/tooltip.min.js"></script> -->
 <!-- <script defer src="assets/scripts/autosize.min.js"></script> -->
 
 <!--Carousels-->
-<script>
+<!--<script>
 
     /*================================================================================================================*/
     // Widgets Carousel
@@ -306,7 +306,7 @@
         }
     });
 
-</script>
+</script>-->
 
 </body>
 </html>
