@@ -12,7 +12,7 @@
           <i aria-hidden="true"></i>
       </span>
 
-      <a  title="AgroBirja.az" class="logo d-block relative float-left">
+      <a  [routerLink]="[ '/home' ]" title="AgroBirja.az" class="logo d-block relative float-left">
           <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="">
       </a>
 
@@ -36,7 +36,7 @@
 
               <ul class="nav-menu type-none m-0 p-0 float-xl-right float-lg-right clear" role="menu">
                   <li role="presentation">
-                      <a href="#" role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s current-page">
+                      <a [routerLink]="[ '/home' ]"  role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s current-page">
                           <i aria-hidden="true" class="icon-home-1 v-align-middle mr-10"></i>
                            <span class="v-align-middle">Ana Səhifə</span>
                       </a>

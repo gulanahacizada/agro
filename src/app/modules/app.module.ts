@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from '../app.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 
 
@@ -14,6 +15,7 @@ import { AppComponent } from '../app.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
