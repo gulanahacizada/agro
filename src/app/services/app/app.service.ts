@@ -19,6 +19,7 @@ export class AppService extends HttpsService {
   public login(params: any = {}): Observable<any> {
     return this.post(this.http, this.LOGIN, params);
   }
+
   public logout(params: any = {}): Observable<any> {
     return this.post(this.http, this.LOGOUT, params);
   }
