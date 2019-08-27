@@ -10,6 +10,7 @@ export class AppService extends HttpsService {
 
   public LOGIN = 'auth/login';
   public LOGOUT = 'auth/logout';
+  public REGISTER = 'auth/singup';
 
   constructor(public http: HttpClient) {
     super();
@@ -22,6 +23,10 @@ export class AppService extends HttpsService {
 
   public logout(params: any = {}): Observable<any> {
     return this.post(this.http, this.LOGOUT, params);
+  }
+
+  public register(params: any = {}): Observable<any> {
+    return this.post(this.http, this.REGISTER, params);
   }
 
   public trackByFn(index, item) {

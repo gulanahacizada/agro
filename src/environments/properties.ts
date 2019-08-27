@@ -1,4 +1,4 @@
 export const prop = {
-    host: '',
+    host: 'test.agrobirja.az/api/v1',
     appKey: ''
   };
