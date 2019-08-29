@@ -1,10 +1,12 @@
 @font-face {
+  $dir: to-lower-case($iconsName);
+
   font-family: $iconsName;
-  src:  url($iconsPath + '/' + $iconsName + '.eot');
-  src:  url($iconsPath + '/' + $iconsName + '.eot#iefix') format('embedded-opentype'),
-  url($iconsPath + '/' + $iconsName + '.ttf') format('truetype'),
-  url($iconsPath + '/' + $iconsName + '.woff') format('woff'),
-  url($iconsPath + '/' + $iconsName + '.svg#' + $iconsName) format('svg');
+  src: url($fontPath + $dir + '/' + $iconsName + '.eot');
+  src: url($fontPath + $dir + '/' + $iconsName + '.woff') format('woff'),
+  url($fontPath + $dir + '/' + $iconsName + '.ttf') format('truetype'),
+  url($fontPath + $dir + '/' + $iconsName + '.svg#' +  $iconsName) format('svg'),
+  url($fontPath + $dir + '/' + $iconsName + '.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
