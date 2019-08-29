@@ -1,4 +1,6 @@
-<!-- The content below is only a placeholder and can be replaced. -->
+
+<!-- <h1> {{'HeaderComponent.birja' | translate}} </h1>
+<h1> {{'HeaderComponent.members' | translate}} </h1> -->
 <header class="main-header" aria-label="agrobirja.az" itemscope itemtype="https://schema.org/WPHeader">
     <div class="container xl-15 lg-15 clear">
         <span role="button" aria-label="Nav toggle" aria-controls="main-nav" aria-haspopup="true" aria-expanded="true"
@@ -12,16 +14,21 @@
 
         <div class="right-side clear d-flex-center">
             <div class="right-side-top w-100p clear text-right">
-                <span class="btn bg-main light-ripple border-0 radius-20 mr-5" data-target-modal="login">
+                <span [hidden]="!loggedIn()"  class="btn bg-main light-ripple border-0 radius-20 mr-5" data-target-modal="login">
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span class="btn bg-special light-ripple border-0 radius-20" data-target-modal="registration"
+                <span [hidden]="!loggedIn()"  class="btn bg-special light-ripple border-0 radius-20" data-target-modal="registration"
                     data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
+
+                <span [hidden]="loggedIn()" (click)='logOut()' class="btn bg-special light-ripple border-0 radius-20" >
+                <i aria-hidden="true" class="icon-user-plus"></i>
+                <span class="ml-10 hide-md hide-sm hide-xs">LogOut</span>
+            </span>
             </div>
 
             <nav class="main-nav relative light clear tr-3s" id="main-nav" aria-labelledby="nav-toggle">
@@ -77,21 +84,21 @@
 
                 <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Azərbaycan dili"
+                        <a  style="cursor: pointer" (click)="useLanguage('az')" role="menuitem" title="Azərbaycan dili"
                             class="menu-item d-block tr-3s ripple-effect active">
                             AZ
                         </a>
                     </li>
 
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="English language"
+                        <a style="cursor: pointer" (click)="useLanguage('en')" role="menuitem" title="English language"
                             class="menu-item d-block tr-3s ripple-effect">
                             EN
                         </a>
                     </li>
 
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Русский язык" class="menu-item d-block tr-3s ripple-effect">
+                        <a style="cursor: pointer" (click)="useLanguage('ru')" role="menuitem" title="Русский язык" class="menu-item d-block tr-3s ripple-effect">
                             RU
                         </a>
                     </li>
@@ -304,7 +311,7 @@
     </span>
 </div>
 
-<div class="modal login-modal" data-modal="login" data-open-animation="zoomIn" data-close-animation="zoomOut"
+<div  class="modal login-modal" data-modal="login" data-open-animation="zoomIn" data-close-animation="zoomOut"
     role="dialog" tabindex="-1" aria-label="Login Modal">
     <form class="modal-content panel" [formGroup]="loginForm" (ngSubmit)="login()">
         <span role="button" class="close fixed-close icon-close" data-close="login" aria-label="Bağla"></span>

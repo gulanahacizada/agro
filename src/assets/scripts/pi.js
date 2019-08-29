@@ -76,13 +76,12 @@ $(document).ready(function () {
         const $modal = $('[data-modal="' + $target_modal + '"]');
         const $resize_modal = $('[data-resize="' + $target_modal + '"]');
         const $resize = $resize_modal.data('resize');
-
         const $video_url = $this.data('video-url');
         const $map_url = $this.data('map-url');
         var $iframe;
 
         $this.on('click', function () {
-
+$
             if ($video_url) {
 
                 var regExp, match, playerType, autoplay;

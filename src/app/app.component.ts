@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { AppService } from './services/app/app.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-root',
@@ -13,17 +15,24 @@ export class AppComponent implements OnInit {
   loginForm: FormGroup;
   companyRegister: FormGroup;
   customerRegister: FormGroup;
+  jwtHelper: any;
 
   constructor(
     private appService: AppService,
     private fb: FormBuilder,
-    private router: Router
-   ) {}
+    private router: Router,
+    private translate: TranslateService
+   ) {
+    this.translate.setDefaultLang('az');
+    // this.translate.use('az');
+
+   }
 
    ngOnInit() {
     this.createLoginForm();
     this.createCompanyForm();
     this.createCustomerForm();
+    this.loggedIn();
   }
 
    createLoginForm() {
@@ -71,7 +80,8 @@ export class AppComponent implements OnInit {
       this.appService.login(data).subscribe( response => {
         console.log(response);
         localStorage.setItem( 'acc_jwt', response.access_token);
-           // this.router.navigate(['']);
+        // this.router.navigate(['home']);
+        $('.login-modal').removeClass('open');
       });
     }
    }
@@ -82,6 +92,7 @@ export class AppComponent implements OnInit {
       this.appService.register(data).subscribe(response => {
             localStorage.setItem( 'acc_jwt', response.access_token);
             // this.router.navigate(['']);
+            $('.registration-modal').removeClass('open');
         }
       );
     }
@@ -93,10 +104,27 @@ export class AppComponent implements OnInit {
       this.appService.register(data).subscribe(response => {
         localStorage.setItem( 'acc_jwt', response.access_token);
           // this.router.navigate(['']);
+        $('.registration-modal').removeClass('open');
         }
       );
     }
   }
+
+  logOut() {
+    this.appService.logout().subscribe( () => {
+        localStorage.clear();
+        this.router.navigate(['/home']);
+    });
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('acc_jwt');
+    return !token;
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+}
 
 }
 
