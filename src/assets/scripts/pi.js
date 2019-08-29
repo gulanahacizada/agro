@@ -66,139 +66,6 @@ $(document).ready(function () {
     });
 
     /*================================================================================================================*/
-    // Modal
-    /*================================================================================================================*/
-
-    $('[data-target-modal]').each(function () {
-
-        const $this = $(this);
-        const $target_modal = $this.data('target-modal');
-        const $modal = $('[data-modal="' + $target_modal + '"]');
-        const $resize_modal = $('[data-resize="' + $target_modal + '"]');
-        const $resize = $resize_modal.data('resize');
-
-        const $video_url = $this.data('video-url');
-        const $map_url = $this.data('map-url');
-        var $iframe;
-
-        $this.on('click', function () {
-
-            if ($video_url) {
-
-                var regExp, match, playerType, autoplay;
-
-                /* Player Type */
-                if($this.data('player-type') === 'youtube'){
-                    playerType = 'https://www.youtube.com/embed/';
-                    regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-                    match = $video_url.match(regExp);
-                }
-
-                /* AutoPlay */
-                if($this.data('autoplay', true)){
-                    autoplay = '?autoplay=1'
-                }
-
-                /* Creat Iframe */
-                if (match && match[2].length == 11) {
-
-                    const $id = match[2];
-
-                    $iframe = $(
-                        '<div class="responsive pb-in-56">' +
-                        '<iframe src="' + playerType + $id + autoplay + '"></iframe>' +
-                        '</div>'
-                    );
-
-                    $modal.find('.modal-content').prepend($iframe);
-                }
-            }
-
-            if ($map_url) {
-
-                $iframe = $(
-                    '<div class="responsive pb-in-40">' +
-                    '<iframe src="' + $map_url + '"></iframe>' +
-                    '</div>'
-                );
-
-                $modal.find('.modal-content').append($iframe);
-
-            }
-
-            if($modal.data('placement') === 'bottom'){
-
-                const $modal_overlay = $('<div class="modal-overlay" data-close="'+ $target_modal +'"></div>');
-
-                $modal.append($modal_overlay).addClass('bottom');
-
-            }
-
-            if($modal.data('open-animation')){
-
-                const $open_animation = $modal.data('open-animation');
-
-                $('[data-modal="' + $target_modal + '"] > .modal-content').addClass('animated ' + $open_animation)
-            }
-
-            $modal.addClass('open');
-
-            body_overflow_hidden();
-
-            return false;
-
-        });
-
-        $resize_modal.on('click', function () {
-
-            const $resized_modal = $('[data-modal="' + $resize + '"]');
-
-            $resized_modal.toggleClass('resized');
-
-            if(!$resized_modal.hasClass('resized')){
-                body_overflow_hidden();
-            }else {
-                body_overflow_auto();
-            }
-
-        });
-
-        $(document).on('click', '[data-close]', function () {
-
-            const $close = $(this).data('close');
-
-            const $closed_modal = $('[data-modal="' + $close + '"]');
-
-            const $close_animation = $closed_modal.attr('data-close-animation');
-            const $open_animation = $closed_modal.data('open-animation');
-
-            $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($close_animation).removeClass($open_animation);
-
-            setTimeout(function(){
-
-                $closed_modal.removeClass('open');
-
-                $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($open_animation).removeClass($close_animation);
-
-                $('[data-modal="' + $close + '"] .modal-overlay').remove();
-
-                if (!$('.modal').hasClass('open')) {
-                    body_overflow_auto()
-                }
-
-                if ($video_url) {
-                    $modal.find('.responsive').remove();
-                }
-
-            }, 200);
-
-            $modal.removeClass('resized');
-
-        });
-
-    });
-
-    /*================================================================================================================*/
     // Accordion
     /*================================================================================================================*/
 
@@ -516,3 +383,75 @@ $(document).ready(function () {
     /*================================================================================================================*/
 
 });
+
+(function () {
+    'use strict';
+
+    /*================================================================================================================*/
+    // Modal
+    /*================================================================================================================*/
+
+    document.addEventListener('click', openModal);
+    function openModal(e) {
+        var button = e.target,
+            modal  = button.dataset['targetModal'];
+
+        if (!modal) {
+            button = button.parentNode;
+
+            if (button) {
+                modal = button.dataset['targetModal'];
+
+                if (!modal) {
+                    return;
+                }
+            } else {
+                return;
+            }
+        }
+
+        e.preventDefault();
+
+        var target       = document.querySelector('[data-modal=' + modal + ']'),
+            modalContent = target.querySelector('.modal-content'),
+            body         = document.body;
+
+        modalContent.classList.add('animated');
+        modalContent.classList.add(target.dataset['openAnimation']);
+
+        setTimeout(function () {
+            target.classList.add('open');
+            body  .classList.add('o-hidden');
+
+            setTimeout(function () {
+                modalContent.classList.remove(target.dataset['openAnimation']);
+            }, 500);
+        }, 200);
+
+        function _closeModal(e) {
+            var type   = e.type,
+                select = e.target;
+
+            if (type === 'keyup' && e.keyCode !== 27 || type === 'click' && select.dataset['close'] !== modal) {
+                return;
+            }
+
+            modalContent.classList.add(target.dataset['closeAnimation']);
+
+            setTimeout(function () {
+                target.classList.remove('open');
+                body  .classList.remove('o-hidden');
+
+                modalContent.classList.remove(target.dataset['closeAnimation']);
+            }, 200);
+
+            document.removeEventListener('click', _closeModal);
+            document.removeEventListener('keyup', _closeModal);
+        }
+
+        document.addEventListener('click', _closeModal);
+
+        e.preventDefault();
+    }
+
+})();

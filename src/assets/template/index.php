@@ -1,39 +1,344 @@
 <?php include ('header.php') ?>
 
 <div class="bg-white">
-    <div class="container as-10 xl-10 lg-10 pt-20">
-        <div class="row as-10 xs-10 lg-10">
+    <div class="container as-10 xl-15 lg-15 pt-20 pb-20">
+        <div class="table-responsive border-0">
+            <table class="table custom-table bg-gray shadow-big">
 
-            <div class="col as-12 lg-9 mb-20">
-                <div class="responsive pb-in-56 bg-gray dark h-100p"></div>
-            </div>
+                <thead class="bg-white">
+                    <tr>
+                        <th colspan="2">Satıcı</th>
+                        <th>Məhsul</th>
+                        <th>Növ</th>
+                        <th>Qiymət</th>
+                        <th>Həcm</th>
+                        <th>Satış</th>
+                        <th>Tarix</th>
+                        <th><i aria-hidden="true" class="icon-ellipsis-h-circle"></i></th>
+                    </tr>
+                </thead>
 
-            <div class="col as-12 lg-3 hide-sm hide-xs">
-                <div class="row as-10">
+                <tbody class="no-wrap">
 
-                    <div class="col as-12 md-4 mb-20">
-                        <div class="responsive pb-in-56 bg-gray dark"></div>
-                    </div>
+                <tr>
 
-                    <div class="col as-12 md-4 mb-20">
-                        <div class="responsive pb-in-56 bg-gray dark"></div>
-                    </div>
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
 
-                    <div class="col as-12 md-4 mb-20">
-                        <div class="responsive pb-in-56 bg-gray dark"></div>
-                    </div>
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
 
-                </div>
-            </div>
+                    <td>Gülöyşə</td>
 
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td class="pr-0">
+                        <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                            <img src="assets/images/ulu.png" alt="MARS-FK LTD MMM" width="30" height="30">
+                        </div>
+                    </td>
+
+                    <td width="30%">
+                        <span class="bold pointer text-main">MARS-FK LTD MMM</span>
+                    </td>
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
         </div>
     </div>
 </div>
 
-<div class="container as-10 xl-15 lg-10 pt-40 pb-40">
+<div class="container as-10 xl-15 pt-40 pb-40">
 
-
-    <div class="section-title-wrap w-100p d-table mb-40">
+    <div class="section-title-wrap w-100p d-table mb-20 pb-10">
         <h2 class="section-title relative bold text-uppercase mb-5">
             <a href="#" class="d-block" title="Üzvlər" data-see-all="Hamısını gör">Üzvlər</a>
         </h2>
@@ -113,13 +418,217 @@
 
 </div>
 
-<section class="bg-white pb-100 pt-100">
+<section class="bg-white">
+    <div class="container as-10 xl-15 pt-40 pb-40">
+        <div class="row as-10 xl-15">
 
+            <div class="col as-12 lg-6">
+
+                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">Əraziyə görə məhsuldarlıq</span>
+                    </h2>
+                </div>
+
+                <div class="responsive pb-in-70 shadow-big">
+                    <div class="wrap d-flex-center text-center">
+                        <span>Map Plugin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col as-12 lg-6">
+
+                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <a href="products-list.php" title="Satışda"  class="d-block" data-see-all="Hamısını gör">Satışda</a>
+                    </h2>
+                </div>
+
+                <div class="table-responsive border-0">
+                    <table class="table custom-table bg-gray shadow-big">
+
+                        <thead class="bg-white">
+                        <tr>
+                            <th>Məhsul</th>
+                            <th>Növ</th>
+                            <th>Qiymət</th>
+                            <th>Həcm</th>
+                            <th>Satış</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="no-wrap">
+
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Nar</td>
+
+                            <td>Gülöyşə</td>
+
+                            <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                            </td>
+
+                            <td><span class="text-special bold">2000 Ton</span></td>
+
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
 
-    <div class="section-title-wrap w-100p d-table mb-40">
+    <div class="section-title-wrap w-100p d-table mb-20 pb-10">
         <h2 class="section-title relative bold text-uppercase mb-5">
             <a href="#" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Xəbərlər</a>
         </h2>
@@ -135,7 +644,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -152,7 +661,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -169,7 +678,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -186,7 +695,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -203,7 +712,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -220,7 +729,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -237,7 +746,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -254,7 +763,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -271,7 +780,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
@@ -288,7 +797,7 @@
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                     <span class="date-time text-gray light">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>

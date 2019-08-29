@@ -13,6 +13,127 @@
     </span>
 </div>
 
+<!--<div class="modal lg product-detail-modal"
+     data-modal="product-detail"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1"
+     aria-label="Product Detail Modal">
+
+    <div class="modal-content panel">
+
+        <div class="panel-header">
+            <span class="panel-title bold">
+                <i aria-hidden="true" class="icon-info-circle-thin mr-20"></i>
+                Məhsul haqqında
+            </span>
+            <span role="button" class="close fixed-close icon-close" data-close="product-detail" aria-label="Bağla"></span>
+        </div>
+
+        <div class="panel-body p-40">
+
+            <div class="row as-15 sm-10 xs-10 justify-content-center mb-40">
+
+                <div class="col as-4 sm-6 xs-8 pb-10">
+                    <div class="thumb responsive pb-in-100 shadow-big">
+                        <img data-src="assets/images/ulu.png" alt="Product name" width="400" height="400">
+                    </div>
+                </div>
+
+                <div class="col as-12 lg-8 pt-10">
+
+                    <h2 class="title bold h3 text-main mb-20">Product Name</h2>
+
+                    <p class="description font-16 light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut et iste libero
+                        magnam nihil quia, tenetur totam vero. Expedita hic iste itaque nihil nobis obcaecati,
+                        perspiciatis repellat voluptatem. Deserunt, neque?</p>
+
+                    <table class="table mb-20">
+                        <tbody>
+                        <tr>
+                            <td class="bold">Şirkət:</td>
+                            <td>
+                                <a href="company-detail.php" title="MARS-FK LTD MMM" class="bold">MARS-FK LTD MMM</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Məhsul:</td>
+                            <td>Nar</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Növü</td>
+                            <td>Göyçə</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Kalibri:</td>
+                            <td>Big Bang</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Miqdarı</td>
+                            <td>100 ton</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="bg-gray p-10">
+                        <div class="panel-header bg-white">
+                            <span class="panel-title bold text-main">Təklif ver</span>
+                        </div>
+                        <div class="bg-white p-20">
+                            <form action="" class="row as-10">
+                                <div class="col as-4 xs-12 mb-20">
+                                    <label for="offer-amount">Tələb olunan miqdarı</label>
+                                    <div class="input-group radius-20 shadow-big">
+                                        <input type="number" id="offer-amount" class="input border-0 radius-20 shadow-big" placeholder="0" value="100" max="100">
+                                        <span class="input-group-addon border-0">Ton</span>
+                                    </div>
+                                </div>
+                                <div class="col as-4 xs-12 mb-20">
+                                    <label for="offer-price">Təklif edilən qiymət</label>
+                                    <div class="input-group radius-20 shadow-big">
+                                        <input type="number" id="offer-price" class="input border-0 radius-20 shadow-big" placeholder="0">
+                                        <span class="input-group-addon border-0">AZN / ton</span>
+                                    </div>
+                                </div>
+                                <div class="col as-4 xs-12 mb-20">
+                                    <label>Ümumi qiymət</label>
+                                    <div class="input-group radius-20 shadow-big">
+                                        <input type="number" class="input border-0 radius-20 shadow-big" value="22.500" placeholder="0.00" readonly>
+                                        <span class="input-group-addon border-0">AZN</span>
+                                    </div>
+                                </div>
+                                <div class="col as-12 mb-20">
+                                    <label for="offer-note">Əlavə qeyd</label>
+                                    <textarea id="offer-note" class="input no-resize border-0 radius-20 shadow-big" cols="30" rows="4" placeholder="Qeyd yazın"></textarea>
+                                </div>
+                                <div class="col as-12">
+                                    <button class="btn bg-special border-0 radius-20 shadow-big">Təklifi göndər</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="clear p-20 shadow-big">
+                <canvas id="product-chart"</canvas>
+            </div>
+
+        </div>
+
+        <div class="panel-footer text-center">
+            <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="product-detail">
+                Bağla
+            </button>
+        </div>
+
+    </div>
+
+</div>-->
+
 <div class="modal login-modal"
      data-modal="login"
      data-open-animation="zoomIn"
@@ -50,7 +171,7 @@
         </div>
 
         <div class="panel-footer text-center">
-            <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="registration">
+            <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="login">
                 Bağla
             </button>
         </div>
@@ -92,7 +213,7 @@
             </div>
 
             <div class="panel-footer text-center">
-                <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40" data-close="registration">Bağla</button>
+                <button type="reset" class="btn bg-white border-0 radius-20 shadow-big pl-40 pr-40" data-close="registration">Bağla</button>
             </div>
 
         </div>
@@ -103,7 +224,7 @@
                 <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Fiziki şəxs qeydiyyatı</span>
             </div>
 
-            <div class="clear p-40">
+            <div class="clear pt-40 pl-40 pr-40 pb-20">
                 <div class="row as-10 justify-content-center">
 
                     <div class="col as-6 xs-12 mb-20">
@@ -126,19 +247,18 @@
                         <input type="password" id="u-pass-again" class="input border-0 radius-20 shadow-big" placeholder="*****">
                     </div>
 
-                    <div class="col as-4 xs-6">
-                        <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">Qeydiyyatı tamamla</button>
-                    </div>
-
                 </div>
             </div>
 
-            <div class="panel-footer pl-40 pr-40">
-                <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big" data-target-tab="reg-types">
+            <div class="panel-footer pl-40 pr-40 text-center">
+                <button type="reset" class="btn bg-white border-0 radius-20 shadow-big float-left" data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-arrow-left mr-"></i>
                     Geri
                 </button>
-                <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right" data-close="registration">
+
+                <button type="submit" class="btn bg-main border-0 radius-20 shadow-big light-ripple">Qeydiyyatı tamamla</button>
+
+                <button type="reset" class="btn bg-white border-0 radius-20 shadow-big float-right" data-close="registration">
                     Bağla
                 </button>
             </div>
@@ -151,8 +271,8 @@
                 <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hüquqi şəxs qeydiyyatı</span>
             </div>
 
-            <div class="clear p-40">
-                <div class="row as-10 justify-content-center">
+            <div class="clear pt-40 pl-40 pr-40 pb-20">
+                <div class="row as-10">
 
                     <div class="col as-6 xs-12 mb-20">
                         <label for="hr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
@@ -174,19 +294,31 @@
                         <input type="password" id="uhrpass-again" class="input border-0 radius-20 shadow-big" placeholder="*****">
                     </div>
 
-                    <div class="col as-4 xs-6">
-                        <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">Qeydiyyatı tamamla</button>
+                    <div class="col as-6 mb-20">
+                        <div class="row as-10">
+                            <div class="col">
+                                <input type="checkbox" class="ckbox" id="purchaser">
+                                <label for="purchaser">Alıcı</label>
+                            </div>
+                            <div class="col">
+                                <input type="checkbox" class="ckbox" id="seller">
+                                <label for="seller">Satıcı</label>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </div>
 
-            <div class="panel-footer pl-40 pr-40">
-                <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big" data-target-tab="reg-types">
+            <div class="panel-footer pl-40 pr-40 text-center">
+                <button type="reset" class="btn bg-white border-0 radius-20 shadow-big float-left" data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-arrow-left mr-"></i>
                     Geri
                 </button>
-                <button type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right" data-close="registration">
+
+                <button type="submit" class="btn bg-main border-0 radius-20 shadow-big light-ripple">Qeydiyyatı tamamla</button>
+
+                <button type="reset" class="btn bg-white border-0 radius-20 shadow-big float-right" data-close="registration">
                     Bağla
                 </button>
             </div>
@@ -200,16 +332,45 @@
 <div class="overlay tr-3s" role="presentation"></div>
 
 <!-- Scripts -->
-<!--<script src="asset/scripts/lazyload.min.js"></script>
-<script src="asset/scripts/owl.carousel.min.js"></script>
-<script src="asset/scripts/pi.js"></script>
-<script src="asset/scripts/ripple.min.js"></script>-->
-<!-- <script src="assets/scripts/popper.min.js"></script>
-<script src="assets/scripts/tooltip.min.js"></script> -->
-<!-- <script defer src="assets/scripts/autosize.min.js"></script> -->
+<script src="../../assets/scripts/lazyload.min.js"></script>
+<script src="../../assets/scripts/owl.carousel.min.js"></script>
+<script src="../../assets/scripts/pi.js"></script>
+<script src="../../assets/scripts/fotorama.js"></script>
+<script src="../../assets/scripts/ripple.min.js"></script>
+<script src="../../assets/scripts/popper.min.js"></script>
+<script src="../../assets/scripts/tooltip.min.js"></script>
+<script src="../../assets/scripts/autosize.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    var ctx = document.getElementById('product-chart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Qiymət statistikası',
+                fill: false,
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>
+
+<!--[if IE]>
+<script defer src="assets/scripts/html5shiv.min.js"></script>
+<script defer src="assets/scripts/respond.min.js"></script>
+<![endif]-->
 
 <!--Carousels-->
-<!--<script>
+<script>
 
     /*================================================================================================================*/
     // Widgets Carousel
@@ -306,7 +467,56 @@
         }
     });
 
-</script>-->
+</script>
+
+<!--Static scripts-->
+<script>
+    const body = $('body');
+    const pageUrl = window.location;
+
+    $('header nav li a').filter(function () {
+        return this.href == pageUrl;
+    }).parent('li').addClass('active');
+
+    $('.nav-toggle').on('click', function () {
+        body.toggleClass('nav-shown');
+    });
+
+    $('*').click(function (e) {
+
+        if (!$(e.target).is('.nav-toggle')
+            && !$(e.target).is('.nav-toggle *')
+            && !$(e.target).is('.main-nav')
+            && !$(e.target).is('.main-nav *')) {
+            body.removeClass('nav-shown');
+        }
+
+    });
+
+    /*================================================================================================================*/
+    // Back To Top
+    /*================================================================================================================*/
+
+    const $backToTop = $(".back-top");
+
+    $backToTop.hide();
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+            $backToTop.fadeIn();
+        } else {
+            $backToTop.fadeOut();
+        }
+    });
+
+    $backToTop.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
+        return false;
+    });
+
+</script>
 
 </body>
 </html>
