@@ -31,7 +31,9 @@
               "src/styles.scss"
             ],
             "scripts": [
-
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/scripts/lazyload.min.js",
+              "src/assets/scripts/pi.js"
             ]
           },
           "configurations": {

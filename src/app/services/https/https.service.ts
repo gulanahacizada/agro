@@ -33,7 +33,7 @@ export class HttpsService {
 
   put(http: HttpClient, resourceUrl: string, item: any, params: any = {}): Observable<any> {
     return http.put<Response>(this.rootUrl + '/' + resourceUrl, item, {
-      params: params
+      params: params,
     });
   }
 
