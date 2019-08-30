@@ -419,10 +419,10 @@
 </div>
 
 <section class="bg-white">
-    <div class="container as-10 xl-15 pt-40 pb-40">
+    <div class="container as-10 xl-15 pt-40">
         <div class="row as-10 xl-15">
 
-            <div class="col as-12 lg-6">
+            <div class="col as-12 lg-6 mb-40">
 
                 <div class="section-title-wrap w-100p d-table mb-20 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
@@ -430,14 +430,14 @@
                     </h2>
                 </div>
 
-                <div class="responsive pb-in-70 shadow-big">
+                <div class="responsive pb-in-70 bg-gray">
                     <div class="wrap d-flex-center text-center">
                         <span>Map Plugin</span>
                     </div>
                 </div>
             </div>
 
-            <div class="col as-12 lg-6">
+            <div class="col as-12 lg-6 mb-40">
 
                 <div class="section-title-wrap w-100p d-table mb-20 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
@@ -446,7 +446,7 @@
                 </div>
 
                 <div class="table-responsive border-0">
-                    <table class="table custom-table bg-gray shadow-big">
+                    <table class="table custom-table bg-gray">
 
                         <thead class="bg-white">
                         <tr>
@@ -614,11 +614,22 @@
                             </td>
 
                         </tr>
-
                         </tbody>
 
                     </table>
                 </div>
+
+            </div>
+
+            <div class="col as-12 lg-6 mb-40">
+
+                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">1000 AZN nə oldu?</span>
+                    </h2>
+                </div>
+
+                <canvas id="chart-1000" class="border"></canvas>
 
             </div>
 

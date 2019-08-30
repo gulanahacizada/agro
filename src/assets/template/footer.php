@@ -332,14 +332,14 @@
 <div class="overlay tr-3s" role="presentation"></div>
 
 <!-- Scripts -->
-<script src="../../assets/scripts/lazyload.min.js"></script>
-<script src="../../assets/scripts/owl.carousel.min.js"></script>
-<script src="../../assets/scripts/pi.js"></script>
-<script src="../../assets/scripts/fotorama.js"></script>
-<script src="../../assets/scripts/ripple.min.js"></script>
-<script src="../../assets/scripts/popper.min.js"></script>
-<script src="../../assets/scripts/tooltip.min.js"></script>
-<script src="../../assets/scripts/autosize.min.js"></script>
+<script src="assets/scripts/lazyload.min.js"></script>
+<script src="assets/scripts/owl.carousel.min.js"></script>
+<script src="assets/scripts/pi.js"></script>
+<script src="assets/scripts/fotorama.js"></script>
+<script src="assets/scripts/ripple.min.js"></script>
+<script src="assets/scripts/popper.min.js"></script>
+<script src="assets/scripts/tooltip.min.js"></script>
+<script defer src="assets/scripts/autosize.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
@@ -362,6 +362,40 @@
         // Configuration options go here
         options: {}
     });
+</script>
+
+<script>
+    var MONTHS = ['9.09 barrel Neft', '250.00m3 Qaz', '0.39 uns. Qızıl', '588.24 USD', '532.57 EUR'];
+    var barChartData = {
+        labels: MONTHS,
+        datasets: [{
+            label: '1000 AZN nə oldu?',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 1,
+            data: [500, 1000, 1500, 2000, 1300]
+        }]
+
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('chart-1000').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                /*title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart'
+                }*/
+            }
+        });
+
+    };
 </script>
 
 <!--[if IE]>

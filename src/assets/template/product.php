@@ -138,7 +138,7 @@
             </div>
 
             <div class="clear p-20 shadow-big">
-                <canvas id="product-chart"</canvas>
+                <canvas id="product-chart"></canvas>
             </div>
 
         </div>
