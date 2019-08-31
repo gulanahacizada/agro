@@ -134,22 +134,22 @@
                     <span class="ml-10 hide-lg hide-md hide-sm hide-xs">Canlı dəstək</span>
                 </span>
 
-                <span class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login">
+                <span class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login" hidden>
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
+                <span class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types" hidden>
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
 
-                <a href="http://vac.agrobirja.admin/" rel="external" title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" hidden>
+                <a href="account.php" title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Şəxsi kabinet</span>
                 </a>
 
-                <a href="#" title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types" hidden>
+                <a href="#" title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-power"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Çıxış</span>
                 </a>
@@ -184,7 +184,7 @@
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="news.php" role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
                             <span class="v-align-middle">Xəbərlər</span>
                         </a>

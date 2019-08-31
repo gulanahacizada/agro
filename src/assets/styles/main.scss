@@ -542,6 +542,52 @@ body, html {
 }
 
 /*====================================================================================================================*/
+/* Account Page */
+/*====================================================================================================================*/
+
+.account-header{
+  background-image: url($imagePath + "account-bg.jpg");
+  background-position: center;
+  background-size: auto 150%;
+}
+
+.account-menu{
+  .menu-item{
+    padding: 15px 20px;
+  }
+}
+
+.account-sub-menu{
+  li{
+    &:not(.line) {
+      z-index: 2;
+      position: relative;
+
+      .menu-item {
+        padding: 10px 20px;
+      }
+    }
+
+    &.active {
+      .menu-item {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .line{
+    height: calc(100% - 10px);
+    bottom: 5px;
+    border-radius: 30px;
+    @include box-shadow(0 0 40px 0 $blackTr-1)
+  }
+}
+
+.account-requisition{
+  a + a{margin-top: 10px}
+}
+
+/*====================================================================================================================*/
 /*====================================================================================================================*/
 
 .section-title-wrap{
