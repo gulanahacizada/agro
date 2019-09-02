@@ -7,10 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from '../app.component';
-import { HomeComponent } from '../pages/home/home.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { OwlModule } from 'ngx-owl-carousel';
+import * as ngxOwlCarousel from 'ngx-owl-carousel';
+import { HomeComponent } from '../pages/home/home.component';
 
 
 
@@ -26,7 +26,7 @@ import { OwlModule } from 'ngx-owl-carousel';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    OwlModule,
+    ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -96,13 +96,13 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com"/>
 
     <!-- Icons -->
-<!--    <link rel="shortcut icon" href="asset/images/favicon.png"/>
-    <link rel="apple-touch-icon" href="asset/images/favicon.png"/>-->
+    <link rel="shortcut icon" href="assets/images/favicon.png"/>
+    <link rel="apple-touch-icon" href="assets/images/favicon.png"/>
 
     <!-- Styles -->
-<!--    <link rel="stylesheet" type="text/css" href="asset/styles/app.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/styles/app.min.css"/>
 
-    <script src="asset/scripts/jquery-3.4.1.min.js"></script>-->
+    <script src="assets/scripts/jquery-3.4.1.min.js"></script>
 
 </head>
 
@@ -122,22 +122,37 @@
         </span>
 
         <a href="index.php" title="AgroBirja.az" class="logo d-block relative float-left">
-            <img src="asset/images/logo.png" alt="AgroBirja.az" width="" height="">
+            <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="">
         </a>
 
         <div class="right-side clear d-flex-center">
 
-            <div class="right-side-top w-100p clear text-right">
+            <div class="right-side-top relative w-100p clear text-right">
 
-                <span class="btn bg-main light-ripple border-0 radius-20 mr-5" data-target-modal="login">
+                <span class="live-support btn light-ripple border-0 radius-20 shadow-big mr-5">
+                    <i aria-hidden="true" class="icon-call-center"></i>
+                    <span class="ml-10 hide-lg hide-md hide-sm hide-xs">Canlı dəstək</span>
+                </span>
+
+                <span class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login" hidden>
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span class="btn bg-special light-ripple border-0 radius-20" data-target-modal="registration" data-target-tab="reg-types">
+                <span class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types" hidden>
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
+
+                <a href="account.php" title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
+                    <i aria-hidden="true" class="icon-user"></i>
+                    <span class="ml-10 hide-md hide-sm hide-xs">Şəxsi kabinet</span>
+                </a>
+
+                <a href="#" title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
+                    <i aria-hidden="true" class="icon-power"></i>
+                    <span class="ml-10 hide-md hide-sm hide-xs">Çıxış</span>
+                </a>
 
             </div>
 
@@ -145,13 +160,13 @@
 
                 <ul class="nav-menu type-none m-0 p-0 float-xl-right float-lg-right clear" role="menu">
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s current-page">
+                        <a href="index.php" role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s current-page">
                             <i aria-hidden="true" class="icon-home-1 v-align-middle mr-10"></i>
                              <span class="v-align-middle">Ana Səhifə</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Birja" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="birja.php" role="menuitem" title="Birja" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-currency-usd v-align-middle mr-10"></i>
                              <span class="v-align-middle">Birja</span>
                         </a>
@@ -169,7 +184,7 @@
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="news.php" role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
                             <span class="v-align-middle">Xəbərlər</span>
                         </a>
@@ -180,7 +195,27 @@
                             <span class="v-align-middle">Agro TV</span>
                         </a>
                     </li>
+                    <li role="presentation" class="contact-us">
+                        <a href="#" role="menuitem" title="Bizimlə əlaqə" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                            <i aria-hidden="true" class="icon-envelope v-align-middle"></i>
+                            <span class="v-align-middle ml-10 hide-lg">Bizimlə əlaqə</span>
+                        </a>
+                    </li>
                 </ul>
+
+                <div class="currency-wrap border-top">
+                    <span class="bold show-md show-sm show-xs" role="presentation">
+                        <i aria-hidden="true" class="icon-money-metal-3 mr-10"></i>
+                        Valyuta seçin
+                    </span>
+
+                    <select name="" id="" class="currency btn border-0 radius-20 shadow-big ripple-effect">
+                        <option value="azn">AZN</option>
+                        <option value="usd">USD</option>
+                        <option value="rub">RUB</option>
+                        <option value="eur">EUR</option>
+                    </select>
+                </div>
 
                 <span class="bold pt-40 border-top pl-40 show-md show-sm show-xs" role="presentation">
                     <i aria-hidden="true" class="icon-language mr-10"></i>

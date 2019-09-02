@@ -62,7 +62,7 @@ function create(){
 
     # service path
 		service_path=$path_name/services/$name
-    #service_path=$path_name/$name
+    # service_path=$path_name/$name
 
 
 		# bind module
