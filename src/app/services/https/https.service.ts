@@ -18,6 +18,15 @@ export class HttpsService {
   constructor() { }
 
   public rootUrl: string = 'http://' + prop.host;
+  public tvRoot: string =  prop.tv;
+
+
+  getTv(http: HttpClient, resourceUrl: string, params: any = {} ): Observable<any> {
+    return http.get<Response>(this.tvRoot + '/' + resourceUrl, {
+      params: params,
+    });
+  }
+
 
   get(http: HttpClient, resourceUrl: string, params: any = {}): Observable<any> {
     return http.get<Response>(this.rootUrl + '/' + resourceUrl, {

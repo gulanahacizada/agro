@@ -10,6 +10,7 @@ import { AppComponent } from '../app.component';
 import { HomeComponent } from '../pages/home/home.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 
@@ -25,6 +26,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    OwlModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

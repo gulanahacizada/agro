@@ -11,6 +11,9 @@ export class AppService extends HttpsService {
   public LOGIN = 'auth/login';
   public LOGOUT = 'auth/logout';
   public REGISTER = 'auth/singup';
+  public CURRENCY = 'birja';
+  public METALS = 'metals';
+  public ALLL_NEWS = 'birja-articles';
 
   constructor(public http: HttpClient) {
     super();
@@ -28,6 +31,16 @@ export class AppService extends HttpsService {
   public register(params: any = {}): Observable<any> {
     return this.post(this.http, this.REGISTER, params);
   }
+
+  public currency(params: any = {}): Observable<any> {
+    return this.getTv(this.http, this.CURRENCY, params);
+  }
+
+  public metals( params: any = {}): Observable<any> {
+    return this.getTv(this.http, this.METALS, params);
+  }
+
+
 
   public trackByFn(index, item) {
     return index; // or item.id

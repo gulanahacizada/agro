@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app/app.service';
+import { Router } from '@angular/router';
+import { HomeService } from './service/home.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  allNews: any;
+  newOwlOptions: any;
+
+  constructor(
+    private appService: AppService,
+    private homeService: HomeService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+    this.getAllNews();
+    this.makeCarouselOptions();
   }
+
+
+getAllNews() {
+  this.homeService.allNews().subscribe(response => {
+    this.allNews = response.articles;
+    console.log(this.allNews);
+  });
+}
+
+makeCarouselOptions() {
+  this.newOwlOptions = {
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    dots: false,
+    singleItem: true,
+    lazyLoad: true,
+    nav: true,
+    navText: ['❮', '❯'],
+    navClass: ['owl-prev', 'owl-next'],
+    responsive : {
+      0 : {
+        items: 2,
+        nav: false,
+        dots: true
+      },
+      575 : {
+        items: 3
+      },
+      768 : {
+        items: 4
+      },
+      992 : {
+        items: 5
+      }
+    }
+  };
+}
 
 }
