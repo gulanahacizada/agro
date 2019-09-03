@@ -1,0 +1,67 @@
+<div class="panel shadow-big">
+    <div class="container as-10 xl-15 lg-15">
+        <div class="panel-header pl-0 pr-0">
+            <nav aria-label="Breadcrumb navbar">
+                <ol class="breadcrumb" aria-label="Breadcrumb" itemscope=""
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                            <span itemprop="name">AgroBirja.az</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li aria-current="page" itemprop="itemListElement" itemscope=""
+                        itemtype="https://schema.org/ListItem">
+                        <span title="Şəxsi Hesab" itemprop="item" itemscope="" itemtype="https://schema.org/Thing"
+                            id="/products/product-name">
+                            <span itemprop="name">Şəxsi Hesab</span>
+                        </span>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="panel-header pl-0 pr-0 border-0">
+            <h1 class="m-0 bold text-main text-uppercase">
+                Şəxsi Hesab
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="account-page container as-10 xl-15 lg-15 pt-20 pb-20">
+    <div class="account-header shadow-big text-center clear pt-40 pb-40">
+        <div class="thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
+            <img src="assets/images/ulu.png" alt="User Name" width="120" height="120" class="p-7 radius-50p loading"
+                data-was-processed="true">
+        </div>
+        <h2 class="account-name h4 bold mb-0 text-white text-uppercase">Company Name</h2>
+    </div>
+
+    <ul class="account-menu scrolling-menu center bg-white shadow-big font-16 mb-15" role="menu">
+        <li role="presentation" class="active">
+         
+            <a [routerLink]="[ 'profile' ]" routerLinkActive="active_tab"  title="Hesab bilgiləri"  class="menu-item ">
+                <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
+                <span class="v-align-middle">Hesab bilgiləri</span>
+            </a>
+        </li>
+        <li role="presentation">
+            <a [routerLink]="[ 'products' ]"  routerLinkActive="active_tab" title="Məhsullar"  class="menu-item">
+                <i aria-hidden="true" class="icon-list-circle v-align-middle mr-10"></i>
+                <span class="v-align-middle">Məhsullar</span>
+            </a>
+        </li>
+        <li role="presentation">
+            <a [routerLink]="[ 'offers' ]"  routerLinkActive="active_tab" title="Təkliflər" class="menu-item">
+                <i aria-hidden="true" class="icon-hand-shake v-align-middle mr-10"></i>
+                <span class="v-align-middle">Təkliflər</span>
+            </a>
+        </li>
+     
+    </ul>
+
+    <router-outlet></router-outlet>
+
+</div>
+

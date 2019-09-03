@@ -36,19 +36,9 @@ const routes: Routes = [
     loadChildren: () => import('../pages/birja-info/news/modules/news.module').then(m => m.NewsModule)
   },
   {
-    path: 'user/products',
-    loadChildren: () => import('../pages/user-profile/products/modules/products.module').then(m => m.ProductsModule)
+    path: 'dashboard',
+    loadChildren: () => import('../pages/user-profile/dashboard/modules/dashboard.module').then(m => m.DashboardModule)
   },
-  {
-    path: 'user/offers',
-    loadChildren: () => import('../pages/user-profile/offers/modules/offers.module').then(m => m.OffersModule)
-  },
-  {
-    path: 'user/profile',
-    loadChildren: () => import('../pages/user-profile/profile/modules/profile.module').then(m => m.ProfileModule)
-  }
-
-
 ];
 
 @NgModule({
