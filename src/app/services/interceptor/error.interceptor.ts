@@ -16,6 +16,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
+
       tap(evt => {
         if (evt instanceof HttpResponse) {
           // pass url in component like : params['navigatorUrl'] = '/hr';

@@ -59,7 +59,7 @@ makeCarouselOptions() {
         items: 4
       },
       992 : {
-        items: 5
+        items: 4
       }
     }
   };

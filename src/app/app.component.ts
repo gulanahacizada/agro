@@ -87,6 +87,7 @@ export class AppComponent implements OnInit {
         localStorage.setItem( 'acc_jwt', response.responseContent.access_token);
         // this.router.navigate(['home']);
         $('.login-modal').removeClass('open');
+        $('body').removeClass('o-hidden');
       });
     }
    }
@@ -98,6 +99,7 @@ export class AppComponent implements OnInit {
             localStorage.setItem( 'acc_jwt', response.access_token);
             // this.router.navigate(['']);
             $('.registration-modal').removeClass('open');
+            $('body').removeClass('o-hidden');
         }
       );
     }
@@ -110,6 +112,7 @@ export class AppComponent implements OnInit {
         localStorage.setItem( 'acc_jwt', response.access_token);
           // this.rguouter.navigate(['']);
         $('.registration-modal').removeClass('open');
+        $('body').removeClass('o-hidden');
         }
       );
     }

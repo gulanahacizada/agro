@@ -1,81 +1,115 @@
 <!-- <h1> {{'HeaderComponent.birja' | translate}} </h1>
 <h1> {{'HeaderComponent.members' | translate}} </h1> -->
+
+
 <header class="main-header" aria-label="agrobirja.az" itemscope itemtype="https://schema.org/WPHeader">
     <div class="container xl-15 lg-15 clear">
-        <span role="button" aria-label="Nav toggle" aria-controls="main-nav" aria-haspopup="true" aria-expanded="true"
-            id="nav-toggle" class="nav-toggle ripple-effect float-left show-md show-sm show-xs mr-20 legitRipple">
+
+        <span role="button"
+              aria-label="Nav toggle"
+              aria-controls="main-nav"
+              aria-haspopup="true"
+              aria-expanded="true"
+              id="nav-toggle"
+              class="nav-toggle ripple-effect float-left show-md show-sm show-xs mr-20 legitRipple">
             <i aria-hidden="true"></i>
         </span>
 
         <a [routerLink]="['/home']" title="AgroBirja.az" class="logo d-block relative float-left">
-            <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="" />
+            <img src="assets/images/logo.png" alt="AgroBirja.az" width="" height="">
         </a>
 
         <div class="right-side clear d-flex-center">
-            <div class="right-side-top w-100p clear text-right">
-                <span [hidden]="!loggedIn()" class="btn bg-main light-ripple border-0 radius-20 mr-5"
-                    data-target-modal="login">
+
+            <div class="right-side-top relative w-100p clear text-right">
+
+                <span class="live-support btn light-ripple border-0 radius-20 shadow-big mr-5">
+                    <i aria-hidden="true" class="icon-call-center"></i>
+                    <span class="ml-10 hide-lg hide-md hide-sm hide-xs">Canlı dəstək</span>
+                </span>
+
+                <span  [hidden]="!loggedIn()" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login" >
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span [hidden]="!loggedIn()" class="btn bg-special light-ripple border-0 radius-20"
-                    data-target-modal="registration" data-target-tab="reg-types">
+                <span  [hidden]="!loggedIn()" class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
 
-                <span [hidden]="loggedIn()" (click)='logOut()' class="btn bg-special light-ripple border-0 radius-20">
-                    <i aria-hidden="true" class="icon-user-plus"></i>
-                    <span class="ml-10 hide-md hide-sm hide-xs">LogOut</span>
-                </span>
+                <a  [hidden]="loggedIn()" [routerLink]="['/user/profile']"  title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
+                    <i aria-hidden="true" class="icon-user"></i>
+                    <span class="ml-10 hide-md hide-sm hide-xs">Şəxsi kabinet</span>
+                </a>
+
+                <a  [hidden]="loggedIn()"  (click)='logOut()' title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big">
+                    <i aria-hidden="true" class="icon-power"></i>
+                    <span class="ml-10 hide-md hide-sm hide-xs">Çıxış</span>
+                </a>
+
             </div>
 
             <nav class="main-nav relative light clear tr-3s" id="main-nav" aria-labelledby="nav-toggle">
+
                 <ul class="nav-menu type-none m-0 p-0 float-xl-right float-lg-right clear" role="menu">
                     <li role="presentation">
-                        <a [routerLink]="['/home']" routerLinkActive="current-page" role="menuitem" title="Ana Səhifə"
-                            class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a [routerLink]="['/home']" routerLinkActive="current-page"  role="menuitem" title="Ana Səhifə" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-home-1 v-align-middle mr-10"></i>
-                            <span class="v-align-middle">Ana Səhifə</span>
+                             <span class="v-align-middle">Ana Səhifə</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a [routerLink]="['/birja']" routerLinkActive="current-page" role="menuitem" title="Birja"
-                            class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a [routerLink]="['/birja']" routerLinkActive="current-page"  role="menuitem" title="Birja" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-currency-usd v-align-middle mr-10"></i>
-                            <span class="v-align-middle">Birja</span>
+                             <span class="v-align-middle">Birja</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a [routerLink]="['/members']" routerLinkActive="current-page" role="menuitem" title="Üzvlər"
-                            class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a [routerLink]="['/members']" routerLinkActive="current-page"  role="menuitem" title="Üzvlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-home-building v-align-middle mr-10"></i>
                             <span class="v-align-middle">Üzvlər</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a [routerLink]="['/agronoms']" routerLinkActive="current-page" role="menuitem"
-                            title="Aqronomlar" class="menu-item  ripple-effect light-ripple d-block tr-3s">
+                        <a [routerLink]="['/agronoms']" routerLinkActive="current-page"  role="menuitem" title="Aqronomlar" class="menu-item  ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-users v-align-middle mr-10"></i>
                             <span class="v-align-middle">Aqronomlar</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a [routerLink]="['/news']" routerLinkActive="current-page" role="menuitem" title="Xəbərlər"
-                            class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a [routerLink]="['/news']" routerLinkActive="current-page"  role="menuitem" title="Xəbərlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
                             <span class="v-align-middle">Xəbərlər</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="http://agrotv.az/" target="_blank" role="menuitem" title="Agro TV"
-                            class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="http://agrotv.az/"role="menuitem" title="Agro TV" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-tv v-align-middle mr-10"></i>
                             <span class="v-align-middle">Agro TV</span>
                         </a>
                     </li>
+                    <li role="presentation" class="contact-us">
+                        <a [routerLink]="['/news']" routerLinkActive="current-page"role="menuitem" title="Bizimlə əlaqə" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                            <i aria-hidden="true" class="icon-envelope v-align-middle"></i>
+                            <span class="v-align-middle ml-10 hide-lg">Bizimlə əlaqə</span>
+                        </a>
+                    </li>
                 </ul>
+
+                <!-- <div class="currency-wrap border-top">
+                    <span class="bold show-md show-sm show-xs" role="presentation">
+                        <i aria-hidden="true" class="icon-money-metal-3 mr-10"></i>
+                        Valyuta seçin
+                    </span>
+
+                    <select name="" id="" class="currency btn border-0 radius-20 shadow-big ripple-effect">
+                        <option value="azn">AZN</option>
+                        <option value="usd">USD</option>
+                        <option value="rub">RUB</option>
+                        <option value="eur">EUR</option>
+                    </select>
+                </div> -->
 
                 <span class="bold pt-40 border-top pl-40 show-md show-sm show-xs" role="presentation">
                     <i aria-hidden="true" class="icon-language mr-10"></i>
@@ -83,29 +117,31 @@
                 </span>
 
                 <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
+
                     <li role="presentation">
-                        <a style="cursor: pointer" (click)="useLanguage('az')" role="menuitem" title="Azərbaycan dili"
-                            class="menu-item d-block tr-3s ripple-effect active">
+                        <a style="cursor: pointer" (click)="useLanguage('az')"role="menuitem" title="Azərbaycan dili" class="menu-item d-block tr-3s ripple-effect active">
                             AZ
                         </a>
                     </li>
 
                     <li role="presentation">
-                        <a style="cursor: pointer" (click)="useLanguage('en')" role="menuitem" title="English language"
-                            class="menu-item d-block tr-3s ripple-effect">
+                        <a style="cursor: pointer" (click)="useLanguage('en')"role="menuitem" title="English language" class="menu-item d-block tr-3s ripple-effect">
                             EN
                         </a>
                     </li>
 
                     <li role="presentation">
-                        <a style="cursor: pointer" (click)="useLanguage('ru')" role="menuitem" title="Русский язык"
-                            class="menu-item d-block tr-3s ripple-effect">
+                        <a style="cursor: pointer" (click)="useLanguage('ru')" role="menuitem" title="Русский язык" class="menu-item d-block tr-3s ripple-effect">
                             RU
                         </a>
                     </li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </div>
 </header>
 <!-- komponent in shar -->
