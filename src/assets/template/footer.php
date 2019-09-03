@@ -336,6 +336,9 @@
 <script src="assets/scripts/owl.carousel.min.js"></script>
 <script src="assets/scripts/pi.js"></script>
 <script src="assets/scripts/fotorama.js"></script>
+<script src="assets/scripts/select2.min.js"></script>
+<script src="assets/scripts/datepicker.min.js"></script>
+<script src="assets/scripts/datepicker-az.js"></script>
 <script src="assets/scripts/ripple.min.js"></script>
 <script src="assets/scripts/popper.min.js"></script>
 <script src="assets/scripts/tooltip.min.js"></script>

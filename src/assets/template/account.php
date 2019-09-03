@@ -164,17 +164,31 @@
 
     </div>
 
-    <div class="account-body bg-white shadow-big p-40">
+    <div class="account-body bg-white shadow-big p-40" hidden>
 
         <div class="pb-20 mb-40 border-bottom clear">
             <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Hesab parametrləri</h3>
 
-            <a href="#" class="btn bg-white border-0 shadow-big radius-20 float-right" title="Geri">
-                <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
-                <span class="hide-xs v-align-middle ml-10">Geri</span>
-            </a>
-        </div>
+            <div class="clear float-right">
 
+                <a href="#" class="btn bg-white border-0 shadow-big radius-20 float-left" title="Geri">
+                    <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
+                    <span class="hide-xs v-align-middle ml-10">Geri</span>
+                </a>
+
+                <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big bg-green">AZ</span>
+                    </li>
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big">EN</span>
+                    </li>
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big">RU</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <ul class="account-sub-menu scrolling-menu center bg-white shadow-big font-16 mb-40 pt-5 pb-5 radius-40" role="tablist">
             <li role="presentation" class="active">
@@ -203,12 +217,12 @@
             </li>
         </ul>
 
-        <form action="" class="settings-form tab-content">
+        <form action class="settings-form tab-content">
 
             <div class="tab-panel mb-40 active" role="tabpanel" data-tab="about-me">
                 <div class="row as-10 justify-content-center">
                     <div class="col as-12 xl-8">
-                        <textarea name="" id="about-me" cols="30" rows="20" class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin"></textarea>
+                        <textarea name id="about-me" cols="30" rows="20" class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin"></textarea>
                     </div>
                 </div>
             </div>
@@ -217,6 +231,211 @@
             <div class="tab-panel mb-40" role="tabpanel" data-tab="contact-details"></div>
 
             <div class="clear radius-30 shadow-big p-5">
+                <button type="submit" class="btn lg bg-green border-0 radius-30 shadow-big float-right">
+                    Yadda saxla
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="account-body bg-white shadow-big p-40">
+
+        <div class="pb-20 clear">
+            <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsullar</h3>
+
+            <a href="#" class="btn bg-white border-0 shadow-big radius-20 float-right" title="Məhsul əlavə et">
+                <i aria-hidden="true" class="icon-plus v-align-middle"></i>
+                <span class="hide-xs v-align-middle ml-10">Məhsul əlavə et</span>
+            </a>
+        </div>
+
+        <div class="table-responsive border-0 mb-40">
+            <table class="table custom-table bg-gray">
+
+                <thead class="bg-white">
+                <tr>
+                    <th>№</th>
+                    <th>Məhsul</th>
+                    <th>Növ</th>
+                    <th>Qiymət</th>
+                    <th>Həcm</th>
+                    <th>Satış</th>
+                    <th>Tarix</th>
+                    <th>Bax</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody class="no-wrap">
+
+                <tr>
+
+                    <td>1</td>
+
+                    <td>Nar</td>
+
+                    <td>Gülöyşə</td>
+
+                    <td>
+                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                            2000
+                            <i aria-hidden="true" class="icon-currency-azn small"></i>
+                            / ton
+                        </span>
+                    </td>
+
+                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td>
+                        <div class="progress radius-5 w-100">
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="text-gray">2019-03-27 15:40</span>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Ətraflı məlumat"
+                           title="Ətraflı məlumat" data-toggle="tooltip"
+                           class="btn xs circle border-0 shadow-big text-green">
+                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+                        </a>
+                    </td>
+
+                    <td class="text-right">
+                        <a href="product.php"
+                           aria-label="Redaktə et"
+                           title="Redaktə et" data-toggle="tooltip"
+                           class="btn bg-blue xs circle border-0 shadow-big">
+                            <i aria-hidden="true" class="icon-pen-5 v-align-middle"></i>
+                        </a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+        <nav class="pagination-nav" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
+            <ul class="page-numbers m-0 p-0" role="menubar">
+                <li role="presentation" class="first float-left hide-xs">
+                    <a href="#" role="button" rel="prev" class="btn tr-3s disabled legitRipple" title="Əvvəlki səhifə">
+                        <span>Əvvəlki</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" rel="start" role="menuitem" class="active" aria-current="true" aria-posinset="1" data-pagenum="1" title="Səhifə 1" itemprop="url">
+                        <span itemprop="name">1</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="2" data-pagenum="2" title="Səhifə 2" itemprop="url">
+                        <span itemprop="name">2</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="3" data-pagenum="3" title="Səhifə 3" itemprop="url">
+                        <span itemprop="name">3</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="4" data-pagenum="4" title="Səhifə 4" itemprop="url">
+                        <span itemprop="name">4</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="5" data-pagenum="5" title="Səhifə 5" itemprop="url">
+                        <span itemprop="name">5</span>
+                    </a>
+                </li>
+                <li role="separator" aria-hidden="true">…</li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="10" data-pagenum="10" title="Səhifə 10" itemprop="url">
+                        <span itemprop="name">10</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#" role="menuitem" aria-current="true" aria-posinset="11" data-pagenum="11" title="Səhifə 11" itemprop="url">
+                        <span itemprop="name">11</span>
+                    </a>
+                </li>
+                <li role="presentation" class="last float-right hide-xs">
+                    <a href="#" role="button" rel="next" class="btn tr-3s legitRipple" title="Sonrakı səhifə">
+                        <span>Sonrakı</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="account-body bg-white shadow-big p-40">
+
+        <div class="pb-20 mb-40 border-bottom clear">
+            <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Yeni məhsul</h3>
+
+            <div class="clear float-right">
+
+                <a href="#" class="btn bg-white border-0 shadow-big radius-20 float-left" title="Geri">
+                    <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
+                    <span class="hide-xs v-align-middle ml-10">Geri</span>
+                </a>
+
+                <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big bg-green">AZ</span>
+                    </li>
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big">EN</span>
+                    </li>
+                    <li role="presentation" class="float-left ml-10">
+                        <span role="button" class="btn circle border-0 shadow-big">RU</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <form action="">
+
+            <div class="row as-10">
+                <div class="col as-3 md-4 sm-6 mb-20">
+                    <label for="" class="pl-10">Field Label</label>
+                    <select id="" class="input select border-0 radius-20 shadow-big">
+                        <option value="">Seç</option>
+                        <option value="">Product Name</option>
+                        <option value="">Product Name</option>
+                        <option value="">Product Name</option>
+                    </select>
+                </div>
+
+                <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
+                    <label for="" class="pl-10">Field Label</label>
+                    <input type="text" id="" class="input border-0 radius-20 shadow-big">
+                </div>
+
+                <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
+                    <label for="" class="pl-10">Field Label</label>
+                    <input type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big">
+                </div>
+
+                <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
+                    <label for="" class="pl-10">Field Label</label>
+                    <input id="" class="input datepicker-here border-0 radius-20 shadow-big" type="text" data-language="az" data-auto-close="true" data-position="bottom left">
+                </div>
+
+                <div class="col as-12 mb-20 pb-10">
+                    <label for="description" class="pl-10">Məhsul haqqında</label>
+                    <textarea name id="description" cols="30" rows="10" class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin"></textarea>
+                </div>
+            </div>
+
+            <div class="clear radius-30 shadow-big p-5 mt-20">
                 <button type="submit" class="btn lg bg-green border-0 radius-30 shadow-big float-right">
                     Yadda saxla
                 </button>
