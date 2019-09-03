@@ -20,22 +20,32 @@ $gray: #595959;
 $grayDark: #333;
 
 // Transparent White Colors
+$whiteTr-0: rgba(255,255,255,0);
 $whiteTr-05: rgba(255,255,255,0.05);
 $whiteTr-1: rgba(255,255,255,0.1);
 $whiteTr-2: rgba(255,255,255,0.2);
 $whiteTr-3: rgba(255,255,255,0.3);
 $whiteTr-4: rgba(255,255,255,0.4);
 $whiteTr-5: rgba(255,255,255,0.5);
+$whiteTr-6: rgba(255,255,255,0.6);
+$whiteTr-7: rgba(255,255,255,0.7);
+$whiteTr-8: rgba(255,255,255,0.8);
+$whiteTr-9: rgba(255,255,255,0.9);
 
 // Transparent Black Colors
-$blackTr-05: rgba($black, .05);
-$blackTr-1: rgba($black, .1);
-$blackTr-2: rgba($black, .2);
-$blackTr-3: rgba($black, .3);
-$blackTr-4: rgba($black, .4);
-$blackTr-5: rgba($black, .5);
+$blackTr-0: rgba(0,0,0,0.0);
+$blackTr-05: rgba(0,0,0,0.05);
+$blackTr-1: rgba(0,0,0,0.1);
+$blackTr-2: rgba(0,0,0,0.2);
+$blackTr-3: rgba(0,0,0,0.3);
+$blackTr-4: rgba(0,0,0,0.4);
+$blackTr-5: rgba(0,0,0,0.5);
+$blackTr-6: rgba(0,0,0,0.6);
+$blackTr-7: rgba(0,0,0,0.7);
+$blackTr-8: rgba(0,0,0,0.8);
+$blackTr-9: rgba(0,0,0,0.9);
 
 // Border Color
 $borderColor: $blackTr-05;
 $borderColorDark: $blackTr-1;
-$shadowColor: rgba($black,.8);
+$shadowColor: rgba($black, .8);
