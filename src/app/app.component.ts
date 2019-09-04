@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
     this.createCompanyForm();
     this.createCustomerForm();
     this.loggedIn();
-    this.getMetals();
-    this.getCurrency();
+    // this.getMetals();
+    // this.getCurrency();
   }
 
    createLoginForm() {
