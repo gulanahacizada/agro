@@ -26,6 +26,7 @@ import { HomeComponent } from '../pages/home/home.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+ 
     ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {

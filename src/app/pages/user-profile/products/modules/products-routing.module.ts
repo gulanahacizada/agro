@@ -3,6 +3,8 @@ import { ProductsInComponent } from './../components/products-in/products-in.com
 import { ProductsComponent } from './../products.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddProductComponent } from '../components/add-product/add-product.component';
+import { EditProductComponent } from '../components/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -19,7 +21,16 @@ const routes: Routes = [
       {
         path: 'sales',
         component: SalesProductsComponent
-      }
+      },
+      {
+        path: 'add',
+        component: AddProductComponent
+      },
+      {
+        path: 'edit',
+        component: EditProductComponent
+      },
+
     ]
 
   }

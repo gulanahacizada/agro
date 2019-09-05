@@ -14,6 +14,13 @@ export class AppService extends HttpsService {
   public CURRENCY = 'birja';
   public METALS = 'metals';
   public ALLL_NEWS = 'birja-articles';
+  public GET_ALL_UNITS = 'unit';
+  public GET_ALL_PACKAGE = 'package';
+  public GET_ALL_QUALITY = 'quality';
+  // public GET_ALL_KIND = ''
+  public GET_ALL_CATEGORY = 'category';
+  public GET_ALL_KALIBRY = 'kalibry';
+  public PRODUCT = 'product';
 
   constructor(public http: HttpClient) {
     super();
