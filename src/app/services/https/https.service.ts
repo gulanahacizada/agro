@@ -13,8 +13,7 @@ export class HttpsService {
 
   headers = new HttpHeaders().set('Content-type', 'text/plain');
   // tslint:disable-next-line: variable-name
-  post_headers = new HttpHeaders()
-    .set('Content-type', 'text/plain');
+  post_headers = new HttpHeaders().set('Content-type', 'text/plain');
   constructor() { }
 
   public rootUrl: string = 'http://' + prop.host;

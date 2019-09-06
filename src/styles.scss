@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.custom{
+    overflow: inherit !important;
+    .ui-inputtext{
+        padding: 0.529em !important;
+    }
+    .ui-dropdown {
+        width: 100% !important;
+        border: none !important;
+        line-height: 0 !important;
+     }
+     .ui-calendar{
+         width: 100% !important;
+         input{
+            width: 100% !important;
+            border: none !important;
+            line-height: 0 !important;
+            padding: 0 !important;
+         }
+     }
+}
+ 

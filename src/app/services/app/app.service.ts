@@ -21,6 +21,7 @@ export class AppService extends HttpsService {
   public GET_ALL_CATEGORY = 'category';
   public GET_ALL_KALIBRY = 'kalibry';
   public PRODUCT = 'product';
+  public GET_KIND_BY_CATEGORY = 'kinds/category';
 
   constructor(public http: HttpClient) {
     super();

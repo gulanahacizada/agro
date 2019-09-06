@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from '../products.component';
@@ -14,11 +18,16 @@ import { EditProductComponent } from '../components/edit-product/edit-product.co
     SalesProductsComponent,
     ProductsInComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
+    DropdownModule,
+    CalendarModule,
+    FormsModule,
+    ReactiveFormsModule
     ]
 })
 export class ProductsModule { }
