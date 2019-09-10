@@ -11,23 +11,21 @@ import { Product } from 'src/app/interfaces/product';
 })
 export class ProductsComponent implements OnInit {
 
-  productList: Product[];
+  productList: any[];
 
   constructor(
     private productService: ProductsService,
   ) { }
 
   ngOnInit() {
-    this.getAllProducts();
+    this.getMyProduct();
   }
 
-  getAllProducts() {
-    this.productService.getAllProducts().subscribe((response: Response) => {
-     this.productList = response.responseContent.data;
-     console.log(this.productList);
+  getMyProduct() {
+    this.productService.getMyProduct().subscribe((response: Response) => {
+          this.productList = response.responseContent;
+          console.log(this.productList);
     });
   }
-
-  
 
 }

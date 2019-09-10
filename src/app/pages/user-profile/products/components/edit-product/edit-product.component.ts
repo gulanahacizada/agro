@@ -103,7 +103,7 @@ export class EditProductComponent implements OnInit {
         kind_id: this.productResponse.kind.id,
         quality_id: this.productResponse.quality.id,
         kalibry_id: this.productResponse.kolibry.id,
-        image: this.productResponse.images[0],
+        // image: this.productResponse.images[0],
       });
     });
   }
@@ -236,23 +236,23 @@ export class EditProductComponent implements OnInit {
     }));
   }
 
-  onFileChange(event) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      const file = event.target.files[0];
-      this.file = file;
-      reader.readAsDataURL(file);
-      // reader.onload = () => {
-      //   this.imgURL = reader.result;
-      //   this.fileRaw = (<string>reader.result).split(',')[1];
-      //   this.url = reader.result.toString();
-      // };
-    }
-  }
+  // onFileChange(event) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
+  //     const file = event.target.files[0];
+  //     this.file = file;
+  //     reader.readAsDataURL(file);
+  //     // reader.onload = () => {
+  //     //   this.imgURL = reader.result;
+  //     //   this.fileRaw = (<string>reader.result).split(',')[1];
+  //     //   this.url = reader.result.toString();
+  //     // };
+  //   }
+  // }
 
   updateProduct() {
-    console.log(this.productEditForm.value);
-    this.productService.editProduct(this.productEditForm.value, this.file).subscribe( response => {
+    this.productService.updateProduct(this.productEditForm.value).subscribe( () => {
+      this.router.navigate(['/dashboard/products']);
     });
   }
 }

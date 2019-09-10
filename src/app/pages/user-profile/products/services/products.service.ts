@@ -43,6 +43,11 @@ public getKinByCategory( params: any = {}): Observable<any> {
 public getAllProducts( params: any = {}): Observable<any> {
   return this.get(this.http, this.PRODUCT, params);
 }
+
+public getMyProduct( params: any = {}): Observable<any> {
+  return this.get(this.http, this.GET_MY_PRODUCT, params);
+}
+
 public getProdById( params: any = {}): Observable<any> {
   return this.get(this.http, this.PRODUCT + '/' + params);
 }
@@ -75,30 +80,34 @@ createProduct(  product: any, file: File): Observable<HttpEvent<any>> {
   return this.http.request(req);
 }
 
-editProduct(  product: any, file: File): Observable<HttpEvent<any>> {
-  const url = `http://test.agrobirja.az/api/v1/product/update/${product.id}`;
-  const formData = new FormData();
-  formData.append('accumulated_at', product.accumulated_at);
-  formData.append('category_id', product.category_id);
-  formData.append('common', product.common);
-  formData.append('description_az', product.description_az);
-  formData.append('expiry_time', product.expiry_time);
-  formData.append('image', file);
-  formData.append('kolibry_id', product.kalibry_id);
-  formData.append('kind_id', product.kind_id);
-  formData.append('package_id', product.package_id);
-  formData.append('price', product.price);
-  formData.append('quality_id', product.quality_id);
-  formData.append('unit_id', product.unit_id);
-
-  const params = new HttpParams();
-
-  const options = {
-    params: params,
-    reportProgress: true,
-  };
-
-  const req = new HttpRequest('PUT', url, formData, options);
-  return this.http.request(req);
+public updateProduct( params: any = {}): Observable<any> {
+  return this.post( this.http, this.UPDATE_MY_PRODUCT + '/' + params.id, params);
 }
+
+// editProduct(  product: any, file: File): Observable<HttpEvent<any>> {
+//   const url = `http://test.agrobirja.az/api/v1/product/update/${product.id}`;
+//   const formData = new FormData();
+//   formData.append('accumulated_at', product.accumulated_at);
+//   formData.append('category_id', product.category_id);
+//   formData.append('common', product.common);
+//   formData.append('description_az', product.description_az);
+//   formData.append('expiry_time', product.expiry_time);
+//   formData.append('image', file);
+//   formData.append('kolibry_id', product.kalibry_id);
+//   formData.append('kind_id', product.kind_id);
+//   formData.append('package_id', product.package_id);
+//   formData.append('price', product.price);
+//   formData.append('quality_id', product.quality_id);
+//   formData.append('unit_id', product.unit_id);
+
+//   const params = new HttpParams();
+
+//   const options = {
+//     params: params,
+//     reportProgress: true,
+//   };
+
+//   const req = new HttpRequest('PUT', url, formData, options);
+//   return this.http.request(req);
+// }
 }

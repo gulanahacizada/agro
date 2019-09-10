@@ -282,8 +282,8 @@ export class AddProductComponent implements OnInit {
 
 
   addProduct() {
-    this.productService.createProduct(this.productForm.value, this.file).subscribe(response => {
-      console.log(response);
+    this.productService.createProduct(this.productForm.value, this.file).subscribe( () => {
+      this.router.navigate(['/dashboard/products']);
     });
   }
 
