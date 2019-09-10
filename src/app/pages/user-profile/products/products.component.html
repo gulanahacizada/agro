@@ -25,58 +25,52 @@
                     <th></th>
                 </tr>
                 </thead>
-
                 <tbody class="no-wrap">
+                
+                <tr *ngFor="let product of productList; let i=index; trackBy:product?.id ">
 
-                <tr>
-
-                    <td>1</td>
-
-                    <td>Nar</td>
-
-                    <td>Gülöyşə</td>
-
+                    <td> {{i +1}} </td>
+                    <td> {{product?.name.name_az}}</td>
+                    <td>{{product?.kind.name_az}}</td>
                     <td>
                         <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                            2000
+                            {{product?.price}}
                             <i aria-hidden="true" class="icon-currency-azn small"></i>
-                            / ton
+                            / {{product?.unit.name_az}}
                         </span>
                     </td>
-
-                    <td><span class="text-special bold">2000 Ton</span></td>
+                    <td><span class="text-special bold">{{product?.common}} {{product?.unit.name_az}}</span></td>
                     <td>
                         <div class="progress radius-5 w-100">
-                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%</div>
+                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" 
+                            [ngStyle]="{'width': product.sell + '%'}"
+                            > {{product?.sell}} %</div>
                         </div>
                     </td>
-
                     <td>
-                        <span class="text-gray">2019-03-27 15:40</span>
+                        <span class="text-gray">
+                            {{product?.created_at |date: 'dd/MM/yyyy'}}
+                        </span>
                     </td>
-
                     <td class="text-right">
-                        <a href="product.php"
+                        <a 
                            aria-label="Ətraflı məlumat"
                            title="Ətraflı məlumat" data-toggle="tooltip"
                            class="btn xs circle border-0 shadow-big text-green">
                             <i aria-hidden="true" class="icon-eye v-align-middle"></i>
                         </a>
                     </td>
-
                     <td class="text-right">
-                        <a href="product.php"
+                        <a [routerLink]="[ 'edit', product.id ]"
+
                            aria-label="Redaktə et"
                            title="Redaktə et" data-toggle="tooltip"
                            class="btn bg-blue xs circle border-0 shadow-big">
                             <i aria-hidden="true" class="icon-pen-5 v-align-middle"></i>
                         </a>
                     </td>
-
                 </tr>
-
                 </tbody>
-
             </table>
         </div>
 

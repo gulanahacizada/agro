@@ -36,10 +36,12 @@ export class AddProductComponent implements OnInit {
   quality: Quality[];
 
   productForm: FormGroup;
+  lang =  'az';
   imgURL: any;
   file: any;
   fileRaw: string;
   url: string;
+  selectLang = 1;
 
 
   constructor(
@@ -50,35 +52,77 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategory(); //
-    this.getAllUnits(); //
-    this.getAllKalibry(); //
-    this.getAllPackege(); //
     this.getAllQuality(); //
-    this.createLoginForm(); //
+    this.getAllPackege(); //
+    this.getAllKalibry(); //
+    this.getAllUnits(); //
+    this.createProdForm(); //
   }
-
-  onSelectProduct(event) {
-    this.getKindByCategory(event.value);
-  }
-  getKindByCategory(id) {
-    const params = {
-      category_id: id
-    };
-    this.productService.getKinByCategory(params).subscribe((response: Response) => {
-      this.kinds = response.responseContent;
-      this.onChangeLanguage('az');
-    });
-  }
-
-
-
 
   getAllUnits() {
     this.productService.getUnits().subscribe((response: Response) => {
       this.units = response.responseContent;
-      this.onChangeLanguage('az');
+      this.unitList = (this.units || []).map((r: any) => ({
+        label: r.name_az,
+        value: r.id
+      }));
     });
   }
+
+  getAllPackege() {
+    this.productService.getPackege().subscribe((response: Response) => {
+      this.packages = response.responseContent;
+      this.packegeList = (this.packages || []).map((r: any) => ({
+        label: r.name_az,
+        value: r.id
+      }));
+
+    });
+  }
+
+  getAllKalibry() {
+    this.productService.getKalibry().subscribe((response: Response) => {
+      this.kalibry = response.responseContent;
+      this.kalibryList = (this.kalibry || []).map((r: any) => ({
+        label: r.name_az,
+        value: r.id
+      }));
+    });
+  }
+
+  getAllQuality() {
+    this.productService.getQuality().subscribe((response: Response) => {
+      this.quality = response.responseContent;
+      this.qualityList = (this.quality || []).map((r: any) => ({
+        label: r.name_az,
+        value: r.id
+      }));
+    });
+  }
+
+  // onSelectProduct(event) {
+  //   this.getKindByCategory(event.value);
+  // }
+
+  // getKindByCategory(id) {
+  //   const params = {
+  //     category_id: id
+  //   };
+  //   this.productService.getKinByCategory(params).subscribe((response: Response) => {
+  //     this.kinds = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
+
+
+
+
+  // getAllUnits() {
+  //   this.productService.getUnits().subscribe((response: Response) => {
+  //     this.units = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
 
   // clean(obj) {
   //   for (const propName in obj) {
@@ -88,35 +132,48 @@ export class AddProductComponent implements OnInit {
   //   }
   // }
 
-  getAllPackege() {
-    this.productService.getPackege().subscribe((response: Response) => {
-      this.packages = response.responseContent;
-      this.onChangeLanguage('az');
-    });
-  }
+  // getAllPackege() {
+  //   this.productService.getPackege().subscribe((response: Response) => {
+  //     this.packages = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
 
-  getAllKalibry() {
-    this.productService.getKalibry().subscribe((response: Response) => {
-      this.kalibry = response.responseContent;
-      this.onChangeLanguage('az');
-    });
-  }
+  // getAllKalibry() {
+  //   this.productService.getKalibry().subscribe((response: Response) => {
+  //     this.kalibry = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
 
-  getAllQuality() {
-    this.productService.getQuality().subscribe((response: Response) => {
-      this.quality = response.responseContent;
-      this.onChangeLanguage('az');
-    });
-  }
+  // getAllQuality() {
+  //   this.productService.getQuality().subscribe((response: Response) => {
+  //     this.quality = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
 
   getAllCategory() {
     this.productService.getCategory().subscribe((response: Response) => {
       this.category = response.responseContent;
-      this.onChangeLanguage('az');
+      this.categoryList = (this.category || []).map((r: any) => ({
+        label: r.name_az,
+        value: r
+      }));
     });
   }
 
-  onChangeLanguage(lang) {
+  // getAllCategory() {
+  //   this.productService.getCategory().subscribe((response: Response) => {
+  //     this.category = response.responseContent;
+  //     this.onChangeLanguage('az', 1);
+  //   });
+  // }
+
+
+  onChangeLanguage(lang, i) {
+    this.selectLang = i;
+    this.lang = lang;
     this.packegeList = (this.packages || []).map((r: any) => ({
       label: r[`name_${lang}`],
       value: r.id
@@ -151,16 +208,39 @@ export class AddProductComponent implements OnInit {
       label: r[`name_${lang}`],
       value: r.id
     }));
-
   }
+
 
   onSelectCategory(event) {
-      this.products = event.value.subCategories;
-      this.onChangeLanguage('az');
+    this.products = event.value.subCategories;
+    this.productList = (this.products || []).map((r: any) => ({
+      label: r[`name_${this.lang}`],
+      value: r.id
+    }));
+  }
+  // onSelectCategory(event) {
+  //     this.products = event.value.subCategories;
+  //     this.onChangeLanguage('az', 1);
+  // }
+  onSelectProduct(event) {
+    this.getKindByCategory(event.value);
+  }
+
+  getKindByCategory(id) {
+    const params = {
+      category_id: id
+    };
+    this.productService.getKinByCategory(params).subscribe((response: Response) => {
+      this.kinds = response.responseContent;
+      this.kindList = (this.kinds || []).map((r: any) => ({
+        label: r[`name_${this.lang}`],
+        value: r.id
+      }));
+    });
   }
 
 
-  createLoginForm() {
+  createProdForm() {
     this.productForm = this.fb.group({
       category_id: [ , [Validators.required]],
       kind_id:     [ , [Validators.required]],
@@ -173,7 +253,9 @@ export class AddProductComponent implements OnInit {
       accumulated_at: [ '', Validators.required],
       expiry_time:    [ '', Validators.required],
       image:          [ ''],
-      description_az: ['']
+      description_az: [''],
+      description_en: [''],
+      description_ru: ['']
     });
    }
 
@@ -198,18 +280,10 @@ export class AddProductComponent implements OnInit {
   //   console.log(this.fileRaw, this.url);
   // }
 
-  //  addProduct() {
-  //    if (this.productForm.valid) {
-  //     this.productForm.get('image').patchValue(this.file);
-  //     this.productService.addProduct(this.productForm.value).subscribe(response => {
-  //       console.log(this.productForm.value);
-  //       console.log(response);
-  //     });
-  //    }
-  //  }
+
   addProduct() {
-    this.productService.createProduct(this.productForm.value, this.file).subscribe(response => {
-      console.log(response);
+    this.productService.createProduct(this.productForm.value, this.file).subscribe( () => {
+      this.router.navigate(['/dashboard/products']);
     });
   }
 
