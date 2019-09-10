@@ -30,7 +30,7 @@
                 <tr *ngFor="let product of productList; let i=index; trackBy:product?.id ">
 
                     <td> {{i +1}} </td>
-                    <td> {{product?.name.name_az}}</td>
+                    <td> {{product?.name[0].name_az}}</td>
                     <td>{{product?.kind.name_az}}</td>
                     <td>
                         <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
