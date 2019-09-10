@@ -1,6 +1,6 @@
 <?php include ('header.php') ?>
 <div class="container as-10 xl-15 lg-15 pt-20 pb-20">
-    <div class="panel shadow-big">
+    <div class="panel relative shadow-big">
 
         <div class="panel-header">
             <nav aria-label="Breadcrumb navbar">

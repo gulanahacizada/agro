@@ -629,7 +629,31 @@
                     </h2>
                 </div>
 
-                <canvas id="chart-1000" class="border"></canvas>
+                <canvas id="chart-1000" class="pt-10 bg-gray"></canvas>
+
+            </div>
+
+            <div class="col as-12 lg-6 mb-40">
+
+                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">Məhsuldarlıq statistikası</span>
+                    </h2>
+                </div>
+
+                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
+                    <li role="presentation" class="active">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                </ul>
+
+                <canvas id="chart-capacity" class="pt-10 bg-gray"></canvas>
 
             </div>
 
@@ -648,172 +672,138 @@
 
     <div class="news-carousel owl-carousel owl-theme">
 
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
+
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
         </div>
-        <div class="item news-item bg-white">
+        <div class="item news-item bg-white h-100p">
             <a href="news-read.php" title="Title" class="d-block clear">
                 <div class="thumb hover scale responsive pb-in-65">
                     <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
                 </div>
                 <div class="info tr-3s border-top">
 
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
+                    <span class="date-time d-block text-gray light mb-10">
                         <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
                         18.08.2019
                     </span>
 
-                </div>
-            </a>
-        </div>
-        <div class="item news-item bg-white">
-            <a href="news-read.php" title="Title" class="d-block clear">
-                <div class="thumb hover scale responsive pb-in-65">
-                    <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
-                </div>
-                <div class="info tr-3s border-top">
-
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
-                        <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-                        18.08.2019
-                    </span>
-
-                </div>
-            </a>
-        </div>
-        <div class="item news-item bg-white">
-            <a href="news-read.php" title="Title" class="d-block clear">
-                <div class="thumb hover scale responsive pb-in-65">
-                    <img data-src="assets/images/eagro.jpg" alt="title" width="" height="">
-                </div>
-                <div class="info tr-3s border-top">
-
-                    <span class="title text-black font-16 bold line-clamp line-3 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-
-                    <span class="date-time text-gray light">
-                        <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-                        18.08.2019
-                    </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
 
                 </div>
             </a>
