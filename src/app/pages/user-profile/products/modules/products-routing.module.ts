@@ -1,4 +1,4 @@
-import { SalesProductsComponent } from './../components/sales-products/sales-products.component';
+
 import { ProductsInComponent } from './../components/products-in/products-in.component';
 import { ProductsComponent } from './../products.component';
 import { NgModule } from '@angular/core';
@@ -15,19 +15,15 @@ const routes: Routes = [
         component: ProductsComponent
       },
       {
-        path: 'in',
+        path: 'details/:id',
         component: ProductsInComponent
-      },
-      {
-        path: 'sales',
-        component: SalesProductsComponent
       },
       {
         path: 'add',
         component: AddProductComponent
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component: EditProductComponent
       },
 

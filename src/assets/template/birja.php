@@ -1,6 +1,6 @@
 <?php include ('header.php') ?>
 
-<div class="panel shadow-big">
+<div class="panel relative shadow-big">
     <div class="container as-10 xl-15 lg-15">
         <div class="panel-header pl-0 pr-0">
             <nav aria-label="Breadcrumb navbar">
@@ -18,7 +18,7 @@
                         <meta itemprop="position" content="2">
                     </li>
                     <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <span title="Product Name" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/products/product-name">
+                        <span title="Product Name" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/birja">
                             <span itemprop="name">Product Name</span>
                         </span>
                         <meta itemprop="position" content="3">
@@ -38,10 +38,10 @@
 <div class="container as-10 xl-15 lg-15 pt-20 pb-20">
     <div class="shadow-big">
 
-        <div class="pt-10 pl-20 pr-20 bg-gray">
+        <div class="pt-20 pl-20 pr-20 bg-gray">
             <div class="row as-5">
-                <div class="col md-6 sm-6 xs-6 mb-10">
-                    <select name="" id="companies" class="input select border-0 shadow-big">
+                <div class="col md-6 sm-6 xs-6 mb-20">
+                    <select name="" id="companies" class="input select border-0 radius-20 shadow-big">
                         <option value="all-companies">Bütün şirkətlər</option>
                         <option value="company-name">Company name</option>
                         <option value="company-name">Company name</option>
@@ -49,8 +49,8 @@
                         <option value="company-name">Company name</option>
                     </select>
                 </div>
-                <div class="col md-6 sm-6 xs-6 mb-10">
-                    <select name="" id="products" class="input select border-0 shadow-big">
+                <div class="col md-6 sm-6 xs-6 mb-20">
+                    <select name="" id="products" class="input select border-0 radius-20 shadow-big">
                         <option value="all-products">Bütün məhsullar</option>
                         <option value="product-name">Product name</option>
                         <option value="product-name">Product name</option>
@@ -58,8 +58,8 @@
                         <option value="product-name">Product name</option>
                     </select>
                 </div>
-                <div class="col md-6 sm-6 xs-6 mb-10">
-                    <select name="" id="types" class="input select border-0 shadow-big">
+                <div class="col md-6 sm-6 xs-6 mb-20">
+                    <select name="" id="types" class="input select border-0 radius-20 shadow-big">
                         <option value="all-types">Bütün məhsul növləri</option>
                         <option value="product-name">Product type</option>
                         <option value="product-name">Product type</option>
@@ -67,11 +67,11 @@
                         <option value="product-name">Product type</option>
                     </select>
                 </div>
-                <div class="col md-6 sm-6 xs-6 mb-10">
-                    <input type="date" class="input border-0 shadow-big">
+                <div class="col md-6 sm-6 xs-6 mb-20">
+                    <input id="" class="input datepicker-here border-0 radius-20 shadow-big" type="text" data-language="az" data-auto-close="true" data-position="bottom left">
                 </div>
-                <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-10">
-                    <button type="reset" class="btn bg-orange w-100p border-0 shadow-big">Sıfırla</button>
+                <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-20">
+                    <button type="reset" class="btn bg-orange w-100p border-0 radius-20 shadow-big">Sıfırla</button>
                 </div>
             </div>
         </div>

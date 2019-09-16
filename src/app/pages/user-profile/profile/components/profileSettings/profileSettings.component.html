@@ -1,0 +1,247 @@
+<div class="account-body bg-white shadow-big p-40">
+  <div class="pb-20 mb-40 border-bottom clear">
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">
+      Hesab parametrləri
+    </h3>
+    <div class="clear float-right">
+      <a [routerLink]="[ '/dashboard/profile' ]" class="btn bg-white border-0 shadow-big radius-20 float-left"
+        title="Geri">
+        <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
+        <span class="hide-xs v-align-middle ml-10">Geri</span>
+      </a>
+    </div>
+  </div>
+  <p-tabView>
+    <p-tabPanel *ngIf="!returnAdmin()" header="İstifadəçi məlumatları" leftIcon="pi pi-key">
+      <div class="tab-panel mb-40 active" role="tabpanel" data-tab="user-detail">
+        <div class="row as-10 justify-content-center">
+          <div class="col as-12 xl-8">
+            <div class="row as-10">
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="full-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+                <input type="text" id="full-name" class="input border-0 radius-20 shadow-big" />
+              </div>
+
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="email" class="pl-10">E-poçt <sup class="text-red">*</sup></label>
+                <input type="email" id="email" class="input border-0 radius-20 shadow-big" />
+              </div>
+
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="tel" class="pl-10">Telefon <sup class="text-red">*</sup></label>
+                <input type="tel" id="tel" class="input border-0 radius-20 shadow-big" />
+              </div>
+
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="" class="pl-10">Field Label</label>
+                <select id="" class="input select border-0 radius-20 shadow-big">
+                  <option value="">Seç</option>
+                  <option value="">Product Name</option>
+                  <option value="">Product Name</option>
+                  <option value="">Product Name</option>
+                </select>
+              </div>
+
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="" class="pl-10">Field Label</label>
+                <input type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big" />
+              </div>
+
+              <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
+                <label for="" class="pl-10">Field Label</label>
+                <input id="" class="input datepicker-here border-0 radius-20 shadow-big" type="text" data-language="az"
+                  data-auto-close="true" data-position="bottom left" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="returnAdmin()" header="Şirkət məlumatları" leftIcon="pi pi-info">
+      <form [formGroup]="updateUserForm" (ngSubmit)="submitForm()">
+        <div class="tab-panel mb-40" role="tabpanel" data-tab="about-company">
+          <div class="row as-20">
+            <div class="col as-12 xl-8">
+              <div class="clear mb-10 pb-10">
+                <label for="company-name" class="pl-10">Şirkət adı <sup class="text-red">*</sup></label>
+                <input type="text" formControlName="name" id="company-name"
+                  class="input border-0 radius-20 shadow-big" />
+              </div>
+
+              <div class="clear">
+                <label for="about-me" class="pl-10">Şirkət haqqında ətraflı məlumat</label>
+                <textarea formControlName="description" id="about-me" cols="30" rows="19"
+                  class="input no-resize border-0 radius-20 shadow-big"
+                  placeholder="Ətraflı məlumat qeyd edin"></textarea>
+              </div>
+            </div>
+
+            <div class="col as-12 xl-4">
+              <div class="row as-10">
+                <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+                  <label for="voen" class="pl-10">VÖEN <sup class="text-red">*</sup></label>
+                  <input type="text" formControlName="voen" id="voen" class="input border-0 radius-20 shadow-big" />
+                </div>
+
+                <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+                  <label for="iban" class="pl-10">İBAN <sup class="text-red">*</sup></label>
+                  <input type="text" formControlName="bank_account" id="iban"
+                    class="input border-0 radius-20 shadow-big" />
+                </div>
+
+                <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
+                  class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+
+                  <ng-container [formGroupName]="i">
+                    <label for="email" class="pl-10">E-poçt <sup class="text-red">*</sup></label>
+                    <div class="input-group radius-20 shadow-big">
+                      <input type="email" formControlName="contact" id="email" class="input border-0 radius-20" />
+                      <button (click)="addEmail()" type="button" class="btn border-0 radius-20" aria-label="Artır">
+                        <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+                <div formArrayName="phone" *ngFor="let item of phone.controls; let i = index;"
+                  class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+                  <ng-container [formGroupName]="i">
+                    <label for="tel" class="pl-10">Telefon <sup class="text-red">*</sup></label>
+                    <div class="input-group radius-20 shadow-big">
+                      <input formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
+                      <button (click)="addPhone()" type="button" class="btn border-0 radius-20" aria-label="Artır">
+                        <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="col as-4 xl-12 sm-6 xs-12">
+                  <label for="site" class="pl-10">Sayt</label>
+                  <input formControlName="website" type="url" id="site" class="input border-0 radius-20 shadow-big" />
+                </div>
+              </div>
+            </div>
+            <div class="col as-12">
+              <button type="submit" class="btn mt-30 lg bg-green border-0 radius-30 shadow-big float-right">
+                Yadda saxla
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="returnAdmin()" header="Əkin sahələri" leftIcon="pi pi-map-marker">
+      <div class="tab-panel mb-40" role="tabpanel" data-tab="sown-areas">
+        <div class="row as-10 justify-content-center">
+          <div class="col as-12 xl-8">
+            <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
+              <label class="pl-10 pb-10 m-0">Sahə 1</label>
+
+              <span class="remove bold text-red pointer float-right mr-20">
+                <i aria-hidden="true" class="icon-trash mr-5"></i>
+                Sil
+              </span>
+
+              <div class="row border-top">
+                <div class="col as-4 xs-12">
+                  <select id="district" class="input select border-0 radius-20">
+                    <option value="">Rayon Seç</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <select id="village" class="input select border-0 radius-20">
+                    <option value="">Qəsəbə/Kənd Seç</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <input type="number" id="planted-area" class="input select border-0 radius-20"
+                    placeholder="Əkilən sahə" />
+                </div>
+              </div>
+            </div>
+            <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
+              <label class="pl-10 pb-10 m-0">Sahə 2</label>
+
+              <span class="remove bold text-red pointer float-right mr-20">
+                <i aria-hidden="true" class="icon-trash mr-5"></i>
+                Sil
+              </span>
+
+              <div class="row border-top">
+                <div class="col as-4 xs-12">
+                  <select id="district-2" class="input select border-0 radius-20">
+                    <option value="">Rayon Seç</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <select id="village-2" class="input select border-0 radius-20">
+                    <option value="">Qəsəbə/Kənd Seç</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <input type="number" id="planted-area" class="input select border-0 radius-20"
+                    placeholder="Əkilən sahə" />
+                </div>
+              </div>
+            </div>
+            <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
+              <label class="pl-10 pb-10 m-0">Sahə 3</label>
+
+              <span class="remove bold text-red pointer float-right mr-20">
+                <i aria-hidden="true" class="icon-trash mr-5"></i>
+                Sil
+              </span>
+
+              <div class="row border-top">
+                <div class="col as-4 xs-12">
+                  <select id="district-3" class="input select border-0 radius-20">
+                    <option value="">Rayon Seç</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                    <option value="">District Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <select id="village-3" class="input select border-0 radius-20">
+                    <option value="">Qəsəbə/Kənd Seç</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                    <option value="">Village Name</option>
+                  </select>
+                </div>
+
+                <div class="col as-4 xs-12">
+                  <input type="number" id="planted-area" class="input select border-0 radius-20"
+                    placeholder="Əkilən sahə" />
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn bg-orange border-0 radius-30 shadow-big">
+              Əkin sahəsi əlavə et
+            </button>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+  <div class="clear radius-30 shadow-big p-5">
+
+  </div>
+</div>

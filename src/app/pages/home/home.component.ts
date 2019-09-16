@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app/app.service';
 import { Router } from '@angular/router';
 import { HomeService } from './service/home.service';
+import { ProductsService } from '../user-profile/products/services/products.service';
+import { Response } from 'src/app/interfaces/response';
 
 
 @Component({
@@ -13,16 +15,19 @@ export class HomeComponent implements OnInit {
 
   allNews: any;
   newOwlOptions: any;
+  productList: any;
 
   constructor(
-    private appService: AppService,
+    // private appService: AppService,
     private homeService: HomeService,
-    private router: Router,
+    private productService: ProductsService,
+    // private router: Router,
   ) { }
 
   ngOnInit() {
     // this.getAllNews();
     this.makeCarouselOptions();
+    this.getAllProduct();
   }
 
 
@@ -30,6 +35,14 @@ getAllNews() {
   this.homeService.allNews().subscribe(response => {
     this.allNews = response.articles;
     console.log(this.allNews);
+  });
+}
+
+getAllProduct() {
+  this.productService.getAllProducts().subscribe( (response: Response) => {
+      this.productList = response.responseContent.data;
+      console.log(this.productList);
+      
   });
 }
 

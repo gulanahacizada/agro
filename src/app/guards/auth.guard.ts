@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
     if (localStorage.getItem('acc_jwt')) {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
       return false;
     }
   }

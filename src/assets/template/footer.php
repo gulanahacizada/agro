@@ -1,6 +1,169 @@
 </div>
 
-<footer class="main-footer bg-main" style="height:400px"></footer>
+<footer class="main-footer relative" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+    <div class="container as-15 pt-60 relative z-index-1">
+        <div class="row as-15">
+            <div class="col as-12 lg-5 mb-60">
+                <p class="footer-description text-white light m-0" itemprop="description">
+                    Kənd təsərrafatı ölkəmizdə ərzaq təhlükəsizliyini təmin edib, digər ölkələrdən aqrar aslılığı
+                    azaldacaq, həm də neft sektoruna alternativ ola biləcək ən prioritet sahələrdən biri kimi dövlət
+                    proqramlarında geniş yer tutur. Bu baxımdan kənd təsərüfatı məhsullarının qiymətləndirilməsi çox
+                    böyük əhəmiyyət daşıyır. Agrobirja saytı da məhz kənd təsərüfatı məhsullarının qiymətləndirilməsini
+                    aparmaq, müxtəlif təsərrüfatlara məxsus məhsulların qarşılıqlı qiymətlərini göstərmək məqsədi ilə
+                    yaradılmışdır. Saytımız alıcıya seçim etmək, müxtəlif məhsulların qiymətini dəyərləndirmək imkanı
+                    verməklə, sahibkarlara, ümumiyyətlə kənd təsərüfatı ilə maraqlanan hər bir şəxsə faydalı olacaq.
+                </p>
+            </div>
+            <div class="col as-12 lg-7">
+                <div class="row as-15">
+                    <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
+                        <h4 class="footer-title text-white text-uppercase bold mb-10">
+                            Əsas menyu
+                        </h4>
+                        <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
+                            <li role="presentation">
+                                <a role="menuitem" title="Finans" href="#">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Finans</span>
+                                </a>
+                            </li>
+                            <li role="presentation"><a role="menuitem" title="Birja" href="birja.php">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Birja</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" title="Üzvlər" href="#">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Üzvlər</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/" role="menuitem" title="Title">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Xəbərlər</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" title="Title" href="agronomist.php">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Aqronomlar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
+
+                        <h4 class="footer-title text-white text-uppercase bold mb-10">Proyektlər </h4>
+
+                        <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
+                            <li role="presentation">
+                                <a class="tr-3s" href="http://agrobirja.az/" role="menuitem" title="Evden Eve Nakliyat">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Agrobirja.az</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a class="tr-3s" href="http://agrotv.az/" role="menuitem" title="title">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Agrotv.az</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a class="tr-3s" href="https://visiontv.az/" role="menuitem" title="Title">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Visiontv.az</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a class="tr-3s" href="http://timesoft.az/" role="menuitem" title="Title">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>Timesoft.az</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a class="tr-3s" href="https://myday.az/" role="menuitem" title="Title">
+                                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                                    <span>myday.az</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col as-12 lg-4 md-4 mb-40">
+
+                        <h4 class="footer-title text-white text-uppercase bold mb-10"> Bizimlə əlaqə </h4>
+
+                        <div class="row as-15">
+                            <div class="col as-12 xs-6">
+                                <div class="footer-contact-info d-table">
+                                    <a class="d-row" href="tel:+(994 50) 722 90 94" title="Mobil ilə əlaqə">
+                                        <span class="d-cell">
+                                            <i aria-hidden="true" class="icon-phone text-special"></i>
+                                        </span>
+                                        <span class="d-cell w-100p pl-10 pb-20 v-align-top">
+                                            <small class="d-block text-uppercase">Mobil ilə əlaqə</small>
+                                            <span>+(994 77) 313 63 13</span>
+                                        </span>
+                                    </a>
+                                    <a class="d-row" href="mailto:info@nakliyatci.com" title="E-poçt ilə əlaqə">
+                                        <span class="d-cell">
+                                            <i aria-hidden="true" class="icon-envelope text-special"></i>
+                                        </span>
+                                        <span class="d-cell w-100p pl-10 pb-20 v-align-top">
+                                            <small class="d-block text-uppercase">E-poçt ilə əlaqə</small>
+                                            <span>info@agrobirja.az</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col as-12 xs-6">
+                                <div class="social-links clear">
+                                    <a aria-label="Facebook Sayfamız" class="btn circle radius-0 shadow-big bg-special float-left d-block mr-10" title="Facebook Sayfamız" data-toggle="tooltip" href="#" rel="external noopener noreferrer">
+                                        <i aria-hidden="true" class="icon-social-facebook"></i>
+                                    </a>
+                                    <a aria-label="Twitter Hesabımız" class="btn circle radius-0 shadow-big bg-special float-left d-block mr-10" title="Twitter Hesabımız" data-toggle="tooltip" href="#" rel="external noopener noreferrer">
+                                        <i aria-hidden="true" class="icon-social-twitter"></i>
+                                    </a>
+                                    <a aria-label="Google+ Hesabımız" class="btn circle radius-0 shadow-big bg-special float-left d-block mr-10" title="Google+ Hesabımız" data-toggle="tooltip" href="#" rel="external noopener noreferrer">
+                                        <i aria-hidden="true" class="icon-social-google-plus"></i>
+                                    </a>
+                                    <a aria-label="Linkedin Hesabımız" class="btn circle radius-0 shadow-big bg-special float-left d-block mr-10" title="Linkedin Hesabımız" data-toggle="tooltip" href="#" rel="external noopener noreferrer">
+                                        <i aria-hidden="true" class="icon-social-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container as-15 xs-0 xxs-0 relative z-index-1" role="contentinfo">
+        <div class="copyright bg-black d-table relative light">
+            <div class="d-row">
+                <div class="d-cell">
+                    <span aria-label="Səhifə başına dön" class="back-top text-white bg-special" role="button">
+                        <i aria-hidden="true" class="icon-arrow-up"></i>
+                    </span>
+                </div>
+                <div class="d-cell w-100p pl-20 v-align-middle">
+                    <span class="mr-10 ml-10 float-left">
+                        AgroTv.az © <span itemprop="copyrightYear">2018</span> - 2019
+                    </span>
+                    <span class="mr-10 ml-10 float-left">Bütün haqqları qorunur.</span>
+                    <span aria-label="Created by: TimeSoft" class="d-block mr-10 ml-10 float-right float-xxs-left" itemprop="copyrightHolder" itemscope itemtype="https://schema.org/Organization">
+                        Created by
+                        <a title="Bu site VAC veb studyosu tarafından tasarımlanmış ve kodlanmıştır" data-toggle="tooltip" href="#" itemprop="url">
+                            <strong class="text-special" itemprop="name">
+                                TimeSoft
+                            </strong>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <div class="fixed-buttons" hidden>
     <span class="button back-top pointer icon-arrow-up shadow ripple-effect mt-10"
@@ -81,7 +244,7 @@
                             <span class="panel-title bold text-main">Təklif ver</span>
                         </div>
                         <div class="bg-white p-20">
-                            <form action="" class="row as-10">
+                            <form action class="row as-10">
                                 <div class="col as-4 xs-12 mb-20">
                                     <label for="offer-amount">Tələb olunan miqdarı</label>
                                     <div class="input-group radius-20 shadow-big">
@@ -381,24 +544,93 @@
 
     };
 
+    var DISTRICTS = ['Bakı', 'Quba', 'Qusar', 'Xaçmaz', 'Şabran', 'Xızı', 'Siyəzən'];
+    var capacityChartData = {
+        labels: DISTRICTS,
+        datasets: [{
+            label: 'Məhsuldarlığa görə',
+            backgroundColor: 'rgb(255, 99, 132)',
+            stack: 'Stack 0',
+            data: [250, 300,350,400,450,390,320]
+        }, {
+            label: 'Qiymətə görə',
+            backgroundColor: 'rgb(0,78,255)',
+            stack: 'Stack 0',
+            data: [120,124,119,125,130,110,134]
+        }]
+
+    };
     window.onload = function() {
-        var ctx = document.getElementById('chart-1000').getContext('2d');
-        window.myBar = new Chart(ctx, {
+        var chart1000 = document.getElementById('chart-1000').getContext('2d');
+        window.myBar = new Chart(chart1000, {
             type: 'bar',
             data: barChartData,
             options: {
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] || '';
+
+                            if (label) {
+                                if (tooltipItem.datasetIndex === 0) {
+                                    label += ' AZN';
+                                }
+                            }
+
+                            return label;
+                        }
+                    }
+                },
+                responsive: true,
+                // maintainAspectRatio: false,
+                legend: null
+            }
+        });
+
+
+        var chartCapacity = document.getElementById('chart-capacity').getContext('2d');
+        window.myBar = new Chart(chartCapacity, {
+            type: 'bar',
+            data: capacityChartData,
+            options: {
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] || '';
+
+                            if (label) {
+                                if (tooltipItem.datasetIndex === 0) {
+                                    label += ' Ton';
+                                }
+                                if (tooltipItem.datasetIndex === 1) {
+                                    label += ' AZN';
+                                }
+                            }
+
+                            return label;
+                        }
+                    }
+                },
                 responsive: true,
                 legend: {
                     position: 'top',
                 },
-                /*title: {
-                    display: true,
-                    text: 'Chart.js Bar Chart'
-                }*/
-            }
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+            },
         });
-
     };
+
 </script>
 
 <!--[if IE]>

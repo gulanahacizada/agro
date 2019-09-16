@@ -32,10 +32,12 @@
 <div class="account-page container as-10 xl-15 lg-15 pt-20 pb-20">
     <div class="account-header shadow-big text-center clear pt-40 pb-40">
         <div class="thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
-            <img src="assets/images/ulu.png" alt="User Name" width="120" height="120" class="p-7 radius-50p loading"
+            <img *ngIf="userInfo?.avatar" src="assets/images/ulu.png" alt="User Name" width="120" height="120" class="p-7 radius-50p loading"
+                data-was-processed="true">
+                <img *ngIf="!userInfo?.avatar" src="assets/images/imagesProf.jpeg" alt="User Name" width="100%" class=" radius-50p loading"
                 data-was-processed="true">
         </div>
-        <h2 class="account-name h4 bold mb-0 text-white text-uppercase">Company Name</h2>
+        <h2 class="account-name h4 bold mb-0 text-white text-uppercase"> {{userInfo?.name}} </h2>
     </div>
 
     <ul class="account-menu scrolling-menu center bg-white shadow-big font-16 mb-15" role="menu">

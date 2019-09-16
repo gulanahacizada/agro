@@ -139,7 +139,7 @@
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types" hidden>
+                <span class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types" >
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
@@ -172,13 +172,13 @@
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Üzvlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="partners.php" role="menuitem" title="Üzvlər" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-home-building v-align-middle mr-10"></i>
                             <span class="v-align-middle">Üzvlər</span>
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Aqronomlar" class="menu-item  ripple-effect light-ripple d-block tr-3s">
+                        <a href="agronomist.php" role="menuitem" title="Aqronomlar" class="menu-item  ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-users v-align-middle mr-10"></i>
                             <span class="v-align-middle">Aqronomlar</span>
                         </a>
@@ -190,15 +190,22 @@
                         </a>
                     </li>
                     <li role="presentation">
-                        <a href="#" role="menuitem" title="Agro TV" class="menu-item ripple-effect light-ripple d-block tr-3s">
-                            <i aria-hidden="true" class="icon-tv v-align-middle mr-10"></i>
-                            <span class="v-align-middle">Agro TV</span>
+                        <a href="about.php" role="menuitem" title="Haqqımızda" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                            <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
+                            <span class="v-align-middle">Haqqımızda</span>
                         </a>
                     </li>
                     <li role="presentation" class="contact-us">
-                        <a href="#" role="menuitem" title="Bizimlə əlaqə" class="menu-item ripple-effect light-ripple d-block tr-3s">
+                        <a href="contact.php" role="menuitem" title="Bizimlə əlaqə" class="menu-item ripple-effect light-ripple d-block tr-3s">
                             <i aria-hidden="true" class="icon-envelope v-align-middle"></i>
                             <span class="v-align-middle ml-10 hide-lg">Bizimlə əlaqə</span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="hide-lg">
+                        <a href="http://agrotv.az/" role="menuitem" title="Agro TV" rel="external noopener noreferrer"
+                           class="menu-item ripple-effect light-ripple d-block tr-3s">
+                            <i aria-hidden="true" class="icon-tv v-align-middle"></i>
+                            <span class="v-align-middle ml-10 hide-lg">Agro TV</span>
                         </a>
                     </li>
                 </ul>

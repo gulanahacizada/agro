@@ -21,7 +21,7 @@
                                 <meta itemprop="position" content="2">
                             </li>
                             <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <span title="News title" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/products/product-name">
+                        <span title="News title" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/news/news-title">
                             <span itemprop="name">News title</span>
                         </span>
                                 <meta itemprop="position" content="34">

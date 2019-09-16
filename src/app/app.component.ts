@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from './services/app/app.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -25,14 +25,14 @@ export class AppComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private translate: TranslateService
-   ) {
+  ) {
     this.translate.setDefaultLang('az');
     this.myCarouselImages = [1, 2, 3, 4, 5, 6].map((i) => `https://picsum.photos/640/480?image=${i}`);
     // this.translate.use('az');
 
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.createLoginForm();
     this.createCompanyForm();
     this.createCustomerForm();
@@ -41,31 +41,31 @@ export class AppComponent implements OnInit {
     // this.getCurrency();
   }
 
-   createLoginForm() {
+  createLoginForm() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
-   }
+  }
 
-   createCompanyForm() {
-     this.companyRegister = this.fb.group({
+  createCompanyForm() {
+    this.companyRegister = this.fb.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       is_company: [1],
-      role: [ 3, Validators.required],
+      role: [3, Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['']
-     },
-     {validator: this.passwordMatchValidator});
-   }
-   passwordMatchValidator(g: FormGroup) {
-    return g.get('password').value === g.get('confirmPassword').value ? null : {mismatch: true};
+    },
+      { validator: this.passwordMatchValidator });
+  }
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value ? null : { mismatch: true };
   }
 
-   createCustomerForm() {
+  createCustomerForm() {
     this.customerRegister = this.fb.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
@@ -76,31 +76,33 @@ export class AppComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['']
     },
-    {validator: this.passwordMatchValidator});
+      { validator: this.passwordMatchValidator });
   }
 
-   login() {
+  login() {
     if (this.loginForm.valid) {
       const data = Object.assign({}, this.loginForm.value);
       console.log(data);
-      this.appService.login(data).subscribe( response => {
-        localStorage.setItem( 'acc_jwt', response.responseContent.access_token);
-        // this.router.navigate(['home']);
+      this.appService.login(data).subscribe(response => {
+        localStorage.setItem('acc_jwt', response.responseContent.access_token);
+        localStorage.setItem('isCompany', response.responseContent.user.is_company);
+        this.router.navigate(['dashboard']);
+        console.log(response);
         $('.login-modal').removeClass('open');
         $('body').removeClass('o-hidden');
       });
     }
-   }
+  }
 
-   registerCompany() {
+  registerCompany() {
     if (this.companyRegister.valid) {
       const data = Object.assign({}, this.companyRegister.value);
       this.appService.register(data).subscribe(response => {
-            localStorage.setItem( 'acc_jwt', response.access_token);
-            // this.router.navigate(['']);
-            $('.registration-modal').removeClass('open');
-            $('body').removeClass('o-hidden');
-        }
+        localStorage.setItem('acc_jwt', response.access_token);
+        // this.router.navigate(['']);
+        $('.registration-modal').removeClass('open');
+        $('body').removeClass('o-hidden');
+      }
       );
     }
   }
@@ -109,19 +111,19 @@ export class AppComponent implements OnInit {
     if (this.customerRegister.valid) {
       const data = Object.assign({}, this.customerRegister.value);
       this.appService.register(data).subscribe(response => {
-        localStorage.setItem( 'acc_jwt', response.access_token);
-          // this.rguouter.navigate(['']);
+        localStorage.setItem('acc_jwt', response.access_token);
+        // this.rguouter.navigate(['']);
         $('.registration-modal').removeClass('open');
         $('body').removeClass('o-hidden');
-        }
+      }
       );
     }
   }
 
   logOut() {
-    this.appService.logout().subscribe( () => {
-        localStorage.clear();
-        this.router.navigate(['/home']);
+    this.appService.logout().subscribe(() => {
+      localStorage.clear();
+      this.router.navigate(['/home']);
     });
   }
 
@@ -132,19 +134,19 @@ export class AppComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
-}
+  }
 
-getCurrency() {
-  this.appService.currency().subscribe( response => {
-    this.currencyResponse = response;
-  });
-}
+  getCurrency() {
+    this.appService.currency().subscribe(response => {
+      this.currencyResponse = response;
+    });
+  }
 
-getMetals() {
-  this.appService.metals().subscribe( response => {
-    this.metalResponse = response;
-  });
-}
+  getMetals() {
+    this.appService.metals().subscribe(response => {
+      this.metalResponse = response;
+    });
+  }
 
 
 
