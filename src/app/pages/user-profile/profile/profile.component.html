@@ -1,8 +1,7 @@
 <div class="account-body bg-white shadow-big p-40">
     <div class="pb-20 mb-40 border-bottom clear">
         <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Hesab bilgiləri</h3>
-
-        <a href="#" class="btn bg-white border-0 shadow-big radius-20 float-right legitRipple"
+        <a [routerLink]="[ 'setting' ]" class="btn bg-white border-0 shadow-big radius-20 float-right legitRipple"
             title="Hesab parametrləri">
             <i aria-hidden="true" class="icon-cogs v-align-middle"></i>
             <span class="hide-xs v-align-middle ml-10">Hesab parametrləri</span>
@@ -15,21 +14,7 @@
             <h4 class="h5 bold">Haqqında</h4>
 
             <div class="font-16 light">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum optio perspiciatis possimus sint
-                    tenetur. Dignissimos dolorum explicabo, fugit laudantium libero molestiae natus porro possimus
-                    quaerat rem repellendus sapiente sequi totam! Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Architecto at debitis deserunt doloremque error est eum facere in magnam
-                    nesciunt, obcaecati officiis optio perspiciatis provident quaerat rerum sed totam unde.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum optio perspiciatis possimus sint
-                    tenetur. Dignissimos dolorum explicabo, fugit laudantium libero molestiae natus porro possimus
-                    quaerat rem repellendus sapiente sequi totam! Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Architecto at debitis deserunt doloremque error est eum facere in magnam
-                    nesciunt, obcaecati officiis optio perspiciatis provident quaerat rerum sed totam unde.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum optio perspiciatis possimus sint
-                    tenetur. Dignissimos dolorum explicabo, fugit laudantium libero molestiae natus porro possimus
-                    quaerat rem repellendus sapiente sequi totam! Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Architecto at debitis deserunt doloremque error est eum facere in magnam
-                    nesciunt, obcaecati officiis optio perspiciatis provident quaerat rerum sed totam unde.</p>
+                <p> {{userInfo?.description}} </p>
             </div>
         </div>
 
@@ -42,11 +27,11 @@
                         <tbody>
                             <tr>
                                 <td class="pb-15 pt-15 border-top bold v-align-top">VÖEN:</td>
-                                <td class="pb-15 pt-15 border-top">0123456789</td>
+                                <td class="pb-15 pt-15 border-top">{{userInfo?.voen}}</td>
                             </tr>
                             <tr>
                                 <td class="pb-15 pt-15 border-top bold v-align-top">IBAN:</td>
-                                <td class="pb-15 pt-15 border-top">012345678913456789</td>
+                                <td class="pb-15 pt-15 border-top">{{userInfo?.bank_account}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -60,38 +45,26 @@
                             <tr>
                                 <td class="pb-15 pt-15 border-top bold v-align-top">Telefon:</td>
                                 <td class="pb-15 pt-15 border-top">
-                                    <a href="tel:+(994 77) 777 77 77" title="+(994 77) 777 77 77"
-                                        class="d-block bold">+(994 77) 777 77 77</a>
-                                    <a href="tel:+(994 77) 777 77 77" title="+(994 77) 777 77 77"
-                                        class="d-block bold">+(994 77) 777 77 77</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top">Fax:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    <a href="tel:+(994 77) 777 77 77" title="+(994 77) 777 77 77"
-                                        class="d-block bold">+(994 77) 777 77 77</a>
-                                    <a href="tel:+(994 77) 777 77 77" title="+(994 77) 777 77 77"
-                                        class="d-block bold">+(994 77) 777 77 77</a>
+                                    
+                                    <a *ngFor="let item of phone" 
+                                        class="d-block bold">{{item.contact}}</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="pb-15 pt-15 border-top bold v-align-top pt-5">E-mail:</td>
                                 <td class="pb-15 pt-15 border-top">
-                                    <a href="mailto:info@gmail.com" title="info@gmail.com"
-                                        class="d-block bold">info@gmail.com</a>
-                                    <a href="mailto:info@gmail.com" title="info@gmail.com"
-                                        class="d-block bold">info@gmail.com</a>
+                                    <a *ngFor="let item of email"  class="d-block bold"> {{item.contact}} </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Sayt:</td>
                                 <td class="pb-15 pt-15 border-top">
-                                    <a href="http://www.exapmle.com" title="Sayta keçid"
+                                    <a href="{{userInfo?.website}}" title="Sayta keçid"
                                         rel="external noopener noreferrer nofollow" class="d-block bold"
                                         target="_blank">
-                                        Sayta keçid
+                                        {{userInfo?.website}}
                                         <sup><i aria-hidden="true" class="icon-external-link ml-10"></i></sup>
+                                        
                                     </a>
                                 </td>
                             </tr>

@@ -77,7 +77,6 @@
         </div>
 
         <div class="row as-10">
-
             <div class="col as-12 lg-8">
                 <h4 class="h5 bold">Haqqında</h4>
 
@@ -165,7 +164,6 @@
     </div>
 
     <div class="account-body bg-white shadow-big p-40">
-
         <div class="pb-20 mb-40 border-bottom clear">
             <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Hesab parametrləri</h3>
 

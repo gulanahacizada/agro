@@ -53,7 +53,7 @@
                         </span>
                     </td>
                     <td class="text-right">
-                        <a 
+                        <a [routerLink]="[ 'details', product.id ]"
                            aria-label="Ətraflı məlumat"
                            title="Ətraflı məlumat" data-toggle="tooltip"
                            class="btn xs circle border-0 shadow-big text-green">
@@ -62,7 +62,6 @@
                     </td>
                     <td class="text-right">
                         <a [routerLink]="[ 'edit', product.id ]"
-
                            aria-label="Redaktə et"
                            title="Redaktə et" data-toggle="tooltip"
                            class="btn bg-blue xs circle border-0 shadow-big">
@@ -74,7 +73,7 @@
             </table>
         </div>
 
-        <nav class="pagination-nav" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <!-- <nav class="pagination-nav" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
             <ul class="page-numbers m-0 p-0" role="menubar">
                 <li role="presentation" class="first float-left hide-xs">
                     <a href="#" role="button" rel="prev" class="btn tr-3s disabled legitRipple" title="Əvvəlki səhifə">
@@ -123,6 +122,6 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
 
     </div>
