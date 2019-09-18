@@ -100,59 +100,6 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  // onSelectProduct(event) {
-  //   this.getKindByCategory(event.value);
-  // }
-
-  // getKindByCategory(id) {
-  //   const params = {
-  //     category_id: id
-  //   };
-  //   this.productService.getKinByCategory(params).subscribe((response: Response) => {
-  //     this.kinds = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
-
-
-
-
-  // getAllUnits() {
-  //   this.productService.getUnits().subscribe((response: Response) => {
-  //     this.units = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
-
-  // clean(obj) {
-  //   for (const propName in obj) {
-  //     if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "") {
-  //       delete obj[propName];
-  //     }
-  //   }
-  // }
-
-  // getAllPackege() {
-  //   this.productService.getPackege().subscribe((response: Response) => {
-  //     this.packages = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
-
-  // getAllKalibry() {
-  //   this.productService.getKalibry().subscribe((response: Response) => {
-  //     this.kalibry = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
-
-  // getAllQuality() {
-  //   this.productService.getQuality().subscribe((response: Response) => {
-  //     this.quality = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
-
   getAllCategory() {
     this.productService.getCategory().subscribe((response: Response) => {
       this.category = response.responseContent;
@@ -218,10 +165,7 @@ export class AddProductComponent implements OnInit {
       value: r.id
     }));
   }
-  // onSelectCategory(event) {
-  //     this.products = event.value.subCategories;
-  //     this.onChangeLanguage('az', 1);
-  // }
+
   onSelectProduct(event) {
     this.getKindByCategory(event.value);
   }

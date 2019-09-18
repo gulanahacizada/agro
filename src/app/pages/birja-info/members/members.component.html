@@ -31,7 +31,35 @@
 
     <div class="row as-15 sm-5 xs-5">
 
-        <div class="col xl-3 lg-4 md-6 sm-6 xs-6 mb-30">
+        <div *ngFor="let member of membersList; trackBy:member?.id" class="col xl-3 lg-4 md-6 sm-6 xs-6 mb-30">
+            <div class="item bg-white shadow-big h-100p">
+                <a title="Company name" class="d-block">
+                    <div class="thumb contain responsive pb-in-60 border-bottom">
+                        <img src="assets/images/vita1000.jpg" alt="Company name" width height class="p-5">
+                    </div>
+                    <div class="p-15 pb-10 text-center text-uppercase">
+
+                        <span style="display: block" class="title font-16 text-main bold line-clamp line-1"> {{member?.name}} </span>
+
+                        <!-- <small class="type text-gray mt-3">Lorem ipsum dolor sit amet</small> -->
+
+                        <!-- <div class="border-top pt-10 mt-10 text-center">
+                            <a href="#" title="Facebook" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-fb border-0 shadow-big ml-2 mr-2">
+                                <i aria-hidden="true" class="icon-social-facebook v-align-middle"></i>
+                            </a>
+                            <a href="#" title="Twitter" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-tw border-0 shadow-big ml-2 mr-2">
+                                <i aria-hidden="true" class="icon-social-twitter v-align-middle"></i>
+                            </a>
+                            <a href="#" title="Linkedin" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-ln border-0 shadow-big ml-2 mr-2">
+                                <i aria-hidden="true" class="icon-social-linkedin v-align-middle"></i>
+                            </a>
+                        </div> -->
+
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- <div class="col xl-3 lg-4 md-6 sm-6 xs-6 mb-30">
             <div class="item bg-white shadow-big h-100p">
                 <a href="account.php" title="Company name" class="d-block">
                     <div class="thumb contain responsive pb-in-60 border-bottom">
@@ -310,67 +338,11 @@
                     </div>
                 </a>
             </div>
-        </div>
-        <div class="col xl-3 lg-4 md-6 sm-6 xs-6 mb-30">
-            <div class="item bg-white shadow-big h-100p">
-                <a href="account.php" title="Company name" class="d-block">
-                    <div class="thumb contain responsive pb-in-60 border-bottom">
-                        <img src="assets/images/vita1000.jpg" alt="Company name" width height class="p-5">
-                    </div>
-                    <div class="p-15 pb-10 text-center text-uppercase">
-
-                        <span class="title font-16 text-main bold line-clamp line-1">Company name</span>
-
-                        <small class="type text-gray mt-3">Lorem ipsum dolor sit amet</small>
-
-                        <div class="border-top pt-10 mt-10 text-center">
-                            <a href="#" title="Facebook" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-fb border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-facebook v-align-middle"></i>
-                            </a>
-                            <a href="#" title="Twitter" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-tw border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-twitter v-align-middle"></i>
-                            </a>
-                            <a href="#" title="Linkedin" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-ln border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-linkedin v-align-middle"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col xl-3 lg-4 md-6 sm-6 xs-6 mb-30">
-            <div class="item bg-white shadow-big h-100p">
-                <a href="account.php" title="Company name" class="d-block">
-                    <div class="thumb contain responsive pb-in-60 border-bottom">
-                        <img src="assets/images/vita1000.jpg" alt="Company name" width height class="p-5">
-                    </div>
-                    <div class="p-15 pb-10 text-center text-uppercase">
-
-                        <span class="title font-16 text-main bold line-clamp line-1">Company name</span>
-
-                        <small class="type text-gray mt-3">Lorem ipsum dolor sit amet</small>
-
-                        <div class="border-top pt-10 mt-10 text-center">
-                            <a href="#" title="Facebook" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-fb border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-facebook v-align-middle"></i>
-                            </a>
-                            <a href="#" title="Twitter" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-tw border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-twitter v-align-middle"></i>
-                            </a>
-                            <a href="#" title="Linkedin" rel="external noopener noreferrer" data-toggle="tooltip" class="social-link btn xs circle bg-ln border-0 shadow-big ml-2 mr-2">
-                                <i aria-hidden="true" class="icon-social-linkedin v-align-middle"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </a>
-            </div>
-        </div>
+        </div> -->
 
     </div>
 
-    <nav class="pagination-nav bg-white p-15 shadow-big" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <!-- <nav class="pagination-nav bg-white p-15 shadow-big" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <ul class="page-numbers m-0 p-0" role="menubar">
             <li role="presentation" class="first float-left hide-xs">
                 <a href="#" role="button" rel="prev" class="btn tr-3s disabled legitRipple" title="Əvvəlki səhifə">
@@ -419,6 +391,6 @@
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
 </div>

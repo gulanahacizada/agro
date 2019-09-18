@@ -27,6 +27,8 @@ export class AppService extends HttpsService {
   public GET_KIND_BY_CATEGORY = 'kinds/category';
   public GET_USER_INFO = 'auth/me';
   public USER_UPDATE = 'user/update';
+  public USER_SELLERS = 'user/sellers';
+  public GET_ALL_USER = 'user';
 
   constructor(public http: HttpClient) {
     super();
@@ -51,6 +53,10 @@ export class AppService extends HttpsService {
 
   public metals( params: any = {}): Observable<any> {
     return this.getTv(this.http, this.METALS, params);
+  }
+
+  public sellerUsers( params: any = {}): Observable<any> {
+    return this.get(this.http, this.USER_SELLERS, params);
   }
 
 

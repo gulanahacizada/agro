@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppService } from 'src/app/services/app/app.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BirjaService {
+export class BirjaService  extends AppService {
 
-  constructor() { }
+  constructor(public http: HttpClient) {
+    super(http);
+  }
 }
