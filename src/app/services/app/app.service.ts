@@ -30,9 +30,10 @@ export class AppService extends HttpsService {
   public USER_SELLERS = 'user/sellers';
   public GET_ALL_USER = 'user';
 
+
+
   constructor(public http: HttpClient) {
     super();
-
   }
 
   public login(params: any = {}): Observable<any> {
@@ -64,4 +65,6 @@ export class AppService extends HttpsService {
   public trackByFn(index, item) {
     return index; // or item.id
   }
+
+
 }

@@ -86,6 +86,7 @@ export class AppComponent implements OnInit {
       this.appService.login(data).subscribe(response => {
         localStorage.setItem('acc_jwt', response.responseContent.access_token);
         localStorage.setItem('isCompany', response.responseContent.user.is_company);
+        localStorage.setItem('selfID', response.responseContent.user.id);
         this.router.navigate(['dashboard']);
         console.log(response);
         $('.login-modal').removeClass('open');

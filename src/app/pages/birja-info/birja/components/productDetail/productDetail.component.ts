@@ -4,6 +4,7 @@ import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from 'src/app/pages/user-profile/products/services/products.service';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'app-productDetail',
   templateUrl: './productDetail.component.html',
   styleUrls: ['./productDetail.component.scss']
