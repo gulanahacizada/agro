@@ -2,16 +2,27 @@
 
 body, html {
   letter-spacing: .5px;
+  overflow-x: hidden;
 }
 
 :root {
 
+  @media (min-width: $xl) {
+    --container-width: 960px
+  }
+
   @media (min-width: $lg-min) {
     --header-height: 100px;
+    --container-width: 960px
   }
 
   @media (max-width: $md-max) {
     --header-height: 60px;
+    --container-width: 750px
+  }
+
+  @media (max-width: $sm-max) {
+    --container-width: 750px
   }
 
   --header-height-half: calc(var(--header-height) / 2);
@@ -637,6 +648,112 @@ body, html {
 
 /*====================================================================================================================*/
 /*====================================================================================================================*/
+/*====================================================================================================================*/
+/* Main Footer */
+/*====================================================================================================================*/
+
+.main-footer {
+  background-color: #333;
+
+  .container{
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6em;
+}
+
+.footer-title {
+  padding: 0 0 15px
+}
+
+.footer-menu a {
+  display: block;
+  padding: 5px 0;
+  color: #ccc
+}
+
+.footer-contact-info a, .footer-menu a:hover {
+  color: #fff
+}
+
+.footer-contact-info small {
+  margin-bottom: 3px;
+  color: #ccc
+}
+
+.social-links a {
+  font-size: 16px;
+  color: #fff
+}
+
+.copyright {
+  height: 65px
+}
+
+.copyright:after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: calc((100vw - var(--container-width)) / 2);
+  background-color: #000
+}
+
+.back-top {
+  top: 0;
+  cursor: pointer;
+  display: block;
+  width: 80px;
+  text-align: center;
+  line-height: 65px;
+  height: 65px;
+  font-size: 20px
+}
+
+@media (min-width: 992px) {
+  .footer-description {
+    padding-right: 60px
+  }
+  .main-footer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc(50vw + 1200px / 4 - 170px);
+    width: 50%;
+    background-color: $main
+  }
+}
+
+@media (max-width: 992px) {
+  .f-bg-p {
+    width: 70%
+  }
+  .footer-title {
+    padding: 0 0 10px;
+    font-size: 20px
+  }
+}
+
+@media (max-width: $xs) {
+  .copyright .d-cell:nth-child(2){
+    > span{
+      display: block;
+      float: none !important;
+      text-align: left;
+      margin: 5px 10px;
+    }
+  }
+  .back-top {
+    line-height: 80px;
+    height: 80px;
+  }
+}
 
 /*====================================================================================================================*/
 /* Custom Width */

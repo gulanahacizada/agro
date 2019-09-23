@@ -1,7 +1,5 @@
 <!-- <h1> {{'HeaderComponent.birja' | translate}} </h1>
 <h1> {{'HeaderComponent.members' | translate}} </h1> -->
-
-
 <header class="main-header" aria-label="agrobirja.az" itemscope itemtype="https://schema.org/WPHeader">
     <div class="container xl-15 lg-15 clear">
 
@@ -364,12 +362,12 @@
                                 <div class="d-cell v-align-middle">
                                     <i aria-hidden="true" class="icon-oil-pump i1"></i>
                                 </div>
-    
+
                                 <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
                                     <b class="d-block text-main">Neft</b>
                                     <small class="text-gray line-clamp line-1 mt-2">1 Barel</small>
                                 </div>
-    
+
                                 <div class="d-cell text-center">
                                     <span class="d-block bold no-wrap">
                                         110
@@ -379,18 +377,18 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="item d-table" title="1 Litr Benzin (Aİ-92): 0.90 manat">
                             <div class="d-row">
                                 <div class="d-cell v-align-middle">
                                     <i aria-hidden="true" class="icon-gas-station i1"></i>
                                 </div>
-    
+
                                 <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
                                     <b class="d-block text-main">Benzin (Aİ-92)</b>
                                     <small class="text-gray line-clamp line-1 mt-2">1 Litr</small>
                                 </div>
-    
+
                                 <div class="d-cell text-center">
                                     <span class="d-block bold no-wrap">
                                         0.90
@@ -400,18 +398,18 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="item d-table" title="1 Litr Dizel: 0.60 manat">
                             <div class="d-row">
                                 <div class="d-cell v-align-middle">
                                     <i aria-hidden="true" class="icon-gas-station i1"></i>
                                 </div>
-    
+
                                 <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
                                     <b class="d-block text-main">Dizel</b>
                                     <small class="text-gray line-clamp line-1 mt-2">1 Litr</small>
                                 </div>
-    
+
                                 <div class="d-cell text-center">
                                     <span class="d-block bold no-wrap">
                                         0.60
@@ -422,7 +420,7 @@
                             </div>
                         </div>
                 </owl-carousel>
-              
+
             </div>
         </div>
     </div>
@@ -431,6 +429,7 @@
 <div class="main-container">
     <router-outlet></router-outlet>
 </div>
+
 <footer class="main-footer relative" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
     <div class="container as-15 pt-60 relative z-index-1">
         <div class="row as-15">
@@ -683,14 +682,14 @@
                 <form [formGroup]="customerRegister" (ngSubmit)="registerCustomer()">
                     <div class="row as-10 justify-content-center">
                         <div class="col as-6 xs-12 mb-20">
-                            <label for="fr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+                            <label for="fr-full-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
                             <input type="text" formControlName="name" id="fr-full-name"
                                 class="input border-0 radius-20 shadow-big" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="fr-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
-                            <input type="text" formControlName="username" class="input border-0 radius-20 shadow-big" />
+                            <input type="text" id="fr-name" formControlName="username" class="input border-0 radius-20 shadow-big" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
@@ -707,14 +706,14 @@
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="fr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
-                            <input type="password" formControlName="password" id="u-pass"
+                            <input type="password" formControlName="password" id="fr-pass"
                                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="fr-pass-again" class="pl-10">Şifrənin təkrarı <sup
                                     class="text-red">*</sup></label>
-                            <input type="password" id="u-pass-again" formControlName="confirmPassword"
+                            <input type="password" id="fr-pass-again" formControlName="confirmPassword"
                                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
                         </div>
 
@@ -749,7 +748,7 @@
                     <div class="row as-10 justify-content-center">
                         <div class="col as-6 xs-12 mb-20">
                             <label for="hr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
-                            <input type="text" formControlName='name' class="input border-0 radius-20 shadow-big" />
+                            <input type="text" id="hr-name" formControlName='name' class="input border-0 radius-20 shadow-big" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
@@ -759,7 +758,7 @@
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="hr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
-                            <input type="email" formControlName='email' class="input border-0 radius-20 shadow-big" />
+                            <input type="email" id="hr-email" formControlName='email' class="input border-0 radius-20 shadow-big" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
@@ -770,14 +769,14 @@
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="hr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
-                            <input type="password" formControlName='password'
+                            <input type="password" id="hr-pass" formControlName='password'
                                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
                         </div>
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="hr-pass-again" class="pl-10">Şifrənin təkrarı <sup
                                     class="text-red">*</sup></label>
-                            <input type="password" formControlName='confirmPassword'
+                            <input type="password" id="hr-pass-again" formControlName='confirmPassword'
                                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
                         </div>
 
