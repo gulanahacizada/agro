@@ -150,39 +150,39 @@ $(document).ready(function () {
     // Tab
     /*================================================================================================================*/
 
-    // $('[data-target-tab]').each(function () {
+    $('[data-target-tab]').each(function () {
 
-    //     const $this = $(this);
-    //     const $target = $this.data('target-tab');
+        const $this = $(this);
+        const $target = $this.data('target-tab');
 
-    //     if ($this.data('trigger')) {
-    //         $this.hover(function () {
-    //             tab();
-    //         });
-    //     }
-    //     else {
-    //         $this.click(function () {
-    //             tab();
-    //         });
-    //     }
+        if ($this.data('trigger')) {
+            $this.hover(function () {
+                tab();
+            });
+        }
+        else {
+            $this.click(function () {
+                tab();
+            });
+        }
 
-    //     function tab() {
+        function tab() {
 
-    //         var $targetTab = $('[data-target-tab="' + $target + '"]');
-    //         var $tab = $('[data-tab="' + $target + '"]');
+            var $targetTab = $('[data-target-tab="' + $target + '"]');
+            var $tab = $('[data-tab="' + $target + '"]');
 
-    //         $targetTab.attr('aria-expanded', true)
-    //             .attr('aria-selected', true)
-    //             .parent('li').addClass('active')
-    //             .siblings().removeClass('active')
-    //             .find('[data-target-tab]')
-    //             .attr('aria-selected', false)
-    //             .attr('aria-expanded', false);
+            $targetTab.attr('aria-expanded', true)
+                .attr('aria-selected', true)
+                .parent('li').addClass('active')
+                .siblings().removeClass('active')
+                .find('[data-target-tab]')
+                .attr('aria-selected', false)
+                .attr('aria-expanded', false);
 
-    //         $tab.addClass('active').siblings('.tab-panel').removeClass('active')
-    //     }
+            $tab.addClass('active').siblings('.tab-panel').removeClass('active')
+        }
 
-    // });
+    });
 
     /*================================================================================================================*/
     // Rating stars
