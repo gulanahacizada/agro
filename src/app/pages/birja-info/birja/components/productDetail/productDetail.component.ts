@@ -21,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   totalPrice: any;
   sellPrice: any;
   count: any;
+  myProduct: boolean;
 
   constructor(
     private productService: ProductsService,
@@ -34,12 +35,17 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.getProdById();
     this.createProposalForm();
+    // this.myProducts();
   }
 
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
-      console.log(this.productResponse);
+      if (this.productResponse.user.id == this.selfID) {
+        this.myProduct = true;
+        console.log(this.myProduct);
+      }
+     
     });
   }
 
@@ -73,6 +79,7 @@ export class ProductDetailComponent implements OnInit {
     this.calculateTotalPrice(this.count, this.sellPrice);
   }
 
+
   onSellPriceChange(event) {
     this.sellPrice = event.target.value;
     this.calculateTotalPrice(this.proposalForm.value.size, event.target.value);
@@ -88,6 +95,12 @@ export class ProductDetailComponent implements OnInit {
       });
     }
   }
+
+  // myProducts() {
+  //   if (this.productResponse.user.id == this.selfID) {
+  //     console.log('my');
+  //   }
+  // }
 
 
 }
