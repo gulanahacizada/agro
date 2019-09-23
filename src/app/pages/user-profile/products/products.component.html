@@ -27,7 +27,7 @@
                 </thead>
                 <tbody class="no-wrap">
                 
-                <tr *ngFor="let product of productList; let i=index; trackBy:product?.id ">
+                <tr *ngFor="let product of productList; let i=index; ">
 
                     <td> {{i +1}} </td>
                     <td> {{product?.name[0].name_az}}</td>

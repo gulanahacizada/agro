@@ -29,6 +29,7 @@ export class AppService extends HttpsService {
   public USER_UPDATE = 'user/update';
   public USER_SELLERS = 'user/sellers';
   public GET_ALL_USER = 'user';
+  public CREATEDIALOG = 'dialog/createdialog';
 
 
 
@@ -59,8 +60,6 @@ export class AppService extends HttpsService {
   public sellerUsers( params: any = {}): Observable<any> {
     return this.get(this.http, this.USER_SELLERS, params);
   }
-
-
 
   public trackByFn(index, item) {
     return index; // or item.id

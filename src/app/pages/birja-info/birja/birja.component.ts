@@ -7,6 +7,7 @@ import { Category } from 'src/app/interfaces/category';
 import { AppService } from 'src/app/services/app/app.service';
 import { Kinds } from 'src/app/interfaces/kinds';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BirjaService } from './services/birja.service';
 
 @Component({
   selector: 'app-birja',
@@ -31,7 +32,8 @@ export class BirjaComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private appService: AppService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public birjaService: BirjaService
   ) { }
 
   ngOnInit() {
@@ -118,9 +120,9 @@ export class BirjaComponent implements OnInit {
     });
   }
 
-  selectProduct(id: any) {
+  // selectProduct(id: any) {
     
-  }
+  // }
 
 
 

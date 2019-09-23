@@ -52,6 +52,10 @@ public getProdById( params: any = {}): Observable<any> {
   return this.get(this.http, this.PRODUCT + '/' + params);
 }
 
+public createDialog(params: any = {}): Observable<any> {
+  return this.post(this.http, this.CREATEDIALOG, params);
+}
+
 
 createProduct(  product: any, file: File): Observable<HttpEvent<any>> {
   const url = 'http://test.agrobirja.az/api/v1/product';

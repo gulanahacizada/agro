@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './services/app/app.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
   loginForm: FormGroup;
   companyRegister: FormGroup;
   customerRegister: FormGroup;
-  jwtHelper: any;
+  jwtHelper = new JwtHelperService();
   myCarouselImages: any;
   currencyResponse: any;
   metalResponse: any;
@@ -130,7 +131,7 @@ export class AppComponent implements OnInit {
 
   loggedIn() {
     const token = localStorage.getItem('acc_jwt');
-    return !token;
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
   useLanguage(language: string) {

@@ -42,7 +42,6 @@ getAllProduct() {
   this.productService.getAllProducts().subscribe( (response: Response) => {
       this.productList = response.responseContent.data;
       console.log(this.productList);
-      
   });
 }
 

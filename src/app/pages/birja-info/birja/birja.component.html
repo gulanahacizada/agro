@@ -92,7 +92,7 @@
 
                 <tbody class="no-wrap">
 
-                    <tr *ngFor="let product of productList; let i=index; trackBy:product?.id">
+                    <tr *ngFor="let product of productList; let i=index; trackBy:birjaService.trackByFn">
 
                         <td class="pr-0">
                             <div *ngIf="product?.images.url" class="thumb responsive pb-in-100 radius-50p w-30 border">

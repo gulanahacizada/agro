@@ -8,11 +8,11 @@ import { Response } from 'src/app/interfaces/response';
   styleUrls: ['./members.component.scss']
 })
 export class MembersComponent implements OnInit {
-
+  
   membersList: any;
 
   constructor(
-   private memberService: MembersService
+   public memberService: MembersService
   ) { }
 
   ngOnInit() {

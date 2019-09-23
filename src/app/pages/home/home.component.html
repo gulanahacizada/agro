@@ -20,7 +20,7 @@
 
         <tbody class="no-wrap">
 
-          <tr *ngFor="let product of productList; let i=index; trackBy:product?.id">
+          <tr *ngFor="let product of productList; let i=index;">
 
             <td class="pr-0" >
               <div *ngIf="product?.images.url" class="thumb responsive pb-in-100 radius-50p w-30 border">
@@ -55,7 +55,7 @@
             </td>
 
             <td class="text-right">
-              <a href="product.php" aria-label="Ətraflı məlumat" title="Ətraflı məlumat" data-toggle="tooltip"
+              <a  [routerLink]="[ '/birja/details', product?.id ]"  aria-label="Ətraflı məlumat" title="Ətraflı məlumat" data-toggle="tooltip"
                 class="btn xs circle border-0 shadow-big text-green">
                 <i aria-hidden="true" class="icon-eye v-align-middle"></i>
               </a>
@@ -395,24 +395,25 @@
     <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   </div>
 
-  <owl-carousel [options]="newOwlOptions" [items]="allNews"
-    [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
-    <div class="item news-item bg-white" *ngFor="let the_new of allNews">
-      <a [routerLink]="[ '/path', the_new.id ]" title="{{the_new.descr}}" class="d-block clear">
-        <div class="thumb hover scale responsive pb-in-65">
-          <img [src]="'https://agrotv.az' + the_new.news_picture" alt="title" width="" height="">
-        </div>
-        <div class="info tr-3s border-top">
+  <owl-carousel [options]="newOwlOptions"
+                [items]="allNews"
+                [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
+      <div class="item news-item bg-white" *ngFor="let the_new of allNews">
+        <a [routerLink]="[ '/path', the_new.id ]" title="{{the_new.descr}}" class="d-block clear">
+          <div class="thumb hover scale responsive pb-in-65">
+            <img [src]="'https://agrotv.az' + the_new.news_picture" alt="title" width="" height="">
+          </div>
+          <div class="info tr-3s border-top">
 
-          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{the_new.descr}} </span>
+            <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{the_new.descr}} </span>
 
-          <span class="date-time text-gray light">
-            <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-            {{the_new.created_at |  date}}
-          </span>
-        </div>
-      </a>
-    </div>
+            <span class="date-time text-gray light">
+              <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
+              {{the_new.created_at |  date}}
+            </span>
+          </div>
+        </a>
+      </div>
   </owl-carousel>
 
 </div>

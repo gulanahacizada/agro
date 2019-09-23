@@ -28,22 +28,22 @@
                     <span class="ml-10 hide-lg hide-md hide-sm hide-xs">Canlı dəstək</span>
                 </span>
 
-                <span  [hidden]="!loggedIn()" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login" >
+                <span  [hidden]="loggedIn()" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5" data-target-modal="login" >
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
                 </span>
 
-                <span  [hidden]="!loggedIn()" class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
+                <span  [hidden]="loggedIn()" class="btn bg-special light-ripple border-0 radius-20 shadow-big" data-target-modal="registration" data-target-tab="reg-types">
                     <i aria-hidden="true" class="icon-user-plus"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
                 </span>
 
-                <a  [hidden]="loggedIn()" [routerLink]="['/dashboard']"  title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
+                <a  [hidden]="!loggedIn()" [routerLink]="['/dashboard']"  title="Şəxsi kabinet" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
                     <i aria-hidden="true" class="icon-user"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Şəxsi kabinet</span>
                 </a>
 
-                <a  [hidden]="loggedIn()"  (click)='logOut()' title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big">
+                <a  [hidden]="!loggedIn()"  (click)='logOut()' title="Çıxış" class="btn bg-white light-ripple border-0 radius-20 shadow-big">
                     <i aria-hidden="true" class="icon-power"></i>
                     <span class="ml-10 hide-md hide-sm hide-xs">Çıxış</span>
                 </a>
