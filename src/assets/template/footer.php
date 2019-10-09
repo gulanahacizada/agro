@@ -492,6 +492,59 @@
 
 </div>
 
+<div class="modal offers-reply-modal"
+     data-modal="offers-reply"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1"
+     aria-label="Login Modal">
+
+    <div class="modal-content panel">
+
+        <span role="button" class="close fixed-close icon-close" data-close="offers-reply" aria-label="Bağla"></span>
+
+        <div class="panel-header bg-white">
+            <span class="panel-title bold text-main">Cavab ver</span>
+        </div>
+
+        <div class="panel-body p-20">
+            <form action="" class="row as-10">
+                <div class="col as-4 xs-12 mb-20">
+                    <label for="offer-amount">Tələb olunan miqdarı</label>
+                    <div class="input-group radius-20 shadow-big">
+                        <input type="number" id="offer-amount" class="input border-0 radius-20 shadow-big" placeholder="0" value="100" max="100">
+                        <span class="input-group-addon border-0">Ton</span>
+                    </div>
+                </div>
+                <div class="col as-4 xs-12 mb-20">
+                    <label for="offer-price">Təklif edilən qiymət</label>
+                    <div class="input-group radius-20 shadow-big">
+                        <input type="number" id="offer-price" class="input border-0 radius-20 shadow-big" placeholder="0">
+                        <span class="input-group-addon border-0">AZN / ton</span>
+                    </div>
+                </div>
+                <div class="col as-4 xs-12 mb-20">
+                    <label>Ümumi qiymət</label>
+                    <div class="input-group radius-20 shadow-big">
+                        <input type="number" class="input border-0 radius-20 shadow-big" value="22.500" placeholder="0.00" readonly>
+                        <span class="input-group-addon border-0">AZN</span>
+                    </div>
+                </div>
+                <div class="col as-12 mb-20">
+                    <label for="offer-note">Əlavə qeyd</label>
+                    <textarea id="offer-note" class="input no-resize border-0 radius-20 shadow-big" cols="30" rows="4" placeholder="Qeyd yazın"></textarea>
+                </div>
+                <div class="col as-12">
+                    <button class="btn bg-special border-0 radius-20 shadow-big">Təklifi göndər</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
 <div class="overlay tr-3s" role="presentation"></div>
 
 <!-- Scripts -->
