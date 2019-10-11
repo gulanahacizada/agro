@@ -47,12 +47,20 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
         this.userInfo = response.responseContent;
         this.phones = this.userInfo.contacts.filter(e => e.type == 0);
         this.emails = this.userInfo.contacts.filter(e => e.type == 1);
+        this.resetData();
         this.emails.forEach(el => {
           this.email.push(this.createEmailFormData(el));
         });
         this.phones.forEach(el => {
           this.phone.push(this.createPhoneFormData(el));
         });
+        if (this.updateUserForm.value.email == 0) {
+            this.email.push(this.createEmailArray());
+        }
+
+        if (this.updateUserForm.value.phone == 0) {
+            this.phone.push(this.createPhonelArray());
+        }
         this.updateUserForm.patchValue({
             bank_account: this.userInfo.bank_account,
             description: this.userInfo.description,
@@ -62,7 +70,7 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
             role: this.userInfo.role,
             is_company: this.userInfo.is_company,
         });
-        // console.log(this.updateUserForm.value);
+        console.log(this.updateUserForm.value);
 
     });
   }
@@ -79,17 +87,17 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
       email:        this.fb.array([this.createEmailArray()]),
       phone:        this.fb.array([this.createPhonelArray()])
     });
-    if (this.updateUserForm.value.email.length < 0) {
-      this.email.push(this.createEmailArray());
-    } else {
-      this.resetData();
-    }
+    // if (this.updateUserForm.value.email.length < 0) {
+    //   this.email.push(this.createEmailArray());
+    // } else {
+    //   this.resetData();
+    // }
 
-    if (this.updateUserForm.value.phone.length < 0) {
-      this.phone.push(this.createPhonelArray());
-    } else {
-      this.resetData();
-    }
+    // if (this.updateUserForm.value.phone.length < 0) {
+    //   this.phone.push(this.createPhonelArray());
+    // } else {
+    //   this.resetData();
+    // }
   }
 
   submitForm() {

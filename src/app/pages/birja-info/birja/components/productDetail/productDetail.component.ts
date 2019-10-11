@@ -44,8 +44,8 @@ export class ProductDetailComponent implements OnInit {
       if (this.productResponse.user.id == this.selfID) {
         this.myProduct = true;
         console.log(this.myProduct);
+        
       }
-     
     });
   }
 

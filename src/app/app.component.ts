@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
+import { Response } from './interfaces/response';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
   myCarouselImages: any;
   currencyResponse: any;
   metalResponse: any;
+  responseMessage: any;
 
   constructor(
     private appService: AppService,
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang('az');
+    // this.flag = true;
     this.myCarouselImages = [1, 2, 3, 4, 5, 6].map((i) => `https://picsum.photos/640/480?image=${i}`);
     // this.translate.use('az');
 
@@ -45,8 +48,13 @@ export class AppComponent implements OnInit {
   createLoginForm() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      // navigatorUrl: ['home']
     });
+  }
+
+  onSelectType(event) {
+    console.log(event);
   }
 
   createCompanyForm() {
@@ -57,8 +65,9 @@ export class AppComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       is_company: [1],
       role: [3, Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['']
+      email: [''],
+      phone: [''],
+      confirmType: ['', Validators.required]
     },
       { validator: this.passwordMatchValidator });
   }
@@ -74,8 +83,9 @@ export class AppComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       is_company: [0],
       role: [1, Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['']
+      email: [''],
+      phone: [''],
+      confirmType: ['', Validators.required]
     },
       { validator: this.passwordMatchValidator });
   }
@@ -84,14 +94,21 @@ export class AppComponent implements OnInit {
     if (this.loginForm.valid) {
       const data = Object.assign({}, this.loginForm.value);
       console.log(data);
-      this.appService.login(data).subscribe(response => {
-        localStorage.setItem('acc_jwt', response.responseContent.access_token);
-        localStorage.setItem('isCompany', response.responseContent.user.is_company);
-        localStorage.setItem('selfID', response.responseContent.user.id);
-        this.router.navigate(['dashboard']);
-        console.log(response);
-        $('.login-modal').removeClass('open');
-        $('body').removeClass('o-hidden');
+      this.appService.login(data).subscribe((response: Response) => {
+        if (response.responseCode == 1) {
+          localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          localStorage.setItem('isCompany', response.responseContent.is_company);
+          localStorage.setItem('selfID', response.responseContent.id);
+          this.router.navigate(['dashboard']);
+          console.log(response);
+          $('.login-modal').removeClass('open');
+          $('body').removeClass('o-hidden');
+        }
+        if (response.responseCode == 2) {
+          // localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          // localStorage.setItem('selfID', response.responseContent.id);
+          console.log(response.responseContent);
+        }
       });
     }
   }
@@ -99,11 +116,17 @@ export class AppComponent implements OnInit {
   registerCompany() {
     if (this.companyRegister.valid) {
       const data = Object.assign({}, this.companyRegister.value);
-      this.appService.register(data).subscribe(response => {
-        localStorage.setItem('acc_jwt', response.access_token);
+      this.clean(data);
+      this.appService.register(data).subscribe((response: Response) => {
+        if (response.responseCode == 1) {
+          localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          $('.registration-modal').removeClass('open');
+          $('body').removeClass('o-hidden');
+        }
+        if (response.responseCode == 2) {
+          this.responseMessage = response.responseMessage;
+        }
         // this.router.navigate(['']);
-        $('.registration-modal').removeClass('open');
-        $('body').removeClass('o-hidden');
       }
       );
     }
@@ -112,13 +135,20 @@ export class AppComponent implements OnInit {
   registerCustomer() {
     if (this.customerRegister.valid) {
       const data = Object.assign({}, this.customerRegister.value);
-      this.appService.register(data).subscribe(response => {
-        localStorage.setItem('acc_jwt', response.access_token);
-        // this.rguouter.navigate(['']);
-        $('.registration-modal').removeClass('open');
-        $('body').removeClass('o-hidden');
-      }
-      );
+      this.clean(data);
+      console.log(data);
+      // this.appService.register(data).subscribe((response: Response) => {
+      //   if (response.responseCode == 1) {
+      //     localStorage.setItem('acc_jwt', response.responseContent.access_token);
+      //     $('.registration-modal').removeClass('open');
+      //     $('body').removeClass('o-hidden');
+      //   }
+      //   if (response.responseCode == 2) {
+      //     this.responseMessage = response.responseMessage;
+      //   }
+      //   // this.rguouter.navigate(['']);
+      // }
+      // );
     }
   }
 
@@ -150,7 +180,13 @@ export class AppComponent implements OnInit {
     });
   }
 
-
+  clean(obj) {
+    for (const propName in obj) {
+      if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
+        delete obj[propName];
+      }
+    }
+  }
 
 
 
