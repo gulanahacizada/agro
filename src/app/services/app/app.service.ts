@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpsService } from '../https/https.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
 
 @Injectable({
@@ -30,6 +30,7 @@ export class AppService extends HttpsService {
   public USER_SELLERS = 'user/sellers';
   public GET_ALL_USER = 'user';
   public CREATEDIALOG = 'dialog/createdialog';
+  public VERIFY_FOR_PHONE = 'user/contact/verify';
 
 
 
@@ -59,6 +60,24 @@ export class AppService extends HttpsService {
 
   public sellerUsers( params: any = {}): Observable<any> {
     return this.get(this.http, this.USER_SELLERS, params);
+  }
+
+  // public verifyPhone( params: any = {}): Observable<any> {
+  //   return this.post(this.http, this.VERIFY_FOR_PHONE, params);
+  // }
+
+
+  verifyPhone(data: any, token): Observable<HttpEvent<any>> {
+    const url = 'http://test.agrobirja.az/api/v1/user/contact/verify';
+
+    const params = new HttpParams();
+    const options = {
+      params: params,
+      reportProgress: true,
+      Authorization: `Bearer ${token}`
+    };
+    const req = new HttpRequest('POST', url, data, options);
+    return this.http.request(req);
   }
 
   public trackByFn(index, item) {

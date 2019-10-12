@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllNews();
-    this.makeCarouselOptions();
-    this.getAllProduct();
+    // this.getAllNews();
+    // this.makeCarouselOptions();
+    // this.getAllProduct();
   }
 
 

@@ -13,8 +13,11 @@ import { Response } from './interfaces/response';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  registerToken: any;
   title = 'Birja';
   loginForm: FormGroup;
+  verifyForm: FormGroup;
   companyRegister: FormGroup;
   customerRegister: FormGroup;
   jwtHelper = new JwtHelperService();
@@ -22,6 +25,8 @@ export class AppComponent implements OnInit {
   currencyResponse: any;
   metalResponse: any;
   responseMessage: any;
+  verifyPhone = false;
+  verifyEmail = false;
 
   constructor(
     private appService: AppService,
@@ -40,6 +45,7 @@ export class AppComponent implements OnInit {
     this.createLoginForm();
     this.createCompanyForm();
     this.createCustomerForm();
+    this.createVerifyForm();
     this.loggedIn();
     // this.getMetals();
     // this.getCurrency();
@@ -67,7 +73,7 @@ export class AppComponent implements OnInit {
       role: [3, Validators.required],
       email: [''],
       phone: [''],
-      confirmType: ['', Validators.required]
+      verify: ['', Validators.required]
     },
       { validator: this.passwordMatchValidator });
   }
@@ -85,7 +91,7 @@ export class AppComponent implements OnInit {
       role: [1, Validators.required],
       email: [''],
       phone: [''],
-      confirmType: ['', Validators.required]
+      verify: ['', Validators.required]
     },
       { validator: this.passwordMatchValidator });
   }
@@ -100,14 +106,25 @@ export class AppComponent implements OnInit {
           localStorage.setItem('isCompany', response.responseContent.is_company);
           localStorage.setItem('selfID', response.responseContent.id);
           this.router.navigate(['dashboard']);
-          console.log(response);
           $('.login-modal').removeClass('open');
           $('body').removeClass('o-hidden');
         }
         if (response.responseCode == 2) {
+          // message error
           // localStorage.setItem('acc_jwt', response.responseContent.access_token);
-          // localStorage.setItem('selfID', response.responseContent.id);
-          console.log(response.responseContent);
+        }
+        if (response.responseCode == 3) {
+          // message
+        }
+        if (response.responseCode == 10) {
+          this.registerToken = response.responseContent.access_token;
+          if (response.responseContent.type == 0) {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+          } else{
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
         }
       });
     }
@@ -118,15 +135,19 @@ export class AppComponent implements OnInit {
       const data = Object.assign({}, this.companyRegister.value);
       this.clean(data);
       this.appService.register(data).subscribe((response: Response) => {
-        if (response.responseCode == 1) {
-          localStorage.setItem('acc_jwt', response.responseContent.access_token);
-          $('.registration-modal').removeClass('open');
-          $('body').removeClass('o-hidden');
-        }
         if (response.responseCode == 2) {
           this.responseMessage = response.responseMessage;
         }
-        // this.router.navigate(['']);
+        if (response.responseCode == 10) {
+          this.registerToken = response.responseContent.access_token;
+          if (this.companyRegister.value.verify == 'phone') {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+          } else{
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
+        }
       }
       );
     }
@@ -137,18 +158,22 @@ export class AppComponent implements OnInit {
       const data = Object.assign({}, this.customerRegister.value);
       this.clean(data);
       console.log(data);
-      // this.appService.register(data).subscribe((response: Response) => {
-      //   if (response.responseCode == 1) {
-      //     localStorage.setItem('acc_jwt', response.responseContent.access_token);
-      //     $('.registration-modal').removeClass('open');
-      //     $('body').removeClass('o-hidden');
-      //   }
-      //   if (response.responseCode == 2) {
-      //     this.responseMessage = response.responseMessage;
-      //   }
-      //   // this.rguouter.navigate(['']);
-      // }
-      // );
+      this.appService.register(data).subscribe((response: Response) => {
+        if (response.responseCode == 2) {
+          this.responseMessage = response.responseMessage;
+        }
+        if (response.responseCode == 10) {
+          this.registerToken = response.responseContent.access_token;
+          if (this.companyRegister.value.verify == 'phone') {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+          } else{
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
+        }
+      }
+      );
     }
   }
 
@@ -189,6 +214,27 @@ export class AppComponent implements OnInit {
   }
 
 
+  createVerifyForm() {
+    this.verifyForm = this.fb.group({
+      code: ['', Validators.required]
+    });
+  }
+
+
+  onSubmit() {
+    if (this.verifyForm.valid) {
+      this.appService.verifyPhone(this.verifyForm.value, this.registerToken).subscribe((response: any) => {
+        // if (response.responseCode == 1) {
+        //   this.responseMessage = response.responseMessage;
+        // }
+      });
+    }
+  }
+
+  reset() {
+    this.verifyEmail = false;
+    this.verifyPhone = false;
+  }
 
 
 }
