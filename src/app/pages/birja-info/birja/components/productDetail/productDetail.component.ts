@@ -41,10 +41,10 @@ export class ProductDetailComponent implements OnInit {
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
+      console.log(this.productResponse);
       if (this.productResponse.user.id == this.selfID) {
         this.myProduct = true;
         console.log(this.myProduct);
-        
       }
     });
   }

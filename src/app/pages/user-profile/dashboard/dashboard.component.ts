@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   getUserInfo() {
     this.profileService.getUserInfo().subscribe((response: Response) => {
       this.userInfo = response.responseContent;
+      console.log(this.userInfo);
     });
   }
 

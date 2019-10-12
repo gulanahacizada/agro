@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
 
   getMyProduct() {
     this.productService.getMyProduct().subscribe((response: Response) => {
-          this.productList = response.responseContent;
+          this.productList = response.responseContent.data;
           console.log(this.productList);
     });
   }

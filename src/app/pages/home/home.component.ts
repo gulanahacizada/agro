@@ -9,7 +9,7 @@ import { Response } from 'src/app/interfaces/response';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // this.getAllNews();
     // this.makeCarouselOptions();
-    // this.getAllProduct();
+    this.getAllProduct();
   }
 
 

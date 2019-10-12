@@ -42,6 +42,7 @@ export class AddProductComponent implements OnInit {
   fileRaw: string;
   url: string;
   selectLang = 1;
+  selectUnit = '';
 
 
   constructor(
@@ -63,7 +64,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getUnits().subscribe((response: Response) => {
       this.units = response.responseContent;
       this.unitList = (this.units || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
     });
@@ -73,7 +74,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getPackege().subscribe((response: Response) => {
       this.packages = response.responseContent;
       this.packegeList = (this.packages || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
 
@@ -84,7 +85,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getKalibry().subscribe((response: Response) => {
       this.kalibry = response.responseContent;
       this.kalibryList = (this.kalibry || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
     });
@@ -94,7 +95,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getQuality().subscribe((response: Response) => {
       this.quality = response.responseContent;
       this.qualityList = (this.quality || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
     });
@@ -104,7 +105,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getCategory().subscribe((response: Response) => {
       this.category = response.responseContent;
       this.categoryList = (this.category || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r
       }));
     });
@@ -159,9 +160,9 @@ export class AddProductComponent implements OnInit {
 
 
   onSelectCategory(event) {
-    this.products = event.value.subCategories;
+    this.products = event.value.sub_categories;
     this.productList = (this.products || []).map((r: any) => ({
-      label: r[`name_${this.lang}`],
+      label: r.name,
       value: r.id
     }));
   }
@@ -176,8 +177,9 @@ export class AddProductComponent implements OnInit {
     };
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
       this.kinds = response.responseContent;
+      console.log(this.kinds);
       this.kindList = (this.kinds || []).map((r: any) => ({
-        label: r[`name_${this.lang}`],
+        label: r.name_az,
         value: r.id
       }));
     });
@@ -216,6 +218,10 @@ export class AddProductComponent implements OnInit {
 
       // };
     }
+  }
+
+  onUnitSelect(event) {
+    this.selectUnit = event.originalEvent.target.textContent;
   }
   // deletePhoto() {
   //   this.fileRaw = null;

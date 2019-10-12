@@ -35,10 +35,10 @@ export class AppComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang('az');
-    // this.flag = true;
+    if (!localStorage.getItem('lang')) {
+      localStorage.setItem('lang', 'az');
+    }
     this.myCarouselImages = [1, 2, 3, 4, 5, 6].map((i) => `https://picsum.photos/640/480?image=${i}`);
-    // this.translate.use('az');
-
   }
 
   ngOnInit() {
@@ -103,11 +103,12 @@ export class AppComponent implements OnInit {
       this.appService.login(data).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           localStorage.setItem('acc_jwt', response.responseContent.access_token);
-          localStorage.setItem('isCompany', response.responseContent.is_company);
-          localStorage.setItem('selfID', response.responseContent.id);
+          localStorage.setItem('isCompany', response.responseContent.user.is_company);
+          localStorage.setItem('selfID', response.responseContent.user.id);
           this.router.navigate(['dashboard']);
           $('.login-modal').removeClass('open');
           $('body').removeClass('o-hidden');
+          console.log(response.responseContent);
         }
         if (response.responseCode == 2) {
           // message error
@@ -191,6 +192,8 @@ export class AppComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
+    localStorage.setItem('lang' , language);
+    window.location.reload();
   }
 
   getCurrency() {

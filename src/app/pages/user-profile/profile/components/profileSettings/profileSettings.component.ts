@@ -63,7 +63,9 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
         }
         this.updateUserForm.patchValue({
             bank_account: this.userInfo.bank_account,
-            description: this.userInfo.description,
+            description_az: this.userInfo.description_az,
+            description_ru: this.userInfo.description_ru,
+            description_en: this.userInfo.description_en,
             name: this.userInfo.name,
             voen: this.userInfo.voen,
             website: this.userInfo.website,
@@ -71,14 +73,16 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
             is_company: this.userInfo.is_company,
         });
         console.log(this.updateUserForm.value);
-
+        const text = this.userInfo.description_az;
     });
   }
 
   createUserForm() {
     this.updateUserForm = this.fb.group({
       bank_account: [''],
-      description:  [''],
+      description_az:  [''],
+      description_ru:  [''],
+      description_en:  [''],
       name:         [''],
       voen:         [''],
       website:      [''],
@@ -87,17 +91,6 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
       email:        this.fb.array([this.createEmailArray()]),
       phone:        this.fb.array([this.createPhonelArray()])
     });
-    // if (this.updateUserForm.value.email.length < 0) {
-    //   this.email.push(this.createEmailArray());
-    // } else {
-    //   this.resetData();
-    // }
-
-    // if (this.updateUserForm.value.phone.length < 0) {
-    //   this.phone.push(this.createPhonelArray());
-    // } else {
-    //   this.resetData();
-    // }
   }
 
   submitForm() {
@@ -112,10 +105,12 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     this.updateUserForm.value.phone = tPhone;
     this.updateUserForm.value.email = tEmail;
     this.clean(this.updateUserForm.value);
-    this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe( () => {
-      this.router.navigate(['/dashboard']);
+    console.log(this.updateUserForm.value);
+    this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe((response: Response) => {
+        if (response.responseCode == 1) {
+          this.router.navigate(['/dashboard']);
+        }
     });
-
   }
 
   clean(obj) {
@@ -178,6 +173,4 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
       this.phone.removeAt(0);
     }
   }
-
-
 }

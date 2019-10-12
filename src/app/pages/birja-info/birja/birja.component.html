@@ -95,27 +95,25 @@
                     <tr *ngFor="let product of productList; let i=index; trackBy:birjaService.trackByFn">
 
                         <td class="pr-0">
-                            <div *ngIf="product?.images.url" class="thumb responsive pb-in-100 radius-50p w-30 border">
-                                <img src="http://test.agrobirja.az{{product?.images.url}}" width="30" height="30">
+                            <div class="thumb responsive pb-in-100 radius-50p w-30 border">
+                                <img src="{{product?.images[0].url}}" width="30" height="30">
                             </div>
                         </td>
 
                         <td width="30%">
                             <span class="bold pointer text-main">{{product?.user.name}}</span>
                         </td>
-                        <td>{{product?.name[0].name_az}}</td>
-
-                        <td>{{product?.kind.name_az}}</td>
+                        <td>{{product?.kind.name}}</td>
 
                         <td>
                             <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                                 {{product?.price}}
                                 <i aria-hidden="true" class="icon-currency-azn small"></i>
-                                / {{product?.unit.name_az}}
+                                / {{product?.unit.name}}
                             </span>
                         </td>
 
-                        <td><span class="text-special bold">{{product?.common}} {{product?.unit.name_az}} </span></td>
+                        <td><span class="text-special bold">{{product?.common}} {{product?.unit.name}} </span></td>
                         <td>
                             <div class="progress radius-5 w-100">
                                 <div [ngStyle]="{'width': product.sell + '%'}"

@@ -11,6 +11,9 @@ export interface UserInfo {
         }
     ];
     created_at: string;
+    description_az: string;
+    description_en: string;
+    description_ru: string;
     description: string;
     id: number;
     is_company: number;
