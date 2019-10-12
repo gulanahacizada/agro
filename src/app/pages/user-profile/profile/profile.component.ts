@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
 
   userInfo: UserInfo;
   isCompany = localStorage.getItem('isCompany');
+  activeLang = localStorage.getItem('lang');
   phone = [];
   email = [];
 
@@ -31,12 +32,14 @@ export class ProfileComponent implements OnInit {
       return false;
     }
   }
+  
 
 
   getUser() {
     this.profileService.getUserInfo().subscribe((response: Response) => {
       this.userInfo = response.responseContent;
-      // console.log(this.userInfo);
+      console.log(this.userInfo);
+      this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
       this.phone = this.userInfo.contacts.filter(e => e.type == 0);
       this.email = this.userInfo.contacts.filter(e => e.type == 1);
     });

@@ -7,6 +7,7 @@ import { Category } from 'src/app/interfaces/category';
 import { AppService } from 'src/app/services/app/app.service';
 import { Kinds } from 'src/app/interfaces/kinds';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BirjaService } from './services/birja.service';
 
 @Component({
   selector: 'app-birja',
@@ -31,7 +32,8 @@ export class BirjaComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private appService: AppService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public birjaService: BirjaService
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,8 @@ export class BirjaComponent implements OnInit {
   getAllProducts() {
     this.productService.getAllProducts().subscribe((response: Response) => {
         this.productList = response.responseContent.data;
+        console.log(this.productList);
+        
     });
   }
 
@@ -51,7 +55,7 @@ export class BirjaComponent implements OnInit {
     this.productService.getCategory().subscribe((response: Response) => {
       this.category = response.responseContent;
       this.categoryList = (this.category || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r
       }));
     });
@@ -70,7 +74,7 @@ export class BirjaComponent implements OnInit {
   onSelectCategory(event) {
     this.productInfo = event.value.subCategories;
     this.prodSelectList = (this.productInfo || []).map((r: any) => ({
-      label: r.name_az,
+      label: r.name,
       value: r.id
     }));
   }
@@ -86,7 +90,7 @@ export class BirjaComponent implements OnInit {
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
       this.kinds = response.responseContent;
       this.kindList = (this.kinds || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
     });
@@ -118,9 +122,8 @@ export class BirjaComponent implements OnInit {
     });
   }
 
-  selectProduct(id: any) {
-    
-  }
+  // selectProduct(id: any) {
+  // }
 
 
 

@@ -70,9 +70,21 @@
 
               <div class="clear">
                 <label for="about-me" class="pl-10">Şirkət haqqında ətraflı məlumat</label>
-                <textarea formControlName="description" id="about-me" cols="30" rows="19"
-                  class="input no-resize border-0 radius-20 shadow-big"
-                  placeholder="Ətraflı məlumat qeyd edin"></textarea>
+                <p-editor [style]="{'height':'320px'}"
+                   class="input no-resize border-0 radius-20 shadow-big"
+                   placeholder="Ətraflı məlumat qeyd edin"
+                   formControlName="description_az">
+                </p-editor>
+                <p-editor [style]="{'height':'320px'}"
+                class="input no-resize border-0 radius-20 shadow-big"
+                placeholder="Ətraflı məlumat qeyd edin"
+                formControlName="description_ru">
+             </p-editor>
+             <p-editor [style]="{'height':'320px'}"
+             class="input no-resize border-0 radius-20 shadow-big"
+             placeholder="Ətraflı məlumat qeyd edin"
+             formControlName="description_en">
+          </p-editor>
               </div>
             </div>
 

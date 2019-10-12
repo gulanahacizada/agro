@@ -13,7 +13,7 @@
         <div class="col as-12 lg-8">
             <h4 class="h5 bold">Haqqında</h4>
 
-            <div class="font-16 light">
+            <div class="font-16 light" [innerHTML]="userInfo?.description">
                 <p> {{userInfo?.description}} </p>
             </div>
         </div>

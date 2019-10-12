@@ -87,13 +87,14 @@
                 <p-dropdown 
                     formControlName="unit_id"
                     [options]="unitList"
+                    (onChange)="onUnitSelect($event)"
                     placeholder=" Ölçü vahidini  seçin" filter="true"
                     class="input custom select border-0 radius-20 shadow-big">
                 </p-dropdown>
             </div>
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
-                <label for="" class="pl-10">Miqdar (kg)</label>
+                <label for="" class="pl-10">Miqdar {{(selectUnit)}} </label>
                 <input 
                     formControlName="common"
                     type="number" min="0"
@@ -102,7 +103,7 @@
             </div>
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
-                <label for="" class="pl-10"> Məhsulun qiyməti (1 kg) </label>
+                <label for="" class="pl-10"> Məhsulun qiyməti  bir{{(selectUnit)}}</label>
                 <input 
                     formControlName="price"
                     type="number" min="0"
@@ -137,7 +138,7 @@
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10">Məhsulun şəkili</label>
                 <input 
-                    (change)="onFileChange($event)"
+                    (change)="onFileChange($event)" 
                     type="file" id="" 
                     class="input custom border-0 radius-20 shadow-big"
                     #fileInput>
@@ -145,18 +146,14 @@
 
             <div class="col as-12 mb-20 pb-10">
                 <label for="description" class="pl-10">Məhsul haqqında</label>
-                <!-- <span >
-                <p >
-                    az
-                </p>
-                <p *ngSwitchCase="2">
-                    en
-                </p>
-                <p *ngSwitchCase="3">
-                    ru
-                </p>
-                </span> -->
-                <div [ngSwitch]="selectLang">
+                <textarea
+                        formControlName="description_az"
+                        name id="description" 
+                        cols="30" rows="10"
+                        class="input no-resize border-0 radius-20 shadow-big"
+                        placeholder="Ətraflı məlumat qeyd edin">
+                </textarea>
+                <!-- <div [ngSwitch]="selectLang">
                     <div  *ngSwitchCase="1">
                         <textarea
                             formControlName="description_az"
@@ -184,7 +181,7 @@
                             placeholder="Ətraflı məlumat qeyd edin">
                          </textarea>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
         </div>

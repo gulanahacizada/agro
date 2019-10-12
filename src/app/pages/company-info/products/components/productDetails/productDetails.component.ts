@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from 'src/app/pages/user-profile/products/services/products.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { allResolved } from 'q';
+import { ActivatedRoute } from '@angular/router';
+import { Response } from 'src/app/interfaces/response';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   // tslint:disable-next-line: component-selector
-  selector: 'app-productDetail',
-  templateUrl: './productDetail.component.html',
-  styleUrls: ['./productDetail.component.scss']
+  selector: 'app-productDetails',
+  templateUrl: './productDetails.component.html',
+  styleUrls: ['./productDetails.component.scss']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
-  productResponse: any;
   id: '';
+  productResponse: any;
   selfID: any;
   proposalForm: FormGroup;
   totalPrice: any;
@@ -35,16 +33,14 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.getProdById();
     this.createProposalForm();
-    // this.myProducts();
   }
 
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
-      console.log(this.productResponse);
       if (this.productResponse.user.id == this.selfID) {
         this.myProduct = true;
-        console.log(this.myProduct);
+        console.log(this.selfID);
       }
     });
   }
@@ -95,12 +91,5 @@ export class ProductDetailComponent implements OnInit {
       });
     }
   }
-
-  // myProducts() {
-  //   if (this.productResponse.user.id == this.selfID) {
-  //     console.log('my');
-  //   }
-  // }
-
 
 }

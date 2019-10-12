@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common
 import { JwtInterceptor } from '../services/interceptor/jwt.interceptor';
 import { ErrorInterceptor } from '../services/interceptor/error.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from '../app.component';
@@ -28,6 +29,7 @@ import { HomeComponent } from '../pages/home/home.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    RadioButtonModule,
     ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {

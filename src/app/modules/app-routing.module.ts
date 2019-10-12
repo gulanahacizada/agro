@@ -41,6 +41,10 @@ const routes: Routes = [
     loadChildren: () => import('../pages/birja-info/about/modules/about.module').then(m => m.AboutModule)
   },
   {
+    path: 'companyInfo',
+    loadChildren: () => import('../pages/company-info/main/modules/main.module').then(m => m.MainModule)
+  },
+  {
     path: 'dashboard',
     canActivate: [AuthGuard],
     loadChildren: () => import('../pages/user-profile/dashboard/modules/dashboard.module').then(m => m.DashboardModule)

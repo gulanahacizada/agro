@@ -27,19 +27,19 @@
                 </thead>
                 <tbody class="no-wrap">
                 
-                <tr *ngFor="let product of productList; let i=index; trackBy:product?.id ">
+                <tr *ngFor="let product of productList; let i=index; ">
 
                     <td> {{i +1}} </td>
-                    <td> {{product?.name[0].name_az}}</td>
-                    <td>{{product?.kind.name_az}}</td>
+                    <td> </td>
+                    <td></td>
                     <td>
                         <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                             {{product?.price}}
                             <i aria-hidden="true" class="icon-currency-azn small"></i>
-                            / {{product?.unit.name_az}}
+                            / 
                         </span>
                     </td>
-                    <td><span class="text-special bold">{{product?.common}} {{product?.unit.name_az}}</span></td>
+                    <td><span class="text-special bold">{{product?.common}}</span></td>
                     <td>
                         <div class="progress radius-5 w-100">
                             <div class="progress-bar radius-5 bg-main text-right" role="progressbar" 
