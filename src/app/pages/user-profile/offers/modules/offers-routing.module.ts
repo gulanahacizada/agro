@@ -1,8 +1,8 @@
-import { OffersComingComponent } from './../components/offers-coming/offers-coming.component';
-import { OffersSendComponent } from './../components/offers-send/offers-send.component';
+
 import { OffersComponent } from './../offers.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MessageDetailsComponent } from '../components/messageDetails/messageDetails.component';
 
 const routes: Routes = [
   {
@@ -13,13 +13,9 @@ const routes: Routes = [
         component: OffersComponent
       },
       {
-        path: 'send',
-        component: OffersSendComponent
+        path: 'details/:id',
+        component: MessageDetailsComponent
       },
-      {
-        path: 'coming',
-        component: OffersComingComponent
-      }
     ],
   }
 ];

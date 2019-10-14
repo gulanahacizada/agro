@@ -30,7 +30,9 @@ export class AppService extends HttpsService {
   public USER_SELLERS = 'user/sellers';
   public GET_ALL_USER = 'user';
   public CREATEDIALOG = 'dialog/createdialog';
-  public VERIFY_FOR_PHONE = 'user/contact/verify';
+  public VERIFY_CONTACT = 'user/contact/verify';
+  public DIALOGS = 'dialog';
+
 
 
 
@@ -62,23 +64,25 @@ export class AppService extends HttpsService {
     return this.get(this.http, this.USER_SELLERS, params);
   }
 
-  // public verifyPhone( params: any = {}): Observable<any> {
-  //   return this.post(this.http, this.VERIFY_FOR_PHONE, params);
-  // }
-
-
-  verifyPhone(data: any, token): Observable<HttpEvent<any>> {
-    const url = 'http://test.agrobirja.az/api/v1/user/contact/verify';
-
-    const params = new HttpParams();
-    const options = {
-      params: params,
-      reportProgress: true,
-      Authorization: `Bearer ${token}`
-    };
-    const req = new HttpRequest('POST', url, data, options);
-    return this.http.request(req);
+  public verify( params: any = {}): Observable<any> {
+    return this.post(this.http, this.VERIFY_CONTACT, params);
   }
+
+
+
+
+  // verifyPhone(data: any, token): Observable<HttpEvent<any>> {
+  //   const url = 'http://test.agrobirja.az/api/v1/user/contact/verify';
+
+  //   const params = new HttpParams();
+  //   const options = {
+  //     params: params,
+  //     reportProgress: true,
+  //     Authorization: `Bearer ${token}`
+  //   };
+  //   const req = new HttpRequest('POST', url, data, options);
+  //   return this.http.request(req);
+  // }
 
   public trackByFn(index, item) {
     return index; // or item.id

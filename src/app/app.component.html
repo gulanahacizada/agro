@@ -620,7 +620,7 @@
             </button>
         </div>
     </form>
-    <form *ngIf="verifyPhone" class="modal-content panel"  [formGroup]="verifyForm" >
+    <form *ngIf="verifyPhone" class="modal-content panel"  [formGroup]="verifyForm"  (ngSubmit)="submitVerifyForm()">
             <span (click)="reset()" role="button" class="close fixed-close icon-close" data-close="login" aria-label="Bağla"></span>
 
             <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
@@ -744,7 +744,7 @@
                         <p> {{responseMessage?.phone}} </p>
                     </div>
                 </form>
-                <form *ngIf="verifyPhone" [formGroup]="verifyForm" >
+                <form *ngIf="verifyPhone" [formGroup]="verifyForm" (ngSubmit)="submitVerifyForm()">
                     <div class="row as-10 justify-content-center">
                         <div class="col as-7 xs-12 mb-20">
                             <label for="hr-name" class="pl-10">Kodu daxil edin<sup class="text-red">*</sup></label>
@@ -832,7 +832,7 @@
                         <p> {{responseMessage?.phone}} </p>
                     </div>
                 </form>
-                <form *ngIf="verifyPhone" [formGroup]="verifyForm" >
+                <form *ngIf="verifyPhone" [formGroup]="verifyForm"  (ngSubmit)='submitVerifyForm()'>
                     <div class="row as-10 justify-content-center">
                         <div class="col as-7 xs-12 mb-20">
                             <label for="hr-name" class="pl-10">Kodu daxil edin<sup class="text-red">*</sup></label>

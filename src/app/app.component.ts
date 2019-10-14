@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   responseMessage: any;
   verifyPhone = false;
   verifyEmail = false;
+  verifyToken: any;
 
   constructor(
     private appService: AppService,
@@ -112,13 +113,13 @@ export class AppComponent implements OnInit {
         }
         if (response.responseCode == 2) {
           // message error
-          // localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          // localStorage.setItem('verifyToken', response.responseContent.access_token);
         }
         if (response.responseCode == 3) {
           // message
         }
         if (response.responseCode == 10) {
-          this.registerToken = response.responseContent.access_token;
+
           if (response.responseContent.type == 0) {
             this.verifyPhone = true;
             this.verifyEmail = false;
@@ -140,7 +141,6 @@ export class AppComponent implements OnInit {
           this.responseMessage = response.responseMessage;
         }
         if (response.responseCode == 10) {
-          this.registerToken = response.responseContent.access_token;
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
@@ -164,7 +164,6 @@ export class AppComponent implements OnInit {
           this.responseMessage = response.responseMessage;
         }
         if (response.responseCode == 10) {
-          this.registerToken = response.responseContent.access_token;
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
@@ -223,16 +222,15 @@ export class AppComponent implements OnInit {
     });
   }
 
+  submitVerifyForm() {
+    this.verifyToken = localStorage.getItem('verifyToken');
+    this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
 
-  onSubmit() {
-    if (this.verifyForm.valid) {
-      this.appService.verifyPhone(this.verifyForm.value, this.registerToken).subscribe((response: any) => {
-        // if (response.responseCode == 1) {
-        //   this.responseMessage = response.responseMessage;
-        // }
-      });
-    }
+    });
   }
+
+
+
 
   reset() {
     this.verifyEmail = false;

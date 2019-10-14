@@ -49,6 +49,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('../pages/user-profile/dashboard/modules/dashboard.module').then(m => m.DashboardModule)
   },
+
+  {
+    path: 'confirm-email/:id',
+    canActivate: [AuthGuard],
+    // tslint:disable-next-line: max-line-length
+    loadChildren: () => import('../pages/user-profile/mail-confirmation/modules/mail-confirmation.module').then(m => m.MailConfirmationModule)
+  },
 ];
 
 @NgModule({
