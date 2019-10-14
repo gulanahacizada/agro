@@ -63,6 +63,9 @@
           <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-20">
             <button type="submit" class="btn bg-orange w-100p border-0 radius-20 shadow-big">Filter et</button>
           </div>
+          <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-20">
+            <button class="btn bg-orange w-100p border-0 radius-20 shadow-big" (click)="resetSerch()"> Reset</button>
+          </div>
         </div>
       </div>
     </form>
@@ -119,6 +122,10 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="panel-footer">
+      <p-paginator *ngIf="productList?.length" [rows]="pagination?.per_page" [totalRecords]="pagination?.total"
+        (onPageChange)="paginate($event)"></p-paginator>
     </div>
   </div>
 </div>

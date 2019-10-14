@@ -32,6 +32,8 @@ export class AppService extends HttpsService {
   public CREATEDIALOG = 'dialog/createdialog';
   public VERIFY_CONTACT = 'user/contact/verify';
   public DIALOGS = 'dialog';
+  public AGRONOMS = 'agronoms';
+  public NEWS = 'news';
 
 
 
@@ -67,22 +69,6 @@ export class AppService extends HttpsService {
   public verify( params: any = {}): Observable<any> {
     return this.post(this.http, this.VERIFY_CONTACT, params);
   }
-
-
-
-
-  // verifyPhone(data: any, token): Observable<HttpEvent<any>> {
-  //   const url = 'http://test.agrobirja.az/api/v1/user/contact/verify';
-
-  //   const params = new HttpParams();
-  //   const options = {
-  //     params: params,
-  //     reportProgress: true,
-  //     Authorization: `Bearer ${token}`
-  //   };
-  //   const req = new HttpRequest('POST', url, data, options);
-  //   return this.http.request(req);
-  // }
 
   public trackByFn(index, item) {
     return index; // or item.id
