@@ -47,7 +47,6 @@ export class BirjaComponent implements OnInit {
     this.productService.getAllProducts().subscribe((response: Response) => {
         this.productList = response.responseContent.data;
         console.log(this.productList);
-        
     });
   }
 
@@ -72,7 +71,7 @@ export class BirjaComponent implements OnInit {
   }
 
   onSelectCategory(event) {
-    this.productInfo = event.value.subCategories;
+    this.productInfo = event.value.sub_categories;
     this.prodSelectList = (this.productInfo || []).map((r: any) => ({
       label: r.name,
       value: r.id
@@ -89,8 +88,9 @@ export class BirjaComponent implements OnInit {
     };
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
       this.kinds = response.responseContent;
+      console.log(response.responseContent);
       this.kindList = (this.kinds || []).map((r: any) => ({
-        label: r.name,
+        label: r.name_az,
         value: r.id
       }));
     });

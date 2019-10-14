@@ -34,7 +34,7 @@
 <div class="account-page container as-10 xl-15 lg-15 pt-20 pb-20">
     <div class="account-header shadow-big text-center clear pt-40 pb-40">
         <div class="thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
-            <img *ngIf="userInfo?.avatar" src="assets/images/ulu.png" alt="User Name" width="120" height="120" class="p-7 radius-50p loading"
+            <img *ngIf="userInfo?.avatar" src="{{userInfo?.avatar}}" alt="User Name" width="120" height="120" class="p-7 radius-50p loading"
                 data-was-processed="true">
                 <img *ngIf="!userInfo?.avatar" src="assets/images/imagesProf.jpeg" alt="User Name" width="100%" class=" radius-50p loading"
                 data-was-processed="true">
