@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BirjaRoutingModule } from './birja-routing.module';
 import { BirjaComponent } from '../birja.component';
 import { ProductDetailComponent } from '../components/productDetail/productDetail.component';
+import {PaginatorModule} from 'primeng/paginator';
+
 
 @NgModule({
   declarations: [BirjaComponent, ProductDetailComponent],
@@ -16,7 +18,8 @@ import { ProductDetailComponent } from '../components/productDetail/productDetai
     CalendarModule,
     FormsModule,
     ReactiveFormsModule,
-    BirjaRoutingModule
+    BirjaRoutingModule,
+    PaginatorModule
   ]
 })
 export class BirjaModule { }
