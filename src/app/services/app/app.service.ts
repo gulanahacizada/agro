@@ -31,6 +31,7 @@ export class AppService extends HttpsService {
   public GET_ALL_USER = 'user';
   public CREATEDIALOG = 'dialog/createdialog';
   public VERIFY_FOR_PHONE = 'user/contact/verify';
+  public AGRONOMS = 'agronoms';
 
 
 

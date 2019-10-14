@@ -32,7 +32,7 @@
       <div class="item bg-white shadow-big h-100p">
         <a [routerLink]="[ '/companyInfo/profile', member?.id ]" title="Company name" class="d-block">
           <div class="thumb contain responsive pb-in-60 border-bottom">
-            <img src="assets/images/vita1000.jpg" alt="Company name" width height class="p-5">
+            <img src="{{member?.avatar}}" alt="Company name" width height class="p-5">
           </div>
           <div class="p-15 pb-10 text-center text-uppercase">
             <span style="display: block" class="title font-16 text-main bold line-clamp line-1"> {{member?.name}}
