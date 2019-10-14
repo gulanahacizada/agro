@@ -12,7 +12,4 @@ export class NewsService extends AppService {
     super(http);
   }
 
-  public getNews( params: any = {}): Observable<any> {
-    return this.get(this.http, this.NEWS, params);
- }
 }

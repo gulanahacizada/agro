@@ -20,8 +20,7 @@
           <tr *ngFor="let product of productList; let i=index;">
             <td class="pr-0">
               <div *ngIf="product?.images[0]?.url" class="thumb responsive pb-in-100 radius-50p w-30 border">
-                <img src="{{product?.images[0]?.url}}" alt="MARS-FK LTD MMM" width="30"
-                  height="30">
+                <img src="{{product?.images[0]?.url}}" alt="MARS-FK LTD MMM" width="30" height="30">
               </div>
             </td>
             <td width="30%">
@@ -59,90 +58,34 @@
   </div>
 </div>
 
-
-
-<!-- //////////////////// -->
-
 <!-- Uzvler -->
-<div class="container as-10 xl-15 lg-10 pt-40 pb-40">
+<div class="container as-10 xl-10 lg-10 pt-40 pb-40">
+
   <div class="section-title-wrap w-100p d-table mb-40">
     <h2 class="section-title relative bold text-uppercase mb-5">
-      <a href="#" class="d-block" title="Üzvlər" data-see-all="Hamısını gör">Üzvlər</a>
+      <a [routerLink]="['/members']" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Üzvlər</a>
     </h2>
-    <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <!-- <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
   </div>
-
-  <div class="members-carousel owl-carousel owl-theme">
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="UluAgro" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/ulu.png" alt="UluAgro" width="150" height="150" class="p-10">
+  <owl-carousel [options]="newOwlOptions" [items]="membersList"
+    [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
+    <div class="item news-item bg-white" *ngFor="let news of membersList">
+      <a [routerLink]="[ '/members', news.id ]" title="{{news?.description}}" class="d-block clear">
+        <div class="thumb hover scale responsive pb-in-65">
+          <img src="{{news?.avatar}}" alt="title" width="" height="">
         </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">UluAgro</span>
+        <div class="info tr-3s border-top">
+
+          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.name}} </span>
+          <!--
+        <span class="date-time text-gray light">
+          <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
+          {{news.created_at |  date}}
+        </span> -->
         </div>
       </a>
     </div>
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="Vitamin Vio" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/vita1000.jpg" alt="Vitamin Vio" width="150" height="150" class="p-10">
-        </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">Vitamin Vio</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="UluAgro" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/ulu.png" alt="UluAgro" width="150" height="150" class="p-10">
-        </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">UluAgro</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="Vitamin Vio" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/vita1000.jpg" alt="Vitamin Vio" width="150" height="150" class="p-10">
-        </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">Vitamin Vio</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="UluAgro" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/ulu.png" alt="UluAgro" width="150" height="150" class="p-10">
-        </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">UluAgro</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="item bg-white">
-      <a href="member-detail.php" title="Vitamin Vio" class="block clear">
-        <div class="thumb scale responsive pb-in-60 contain border-bottom">
-          <img data-src="assets/images/vita1000.jpg" alt="Vitamin Vio" width="150" height="150" class="p-10">
-        </div>
-        <div class="info p-15 text-center tr-3s">
-          <span class="title font-16 bold line-clamp line-1">Vitamin Vio</span>
-        </div>
-      </a>
-    </div>
-
-
-  </div>
-
+  </owl-carousel>
 </div>
 <!-- Uzvler  End-->
 
@@ -372,32 +315,30 @@
   </div>
 </section>
 
-
-
 <!-- Xeberler  -->
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
 
   <div class="section-title-wrap w-100p d-table mb-40">
     <h2 class="section-title relative bold text-uppercase mb-5">
-      <a href="#" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Xəbərlər</a>
+      <a [routerLink]="['/news']" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Xəbərlər</a>
     </h2>
-    <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <!-- <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
   </div>
 
   <owl-carousel [options]="newOwlOptions" [items]="allNews"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
-    <div class="item news-item bg-white" *ngFor="let the_new of allNews">
-      <a [routerLink]="[ '/path', the_new.id ]" title="{{the_new.descr}}" class="d-block clear">
+    <div class="item news-item bg-white" *ngFor="let news of allNews">
+      <a [routerLink]="[ '/path', news.id ]" title="{{news?.description}}" class="d-block clear">
         <div class="thumb hover scale responsive pb-in-65">
-          <img [src]="'https://agrotv.az' + the_new.news_picture" alt="title" width="" height="">
+          <img src="{{news?.image}}" alt="title" width="" height="">
         </div>
         <div class="info tr-3s border-top">
 
-          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{the_new.descr}} </span>
+          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.description}} </span>
 
           <span class="date-time text-gray light">
             <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-            {{the_new.created_at |  date}}
+            {{news.created_at |  date}}
           </span>
         </div>
       </a>
