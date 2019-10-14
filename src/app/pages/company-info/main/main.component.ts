@@ -31,6 +31,7 @@ export class MainComponent implements OnInit {
   getCompanyInfo() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
       this.userInfo = response.responseContent;
+      console.log(response.responseContent);
     });
   }
 

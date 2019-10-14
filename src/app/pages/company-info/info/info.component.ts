@@ -18,6 +18,7 @@ export class InfoComponent implements OnInit {
   userInfo: UserInfo;
   phone = [];
   email = [];
+  activeLang = localStorage.getItem('lang');
 
   constructor(
     private profileService: ProfileService,
@@ -39,6 +40,7 @@ export class InfoComponent implements OnInit {
   getCompanyById() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
       this.userInfo = response.responseContent;
+      this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
       console.log(this.userInfo);
       this.phone = this.userInfo.contacts.filter(e => e.type == 0);
       this.email = this.userInfo.contacts.filter(e => e.type == 1);
