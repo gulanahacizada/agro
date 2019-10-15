@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { AgronomsRoutingModule } from './agronoms-routing.module';
 import { AgronomsComponent } from '../agronoms.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { AgronomDetailComponent } from '../components/agronom-detail/agronom-detail.component';
 
 @NgModule({
-  declarations: [AgronomsComponent],
+  declarations: [AgronomsComponent, AgronomDetailComponent],
   imports: [
     CommonModule,
     AgronomsRoutingModule,

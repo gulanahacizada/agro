@@ -12,10 +12,5 @@ export class HomeService extends AppService {
     super(http);
   }
 
-  public allNews(params: any = {}): Observable<any> {
-    return this.getTv(this.http, this.ALLL_NEWS, params);
-  }
-
-
 
 }

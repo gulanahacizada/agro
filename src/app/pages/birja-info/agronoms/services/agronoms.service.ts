@@ -15,4 +15,8 @@ export class AgronomsService extends AppService {
   public getAgronoms( params: any = {}): Observable<any> {
     return this.get(this.http, this.AGRONOMS, params);
  }
+
+ public getAgronomById( params: any = {}): Observable<any> {
+  return this.get(this.http, this.AGRONOMS + '/' + params);
+}
 }

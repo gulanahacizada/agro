@@ -12,7 +12,5 @@ export class MembersService extends AppService {
     super(http);
   }
 
-  public getAllUsers( params: any = {}): Observable<any> {
-    return this.get(this.http, this.GET_ALL_USER, params);
- }
+
 }

@@ -75,4 +75,11 @@ export class AppService extends HttpsService {
   }
 
 
+  public getNews( params: any = {}): Observable<any> {
+    return this.get(this.http, this.NEWS, params);
+ }
+ public getAllUsers( params: any = {}): Observable<any> {
+  return this.get(this.http, this.GET_ALL_USER, params);
+}
+
 }
