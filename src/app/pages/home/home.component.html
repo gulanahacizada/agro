@@ -1,5 +1,4 @@
 <!-- Birja table -->
-
 <div class="bg-white">
   <div class="container as-10 xl-15 lg-15 pt-20 pb-20">
     <div class="table-responsive border-0">
@@ -57,10 +56,8 @@
     </div>
   </div>
 </div>
-
 <!-- Uzvler -->
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
-
   <div class="section-title-wrap w-100p d-table mb-40">
     <h2 class="section-title relative bold text-uppercase mb-5">
       <a [routerLink]="['/members']" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Üzvlər</a>
@@ -70,12 +67,11 @@
   <owl-carousel [options]="newOwlOptions" [items]="membersList"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
     <div class="item news-item bg-white" *ngFor="let news of membersList">
-      <a [routerLink]="[ '/members', news.id ]" title="{{news?.description}}" class="d-block clear">
+      <a [routerLink]="[ '/companyInfo/profile', news.id ]" title="{{news?.description}}" class="d-block clear">
         <div class="thumb hover scale responsive pb-in-65">
           <img src="{{news?.avatar}}" alt="title" width="" height="">
         </div>
         <div class="info tr-3s border-top">
-
           <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.name}} </span>
           <!--
         <span class="date-time text-gray light">
@@ -88,37 +84,29 @@
   </owl-carousel>
 </div>
 <!-- Uzvler  End-->
-
 <section class="bg-white">
   <div class="container as-10 xl-15 pt-40">
     <div class="row as-10 xl-15">
-
       <div class="col as-12 lg-6 mb-40">
-
         <div class="section-title-wrap w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
             <span class="d-block">Əraziyə görə məhsuldarlıq</span>
           </h2>
         </div>
-
         <div class="responsive pb-in-70 bg-gray">
           <div class="wrap d-flex-center text-center">
             <span>Map Plugin</span>
           </div>
         </div>
       </div>
-
       <div class="col as-12 lg-6 mb-40">
-
         <div class="section-title-wrap w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
-            <a href="products-list.php" title="Satışda" class="d-block" data-see-all="Hamısını gör">Satışda</a>
+            <a title="Satışda" class="d-block" data-see-all="Hamısını gör">Satışda</a>
           </h2>
         </div>
-
         <div class="table-responsive border-0">
           <table class="table custom-table bg-gray">
-
             <thead class="bg-white">
               <tr>
                 <th>Məhsul</th>
@@ -128,14 +116,10 @@
                 <th>Satış</th>
               </tr>
             </thead>
-
             <tbody class="no-wrap">
-
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -143,22 +127,17 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
               </tr>
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -166,22 +145,17 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
               </tr>
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -189,22 +163,17 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
               </tr>
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -212,22 +181,17 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
               </tr>
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -235,22 +199,17 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
               </tr>
               <tr>
                 <td>Nar</td>
-
                 <td>Gülöyşə</td>
-
                 <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     2000
@@ -258,84 +217,45 @@
                     / ton
                   </span>
                 </td>
-
                 <td><span class="text-special bold">2000 Ton</span></td>
-
                 <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
                 </td>
-
-              </tr>
-              <tr>
-                <td>Nar</td>
-
-                <td>Gülöyşə</td>
-
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-
-                <td><span class="text-special bold">2000 Ton</span></td>
-
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
-
               </tr>
             </tbody>
-
           </table>
         </div>
-
       </div>
-
       <!-- <div class="col as-12 lg-6 mb-40">
-
         <div class="section-title-wrap w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
             <span class="d-block">1000 AZN nə oldu?</span>
           </h2>
         </div>
-
         <canvas id="chart-1000" class="border"></canvas>
-
       </div> -->
-
     </div>
   </div>
 </section>
-
 <!-- Xeberler  -->
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
-
   <div class="section-title-wrap w-100p d-table mb-40">
     <h2 class="section-title relative bold text-uppercase mb-5">
       <a [routerLink]="['/news']" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Xəbərlər</a>
     </h2>
-    <!-- <p class="section-description text-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
   </div>
-
   <owl-carousel [options]="newOwlOptions" [items]="allNews"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
     <div class="item news-item bg-white" *ngFor="let news of allNews">
-      <a [routerLink]="[ '/path', news.id ]" title="{{news?.description}}" class="d-block clear">
+      <a [routerLink]="[ '/news/detail', news.id ]" title="{{news?.description}}" class="d-block clear">
         <div class="thumb hover scale responsive pb-in-65">
           <img src="{{news?.image}}" alt="title" width="" height="">
         </div>
         <div class="info tr-3s border-top">
-
           <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.description}} </span>
-
           <span class="date-time text-gray light">
             <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
             {{news.created_at |  date}}
@@ -344,6 +264,5 @@
       </a>
     </div>
   </owl-carousel>
-
 </div>
 <!-- Xeberler  End  -->
