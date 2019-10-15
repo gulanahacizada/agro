@@ -437,7 +437,7 @@
                             Əsas menyu
                         </h4>
                         <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
-                               
+
                             <li role="presentation"><a role="menuitem" title="Birja" [routerLink]="[ '/birja' ]">
                                     <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                                     <span>Birja</span>
@@ -626,7 +626,7 @@
             <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
                 <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hesabınıza daxil olun</span>
             </div>
-    
+
             <div class="clear p-40">
                     <div class="row as-10 justify-content-center">
                             <div class="col as-7 xs-12 mb-20">
@@ -640,14 +640,14 @@
                             </div>
                         </div>
             </div>
-    
+
             <div class="panel-footer text-center">
                 <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40"
                     data-close="registration">
                     Bağla
                 </button>
             </div>
-     
+
     </form>
     <p *ngIf="verifyEmail">Email tesgid edin</p>
 </div>
@@ -702,8 +702,8 @@
                             <input type="text" id="fr-name" formControlName="username" class="input border-0 radius-20 shadow-big" />
                             <p> {{responseMessage?.username}} </p>
                         </div>
-                      
-                
+
+
                         <div class="col as-6 xs-12 mb-20">
                             <label for="fr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
                             <input  formControlName="email" type="email" id="fr-email"
@@ -784,13 +784,13 @@
                             <label for="hr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
                             <input type="text" id="hr-name" formControlName='name' class="input border-0 radius-20 shadow-big" />
                         </div>
-                        
+
                         <div class="col as-6 xs-12 mb-20">
                             <label for="fr-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
                             <input type="text" formControlName="username" class="input border-0 radius-20 shadow-big" />
                             <p> {{responseMessage?.username}} </p>
                         </div>
-                        
+
 
                         <div class="col as-6 xs-12 mb-20">
                             <label for="hr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
@@ -827,7 +827,7 @@
                                 Qeydiyyatı tamamla
                             </button>
                         </div>
-                       
+
                         <p> {{responseMessage?.email}} </p>
                         <p> {{responseMessage?.phone}} </p>
                     </div>
@@ -845,8 +845,8 @@
                         </div>
                     </div>
                 </form>
-                <p *ngIf="verifyEmail">Email tesgid edin</p>
-          
+                <p *ngIf="verifyEmail"> Qeydiyyatı Email üzərindən tamamlayın</p>
+
             </div>
 
             <div class="panel-footer pl-40 pr-40">
