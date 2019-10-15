@@ -29,11 +29,14 @@ export class AppService extends HttpsService {
   public USER_UPDATE = 'user/update';
   public USER_SELLERS = 'user/sellers';
   public GET_ALL_USER = 'user';
-  public CREATEDIALOG = 'dialog/createdialog';
+  public CREATEDIALOG = 'dialog/create';
   public VERIFY_CONTACT = 'user/contact/verify';
   public DIALOGS = 'dialog';
   public AGRONOMS = 'agronoms';
   public NEWS = 'news';
+  public ANSWER_OFFER = 'dialog/answer';
+  public SEND_OFFER = 'dialog/send';
+ 
 
 
 
