@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class OffersService  extends AppService {
+export class OffersService extends AppService {
 
   constructor(public http: HttpClient) {
     super(http);
@@ -18,5 +18,20 @@ export class OffersService  extends AppService {
 
   public getDialogById(params: any = {}): Observable<any> {
     return this.get(this.http, this.DIALOGS + '/' + params);
+  }
+
+  public answerToOffer(params: any = {}): Observable<any> {
+    return this.post(this.http, this.ANSWER_OFFER, params);
+  }
+
+  public sendToAnswer(params: any = {}): Observable<any> {
+    return this.post(this.http, this.SEND_OFFER, params);
+  }
+
+  public acceptOffer( id: any): Observable<any> {
+    return this.post(this.http, `${this.DIALOGS}/${id}/accept`, null);
+  }
+  public rejectOffer( id: any): Observable<any> {
+    return this.post(this.http, `${this.DIALOGS}/${id}/reject`, null);
   }
 }
