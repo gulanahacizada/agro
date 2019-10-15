@@ -25,12 +25,11 @@
     </div>
   </div>
 </div>
-
 <div class="container as-10 xl-15 lg-15 pt-30 pb-30">
   <div class="row as-15 sm-5 xs-5">
     <div *ngFor="let news of newsList; trackBy: newsService.trackByFn" class="col as-4 md-6 sm-6 xs-12 mb-30">
       <div class="item news-item bg-white shadow-big h-100p">
-        <a href="news-read.php" title="Title" class="d-block clear">
+        <a [routerLink]="[ 'detail', news?.id ]" title="Title" class="d-block clear">
           <div class="thumb hover scale responsive pb-in-65">
             <img data-src="{{news?.image}}" alt="title" width="" height="">
           </div>

@@ -15,4 +15,7 @@ export class NewsService extends AppService {
   public getNews( params: any = {}): Observable<any> {
     return this.get(this.http, this.NEWS, params);
  }
+ public getNewById( params: any = {}): Observable<any> {
+  return this.get(this.http, this.NEWS + '/' + params);
+}
 }
