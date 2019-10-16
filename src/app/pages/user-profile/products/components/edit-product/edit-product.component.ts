@@ -19,7 +19,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditProductComponent implements OnInit {
   id: '';
-  lang =  'az';
+  lang = 'az';
   productEditForm: FormGroup;
   productResponse: any;
 
@@ -204,10 +204,10 @@ export class EditProductComponent implements OnInit {
       value: r.id
     })),
 
-    this.qualityList = (this.quality || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
+      this.qualityList = (this.quality || []).map((r: any) => ({
+        label: r[`name_${lang}`],
+        value: r.id
+      }));
 
     this.unitList = (this.units || []).map((r: any) => ({
       label: r[`name_${lang}`],
@@ -250,8 +250,10 @@ export class EditProductComponent implements OnInit {
   // }
 
   updateProduct() {
-    this.productService.updateProduct(this.productEditForm.value).subscribe( () => {
-      this.router.navigate(['/dashboard/products']);
+    this.productService.updateProduct(this.productEditForm.value).subscribe((res: any) => {
+      if (res.body && res.body.responseCode == 1) {
+        this.router.navigate(['/dashboard/products']);
+      }
     });
   }
 }

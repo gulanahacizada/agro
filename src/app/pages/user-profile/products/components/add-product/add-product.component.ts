@@ -36,7 +36,7 @@ export class AddProductComponent implements OnInit {
   quality: Quality[];
 
   productForm: FormGroup;
-  lang =  'az';
+  lang = 'az';
   imgURL: any;
   file: any;
   fileRaw: string;
@@ -127,10 +127,10 @@ export class AddProductComponent implements OnInit {
       value: r.id
     })),
 
-    this.qualityList = (this.quality || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
+      this.qualityList = (this.quality || []).map((r: any) => ({
+        label: r[`name_${lang}`],
+        value: r.id
+      }));
 
     this.unitList = (this.units || []).map((r: any) => ({
       label: r[`name_${lang}`],
@@ -187,24 +187,24 @@ export class AddProductComponent implements OnInit {
 
   createProdForm() {
     this.productForm = this.fb.group({
-      category_id: [ , [Validators.required]],
-      kind_id:     [ , [Validators.required]],
-      quality_id:  [ , Validators.required],
-      package_id:  [ , Validators.required],
-      kalibry_id:  [ , Validators.required],
-      unit_id:     [ , Validators.required],
-      common:      [ , Validators.required],
-      price:       [ , Validators.required],
-      accumulated_at: [ '', Validators.required],
-      expiry_time:    [ '', Validators.required],
-      image:          [ ''],
+      category_id: [, [Validators.required]],
+      kind_id: [, [Validators.required]],
+      quality_id: [, Validators.required],
+      package_id: [, Validators.required],
+      kalibry_id: [, Validators.required],
+      unit_id: [, Validators.required],
+      common: [, Validators.required],
+      price: [, Validators.required],
+      accumulated_at: ['', Validators.required],
+      expiry_time: ['', Validators.required],
+      image: [''],
       description_az: [''],
       description_en: [''],
       description_ru: ['']
     });
-   }
+  }
 
-   onFileChange(event) {
+  onFileChange(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
@@ -225,8 +225,10 @@ export class AddProductComponent implements OnInit {
 
 
   addProduct() {
-    this.productService.createProduct(this.productForm.value, this.file).subscribe( () => {
-      this.router.navigate(['/dashboard/products']);
+    this.productService.createProduct(this.productForm.value, this.file).subscribe((res: any) => {
+      if (res.body && res.body.responseCode == 1) {
+        this.router.navigate(['/dashboard/products']);
+      }
     });
   }
 
