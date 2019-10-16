@@ -87,7 +87,6 @@ export class EditProductComponent implements OnInit {
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
-      console.log(this.productResponse);
       this.productEditForm.patchValue({
         id: this.productResponse.id,
         category_id: this.productResponse.name.id,

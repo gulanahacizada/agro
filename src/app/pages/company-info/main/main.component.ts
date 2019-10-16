@@ -31,7 +31,6 @@ export class MainComponent implements OnInit {
   getCompanyInfo() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
       this.userInfo = response.responseContent;
-      console.log(response.responseContent);
     });
   }
 
@@ -40,6 +39,5 @@ export class MainComponent implements OnInit {
     this.tree = this.router.parseUrl(this.url);
     this.primary = this.tree.root.children[PRIMARY_OUTLET];
     this.id = (this.primary.segments[2] || {path: null}).path;
-    console.log(this.id);
  }
 }

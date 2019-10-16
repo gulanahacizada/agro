@@ -28,7 +28,6 @@ export class ProductsInComponent implements OnInit {
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
-      console.log(this.productResponse);
     });
   }
 

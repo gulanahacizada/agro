@@ -60,10 +60,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onSelectType(event) {
-    console.log(event);
-  }
-
   createCompanyForm() {
     this.companyRegister = this.fb.group({
       name: ['', Validators.required],
@@ -100,7 +96,6 @@ export class AppComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       const data = Object.assign({}, this.loginForm.value);
-      console.log(data);
       this.appService.login(data).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           localStorage.setItem('acc_jwt', response.responseContent.access_token);
@@ -109,7 +104,6 @@ export class AppComponent implements OnInit {
           this.router.navigate(['dashboard']);
           $('.login-modal').removeClass('open');
           $('body').removeClass('o-hidden');
-          console.log(response.responseContent);
         }
         if (response.responseCode == 2) {
           // message error
@@ -158,7 +152,6 @@ export class AppComponent implements OnInit {
     if (this.customerRegister.valid) {
       const data = Object.assign({}, this.customerRegister.value);
       this.clean(data);
-      console.log(data);
       this.appService.register(data).subscribe((response: Response) => {
         if (response.responseCode == 2) {
           this.responseMessage = response.responseMessage;

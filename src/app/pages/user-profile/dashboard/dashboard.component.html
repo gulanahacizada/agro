@@ -5,7 +5,7 @@
                 <ol class="breadcrumb" aria-label="Breadcrumb" itemscope=""
                     itemtype="https://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                        <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                        <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
                             <span itemprop="name">AgroBirja.az</span>
                         </a>
                         <meta itemprop="position" content="1">
@@ -36,14 +36,14 @@
                 data-was-processed="true">
                 <img *ngIf="!userInfo?.avatar" src="assets/images/imagesProf.jpeg" alt="User Name" width="100%" class=" radius-50p loading"
                 data-was-processed="true">
-                
+
         </div>
         <h2 class="account-name h4 bold mb-0 text-white text-uppercase"> {{userInfo?.name}} </h2>
     </div>
 
     <ul class="account-menu scrolling-menu center bg-white shadow-big font-16 mb-15" role="menu">
         <li role="presentation" class="active">
-         
+
             <a [routerLink]="['profile']" routerLinkActive="active_tab"  title="Hesab bilgiləri"  class="menu-item ">
                 <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
                 <span class="v-align-middle">Hesab bilgiləri</span>
@@ -61,7 +61,7 @@
                 <span class="v-align-middle">Təkliflər</span>
             </a>
         </li>
-     
+
     </ul>
 
     <router-outlet></router-outlet>

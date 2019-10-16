@@ -72,7 +72,6 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
             role: this.userInfo.role,
             is_company: this.userInfo.is_company,
         });
-        console.log(this.updateUserForm.value);
         const text = this.userInfo.description_az;
     });
   }
@@ -105,7 +104,6 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     this.updateUserForm.value.phone = tPhone;
     this.updateUserForm.value.email = tEmail;
     this.clean(this.updateUserForm.value);
-    console.log(this.updateUserForm.value);
     this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           this.router.navigate(['/dashboard']);

@@ -4,8 +4,8 @@
         <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Yeni məhsul</h3>
 
         <div class="clear float-right">
-       
-            <a [routerLink]="[ '/dashboard/products' ]" href="#" class="btn bg-white border-0 shadow-big radius-20 float-left" title="Geri">
+
+            <a [routerLink]="[ '/dashboard/products' ]"  class="btn bg-white border-0 shadow-big radius-20 float-left" title="Geri">
                 <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
                 <span class="hide-xs v-align-middle ml-10">Geri</span>
             </a>
@@ -37,7 +37,7 @@
             </div>
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10">Məhsul</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName= "category_id"
                     [options]="productList"
                     (onChange)="onSelectProduct($event)"
@@ -47,7 +47,7 @@
             </div>
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10">Növ</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName="kind_id"
                     [options]="kindList"
                     placeholder="Növü seçin" filter="true"
@@ -56,16 +56,16 @@
             </div>
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10">Keyfiyyət</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName="quality_id"
-                    [options]="qualityList" 
+                    [options]="qualityList"
                     placeholder="Növü seçin" filter="true"
                     class="input custom select border-0 radius-20 shadow-big">
                 </p-dropdown>
             </div>
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10">Qablaşdırma</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName="package_id"
                     [options]="packegeList"
                     placeholder="Qablaşdırmanı seçin" filter="true"
@@ -74,7 +74,7 @@
             </div>
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10"> Məhsulun kalibri</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName="kalibry_id"
                     [options]="kalibryList"
                     placeholder="Məhsulun kalibri seçin" filter="true"
@@ -84,7 +84,7 @@
 
             <div class="col as-3 md-4 sm-6 mb-20">
                 <label for="prod_name" class="pl-10">Ölçü vahidi</label>
-                <p-dropdown 
+                <p-dropdown
                     formControlName="unit_id"
                     [options]="unitList"
                     (onChange)="onUnitSelect($event)"
@@ -95,7 +95,7 @@
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10">Miqdar {{(selectUnit)}} </label>
-                <input 
+                <input
                     formControlName="common"
                     type="number" min="0"
                     max="" id=""
@@ -104,7 +104,7 @@
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10"> Məhsulun qiyməti  bir{{(selectUnit)}}</label>
-                <input 
+                <input
                     formControlName="price"
                     type="number" min="0"
                     max="" id=""
@@ -113,7 +113,7 @@
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10">Yıgılma tarixi</label>
-                <p-calendar 
+                <p-calendar
                     formControlName="accumulated_at"
                     class="input custom border-0 radius-20 shadow-big"
                     placeholder="../../...."
@@ -121,25 +121,25 @@
                     dateFormat="yy-mm-dd" [dataType]="'string'">
                 </p-calendar>
             </div>
-         
-           
+
+
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10">Saxlanma müddəti</label>
-                <p-calendar 
+                <p-calendar
                     formControlName="expiry_time"
                     class="input custom border-0 radius-20 shadow-big"
                     placeholder="../../...."
-                    name="preparingDate" 
+                    name="preparingDate"
                     dateFormat="yy-mm-dd" [dataType]="'string'">
                 </p-calendar>
             </div>
 
             <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
                 <label for="" class="pl-10">Məhsulun şəkili</label>
-                <input 
-                    (change)="onFileChange($event)" 
-                    type="file" id="" 
+                <input
+                    (change)="onFileChange($event)"
+                    type="file" id=""
                     class="input custom border-0 radius-20 shadow-big"
                     #fileInput>
             </div>
@@ -148,7 +148,7 @@
                 <label for="description" class="pl-10">Məhsul haqqında</label>
                 <textarea
                         formControlName="description_az"
-                        name id="description" 
+                        name id="description"
                         cols="30" rows="10"
                         class="input no-resize border-0 radius-20 shadow-big"
                         placeholder="Ətraflı məlumat qeyd edin">
@@ -157,7 +157,7 @@
                     <div  *ngSwitchCase="1">
                         <textarea
                             formControlName="description_az"
-                            name id="description" 
+                            name id="description"
                             cols="30" rows="10"
                             class="input no-resize border-0 radius-20 shadow-big"
                             placeholder="Ətraflı məlumat qeyd edin">
@@ -166,7 +166,7 @@
                     <div  *ngSwitchCase="2">
                         <textarea
                             formControlName="description_en"
-                            name id="description" 
+                            name id="description"
                             cols="30" rows="10"
                             class="input no-resize border-0 radius-20 shadow-big"
                             placeholder="Ətraflı məlumat qeyd edin">
@@ -175,14 +175,14 @@
                     <div  *ngSwitchCase="3">
                         <textarea
                             formControlName="description_ru"
-                            name id="description" 
+                            name id="description"
                             cols="30" rows="10"
                             class="input no-resize border-0 radius-20 shadow-big"
                             placeholder="Ətraflı məlumat qeyd edin">
                          </textarea>
                     </div>
                 </div> -->
-                
+
             </div>
         </div>
 

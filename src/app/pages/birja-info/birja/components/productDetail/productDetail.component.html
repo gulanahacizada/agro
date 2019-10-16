@@ -5,13 +5,13 @@
             <nav aria-label="Breadcrumb navbar">
                 <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                        <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
                             <span itemprop="name">AgroBirja.az</span>
                         </a>
                         <meta itemprop="position" content="1">
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="/birja.php" title="Birja" itemprop="item">
+                        <a [routerLink]="['/birja']" title="Birja" itemprop="item">
                             <span itemprop="name">Birja</span>
                         </a>
                         <meta itemprop="position" content="2">
@@ -60,7 +60,7 @@
                             <tr>
                                 <td class="bold">Şirkət:</td>
                                 <td>
-                                    <a href="company-detail.php" title="MARS-FK LTD MMM" class="bold">
+                                    <a [routerLink]="['/companyInfo/profile', productResponse?.user?.id ]" title="MARS-FK LTD MMM" class="bold">
                                         {{productResponse?.user?.name}}
                                     </a>
                                 </td>
@@ -131,7 +131,7 @@
             </div>
             <!-- CHART -->
             <!-- <div class="clear p-20 shadow-big">
-                          
+
                       <canvas id="product-chart"></canvas>
                   </div> -->
             <!-- CHART END -->

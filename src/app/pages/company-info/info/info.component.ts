@@ -34,19 +34,17 @@ export class InfoComponent implements OnInit {
     this.tree = this.router.parseUrl(this.url);
     this.primary = this.tree.root.children[PRIMARY_OUTLET];
     this.id = (this.primary.segments[2] || {path: null}).path;
-    console.log(this.id);
  }
 
   getCompanyById() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
       this.userInfo = response.responseContent;
       this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
-      console.log(this.userInfo);
       // this.phone = this.userInfo.contacts.filter(e => e.type == 0);
       // this.email = this.userInfo.contacts.filter(e => e.type == 1);
     });
   }
 
- 
+
 
 }

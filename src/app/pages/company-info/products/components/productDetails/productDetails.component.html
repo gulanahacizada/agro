@@ -5,7 +5,7 @@
           <nav aria-label="Breadcrumb navbar">
               <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
                   <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                      <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                      <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
                           <span itemprop="name">AgroBirja.az</span>
                       </a>
                       <meta itemprop="position" content="1">
@@ -72,7 +72,7 @@
                       <tr>
                           <td class="bold">Şirkət:</td>
                           <td>
-                              <a href="company-detail.php" title="MARS-FK LTD MMM" class="bold">
+                              <a [routerLink]="['/companyInfo/profile', productResponse?.user?.id ]" title="MARS-FK LTD MMM" class="bold">
                                   {{productResponse?.user?.name}}
                               </a>
                           </td>
@@ -100,7 +100,7 @@
                 <form [formGroup]='proposalForm' (ngSubmit)="submit()"  class="row as-10">
                     <div class="col as-4 xs-12 mb-20">
                         <label for="offer-amount">Tələb olunan miqdarı</label>
-                        <div class="input-group radius-20 shadow-big"> 
+                        <div class="input-group radius-20 shadow-big">
                             <input formControlName="size" (input)='onCountChange($event)' type="number" id="offer-amount" min="0" class="input border-0 radius-20 shadow-big" placeholder="0">
                             <span class="input-group-addon border-0">{{productResponse?.unit.name_az}}</span>
                         </div>
@@ -135,7 +135,7 @@
           </div>
           <!-- CHART -->
                   <!-- <div class="clear p-20 shadow-big">
-                          
+
                       <canvas id="product-chart"></canvas>
                   </div> -->
           <!-- CHART END -->

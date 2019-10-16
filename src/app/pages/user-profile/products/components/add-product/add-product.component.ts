@@ -177,7 +177,6 @@ export class AddProductComponent implements OnInit {
     };
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
       this.kinds = response.responseContent;
-      console.log(this.kinds);
       this.kindList = (this.kinds || []).map((r: any) => ({
         label: r.name_az,
         value: r.id
@@ -223,12 +222,6 @@ export class AddProductComponent implements OnInit {
   onUnitSelect(event) {
     this.selectUnit = event.originalEvent.target.textContent;
   }
-  // deletePhoto() {
-  //   this.fileRaw = null;
-  //   this.url = null;
-  //   $('#photo').val('');
-  //   console.log(this.fileRaw, this.url);
-  // }
 
 
   addProduct() {
