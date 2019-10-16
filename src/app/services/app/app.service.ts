@@ -36,10 +36,6 @@ export class AppService extends HttpsService {
   public NEWS = 'news';
   public ANSWER_OFFER = 'dialog/answer';
   public SEND_OFFER = 'dialog/send';
- 
-
-
-
 
   constructor(public http: HttpClient) {
     super();
@@ -58,11 +54,11 @@ export class AppService extends HttpsService {
   }
 
   public currency(params: any = {}): Observable<any> {
-    return this.getTv(this.http, this.CURRENCY, params);
+    return this.get(this.http, this.CURRENCY, params);
   }
 
   public metals( params: any = {}): Observable<any> {
-    return this.getTv(this.http, this.METALS, params);
+    return this.get(this.http, this.METALS, params);
   }
 
   public sellerUsers( params: any = {}): Observable<any> {

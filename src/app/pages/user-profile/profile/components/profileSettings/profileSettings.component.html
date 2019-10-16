@@ -21,17 +21,14 @@
                 <label for="full-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
                 <input type="text" id="full-name" class="input border-0 radius-20 shadow-big" />
               </div>
-
               <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
                 <label for="email" class="pl-10">E-poçt <sup class="text-red">*</sup></label>
                 <input type="email" id="email" class="input border-0 radius-20 shadow-big" />
               </div>
-
               <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
                 <label for="tel" class="pl-10">Telefon <sup class="text-red">*</sup></label>
                 <input type="tel" id="tel" class="input border-0 radius-20 shadow-big" />
               </div>
-
               <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
                 <label for="" class="pl-10">Field Label</label>
                 <select id="" class="input select border-0 radius-20 shadow-big">
@@ -41,12 +38,10 @@
                   <option value="">Product Name</option>
                 </select>
               </div>
-
               <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
                 <label for="" class="pl-10">Field Label</label>
                 <input type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big" />
               </div>
-
               <div class="col as-4 sm-6 xs-12 mb-10 pb-10">
                 <label for="" class="pl-10">Field Label</label>
                 <input id="" class="input datepicker-here border-0 radius-20 shadow-big" type="text" data-language="az"
@@ -67,43 +62,32 @@
                 <input type="text" formControlName="name" id="company-name"
                   class="input border-0 radius-20 shadow-big" />
               </div>
-
               <div class="clear">
                 <label for="about-me" class="pl-10">Şirkət haqqında ətraflı məlumat</label>
-                <p-editor [style]="{'height':'320px'}"
-                   class="input no-resize border-0 radius-20 shadow-big"
-                   placeholder="Ətraflı məlumat qeyd edin"
-                   formControlName="description_az">
+                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                  placeholder="Ətraflı məlumat qeyd edin" formControlName="description_az">
                 </p-editor>
-                <p-editor [style]="{'height':'320px'}"
-                class="input no-resize border-0 radius-20 shadow-big"
-                placeholder="Ətraflı məlumat qeyd edin"
-                formControlName="description_ru">
-             </p-editor>
-             <p-editor [style]="{'height':'320px'}"
-             class="input no-resize border-0 radius-20 shadow-big"
-             placeholder="Ətraflı məlumat qeyd edin"
-             formControlName="description_en">
-          </p-editor>
+                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                  placeholder="Ətraflı məlumat qeyd edin" formControlName="description_ru">
+                </p-editor>
+                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                  placeholder="Ətraflı məlumat qeyd edin" formControlName="description_en">
+                </p-editor>
               </div>
             </div>
-
             <div class="col as-12 xl-4">
               <div class="row as-10">
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <label for="voen" class="pl-10">VÖEN <sup class="text-red">*</sup></label>
                   <input type="text" formControlName="voen" id="voen" class="input border-0 radius-20 shadow-big" />
                 </div>
-
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <label for="iban" class="pl-10">İBAN <sup class="text-red">*</sup></label>
                   <input type="text" formControlName="bank_account" id="iban"
                     class="input border-0 radius-20 shadow-big" />
                 </div>
-
                 <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-
                   <ng-container [formGroupName]="i">
                     <label for="email" class="pl-10">E-poçt <sup class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
@@ -147,12 +131,10 @@
           <div class="col as-12 xl-8">
             <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
               <label class="pl-10 pb-10 m-0">Sahə 1</label>
-
               <span class="remove bold text-red pointer float-right mr-20">
                 <i aria-hidden="true" class="icon-trash mr-5"></i>
                 Sil
               </span>
-
               <div class="row border-top">
                 <div class="col as-4 xs-12">
                   <select id="district" class="input select border-0 radius-20">
@@ -162,7 +144,6 @@
                     <option value="">District Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <select id="village" class="input select border-0 radius-20">
                     <option value="">Qəsəbə/Kənd Seç</option>
@@ -171,7 +152,6 @@
                     <option value="">Village Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <input type="number" id="planted-area" class="input select border-0 radius-20"
                     placeholder="Əkilən sahə" />
@@ -180,12 +160,10 @@
             </div>
             <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
               <label class="pl-10 pb-10 m-0">Sahə 2</label>
-
               <span class="remove bold text-red pointer float-right mr-20">
                 <i aria-hidden="true" class="icon-trash mr-5"></i>
                 Sil
               </span>
-
               <div class="row border-top">
                 <div class="col as-4 xs-12">
                   <select id="district-2" class="input select border-0 radius-20">
@@ -195,7 +173,6 @@
                     <option value="">District Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <select id="village-2" class="input select border-0 radius-20">
                     <option value="">Qəsəbə/Kənd Seç</option>
@@ -204,7 +181,6 @@
                     <option value="">Village Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <input type="number" id="planted-area" class="input select border-0 radius-20"
                     placeholder="Əkilən sahə" />
@@ -213,12 +189,10 @@
             </div>
             <div class="clear border-0 radius-20 shadow-big pt-10 mb-20">
               <label class="pl-10 pb-10 m-0">Sahə 3</label>
-
               <span class="remove bold text-red pointer float-right mr-20">
                 <i aria-hidden="true" class="icon-trash mr-5"></i>
                 Sil
               </span>
-
               <div class="row border-top">
                 <div class="col as-4 xs-12">
                   <select id="district-3" class="input select border-0 radius-20">
@@ -228,7 +202,6 @@
                     <option value="">District Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <select id="village-3" class="input select border-0 radius-20">
                     <option value="">Qəsəbə/Kənd Seç</option>
@@ -237,14 +210,12 @@
                     <option value="">Village Name</option>
                   </select>
                 </div>
-
                 <div class="col as-4 xs-12">
                   <input type="number" id="planted-area" class="input select border-0 radius-20"
                     placeholder="Əkilən sahə" />
                 </div>
               </div>
             </div>
-
             <button type="button" class="btn bg-orange border-0 radius-30 shadow-big">
               Əkin sahəsi əlavə et
             </button>
@@ -254,6 +225,5 @@
     </p-tabPanel>
   </p-tabView>
   <div class="clear radius-30 shadow-big p-5">
-
   </div>
 </div>

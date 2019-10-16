@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     public productService: ProductsService,
     private router: Router
-  ) {  this.getRoutes(this.url); }
+  ) { this.getRoutes(this.url); }
 
 
   ngOnInit() {
@@ -29,8 +29,10 @@ export class ProductsComponent implements OnInit {
 
 
   getCompanyProducts() {
-    this.productService.getAllProducts({user_id: this.id}).subscribe((response: Response) => {
-          this.productList = response.responseContent.data;
+    this.productService.getAllProducts({ user_id: this.id }).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+      }
     });
   }
 
@@ -39,7 +41,7 @@ export class ProductsComponent implements OnInit {
     this.url = this.router.routerState.snapshot.url;
     this.tree = this.router.parseUrl(this.url);
     this.primary = this.tree.root.children[PRIMARY_OUTLET];
-    this.id = (this.primary.segments[2] || {path: null}).path;
- }
+    this.id = (this.primary.segments[2] || { path: null }).path;
+  }
 
 }

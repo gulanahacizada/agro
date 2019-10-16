@@ -1,78 +1,68 @@
 <div class="account-body bg-white shadow-big p-40">
-    <div class="pb-20 mb-40 border-bottom clear">
-        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Hesab bilgiləri</h3>
-        <a [routerLink]="[ 'setting' ]" class="btn bg-white border-0 shadow-big radius-20 float-right legitRipple"
-            title="Hesab parametrləri">
-            <i aria-hidden="true" class="icon-cogs v-align-middle"></i>
-            <span class="hide-xs v-align-middle ml-10">Hesab parametrləri</span>
-        </a>
+  <div class="pb-20 mb-40 border-bottom clear">
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Hesab bilgiləri</h3>
+    <a [routerLink]="[ 'setting' ]" class="btn bg-white border-0 shadow-big radius-20 float-right legitRipple"
+      title="Hesab parametrləri">
+      <i aria-hidden="true" class="icon-cogs v-align-middle"></i>
+      <span class="hide-xs v-align-middle ml-10">Hesab parametrləri</span>
+    </a>
+  </div>
+  <div class="row as-10">
+    <div class="col as-12 lg-8">
+      <h4 class="h5 bold">Haqqında</h4>
+      <div class="font-16 light" [innerHTML]="userInfo?.description">
+        <p> {{userInfo?.description}} </p>
+      </div>
     </div>
-
-    <div class="row as-10">
-
-        <div class="col as-12 lg-8">
-            <h4 class="h5 bold">Haqqında</h4>
-
-            <div class="font-16 light" [innerHTML]="userInfo?.description">
-                <p> {{userInfo?.description}} </p>
-            </div>
+    <div class="col as-12 lg-4">
+      <div class="bg-gray p-10">
+        <div class="bg-white p-15 mb-10">
+          <h4 class="h5 bold">Rekvizitlər</h4>
+          <table class="account-requisition w-100p">
+            <tbody>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top">VÖEN:</td>
+                <td class="pb-15 pt-15 border-top">{{userInfo?.voen}}</td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top">IBAN:</td>
+                <td class="pb-15 pt-15 border-top">{{userInfo?.bank_account}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <div class="bg-white p-15">
+          <h4 class="h5 bold">Əlaqə məlumatları</h4>
+          <table class="account-requisition w-100p">
+            <tbody>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top">Telefon:</td>
+                <td class="pb-15 pt-15 border-top">
 
-        <div class="col as-12 lg-4">
-            <div class="bg-gray p-10">
-                <div class="bg-white p-15 mb-10">
-                    <h4 class="h5 bold">Rekvizitlər</h4>
+                  <a *ngFor="let item of phone" class="d-block bold">{{item.contact}}</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">E-mail:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a *ngFor="let item of email" class="d-block bold"> {{item.contact}} </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Sayt:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a href="{{userInfo?.website}}" title="Sayta keçid" rel="external noopener noreferrer nofollow"
+                    class="d-block bold" target="_blank">
+                    {{userInfo?.website}}
+                    <sup><i aria-hidden="true" class="icon-external-link ml-10"></i></sup>
 
-                    <table class="account-requisition w-100p">
-                        <tbody>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top">VÖEN:</td>
-                                <td class="pb-15 pt-15 border-top">{{userInfo?.voen}}</td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top">IBAN:</td>
-                                <td class="pb-15 pt-15 border-top">{{userInfo?.bank_account}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="bg-white p-15">
-                    <h4 class="h5 bold">Əlaqə məlumatları</h4>
-
-                    <table class="account-requisition w-100p">
-                        <tbody>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top">Telefon:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    
-                                    <a *ngFor="let item of phone" 
-                                        class="d-block bold">{{item.contact}}</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">E-mail:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    <a *ngFor="let item of email"  class="d-block bold"> {{item.contact}} </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Sayt:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    <a href="{{userInfo?.website}}" title="Sayta keçid"
-                                        rel="external noopener noreferrer nofollow" class="d-block bold"
-                                        target="_blank">
-                                        {{userInfo?.website}}
-                                        <sup><i aria-hidden="true" class="icon-external-link ml-10"></i></sup>
-                                        
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
+      </div>
     </div>
+  </div>
 </div>

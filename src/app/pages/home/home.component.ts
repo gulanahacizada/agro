@@ -43,14 +43,15 @@ export class HomeComponent implements OnInit {
     this.homeService.getAllUsers().subscribe(response => {
       if (response.responseCode == 1) {
         this.membersList = response.responseContent.data;
-
       }
     });
   }
 
   getAllProduct() {
     this.productService.getAllProducts().subscribe((response: Response) => {
-      this.productList = response.responseContent.data;
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+      }
     });
   }
 

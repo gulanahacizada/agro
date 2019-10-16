@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,SAAS,CACL,MAAM,CAAE,IAAI,CACZ,cAAI,CACA,MAAM,CAAE,IAAI",
-"sources": ["messageDetails.component.scss"],
-"names": [],
-"file": "messageDetails.component.min.css"
-}

@@ -1,9 +1,7 @@
 <div class="container as-10 xl-15 lg-15 pt-20">
   <div class="row as-10 xl-15 lg-15">
-
     <div class="col as-12 lg-9 mb-20">
       <article class="article panel shadow-big">
-
         <div class="panel-header">
           <nav aria-label="Breadcrumb navbar">
             <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -29,11 +27,9 @@
             </ol>
           </nav>
         </div>
-
         <header class="panel-header p-40 pt-20 pb-20">
           <h1 class="article-title bold m-0">{{title}} </h1>
         </header>
-
         <aside class="article-side panel-header p-10 pl-40 pr-40">
           <div class="row as-10">
             <div class="col xs-12 d-flex-center">
@@ -41,51 +37,40 @@
                 <time datetime="2019-08-25T15:50" class="date bold text-main mr-20 pr-10">
                   <i aria-hidden="true" class="icon-calendar-8 mr-10"></i>{{newInfo?.created_at | date: 'dd/MM/yyyy'}}
                 </time>
-
                 <span class="views-count text-main">
                   <i aria-hidden="true" class="icon-eye mr-10"></i> {{newInfo?.views}}
                 </span>
               </div>
             </div>
             <div class="col xs-12 share-col">
-
               <a href="#" aria-label="Facebook ilə paylaş" title="Facebook ilə paylaş" data-toggle="tooltip"
                 rel="external noopener noreferrer" class="btn circle bg-fb border-0 shadow-big ml-5 mr-5">
                 <i aria-hidden="true" class="icon-social-facebook v-align-middle"></i>
               </a>
-
               <a href="#" aria-label="Twitter ilə paylaş" title="Twitter ilə paylaş" data-toggle="tooltip"
                 rel="external noopener noreferrer" class="btn circle bg-tw border-0 shadow-big ml-5 mr-5">
                 <i aria-hidden="true" class="icon-social-twitter v-align-middle"></i>
               </a>
-
               <a href="#" aria-label="Linkedin ilə paylaş" title="Linkedin ilə paylaş" data-toggle="tooltip"
                 rel="external noopener noreferrer" class="btn circle bg-ln border-0 shadow-big ml-5 mr-5">
                 <i aria-hidden="true" class="icon-social-linkedin v-align-middle"></i>
               </a>
-
               <a href="#" aria-label="Whatsapp ilə paylaş" title="Whatsapp ilə paylaş" data-toggle="tooltip"
                 rel="external noopener noreferrer" class="btn circle bg-wp border-0 shadow-big ml-5 mr-5">
                 <i aria-hidden="true" class="icon-social-whatsapp v-align-middle"></i>
               </a>
-
             </div>
           </div>
         </aside>
-
         <figure class="thumb responsive pb-in-56 m-0">
           <img src={{newInfo?.image}} alt="title" width="960" height="960">
         </figure>
-
         <div class="article-body panel-body p-40 font-16 light">
           <p class="description font-18 bold">{{description}}</p>
-
           <div [innerHTML]="this.body"></div>
         </div>
       </article>
     </div>
-
     <div class="col as-12 lg-3 mb-20">Other news here</div>
-
   </div>
 </div>

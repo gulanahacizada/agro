@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Response } from 'src/app/interfaces/response';
 
@@ -19,7 +19,7 @@ export class ProductsInComponent implements OnInit {
     private activateRoute: ActivatedRoute,
   ) {
     this.id = this.activateRoute.snapshot.params.id;
-   }
+  }
 
   ngOnInit() {
     this.getProdById();
@@ -27,7 +27,9 @@ export class ProductsInComponent implements OnInit {
 
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
-      this.productResponse = response.responseContent;
+      if (response.responseCode == 1) {
+        this.productResponse = response.responseContent;
+      }
     });
   }
 

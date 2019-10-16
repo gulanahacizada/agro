@@ -20,9 +20,9 @@ export class NewDetailComponent implements OnInit {
   constructor(
     public newsService: NewsService,
     private activateRoute: ActivatedRoute,
-    ) {
-      this.id = this.activateRoute.snapshot.params.id;
-    }
+  ) {
+    this.id = this.activateRoute.snapshot.params.id;
+  }
 
   ngOnInit() {
     this.getNewById();
@@ -30,10 +30,12 @@ export class NewDetailComponent implements OnInit {
 
   getNewById() {
     this.newsService.getNewById(this.id).subscribe((response: Response) => {
-      this.newInfo = response.responseContent;
-      this.title = response.responseContent[`title_${this.activeLang}`];
-      this.body = response.responseContent[`body_${this.activeLang}`];
-      this.description = response.responseContent[`description_${this.activeLang}`];
+      if (response.responseCode == 1) {
+        this.newInfo = response.responseContent;
+        this.title = response.responseContent[`title_${this.activeLang}`];
+        this.body = response.responseContent[`body_${this.activeLang}`];
+        this.description = response.responseContent[`description_${this.activeLang}`];
+      }
     });
   }
 

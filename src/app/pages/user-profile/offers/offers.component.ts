@@ -45,8 +45,10 @@ export class OffersComponent implements OnInit {
   }
 
   getAllDialogs() {
-    this.offersService.getAllDialogs({status: this.selectReadType , direction: this.selectDialogType}).subscribe((response: Response) => {
-      this.offersList = response.responseContent.data;
+    this.offersService.getAllDialogs({ status: this.selectReadType, direction: this.selectDialogType }).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.offersList = response.responseContent.data;
+      }
     });
   }
 

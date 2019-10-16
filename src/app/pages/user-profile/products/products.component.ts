@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from './services/products.service';
-import { Product } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-products',
@@ -23,7 +21,9 @@ export class ProductsComponent implements OnInit {
 
   getMyProduct() {
     this.productService.getMyProduct().subscribe((response: Response) => {
-          this.productList = response.responseContent.data;
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+      }
     });
   }
 

@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
     private router: Router
   ) {
     this.getRoutes(this.url);
-   }
+  }
 
   ngOnInit() {
     this.getCompanyInfo();
@@ -30,7 +30,9 @@ export class MainComponent implements OnInit {
 
   getCompanyInfo() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
-      this.userInfo = response.responseContent;
+      if (response.responseCode == 1) {
+        this.userInfo = response.responseContent;
+      }
     });
   }
 
@@ -38,6 +40,6 @@ export class MainComponent implements OnInit {
     this.url = this.router.routerState.snapshot.url;
     this.tree = this.router.parseUrl(this.url);
     this.primary = this.tree.root.children[PRIMARY_OUTLET];
-    this.id = (this.primary.segments[2] || {path: null}).path;
- }
+    this.id = (this.primary.segments[2] || { path: null }).path;
+  }
 }
