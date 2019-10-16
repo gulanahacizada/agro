@@ -17,7 +17,7 @@ export class OffersComponent implements OnInit {
   offersList: any;
 
   constructor(
-    private offersService: OffersService
+    public offersService: OffersService
   ) {
     this.dialogType = [
       { label: 'Gələn təkliflər', value: 'to' },

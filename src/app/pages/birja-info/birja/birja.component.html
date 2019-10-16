@@ -105,7 +105,7 @@
             <td><span class="text-special bold">{{product?.common}} {{product?.unit?.name}} </span></td>
             <td>
               <div class="progress radius-5 w-100">
-                <div [ngStyle]="{'width': product.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
+                <div [ngStyle]="{'width': product?.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
                   role="progressbar">
                   {{product?.sell}} %</div>
               </div>

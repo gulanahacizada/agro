@@ -20,7 +20,7 @@ export class MessageDetailsComponent implements OnInit {
   count: number;
 
   constructor(
-    private offersService: OffersService,
+    public offersService: OffersService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
   ) {
