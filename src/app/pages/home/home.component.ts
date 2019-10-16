@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   membersList: any;
 
   constructor(
-    private homeService: HomeService,
+    public homeService: HomeService,
     private productService: ProductsService,
   ) { }
 

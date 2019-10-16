@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody class="text-center no-wrap">
-        <tr *ngFor="let offer of offersList; let i=index">
+        <tr *ngFor="let offer of offersList; let i=index; trackBy: offersService.trackByFn">
           <td>{{i+1}}</td>
           <td>{{offer?.user_from?.name}}</td>
           <td>{{offer?.user_to?.name}}</td>

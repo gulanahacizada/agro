@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   email = [];
 
   constructor(
-    private profileService: ProfileService
+    public profileService: ProfileService
   ) { }
 
   ngOnInit() {

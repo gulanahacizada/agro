@@ -53,7 +53,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let message of dialogInfo?.messages; let i=index">
+            <tr *ngFor="let message of dialogInfo?.messages; let i=index; trackBy: offersService.trackByFn">
                 <td class="no-wrap"> {{i+1}} </td>
                 <td>{{dialogInfo?.user_from?.name}}</td>
                 <td>{{dialogInfo?.user_to?.name}}</td>

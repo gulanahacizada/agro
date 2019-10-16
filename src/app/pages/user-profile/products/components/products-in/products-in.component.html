@@ -28,21 +28,21 @@
                 <td>
                   <a [routerLink]="['/companyInfo/profile', productResponse?.user?.id ]" title="MARS-FK LTD MMM"
                     class="bold">
-                    {{productResponse?.user.name}}
+                    {{productResponse?.user?.name}}
                   </a>
                 </td>
               </tr>
               <tr>
                 <td class="bold">Növü</td>
-                <td>{{productResponse?.kind.name_az}}</td>
+                <td>{{productResponse?.kind?.name_az}}</td>
               </tr>
               <tr>
                 <td class="bold">Kalibri:</td>
-                <td> {{productResponse?.kolibry.name_az}} </td>
+                <td> {{productResponse?.kolibry?.name_az}} </td>
               </tr>
               <tr>
                 <td class="bold">Miqdarı</td>
-                <td>{{productResponse?.common}} {{productResponse?.unit.name_az}}</td>
+                <td>{{productResponse?.common}} {{productResponse?.unit?.name_az}}</td>
               </tr>
             </tbody>
           </table>
