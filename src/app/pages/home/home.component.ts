@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   makeCarouselOptions() {
     this.newOwlOptions = {
       loop: true,
-      margin: 10,
+      margin: 15,
       autoplay: true,
       autoplayTimeout: 3000,
       autoplayHoverPause: true,
