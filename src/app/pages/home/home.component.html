@@ -240,6 +240,7 @@
     </div>
   </div>
 </section>
+
 <!-- Xeberler  -->
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
   <div class="section-title-wrap w-100p d-table mb-40">
@@ -255,11 +256,21 @@
           <img src="{{news?.image}}" alt="title" width="" height="">
         </div>
         <div class="info tr-3s border-top">
-          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.description}} </span>
-          <span class="date-time text-gray light">
-            <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-            {{news.created_at |  date}}
-          </span>
+          <div class="clear mb-10">
+
+              <span class="type d-in-block text-gray light mr-15">
+                <i aria-hidden="true" class="icon-newspaper-3 text-special mr-10"></i>
+                Category Name
+              </span>
+
+              <span class="date-time d-in-block text-gray light">
+                  <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
+                  {{news.created_at |  date}}
+              </span>
+
+          </div>
+
+          <span class="title text-black font-16 bold line-clamp line-3"> {{news?.description}} </span>
         </div>
       </a>
     </div>

@@ -5,7 +5,6 @@ import { Response } from 'src/app/interfaces/response';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'app-productDetails',
   templateUrl: './productDetails.component.html',
   styleUrls: ['./productDetails.component.scss']
@@ -28,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   ) {
     this.id = this.activateRoute.snapshot.params.id;
     this.selfID = localStorage.getItem('selfID');
-   }
+  }
 
   ngOnInit() {
     this.getProdById();
@@ -37,10 +36,11 @@ export class ProductDetailsComponent implements OnInit {
 
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
-      this.productResponse = response.responseContent;
-      if (this.productResponse.user.id == this.selfID) {
-        this.myProduct = true;
-        console.log(this.selfID);
+      if (response.responseCode == 1) {
+        this.productResponse = response.responseContent;
+        if (this.productResponse.user.id == this.selfID) {
+          this.myProduct = true;
+        }
       }
     });
   }
@@ -48,7 +48,7 @@ export class ProductDetailsComponent implements OnInit {
   createProposalForm() {
     this.proposalForm = this.fb.group({
       product_id: [],
-      size: [ Validators.required],
+      size: [Validators.required],
       price: [],
       sellPrice: [],
       body: ['', Validators.required],
@@ -86,10 +86,11 @@ export class ProductDetailsComponent implements OnInit {
       product_id: this.id
     });
     if (this.proposalForm.valid) {
-      this.productService.createDialog(this.proposalForm.value).subscribe( () => {
-        this.proposalForm.reset();
+      this.productService.createDialog(this.proposalForm.value).subscribe((response: Response) => {
+        if (response.responseCode == 1) {
+          this.proposalForm.reset();
+        }
       });
     }
   }
-
 }

@@ -23,7 +23,7 @@ export class InfoComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
     private router: Router
-  ) {  this.getRoutes(this.url); }
+  ) { this.getRoutes(this.url); }
 
   ngOnInit() {
     this.getCompanyById();
@@ -33,20 +33,17 @@ export class InfoComponent implements OnInit {
     this.url = this.router.routerState.snapshot.url;
     this.tree = this.router.parseUrl(this.url);
     this.primary = this.tree.root.children[PRIMARY_OUTLET];
-    this.id = (this.primary.segments[2] || {path: null}).path;
-    console.log(this.id);
- }
+    this.id = (this.primary.segments[2] || { path: null }).path;
+  }
 
   getCompanyById() {
     this.profileService.getUserById(this.id).subscribe((response: Response) => {
-      this.userInfo = response.responseContent;
-      this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
-      console.log(this.userInfo);
-      // this.phone = this.userInfo.contacts.filter(e => e.type == 0);
-      // this.email = this.userInfo.contacts.filter(e => e.type == 1);
+      if (response.responseCode == 1) {
+        this.userInfo = response.responseContent;
+        this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
+        // this.phone = this.userInfo.contacts.filter(e => e.type == 0);
+        // this.email = this.userInfo.contacts.filter(e => e.type == 1);
+      }
     });
   }
-
- 
-
 }

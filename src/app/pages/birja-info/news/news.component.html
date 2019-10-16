@@ -4,7 +4,7 @@
       <nav aria-label="Breadcrumb navbar">
         <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+            <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
               <span itemprop="name">AgroBirja.az</span>
             </a>
             <meta itemprop="position" content="1">
@@ -34,12 +34,17 @@
             <img data-src="{{news?.image}}" alt="title" width="" height="">
           </div>
           <div class="info tr-3s border-top">
-            <span class="date-time d-block text-gray light mb-10">
-              <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-              {{news?.created_at}}
-            </span>
+            <div class="clear mb-10">
+              <span class="type d-in-block text-gray light mr-15">
+                <i aria-hidden="true" class="icon-newspaper-3 text-special mr-10"></i>
+                Category Name
+              </span>
+              <span class="date-time d-in-block text-gray light">
+                  <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
+                {{news.created_at |  date}}
+              </span>
+            </div>
             <span class="title font-16 text-main bold line-clamp line-1"><u>{{news?.title}}</u></span>
-            <small class="type text-gray mt-3">{{ news?.description}}</small>
           </div>
         </a>
       </div>

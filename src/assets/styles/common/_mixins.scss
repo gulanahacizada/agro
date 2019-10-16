@@ -7,13 +7,28 @@
     $dir: to-lower-case($family);
 
     font-family: $family;
-    src: url($fontPath + $dir + '/' + $name + '.eot');
-    src: url($fontPath + $dir + '/' + $name + '.woff2') format('woff2'),
+    src: url($fontPath + $dir + '/' + $name + '.eot'),
+    url($fontPath + $dir + '/' + $name + '.woff2') format('woff2'),
     url($fontPath + $dir + '/' + $name + '.woff') format('woff'),
     url($fontPath + $dir + '/' + $name + '.ttf') format('truetype'),
     url($fontPath + $dir + '/' + $name + '.svg#' +  $meta) format('svg'),
     url($fontPath + $dir + '/' + $name + '.eot?#iefix') format('embedded-opentype');
     font-weight: $weight;
+  }
+}
+
+@mixin icon-face($family) {
+  @font-face {
+    $dir: to-lower-case($family);
+
+    font-family: $family;
+    src: url($fontPath + $dir + '/' + $family + '.eot'),
+    url($fontPath + $dir + '/' + $family + '.eot?#iefix') format('embedded-opentype'),
+    url($fontPath + $dir + '/' + $family + '.ttf') format('truetype'),
+    url($fontPath + $dir + '/' + $family + '.woff') format('woff'),
+    url($fontPath + $dir + '/' + $family + '.svg#' +  $family) format('svg');
+    font-weight: normal;
+    font-style: normal;
   }
 }
 

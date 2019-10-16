@@ -1,80 +1,71 @@
 <div class="account-body bg-white shadow-big p-40">
-
     <div class="pb-20 clear">
         <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsulun detalları</h3>
     </div>
-
     <div class="table-responsive o-auto border-0 mb-40">
         <table class="table custom-table bg-gray">
-
             <thead class="no-wrap bg-white">
-            <tr>
-                <th>Məhsul</th>
-                <th>Növ</th>
-                <th>Miqdar</th>
-                <th>Qiymət</th>
-                <th>Satış</th>
-                <th>Satan</th>
-            </tr>
+                <tr>
+                    <th>Məhsul</th>
+                    <th>Növ</th>
+                    <th>Miqdar</th>
+                    <th>Qiymət</th>
+                    <th>Satış</th>
+                    <th>Satan</th>
+                </tr>
             </thead>
-
             <tbody>
                 <tr>
                     <td class="no-wrap">
                         <div class="bold">
                             {{dialogInfo?.product?.category?.name}}
-                            
+
                         </div>
                     </td>
                     <td class="no-wrap">
-                            {{dialogInfo?.product?.kind?.name}}
+                        {{dialogInfo?.product?.kind?.name}}
                     </td>
                     <td class="no-wrap">{{dialogInfo?.size}} {{dialogInfo?.product?.unit?.name}}</td>
-                    <td class="no-wrap"> {{dialogInfo?.price / dialogInfo?.size }} AZN / {{dialogInfo?.product?.unit?.name}}</td>
+                    <td class="no-wrap"> {{dialogInfo?.price / dialogInfo?.size }} AZN /
+                        {{dialogInfo?.product?.unit?.name}}</td>
                     <td class="no-wrap">{{dialogInfo?.price}} AZN</td>
                     <td class="no-wrap">
                         <div class="bold">{{dialogInfo?.user_to?.name}}</div>
                     </td>
                 </tr>
             </tbody>
-
         </table>
     </div>
-
     <div class="pb-20 clear">
         <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Təklif və cavablar</h3>
     </div>
-
     <div class="table-responsive o-auto border-0 mb-0">
         <table class="table custom-table bg-gray">
-
             <thead class="no-wrap bg-white">
-            <tr>
-                <th>№</th>
-                <th>Təklif verən</th>
-                <th>Təklif alan</th>
-                <th>Miqdar</th>
-                <th>Qiymət</th>
-                <th>Ümumi qiymət</th>
-                <th>Qeyd</th>
-                <th>Tarix</th>
-            </tr>
+                <tr>
+                    <th>№</th>
+                    <th>Təklif verən</th>
+                    <th>Təklif alan</th>
+                    <th>Miqdar</th>
+                    <th>Qiymət</th>
+                    <th>Ümumi qiymət</th>
+                    <th>Qeyd</th>
+                    <th>Tarix</th>
+                </tr>
             </thead>
-
             <tbody>
-            <tr *ngFor="let message of dialogInfo?.messages; let i=index">
-                <td class="no-wrap"> {{i+1}} </td>
-                <td>{{dialogInfo?.user_from?.name}}</td>
-                <td>{{dialogInfo?.user_to?.name}}</td>
-                <td class="no-wrap"> {{message?.size}} ton</td>
-                <td class="no-wrap">{{+message?.price / +message?.size}} AZN / ton</td>
-                <td class="no-wrap">{{message?.price}} AZN</td>
-                <td>
-                <span class="d-block text-left">{{message?.body}}</span>
-                </td>
-                <td class="no-wrap">{{message?.created_at | date: 'dd/MM/yyyy'}}</td>
-                
-            </tr>
+                <tr *ngFor="let message of dialogInfo?.messages; let i=index">
+                    <td class="no-wrap"> {{i+1}} </td>
+                    <td>{{dialogInfo?.user_from?.name}}</td>
+                    <td>{{dialogInfo?.user_to?.name}}</td>
+                    <td class="no-wrap"> {{message?.size}} ton</td>
+                    <td class="no-wrap">{{+message?.price / +message?.size}} AZN / ton</td>
+                    <td class="no-wrap">{{message?.price}} AZN</td>
+                    <td>
+                        <span class="d-block text-left">{{message?.body}}</span>
+                    </td>
+                    <td class="no-wrap">{{message?.created_at | date: 'dd/MM/yyyy'}}</td>
+                </tr>
             </tbody>
         </table>
         <div class="controls" *ngIf="dialogInfo?.status == 2">
@@ -82,76 +73,70 @@
                 class="btn xs float-right bg-white shadow border-0 legitRipple">
                 Cavab yaz
                 <i aria-hidden="true" class="icon-pen-write-1 v-align-middle"></i>
-             </span>
-             <span (click)="rejectOffer()" *ngIf="dialogInfo?.to == selfId"  aria-label="Rədd et" title="Rədd et" data-toggle="tooltip"
-                class="btn xs float-right   bg-red shadow border-0 legitRipple">
+            </span>
+            <span (click)="rejectOffer()" *ngIf="dialogInfo?.to == selfId" aria-label="Rədd et" title="Rədd et"
+                data-toggle="tooltip" class="btn xs float-right   bg-red shadow border-0 legitRipple">
                 Imtina et
                 <i aria-hidden="true" class="icon-close v-align-middle"></i>
             </span>
-            <span (click)="acceptOffer()" *ngIf="dialogInfo?.buyer_accept == 0 && dialogInfo?.from == selfId" aria-label="Razılaş" title="Razılaş" data-toggle="tooltip"
+            <span (click)="acceptOffer()" *ngIf="dialogInfo?.buyer_accept == 0 && dialogInfo?.from == selfId"
+                aria-label="Razılaş" title="Razılaş" data-toggle="tooltip"
                 class="btn xs float-right  bg-green shadow border-0 legitRipple">
                 Razilash
                 <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
             </span>
-            <span *ngIf="dialogInfo?.buyer_accept == 1 && dialogInfo?.to == selfId" aria-label="Razılaş" title="Razılaş" data-toggle="tooltip"
-            class="btn xs float-right  bg-green shadow border-0 legitRipple">
-            Razilash
-            <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
-        </span>
+            <span *ngIf="dialogInfo?.buyer_accept == 1 && dialogInfo?.to == selfId" aria-label="Razılaş" title="Razılaş"
+                data-toggle="tooltip" class="btn xs float-right  bg-green shadow border-0 legitRipple">
+                Razilash
+                <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
+            </span>
         </div>
     </div>
-
 </div>
-
-<div class="modal offers-reply-modal"
-     data-modal="offers-reply"
-     data-open-animation="zoomIn"
-     data-close-animation="zoomOut"
-     role="dialog"
-     tabindex="-1"
-     aria-label="Login Modal">
-
+<div class="modal offers-reply-modal" data-modal="offers-reply" data-open-animation="zoomIn"
+    data-close-animation="zoomOut" role="dialog" tabindex="-1" aria-label="Login Modal">
     <div class="modal-content panel">
-
         <span role="button" class="close fixed-close icon-close" data-close="offers-reply" aria-label="Bağla"></span>
-
         <div class="panel-header bg-white">
             <span class="panel-title bold text-main">Cavab ver</span>
         </div>
-
         <div class="panel-body p-20">
             <form [formGroup]="sendMessage" (ngSubmit)="sendOffer()" class="row as-10">
                 <div class="col as-4 xs-12 mb-20">
                     <label for="offer-amount">Tələb olunan miqdarı</label>
                     <div class="input-group radius-20 shadow-big">
-                        <input formControlName="size"  (input)='onCountChange($event)'  type="number" id="offer-amount" class="input border-0 radius-20 shadow-big" placeholder="0" value="100" max="100">
+                        <input formControlName="size" (input)='onCountChange($event)' type="number" id="offer-amount"
+                            class="input border-0 radius-20 shadow-big" placeholder="0" value="100" max="100">
                         <span class="input-group-addon border-0">{{dialogInfo?.product?.unit?.name}}</span>
                     </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
                     <label for="offer-price">Təklif edilən qiymət</label>
                     <div class="input-group radius-20 shadow-big">
-                        <input formControlName="sellPrice" (input)='onSellPriceChange($event)'  type="number" id="offer-price" class="input border-0 radius-20 shadow-big" placeholder="0">
+                        <input formControlName="sellPrice" (input)='onSellPriceChange($event)' type="number"
+                            id="offer-price" class="input border-0 radius-20 shadow-big" placeholder="0">
                         <span class="input-group-addon border-0">AZN / {{dialogInfo?.product?.unit?.name}}</span>
                     </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
                     <label>Ümumi qiymət</label>
                     <div class="input-group radius-20 shadow-big">
-                        <input formControlName="price"  type="number" class="input border-0 radius-20 shadow-big" value="22.500" placeholder="0.00" readonly>
+                        <input formControlName="price" type="number" class="input border-0 radius-20 shadow-big"
+                            value="22.500" placeholder="0.00" readonly>
                         <span class="input-group-addon border-0">AZN</span>
                     </div>
                 </div>
                 <div class="col as-12 mb-20">
                     <label for="offer-note">Əlavə qeyd</label>
-                    <textarea formControlName="body" id="offer-note" class="input no-resize border-0 radius-20 shadow-big" cols="30" rows="4" placeholder="Qeyd yazın"></textarea>
+                    <textarea formControlName="body" id="offer-note"
+                        class="input no-resize border-0 radius-20 shadow-big" cols="30" rows="4"
+                        placeholder="Qeyd yazın"></textarea>
                 </div>
                 <div class="col as-12">
-                    <button [disabled]="!sendMessage.valid"  class="btn bg-special border-0 radius-20 shadow-big">Təklifi göndər</button>
+                    <button [disabled]="!sendMessage.valid" class="btn bg-special border-0 radius-20 shadow-big">Təklifi
+                        göndər</button>
                 </div>
             </form>
         </div>
-
     </div>
-
 </div>

@@ -43,22 +43,22 @@ export class HomeComponent implements OnInit {
     this.homeService.getAllUsers().subscribe(response => {
       if (response.responseCode == 1) {
         this.membersList = response.responseContent.data;
-
       }
     });
   }
 
   getAllProduct() {
     this.productService.getAllProducts().subscribe((response: Response) => {
-      this.productList = response.responseContent.data;
-      console.log(this.productList);
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+      }
     });
   }
 
   makeCarouselOptions() {
     this.newOwlOptions = {
       loop: true,
-      margin: 10,
+      margin: 15,
       autoplay: true,
       autoplayTimeout: 3000,
       autoplayHoverPause: true,

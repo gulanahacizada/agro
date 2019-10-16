@@ -2197,6 +2197,10 @@ table {
   resize: none;
 }
 
+.no-pointer-events{
+  pointer-events: none;
+}
+
 .o-hidden {
   overflow: hidden;
 }

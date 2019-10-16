@@ -41,14 +41,14 @@ export class OffersComponent implements OnInit {
 
   onSelectDialogType(event) {
     this.selectDialogType = event.value;
-    console.log(event.value);
     this.getAllDialogs();
   }
 
   getAllDialogs() {
-    this.offersService.getAllDialogs({status: this.selectReadType , direction: this.selectDialogType}).subscribe((response: Response) => {
-      console.log(response.responseContent.data);
-      this.offersList = response.responseContent.data;
+    this.offersService.getAllDialogs({ status: this.selectReadType, direction: this.selectDialogType }).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.offersList = response.responseContent.data;
+      }
     });
   }
 

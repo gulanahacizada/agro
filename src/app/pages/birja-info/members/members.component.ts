@@ -26,9 +26,11 @@ export class MembersComponent implements OnInit {
 
   getMembers() {
     this.memberService.getAllUsers({ page: this.pagination.page, per_page: this.pagination.per_page }).subscribe((response: Response) => {
-      this.membersList = response.responseContent.data;
-      this.pagination.per_page = response.responseContent.per_page;
-      this.pagination.total = response.responseContent.total;
+      if (response.responseCode == 1) {
+        this.membersList = response.responseContent.data;
+        this.pagination.per_page = response.responseContent.per_page;
+        this.pagination.total = response.responseContent.total;
+      }
     });
   }
 

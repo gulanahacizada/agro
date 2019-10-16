@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../../services/offers.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -23,7 +23,6 @@ export class MessageDetailsComponent implements OnInit {
     private offersService: OffersService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router,
   ) {
     this.id = this.activateRoute.snapshot.params.id;
   }
@@ -39,7 +38,6 @@ export class MessageDetailsComponent implements OnInit {
   getDialogById() {
     this.offersService.getDialogById(this.id).subscribe((response: Response) => {
       this.dialogInfo = response.responseContent;
-      console.log(response.responseContent);
     });
   }
 
@@ -101,13 +99,12 @@ export class MessageDetailsComponent implements OnInit {
 
   acceptOffer() {
     this.offersService.acceptOffer(this.id).subscribe((response: Response) => {
-      // this.router.navigate(['/dashboard/products']); 
+      // this.router.navigate(['/dashboard/products']);
     });
   }
 
   rejectOffer() {
     this.offersService.rejectOffer( this.id).subscribe((response: Response) => {
-      console.log(response);
     });
   }
 

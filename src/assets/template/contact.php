@@ -6,7 +6,7 @@
             <nav aria-label="Breadcrumb navbar">
                 <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="/" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                        <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
                             <span itemprop="name">AgroBirja.az</span>
                         </a>
                         <meta itemprop="position" content="1">

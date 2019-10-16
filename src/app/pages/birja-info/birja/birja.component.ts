@@ -50,29 +50,35 @@ export class BirjaComponent implements OnInit {
 
   getAllProducts() {
     this.productService.getAllProducts({ page: this.pagination.page, per_page: this.pagination.per_page }).subscribe((response: Response) => {
-      this.productList = response.responseContent.data;
-      this.pagination.per_page = response.responseContent.per_page;
-      this.pagination.total = response.responseContent.total;
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+        this.pagination.per_page = response.responseContent.per_page;
+        this.pagination.total = response.responseContent.total;
+      }
     });
   }
 
   getAllCategory() {
     this.productService.getCategory().subscribe((response: Response) => {
-      this.category = response.responseContent;
-      this.categoryList = (this.category || []).map((r: any) => ({
-        label: r.name,
-        value: r
-      }));
+      if (response.responseCode == 1) {
+        this.category = response.responseContent;
+        this.categoryList = (this.category || []).map((r: any) => ({
+          label: r.name,
+          value: r
+        }));
+      }
     });
   }
 
   getSellerUsers() {
     this.appService.sellerUsers().subscribe((response: Response) => {
-      this.sellerUsers = response.responseContent;
-      this.sellerList = (this.sellerUsers || []).map((r: any) => ({
-        label: r.name,
-        value: r.id
-      }));
+      if (response.responseCode == 1) {
+        this.sellerUsers = response.responseContent;
+        this.sellerList = (this.sellerUsers || []).map((r: any) => ({
+          label: r.name,
+          value: r.id
+        }));
+      }
     });
   }
 
@@ -93,11 +99,13 @@ export class BirjaComponent implements OnInit {
       category_id: id
     };
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
-      this.kinds = response.responseContent;
-      this.kindList = (this.kinds || []).map((r: any) => ({
-        label: r.name_az,
-        value: r.id
-      }));
+      if (response.responseCode == 1) {
+        this.kinds = response.responseContent;
+        this.kindList = (this.kinds || []).map((r: any) => ({
+          label: r.name_az,
+          value: r.id
+        }));
+      }
     });
   }
 
@@ -133,9 +141,11 @@ export class BirjaComponent implements OnInit {
       });
     }
     this.productService.getAllProducts(this.filterForm.value).subscribe((response: Response) => {
-      this.productList = response.responseContent.data;
-      this.pagination.per_page = response.responseContent.per_page;
-      this.pagination.total = response.responseContent.total;
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+        this.pagination.per_page = response.responseContent.per_page;
+        this.pagination.total = response.responseContent.total;
+      }
     });
   }
 

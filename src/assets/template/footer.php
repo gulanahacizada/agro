@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="/" role="menuitem" title="Title">
+                                <a [routerLink]="['/']" role="menuitem" title="Title">
                                     <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                                     <span>Xəbərlər</span>
                                 </a>

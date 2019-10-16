@@ -60,10 +60,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onSelectType(event) {
-    console.log(event);
-  }
-
   createCompanyForm() {
     this.companyRegister = this.fb.group({
       name: ['', Validators.required],
@@ -100,7 +96,6 @@ export class AppComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       const data = Object.assign({}, this.loginForm.value);
-      console.log(data);
       this.appService.login(data).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           localStorage.setItem('acc_jwt', response.responseContent.access_token);
@@ -109,7 +104,6 @@ export class AppComponent implements OnInit {
           this.router.navigate(['dashboard']);
           $('.login-modal').removeClass('open');
           $('body').removeClass('o-hidden');
-          console.log(response.responseContent);
         }
         if (response.responseCode == 2) {
           // message error
@@ -123,7 +117,7 @@ export class AppComponent implements OnInit {
           if (response.responseContent.type == 0) {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -144,7 +138,7 @@ export class AppComponent implements OnInit {
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -158,7 +152,6 @@ export class AppComponent implements OnInit {
     if (this.customerRegister.valid) {
       const data = Object.assign({}, this.customerRegister.value);
       this.clean(data);
-      console.log(data);
       this.appService.register(data).subscribe((response: Response) => {
         if (response.responseCode == 2) {
           this.responseMessage = response.responseMessage;
@@ -167,7 +160,7 @@ export class AppComponent implements OnInit {
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -178,9 +171,11 @@ export class AppComponent implements OnInit {
   }
 
   logOut() {
-    this.appService.logout().subscribe(() => {
-      localStorage.clear();
-      this.router.navigate(['/home']);
+    this.appService.logout().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        localStorage.clear();
+        this.router.navigate(['/home']);
+      }
     });
   }
 
@@ -191,19 +186,23 @@ export class AppComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
-    localStorage.setItem('lang' , language);
+    localStorage.setItem('lang', language);
     window.location.reload();
   }
 
   getCurrency() {
-    this.appService.currency().subscribe(response => {
-      this.currencyResponse = response;
+    this.appService.currency().subscribe((response: Response) => {
+      if (response.responseCode) {
+        this.currencyResponse = response.responseContent;
+      }
     });
   }
 
   getMetals() {
-    this.appService.metals().subscribe(response => {
-      this.metalResponse = response;
+    this.appService.metals().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.metalResponse = response.responseContent;
+      }
     });
   }
 
@@ -225,7 +224,6 @@ export class AppComponent implements OnInit {
   submitVerifyForm() {
     this.verifyToken = localStorage.getItem('verifyToken');
     this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
-
     });
   }
 

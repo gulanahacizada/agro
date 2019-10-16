@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,  FormArray, } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
 import { Response } from 'src/app/interfaces/response';
@@ -44,52 +44,51 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
 
   getUser() {
     this.profileService.getUserInfo().subscribe((response: Response) => {
-        this.userInfo = response.responseContent;
-        this.phones = this.userInfo.contacts.filter(e => e.type == 0);
-        this.emails = this.userInfo.contacts.filter(e => e.type == 1);
-        this.resetData();
-        this.emails.forEach(el => {
-          this.email.push(this.createEmailFormData(el));
-        });
-        this.phones.forEach(el => {
-          this.phone.push(this.createPhoneFormData(el));
-        });
-        if (this.updateUserForm.value.email == 0) {
-            this.email.push(this.createEmailArray());
-        }
+      this.userInfo = response.responseContent;
+      this.phones = this.userInfo.contacts.filter(e => e.type == 0);
+      this.emails = this.userInfo.contacts.filter(e => e.type == 1);
+      this.resetData();
+      this.emails.forEach(el => {
+        this.email.push(this.createEmailFormData(el));
+      });
+      this.phones.forEach(el => {
+        this.phone.push(this.createPhoneFormData(el));
+      });
+      if (this.updateUserForm.value.email == 0) {
+        this.email.push(this.createEmailArray());
+      }
 
-        if (this.updateUserForm.value.phone == 0) {
-            this.phone.push(this.createPhonelArray());
-        }
-        this.updateUserForm.patchValue({
-            bank_account: this.userInfo.bank_account,
-            description_az: this.userInfo.description_az,
-            description_ru: this.userInfo.description_ru,
-            description_en: this.userInfo.description_en,
-            name: this.userInfo.name,
-            voen: this.userInfo.voen,
-            website: this.userInfo.website,
-            role: this.userInfo.role,
-            is_company: this.userInfo.is_company,
-        });
-        console.log(this.updateUserForm.value);
-        const text = this.userInfo.description_az;
+      if (this.updateUserForm.value.phone == 0) {
+        this.phone.push(this.createPhonelArray());
+      }
+      this.updateUserForm.patchValue({
+        bank_account: this.userInfo.bank_account,
+        description_az: this.userInfo.description_az,
+        description_ru: this.userInfo.description_ru,
+        description_en: this.userInfo.description_en,
+        name: this.userInfo.name,
+        voen: this.userInfo.voen,
+        website: this.userInfo.website,
+        role: this.userInfo.role,
+        is_company: this.userInfo.is_company,
+      });
+      const text = this.userInfo.description_az;
     });
   }
 
   createUserForm() {
     this.updateUserForm = this.fb.group({
       bank_account: [''],
-      description_az:  [''],
-      description_ru:  [''],
-      description_en:  [''],
-      name:         [''],
-      voen:         [''],
-      website:      [''],
-      role:         [],
-      is_company:   [],
-      email:        this.fb.array([this.createEmailArray()]),
-      phone:        this.fb.array([this.createPhonelArray()])
+      description_az: [''],
+      description_ru: [''],
+      description_en: [''],
+      name: [''],
+      voen: [''],
+      website: [''],
+      role: [],
+      is_company: [],
+      email: this.fb.array([this.createEmailArray()]),
+      phone: this.fb.array([this.createPhonelArray()])
     });
   }
 
@@ -105,11 +104,10 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     this.updateUserForm.value.phone = tPhone;
     this.updateUserForm.value.email = tEmail;
     this.clean(this.updateUserForm.value);
-    console.log(this.updateUserForm.value);
     this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe((response: Response) => {
-        if (response.responseCode == 1) {
-          this.router.navigate(['/dashboard']);
-        }
+      if (response.responseCode == 1) {
+        this.router.navigate(['/dashboard']);
+      }
     });
   }
 
