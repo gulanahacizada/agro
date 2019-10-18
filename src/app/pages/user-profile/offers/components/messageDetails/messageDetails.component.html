@@ -54,20 +54,6 @@
                 </tr>
             </thead>
             <tbody>
-<<<<<<< HEAD
-                <tr *ngFor="let message of dialogInfo?.messages; let i=index">
-                    <td class="no-wrap"> {{i+1}} </td>
-                    <td>{{dialogInfo?.user_from?.name}}</td>
-                    <td>{{dialogInfo?.user_to?.name}}</td>
-                    <td class="no-wrap"> {{message?.size}} ton</td>
-                    <td class="no-wrap">{{+message?.price / +message?.size}} AZN / ton</td>
-                    <td class="no-wrap">{{message?.price}} AZN</td>
-                    <td>
-                        <span class="d-block text-left">{{message?.body}}</span>
-                    </td>
-                    <td class="no-wrap">{{message?.created_at | date: 'dd/MM/yyyy'}}</td>
-                </tr>
-=======
             <tr *ngFor="let message of dialogInfo?.messages; let i=index; trackBy: offersService.trackByFn">
                 <td class="no-wrap"> {{i+1}} </td>
                 <td>{{dialogInfo?.user_from?.name}}</td>
@@ -79,7 +65,6 @@
                 <span class="d-block text-left">{{message?.body}}</span>
                 </td>
                 <td class="no-wrap">{{message?.created_at | date: 'dd/MM/yyyy'}}</td>
->>>>>>> 89d063ef5c0b749fccaaf364834e82526a4cc3f1
             </tbody>
         </table>
         <div class="controls" *ngIf="dialogInfo?.status == 2">

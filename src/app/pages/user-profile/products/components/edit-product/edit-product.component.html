@@ -9,13 +9,13 @@
       </a>
       <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('az',1)">
-          <span role="button" class="btn circle border-0 shadow-big bg-green">AZ</span>
+          <span role="button"  [ngClass]="{'bg-green': selectLang === 1}" class="btn circle border-0 shadow-big ">AZ</span>
         </li>
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('en',2)">
-          <span role="button" class="btn circle border-0 shadow-big">EN</span>
+          <span role="button"   [ngClass]="{'bg-green': selectLang === 2}" class="btn circle border-0 shadow-big">EN</span>
         </li>
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('ru',3)">
-          <span role="button" class="btn circle border-0 shadow-big">RU</span>
+          <span role="button"  [ngClass]="{'bg-green': selectLang === 3}" class="btn circle border-0 shadow-big">RU</span>
         </li>
       </ul>
     </div>
@@ -24,7 +24,7 @@
     <div class="row as-10">
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Kategoriya</label>
-        <p-dropdown placeholder="{{productResponse?.name.parent.name_az}}" [options]="categoryList"
+        <p-dropdown formControlName="parent_id" [options]="categoryList"
           (onChange)="onSelectCategory($event)" placeholder="Kategoriya seçin" filter="true"
           class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
@@ -32,41 +32,41 @@
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Məhsul</label>
         <p-dropdown formControlName='category_id' [options]="productList" (onChange)="onSelectProduct($event)"
-          placeholder="{{productResponse?.name.name_az}}" filter="true"
+          placeholder=" {{productResponse?.category?.name}} " filter="true"
           class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Növ</label>
         <p-dropdown formControlName='kind_id' filter="true" [options]="kindList"
-          placeholder="{{productResponse?.kind.name_az}}" class="input custom select border-0 radius-20 shadow-big">
+          placeholder="{{productResponse?.kind?.name}}" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Keyfiyyət</label>
         <p-dropdown formControlName="quality_id" [options]="qualityList"
-          placeholder="{{productResponse?.quality.name_az}}" filter="true"
+          placeholder="{{productResponse?.quality?.name}}" filter="true"
           class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Qablaşdırma</label>
         <p-dropdown formControlName="package_id" [options]="packegeList"
-          placeholder="{{productResponse?.package.name_az}}" filter="true"
+          placeholder="{{productResponse?.packeg?.name}}" filter="true"
           class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10"> Məhsulun kalibri</label>
         <p-dropdown formControlName="kalibry_id" [options]="kalibryList"
-          placeholder="{{productResponse?.kolibry.name_az}}" filter="true"
+          placeholder="{{productResponse?.kalibry?.name}}" filter="true"
           class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
 
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Ölçü vahidi</label>
-        <p-dropdown formControlName="unit_id" [options]="unitList" placeholder="{{productResponse?.unit.name_az}}"
+        <p-dropdown formControlName="unit_id" [options]="unitList" placeholder="{{productResponse?.unit?.name}}"
           filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
@@ -96,17 +96,17 @@
           <div *ngSwitchCase="1">
             <textarea formControlName="description_az" name id="description" cols="30" rows="10"
               class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
-                         </textarea>
+            </textarea>
           </div>
           <div *ngSwitchCase="2">
             <textarea formControlName="description_en" name id="description" cols="30" rows="10"
               class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
-                         </textarea>
+            </textarea>
           </div>
           <div *ngSwitchCase="3">
             <textarea formControlName="description_ru" name id="description" cols="30" rows="10"
               class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
-                         </textarea>
+            </textarea>
           </div>
         </div>
       </div>

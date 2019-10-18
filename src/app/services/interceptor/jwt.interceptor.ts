@@ -13,7 +13,15 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private appService: AppService, private authService: AuthService) { }
 
   addToken(req: HttpRequest<any>, token: string): HttpRequest<any> {
-    return req.clone({ setHeaders: { Authorization: 'Bearer ' + token } })
+    const language = localStorage.getItem('lang');
+    const prod_lang = req.params.get('lang');
+    const result = (prod_lang) ? prod_lang : (language) ? language : 'az';
+    return req.clone({
+      setHeaders: {
+        Authorization: 'Bearer ' + token,
+        'Accept-Language': result
+      }
+    });
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
