@@ -112,19 +112,18 @@ export class AddProductComponent implements OnInit {
     });
   }
 
- 
-
   onChangeLanguage(lang, i) {
     this.selectLang = i;
     this.lang = lang;
-    // $('.selectLang').click( function() {
-    //   $(this).find('span').addClass('bg-green');
-    // });
     this.getAllCategory(lang); //
     this.getAllQuality(lang); //
     this.getAllPackege(lang); //
     this.getAllKalibry(lang); //
     this.getAllUnits(lang); //
+    // if (this.productList && this.productList.length == 1) {
+
+    //   this.getKindByCategory(this.productList[0].value);
+    // }
   }
 
 
@@ -132,7 +131,7 @@ export class AddProductComponent implements OnInit {
     this.products = event.value.sub_categories;
     this.productList = (this.products || []).map((r: any) => ({
       label: r.name,
-      value: r.id
+      value: r.id,
     }));
   }
 
