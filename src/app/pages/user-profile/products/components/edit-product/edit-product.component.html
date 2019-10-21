@@ -66,16 +66,16 @@
 
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Ölçü vahidi</label>
-        <p-dropdown formControlName="unit_id" [options]="unitList" placeholder="{{productResponse?.unit?.name}}"
+        <p-dropdown formControlName="unit_id" [options]="unitList" (onChange)="onUnitSelect($event)"  placeholder="{{productResponse?.unit?.name}}"
           filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
-        <label for="" class="pl-10">Miqdar (kg)</label>
+        <label for="" class="pl-10">Miqdar ({{ selectUnit }})</label>
         <input formControlName="common" type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big">
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
-        <label for="" class="pl-10"> Məhsulun qiyməti (1 kg) </label>
+        <label for="" class="pl-10"> Məhsulun qiyməti  bir ({{ selectUnit }}) </label>
         <input formControlName="price" type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big">
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
