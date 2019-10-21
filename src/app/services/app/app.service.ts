@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpsService } from '../https/https.service';
-import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class AppService extends HttpsService {
   public LOGIN = 'auth/login';
   public LOGOUT = 'auth/logout';
   public REGISTER = 'auth/singup';
+  public REFRESH = 'auth/refresh';
   public CURRENCY = 'birja';
   public METALS = 'metals';
   public ALLL_NEWS = 'birja-articles';
@@ -48,6 +49,9 @@ export class AppService extends HttpsService {
   public logout(params: any = {}): Observable<any> {
     return this.post(this.http, this.LOGOUT, params);
   }
+  public refresh(params: any = {}): Observable<any> {
+    return this.post(this.http, this.REFRESH, params);
+  }
 
   public register(params: any = {}): Observable<any> {
     return this.post(this.http, this.REGISTER, params);
@@ -57,15 +61,15 @@ export class AppService extends HttpsService {
     return this.get(this.http, this.CURRENCY, params);
   }
 
-  public metals( params: any = {}): Observable<any> {
+  public metals(params: any = {}): Observable<any> {
     return this.get(this.http, this.METALS, params);
   }
 
-  public sellerUsers( params: any = {}): Observable<any> {
+  public sellerUsers(params: any = {}): Observable<any> {
     return this.get(this.http, this.USER_SELLERS, params);
   }
 
-  public verify( params: any = {}): Observable<any> {
+  public verify(params: any = {}): Observable<any> {
     return this.post(this.http, this.VERIFY_CONTACT, params);
   }
 
@@ -74,11 +78,11 @@ export class AppService extends HttpsService {
   }
 
 
-  public getNews( params: any = {}): Observable<any> {
+  public getNews(params: any = {}): Observable<any> {
     return this.get(this.http, this.NEWS, params);
- }
- public getAllUsers( params: any = {}): Observable<any> {
-  return this.get(this.http, this.GET_ALL_USER, params);
-}
+  }
+  public getAllUsers(params: any = {}): Observable<any> {
+    return this.get(this.http, this.GET_ALL_USER, params);
+  }
 
 }
