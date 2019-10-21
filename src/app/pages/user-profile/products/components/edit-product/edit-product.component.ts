@@ -45,6 +45,8 @@ export class EditProductComponent implements OnInit {
   selectCategory: any;
   selectLang = 1;
   selectUnit = '';
+  product_edited: boolean = false;
+
 
   constructor(
     private productService: ProductsService,
@@ -67,7 +69,7 @@ export class EditProductComponent implements OnInit {
 
   createProdEditForm() {
     this.productEditForm = this.fb.group({
-      parent_id: [],
+      // parent_id: [],
       category_id: [, [Validators.required]],
       kind_id: [, [Validators.required]],
       quality_id: [, Validators.required],
@@ -76,8 +78,8 @@ export class EditProductComponent implements OnInit {
       unit_id: [, Validators.required],
       common: [, Validators.required],
       price: [, Validators.required],
-      accumulated_at: ['', Validators.required],
-      expiry_time: ['', Validators.required],
+      accumulated_at: [''],
+      expiry_time: [''],
       id: [''],
       description_az: [''],
       description_en: [''],
@@ -88,9 +90,8 @@ export class EditProductComponent implements OnInit {
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
-      console.log(this.productResponse);
       this.productEditForm.patchValue({
-        parent_id: this.productResponse.category.parent_id,
+        // parent_id: this.productResponse.category.parent_id,
         id: this.productResponse.id,
         category_id: this.productResponse.category_id,
         package_id: this.productResponse.package_id,
@@ -225,6 +226,7 @@ export class EditProductComponent implements OnInit {
   // }
 
   updateProduct() {
+    this.product_edited = true;
     this.productService.updateProduct(this.productEditForm.value).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.router.navigate(['/dashboard/products']);

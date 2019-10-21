@@ -16,7 +16,7 @@ export class AuthService {
   public currentToken: string;
 
   constructor(private appService: AppService) {
-    this.currentToken = localStorage.getItem('acc_jwt');
+    this.currentToken = localStorage.getItem('jwt_c');
   }
 
   getAuthToken() {
@@ -34,7 +34,7 @@ export class AuthService {
       if (response.responseCode == 1) {
         this.authTokenNew = response.responseContent.access_token;
         localStorage.clear();
-        localStorage.setItem('acc_jwt', response.responseContent.access_token);
+        localStorage.setItem('jwt_c', response.responseContent.access_token);
         window.location.reload();
       }
     });

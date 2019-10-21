@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
       const data = Object.assign({}, this.loginForm.value);
       this.appService.login(data).subscribe((response: Response) => {
         if (response.responseCode == 1) {
-          localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          localStorage.setItem('jwt_c', response.responseContent.access_token);
           localStorage.setItem('isCompany', response.responseContent.user.is_company);
           localStorage.setItem('selfID', response.responseContent.user.id);
           this.router.navigate(['dashboard']);
@@ -180,7 +180,7 @@ export class AppComponent implements OnInit {
   }
 
   loggedIn() {
-    const token = localStorage.getItem('acc_jwt');
+    const token = localStorage.getItem('jwt_c');
     return !this.jwtHelper.isTokenExpired(token);
   }
 

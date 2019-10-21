@@ -19,9 +19,21 @@ export class ErrorInterceptor implements HttpInterceptor {
 
       tap(evt => {
         if (evt instanceof HttpResponse) {
-          // pass url in component like : params['navigatorUrl'] = '/hr';
-          // tslint:disable-next-line: triple-equals
-          if (request.body && request.body.hasOwnProperty('navigatorUrl') && (evt.body.responseCode == 1)) {
+          // responseCode 2 - Validation Error
+          if (evt.body && evt.body.responseCode == 2) {
+            Swal.fire({
+              title: 'Əməliyyatda səhv!',
+              text: 'Məlumatları düzgün doldurun',
+              type: 'warning',
+              showCancelButton: false,
+              confirmButtonText: 'Bağla',
+            }).then((result) => {
+              if (result.value) {
+                // this.router.navigate([request.body.navigatorUrl]);
+              }
+            });
+            // tslint:disable-next-line: triple-equals
+          } else if ((request.method == "POST") && (evt.body.responseCode == 1)) {
             Swal.fire({
               title: 'Əməliyyat uğurla tamamlandı!',
               text: evt.body.responseMessage,
@@ -30,11 +42,11 @@ export class ErrorInterceptor implements HttpInterceptor {
               confirmButtonText: 'Bağla',
             }).then((result) => {
               if (result.value) {
-                this.router.navigate([request.body.navigatorUrl]);
+                // this.router.navigate([request.body.navigatorUrl]);
               }
             });
-          // tslint:disable-next-line: triple-equals
-          } else if (request.body && request.body.hasOwnProperty('navigatorUrl') && (evt.body.responseCode != 1)) {
+            // tslint:disable-next-line: triple-equals
+          } else if (evt.body && evt.body.responseCode == 3) {
             Swal.fire({
               title: 'Əməliyyatda səhv!',
               text: evt.body.responseMessage,

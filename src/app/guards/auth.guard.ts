@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('acc_jwt')) {
+    if (localStorage.getItem('jwt_c')) {
       return true;
     } else {
       this.router.navigate(['/home']);

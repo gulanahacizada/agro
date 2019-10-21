@@ -61,5 +61,10 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="panel-footer">
+      <p-paginator *ngIf="productList?.length" [rows]="pagination?.per_page" [totalRecords]="pagination?.total"
+        (onPageChange)="paginate($event)"></p-paginator>
+    </div>
   </div>
 </div>

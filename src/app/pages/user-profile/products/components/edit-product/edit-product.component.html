@@ -9,13 +9,16 @@
       </a>
       <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('az',1)">
-          <span role="button"  [ngClass]="{'bg-green': selectLang === 1}" class="btn circle border-0 shadow-big ">AZ</span>
+          <span role="button" [ngClass]="{'bg-green': selectLang === 1}"
+            class="btn circle border-0 shadow-big ">AZ</span>
         </li>
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('en',2)">
-          <span role="button"   [ngClass]="{'bg-green': selectLang === 2}" class="btn circle border-0 shadow-big">EN</span>
+          <span role="button" [ngClass]="{'bg-green': selectLang === 2}"
+            class="btn circle border-0 shadow-big">EN</span>
         </li>
         <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('ru',3)">
-          <span role="button"  [ngClass]="{'bg-green': selectLang === 3}" class="btn circle border-0 shadow-big">RU</span>
+          <span role="button" [ngClass]="{'bg-green': selectLang === 3}"
+            class="btn circle border-0 shadow-big">RU</span>
         </li>
       </ul>
     </div>
@@ -24,9 +27,8 @@
     <div class="row as-10">
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Kategoriya</label>
-        <p-dropdown formControlName="parent_id" [options]="categoryList"
-          (onChange)="onSelectCategory($event)" placeholder="Kategoriya seçin" filter="true"
-          class="input custom select border-0 radius-20 shadow-big">
+        <p-dropdown [options]="categoryList" (onChange)="onSelectCategory($event)" placeholder="Kategoriya seçin"
+          filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
@@ -51,9 +53,8 @@
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Qablaşdırma</label>
-        <p-dropdown formControlName="package_id" [options]="packegeList"
-          placeholder="{{productResponse?.packeg?.name}}" filter="true"
-          class="input custom select border-0 radius-20 shadow-big">
+        <p-dropdown formControlName="package_id" [options]="packegeList" placeholder="{{productResponse?.packeg?.name}}"
+          filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
@@ -112,7 +113,8 @@
       </div>
     </div>
     <div class="clear radius-30 shadow-big p-5 mt-20">
-      <button type="submit" class="btn lg bg-green border-0 radius-30 shadow-big float-right">
+      <button type="submit" [disabled]="product_edited"
+        class="btn lg bg-green border-0 radius-30 shadow-big float-right">
         Yadda saxla
       </button>
     </div>

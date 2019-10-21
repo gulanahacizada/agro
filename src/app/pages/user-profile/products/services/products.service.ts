@@ -1,3 +1,4 @@
+import { prop } from './../../../../../environments/properties';
 import { Injectable } from '@angular/core';
 import { AppService } from 'src/app/services/app/app.service';
 import { HttpClient, HttpEvent, HttpParams, HttpRequest} from '@angular/common/http';
@@ -58,7 +59,7 @@ public createDialog(params: any = {}): Observable<any> {
 
 
 createProduct(  product: any, file: File): Observable<HttpEvent<any>> {
-  const url = 'http://test.agrobirja.az/api/v1/product';
+  const url = 'http://' +  prop.host + '/product';
   const formData = new FormData();
   formData.append('accumulated_at', product.accumulated_at);
   formData.append('category_id', product.category_id);
