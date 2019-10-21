@@ -10,9 +10,14 @@ import { ProductsService } from './services/products.service';
 export class ProductsComponent implements OnInit {
 
   productList: any[];
+  pagination = {
+    per_page: 10,
+    total: null,
+    page: 1
+  };
 
   constructor(
-    public  productService: ProductsService,
+    public productService: ProductsService,
   ) { }
 
   ngOnInit() {
@@ -20,11 +25,19 @@ export class ProductsComponent implements OnInit {
   }
 
   getMyProduct() {
-    this.productService.getMyProduct().subscribe((response: Response) => {
+    this.productService.getMyProduct({ page: this.pagination.page, per_page: this.pagination.per_page }).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.productList = response.responseContent.data;
+        this.pagination.per_page = response.responseContent.per_page;
+        this.pagination.total = response.responseContent.total;
       }
     });
+  }
+
+  paginate(e) {
+    this.pagination.page = e.page + 1;
+    this.pagination.per_page = e.rows;
+    this.getMyProduct();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { prop } from './../../../../../environments/properties';
 import { AppService } from 'src/app/services/app/app.service';
 import { HttpClient, HttpEvent, HttpParams, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs/index';
@@ -12,8 +13,8 @@ export class DashboardService extends AppService {
     super(http);
   }
 
-  createProduct(  product: any, file: File): Observable<HttpEvent<any>> {
-    const url = 'http://test.agrobirja.az/api/v1/user/image/update?';
+  createUserAvatar(file: File): Observable<HttpEvent<any>> {
+    const url = 'http://' +  prop.host + '/user/image/update';
     const formData = new FormData();
     formData.append('image', file);
     const params = new HttpParams();

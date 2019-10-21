@@ -35,6 +35,7 @@ export class AddProductComponent implements OnInit {
   packages: Packege[];
   units: Unit[];
   quality: Quality[];
+  product_added: boolean = false;
 
   productForm: FormGroup;
   lang = 'az';
@@ -62,7 +63,7 @@ export class AddProductComponent implements OnInit {
   }
 
   getAllUnits(lang) {
-    this.productService.getUnits({lang}).subscribe((response: Response) => {
+    this.productService.getUnits({ lang }).subscribe((response: Response) => {
       this.units = response.responseContent;
       this.unitList = (this.units || []).map((r: any) => ({
         label: r.name,
@@ -72,7 +73,7 @@ export class AddProductComponent implements OnInit {
   }
 
   getAllPackege(lang) {
-    this.productService.getPackege({lang}).subscribe((response: Response) => {
+    this.productService.getPackege({ lang }).subscribe((response: Response) => {
       this.packages = response.responseContent;
       this.packegeList = (this.packages || []).map((r: any) => ({
         label: r.name,
@@ -83,7 +84,7 @@ export class AddProductComponent implements OnInit {
   }
 
   getAllKalibry(lang) {
-    this.productService.getKalibry({lang}).subscribe((response: Response) => {
+    this.productService.getKalibry({ lang }).subscribe((response: Response) => {
       this.kalibry = response.responseContent;
       this.kalibryList = (this.kalibry || []).map((r: any) => ({
         label: r.name,
@@ -93,7 +94,7 @@ export class AddProductComponent implements OnInit {
   }
 
   getAllQuality(lang) {
-    this.productService.getQuality({lang}).subscribe((response: Response) => {
+    this.productService.getQuality({ lang }).subscribe((response: Response) => {
       this.quality = response.responseContent;
       this.qualityList = (this.quality || []).map((r: any) => ({
         label: r.name,
@@ -103,7 +104,7 @@ export class AddProductComponent implements OnInit {
   }
 
   getAllCategory(lang) {
-    this.productService.getCategory({lang}).subscribe((response: Response) => {
+    this.productService.getCategory({ lang }).subscribe((response: Response) => {
       this.category = response.responseContent;
       this.categoryList = (this.category || []).map((r: any) => ({
         label: r.name,
@@ -111,6 +112,8 @@ export class AddProductComponent implements OnInit {
       }));
     });
   }
+
+
 
   onChangeLanguage(lang, i) {
     this.selectLang = i;
@@ -164,8 +167,8 @@ export class AddProductComponent implements OnInit {
       unit_id: [, Validators.required],
       common: [, Validators.required],
       price: [, Validators.required],
-      accumulated_at: ['', Validators.required],
-      expiry_time: ['', Validators.required],
+      accumulated_at: [''],
+      expiry_time: [''],
       image: [''],
       description_az: [''],
       description_en: [''],
@@ -194,9 +197,12 @@ export class AddProductComponent implements OnInit {
 
 
   addProduct() {
+    this.product_added = true;
     this.productService.createProduct(this.productForm.value, this.file).subscribe((res: any) => {
       if (res.body && res.body.responseCode == 1) {
         this.router.navigate(['/dashboard/products']);
+      } else {
+        this.product_added = false;
       }
     });
   }

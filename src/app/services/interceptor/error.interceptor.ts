@@ -5,23 +5,32 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, Htt
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
-import { AppService } from '../app/app.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(
-    private appService: AppService,
-    private router: Router) { }
+  constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
 
       tap(evt => {
         if (evt instanceof HttpResponse) {
-          // pass url in component like : params['navigatorUrl'] = '/hr';
-          // tslint:disable-next-line: triple-equals
-          if (request.body && request.body.hasOwnProperty('navigatorUrl') && (evt.body.responseCode == 1)) {
+          // Validation Error
+          const errorCodes = [2, 3, 12, 8, 9, 10, 6, 7, 13];
+          if (evt.body && errorCodes.includes(evt.body.responseCode)) {
+            const message = (evt.body.responseMessage.length) ? evt.body.responseMessage : 'Məlumatları düzgün doldurun';
+            Swal.fire({
+              title: 'Əməliyyatda səhv!',
+              text: message,
+              type: 'warning',
+              showCancelButton: false,
+              confirmButtonText: 'Bağla',
+            }).then((result) => {
+              if (result.value) {
+                // this.router.navigate([request.body.navigatorUrl]);
+              }
+            });
+          } else if ((request.method === "POST") && (evt.body.responseCode == 1)) {
             Swal.fire({
               title: 'Əməliyyat uğurla tamamlandı!',
               text: evt.body.responseMessage,
@@ -30,20 +39,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               confirmButtonText: 'Bağla',
             }).then((result) => {
               if (result.value) {
-                this.router.navigate([request.body.navigatorUrl]);
-              }
-            });
-          // tslint:disable-next-line: triple-equals
-          } else if (request.body && request.body.hasOwnProperty('navigatorUrl') && (evt.body.responseCode != 1)) {
-            Swal.fire({
-              title: 'Əməliyyatda səhv!',
-              text: evt.body.responseMessage,
-              type: 'warning',
-              showCancelButton: false,
-              confirmButtonText: 'Bağla',
-            }).then((result) => {
-              if (result.value) {
-                // this.router.navigate(['']);
+                // this.router.navigate([request.body.navigatorUrl]);
               }
             });
           }

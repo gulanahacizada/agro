@@ -4,37 +4,23 @@
       Yeni məhsul
     </h3>
     <div class="clear float-right">
-      <a
-        [routerLink]="['/dashboard/products']"
-        class="btn bg-white border-0 shadow-big radius-20 float-left"
-        title="Geri"
-      >
+      <a [routerLink]="['/dashboard/products']" class="btn bg-white border-0 shadow-big radius-20 float-left"
+        title="Geri">
         <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
         <span class="hide-xs v-align-middle ml-10">Geri</span>
       </a>
       <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
-        <li
-          role="presentation"
-          class="float-left ml-10"
-          (click)="onChangeLanguage('az', 1)"
-        >
-          <span role="button" [ngClass]="{'bg-green': selectLang === 1}" class="btn  circle border-0 shadow-big "
-            >AZ</span
-          >
+        <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('az', 1)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 1}"
+            class="btn  circle border-0 shadow-big ">AZ</span>
         </li>
-        <li
-          role="presentation"
-          class="float-left ml-10 "
-          (click)="onChangeLanguage('en', 2)"
-        >
-          <span role="button" [ngClass]="{'bg-green': selectLang === 2}"  class="btn  circle border-0 shadow-big">EN</span>
+        <li role="presentation" class="float-left ml-10 " (click)="onChangeLanguage('en', 2)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 2}"
+            class="btn  circle border-0 shadow-big">EN</span>
         </li>
-        <li
-          role="presentation"
-          class="float-left ml-10"
-          (click)="onChangeLanguage('ru', 3)"
-        >
-          <span role="button" [ngClass]="{'bg-green': selectLang === 3}"  class="btn circle border-0 shadow-big">RU</span>
+        <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('ru', 3)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 3}"
+            class="btn circle border-0 shadow-big">RU</span>
         </li>
       </ul>
     </div>
@@ -43,182 +29,97 @@
     <div class="row as-10">
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Kategoriya</label>
-        <p-dropdown
-          [options]="categoryList"
-          (onChange)="onSelectCategory($event)"
-          placeholder="Kategoriya seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown [options]="categoryList" (onChange)="onSelectCategory($event)" placeholder="Kategoriya seçin"
+          filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Məhsul</label>
-        <p-dropdown
-          formControlName="category_id"
-          [options]="productList"
-          (onChange)="onSelectProduct($event)"
-          placeholder="Məhsulu seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="category_id" [options]="productList" (onChange)="onSelectProduct($event)"
+          placeholder="Məhsulu seçin" filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Növ</label>
-        <p-dropdown
-          formControlName="kind_id"
-          [options]="kindList"
-          placeholder="Növü seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="kind_id" [options]="kindList" placeholder="Növü seçin" filter="true"
+          class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Keyfiyyət</label>
-        <p-dropdown
-          formControlName="quality_id"
-          [options]="qualityList"
-          placeholder="Növü seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="quality_id" [options]="qualityList" placeholder="Növü seçin" filter="true"
+          class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Qablaşdırma</label>
-        <p-dropdown
-          formControlName="package_id"
-          [options]="packegeList"
-          placeholder="Qablaşdırmanı seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="package_id" [options]="packegeList" placeholder="Qablaşdırmanı seçin" filter="true"
+          class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10"> Məhsulun kalibri</label>
-        <p-dropdown
-          formControlName="kalibry_id"
-          [options]="kalibryList"
-          placeholder="Məhsulun kalibri seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="kalibry_id" [options]="kalibryList" placeholder="Məhsulun kalibri seçin"
+          filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">Ölçü vahidi</label>
-        <p-dropdown
-          formControlName="unit_id"
-          [options]="unitList"
-          (onChange)="onUnitSelect($event)"
-          placeholder=" Ölçü vahidini  seçin"
-          filter="true"
-          class="input custom select border-0 radius-20 shadow-big"
-        >
+        <p-dropdown formControlName="unit_id" [options]="unitList" (onChange)="onUnitSelect($event)"
+          placeholder=" Ölçü vahidini  seçin" filter="true" class="input custom select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">Miqdar {{ selectUnit }} </label>
-        <input
-          formControlName="common"
-          type="number"
-          min="0"
-          max=""
-          id=""
-          class="input border-0 radius-20 shadow-big"
-        />
+        <input formControlName="common" type="number" min="0" max="" id=""
+          class="input border-0 radius-20 shadow-big" />
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">
-          Məhsulun qiyməti bir{{ selectUnit }}</label
-        >
-        <input
-          formControlName="price"
-          type="number"
-          min="0"
-          max=""
-          id=""
-          class="input border-0 radius-20 shadow-big"
-        />
+          Məhsulun qiyməti bir {{ selectUnit }}</label>
+        <input formControlName="price" type="number" min="0" max="" id="" class="input border-0 radius-20 shadow-big" />
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">Yıgılma tarixi</label>
-        <p-calendar
-          formControlName="accumulated_at"
-          class="input custom border-0 radius-20 shadow-big"
-          placeholder="../../...."
-          name="preparingDate"
-          dateFormat="yy-mm-dd"
-          [dataType]="'string'"
-        >
+        <p-calendar formControlName="accumulated_at" class="input custom border-0 radius-20 shadow-big"
+          placeholder="../../...." name="preparingDate" dateFormat="yy-mm-dd" [dataType]="'string'">
         </p-calendar>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">Saxlanma müddəti</label>
-        <p-calendar
-          formControlName="expiry_time"
-          class="input custom border-0 radius-20 shadow-big"
-          placeholder="../../...."
-          name="preparingDate"
-          dateFormat="yy-mm-dd"
-          [dataType]="'string'"
-        >
+        <p-calendar formControlName="expiry_time" class="input custom border-0 radius-20 shadow-big"
+          placeholder="../../...." name="preparingDate" dateFormat="yy-mm-dd" [dataType]="'string'">
         </p-calendar>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">Məhsulun şəkili</label>
-        <input
-          (change)="onFileChange($event)"
-          type="file"
-          id=""
-          class="input custom border-0 radius-20 shadow-big"
-          #fileInput
-        />
+        <input (change)="onFileChange($event)" type="file" id="" class="input custom border-0 radius-20 shadow-big"
+          #fileInput />
       </div>
       <div class="col as-12 mb-20 pb-10">
         <label for="description" class="pl-10">Məhsul haqqında</label>
         <div [ngSwitch]="selectLang">
           <div *ngSwitchCase="1">
-            <textarea
-              formControlName="description_az"
-              cols="30"
-              rows="10"
-              class="input no-resize border-0 radius-20 shadow-big"
-              placeholder="Ətraflı məlumat qeyd edin"
-            >
+            <textarea formControlName="description_az" cols="30" rows="10"
+              class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
             </textarea>
           </div>
           <div *ngSwitchCase="2">
-            <textarea
-              formControlName="description_en"
-              cols="30"
-              rows="10"
-              class="input no-resize border-0 radius-20 shadow-big"
-              placeholder="Ətraflı məlumat qeyd edin"
-            >
+            <textarea formControlName="description_en" cols="30" rows="10"
+              class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
             </textarea>
           </div>
           <div *ngSwitchCase="3">
-            <textarea
-              formControlName="description_ru"
-              cols="30"
-              rows="10"
-              class="input no-resize border-0 radius-20 shadow-big"
-              placeholder="Ətraflı məlumat qeyd edin"
-            >
+            <textarea formControlName="description_ru" cols="30" rows="10"
+              class="input no-resize border-0 radius-20 shadow-big" placeholder="Ətraflı məlumat qeyd edin">
             </textarea>
           </div>
         </div>
       </div>
     </div>
     <div class="clear radius-30 shadow-big p-5 mt-20">
-      <button
-        type="submit"
-        class="btn lg bg-green border-0 radius-30 shadow-big float-right"
-      >
+      <button type="submit" [disabled]="product_added"
+        class="btn lg bg-green border-0 radius-30 shadow-big float-right">
         Yadda saxla
       </button>
     </div>
