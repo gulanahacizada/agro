@@ -26,15 +26,22 @@
               <tr>
                 <td class="bold">Şirkət:</td>
                 <td>
-
                   <a [routerLink]="['/companyInfo/profile', userId]" class="bold">
                     {{productResponse?.user?.name}}
                   </a>
                 </td>
               </tr>
               <tr>
+                <td class="bold">Kategoriya</td>
+                <td>{{productResponse?.category?.parent?.name}}</td>
+              </tr>
+              <tr>
                 <td class="bold">Növü</td>
                 <td>{{productResponse?.kind?.name}}</td>
+              </tr>
+              <tr>
+                <td class="bold">Qiymət</td>
+                <td>{{productResponse?.price}} AZN</td>
               </tr>
               <tr>
                 <td class="bold">Kalibri:</td>
@@ -43,6 +50,14 @@
               <tr>
                 <td class="bold">Miqdarı</td>
                 <td>{{productResponse?.common}} {{productResponse?.unit?.name}}</td>
+              </tr>
+              <tr>
+                <td class="bold">Yıgılma tarixi</td>
+                <td>{{productResponse?.accumulated_at | date: 'dd/MM/yyyy'}}</td>
+              </tr>
+              <tr>
+                <td class="bold">Saxlanma tarixi</td>
+                <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
               </tr>
             </tbody>
           </table>
