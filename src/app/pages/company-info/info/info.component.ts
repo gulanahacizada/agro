@@ -41,8 +41,8 @@ export class InfoComponent implements OnInit {
       if (response.responseCode == 1) {
         this.userInfo = response.responseContent;
         this.userInfo.description = response.responseContent[`description_${this.activeLang}`];
-        // this.phone = this.userInfo.contacts.filter(e => e.type == 0);
-        // this.email = this.userInfo.contacts.filter(e => e.type == 1);
+        this.phone = this.userInfo.contacts.filter(e => e.type == 0);
+        this.email = this.userInfo.contacts.filter(e => e.type == 1);
       }
     });
   }
