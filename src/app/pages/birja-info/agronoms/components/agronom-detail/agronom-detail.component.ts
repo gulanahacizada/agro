@@ -14,7 +14,7 @@ export class AgronomDetailComponent implements OnInit {
   agronomInfo: any;
   activeLang = localStorage.getItem('lang');
   title: string;
-  body: string;
+  body: any;
   description: string;
 
   constructor(
@@ -32,9 +32,26 @@ export class AgronomDetailComponent implements OnInit {
         this.agronomInfo = response.responseContent;
         this.title = response.responseContent[`title_${this.activeLang}`];
         this.body = response.responseContent[`body_${this.activeLang}`];
+        // this.body = $(this.body);
         this.description = response.responseContent[`description_${this.activeLang}`];
       }
     });
   }
 
+  //  htmlDecode(input: any) {
+  //    let returnValue: any;
+  //    const e = document.createElement('div');
+  //    e.innerHTML = input;
+  //    e.childNodes.forEach (elem => {
+  //      if (elem.childNodes[0].textContent.includes('iframe')) {
+  //        returnValue += ' ' + elem.childNodes[0].textContent;
+  //       //  return returnValue;
+  //      }
+  //      else {
+  //       returnValue += ' ' + elem.childNodes[0].textContent;
+  //      }
+  //   });
+  //    return returnValue;
+
+  // }
 }
