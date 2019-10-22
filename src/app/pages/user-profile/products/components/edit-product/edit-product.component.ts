@@ -74,7 +74,7 @@ export class EditProductComponent implements OnInit {
       kind_id: [, [Validators.required]],
       quality_id: [, Validators.required],
       package_id: [, Validators.required],
-      kalibry_id: [, Validators.required],
+      kalibry_id: [],
       unit_id: [, Validators.required],
       common: [, Validators.required],
       price: [, Validators.required],

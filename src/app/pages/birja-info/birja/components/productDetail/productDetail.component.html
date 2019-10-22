@@ -34,11 +34,6 @@
             <!--Əsas Şəkil-->
             <img *ngIf="productResponse?.images[0]?.url" src="{{productResponse?.images[0]?.url}}" alt="Product name"
               width="480" height="310">
-            <!--Digər şəkillər-->
-            <!-- <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
-                      <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
-                      <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a> -->
-
           </div>
         </div>
         <div class="col as-12 lg-7 pt-10">
@@ -58,8 +53,16 @@
                 </td>
               </tr>
               <tr>
+                <td class="bold">Kategoriya</td>
+                <td>{{productResponse?.kind?.name}}</td>
+              </tr>
+              <tr>
                 <td class="bold">Növü</td>
                 <td>{{productResponse?.kind?.name}}</td>
+              </tr>
+              <tr>
+                <td class="bold">Qiymət</td>
+                <td>{{productResponse?.price}} AZN</td>
               </tr>
               <tr>
                 <td class="bold">Kalibri:</td>
@@ -69,6 +72,15 @@
                 <td class="bold">Miqdarı</td>
                 <td>{{productResponse?.common}} {{productResponse?.unit?.name}}</td>
               </tr>
+              <tr>
+                <td class="bold">Yıgılma tarixi</td>
+                <td>{{productResponse?.accumulated_at | date: 'dd/MM/yyyy'}}</td>
+              </tr>
+              <tr>
+                <td class="bold">Saxlanma tarixi</td>
+                <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
+              </tr>
+           
             </tbody>
           </table>
           <div *ngIf="selfID && !myProduct" class="bg-gray p-10">

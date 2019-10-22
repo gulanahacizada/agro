@@ -86,6 +86,11 @@
                   <input type="text" formControlName="bank_account" id="iban"
                     class="input border-0 radius-20 shadow-big" />
                 </div>
+                <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+                  <label for="iban" class="pl-10">Ünvan <sup class="text-red">*</sup></label>
+                  <input type="text" formControlName="address"
+                    class="input border-0 radius-20 shadow-big" />
+                </div>
                 <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <ng-container [formGroupName]="i">

@@ -102,7 +102,7 @@ export class BirjaComponent implements OnInit {
       if (response.responseCode == 1) {
         this.kinds = response.responseContent;
         this.kindList = (this.kinds || []).map((r: any) => ({
-          label: r.name_az,
+          label: r.name,
           value: r.id
         }));
       }
