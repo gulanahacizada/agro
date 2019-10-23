@@ -38,20 +38,4 @@ export class AgronomDetailComponent implements OnInit {
     });
   }
 
-  //  htmlDecode(input: any) {
-  //    let returnValue: any;
-  //    const e = document.createElement('div');
-  //    e.innerHTML = input;
-  //    e.childNodes.forEach (elem => {
-  //      if (elem.childNodes[0].textContent.includes('iframe')) {
-  //        returnValue += ' ' + elem.childNodes[0].textContent;
-  //       //  return returnValue;
-  //      }
-  //      else {
-  //       returnValue += ' ' + elem.childNodes[0].textContent;
-  //      }
-  //   });
-  //    return returnValue;
-
-  // }
 }

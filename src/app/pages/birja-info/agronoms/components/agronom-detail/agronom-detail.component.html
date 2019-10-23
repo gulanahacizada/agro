@@ -65,7 +65,7 @@
         </figure>
         <div class="article-body panel-body p-40 font-16 light">
           <p class="description font-18 bold">{{description}}</p>
-          <div [innerHTML]="body"></div>
+          <div [innerHTML]="body | safe"></div>
         </div>
       </article>
     </div>
