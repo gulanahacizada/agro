@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../../services/offers.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -23,6 +23,7 @@ export class MessageDetailsComponent implements OnInit {
     public offersService: OffersService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
+    private router: Router
   ) {
     this.id = this.activateRoute.snapshot.params.id;
   }
@@ -99,12 +100,19 @@ export class MessageDetailsComponent implements OnInit {
 
   acceptOffer() {
     this.offersService.acceptOffer(this.id).subscribe((response: Response) => {
-      // this.router.navigate(['/dashboard/products']);
+
+      if (response.responseCode == 1) {
+        this.router.navigate(['/dashboard/offers']);
+      }
     });
   }
 
   rejectOffer() {
     this.offersService.rejectOffer( this.id).subscribe((response: Response) => {
+
+      if (response.responseCode == 1) {
+        this.router.navigate(['/dashboard/offers']);
+      }
     });
   }
 

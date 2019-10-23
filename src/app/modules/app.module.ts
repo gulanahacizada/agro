@@ -12,6 +12,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import * as ngxOwlCarousel from 'ngx-owl-carousel';
 import { HomeComponent } from '../pages/home/home.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -29,6 +30,7 @@ import { HomeComponent } from '../pages/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     RadioButtonModule,
+    CKEditorModule,
     ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {

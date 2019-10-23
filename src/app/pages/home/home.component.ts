@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   allNews: any;
   newOwlOptions: any;
+  membersOwlOptions: any;
   productList: any;
   membersList: any;
 
@@ -51,6 +52,8 @@ export class HomeComponent implements OnInit {
     this.productService.getAllProducts().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.productList = response.responseContent.data;
+        console.log(this.productList);
+        
       }
     });
   }
@@ -82,6 +85,35 @@ export class HomeComponent implements OnInit {
         },
         992: {
           items: 4
+        }
+      }
+    };
+    this.membersOwlOptions = {
+      loop: true,
+      margin: 15,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      dots: false,
+      singleItem: true,
+      lazyLoad: true,
+      nav: true,
+      navText: ['❮', '❯'],
+      navClass: ['owl-prev', 'owl-next'],
+      responsive: {
+        0: {
+          items: 2,
+          nav: false,
+          dots: true
+        },
+        575: {
+          items: 3
+        },
+        768: {
+          items: 5
+        },
+        992: {
+          items: 5
         }
       }
     };

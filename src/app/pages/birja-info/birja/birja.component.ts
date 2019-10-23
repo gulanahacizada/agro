@@ -139,6 +139,7 @@ export class BirjaComponent implements OnInit {
         page: this.pagination.page,
         per_page: this.pagination.per_page
       });
+      this.clean(this.filterForm.value);
     }
     this.productService.getAllProducts(this.filterForm.value).subscribe((response: Response) => {
       if (response.responseCode == 1) {
