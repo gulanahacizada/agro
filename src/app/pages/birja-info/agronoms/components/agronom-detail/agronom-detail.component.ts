@@ -32,10 +32,27 @@ export class AgronomDetailComponent implements OnInit {
         this.agronomInfo = response.responseContent;
         this.title = response.responseContent[`title_${this.activeLang}`];
         this.body = response.responseContent[`body_${this.activeLang}`];
-        // this.body = $(this.body);
+        this.body = this.htmlDecode(this.body);
         this.description = response.responseContent[`description_${this.activeLang}`];
       }
     });
   }
 
+   htmlDecode(input: any) {
+      let returnValue = [];
+      const e = document.createElement('div');
+      e.innerHTML = input;
+      e.childNodes.forEach (elem => {
+        if (elem.childNodes[0].textContent.includes('iframe')) {
+          returnValue.push(elem.childNodes[0].textContent);
+         //  return returnValue;
+        }
+        else {
+          console.log(elem.childNodes[0]);
+         returnValue.push(elem.childNodes[0].textContent);
+        }
+     });
+    //  console.log(returnValue);
+      return returnValue;
+   }
 }

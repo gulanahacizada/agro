@@ -84,7 +84,7 @@
                 Razilash
                 <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
             </span>
-            <span *ngIf="dialogInfo?.buyer_accept == 1 && dialogInfo?.to == selfId" aria-label="Razılaş" title="Razılaş"
+            <span (click)="acceptOffer()"  *ngIf="dialogInfo?.buyer_accept == 1 && dialogInfo?.to == selfId" aria-label="Razılaş" title="Razılaş"
                 data-toggle="tooltip" class="btn xs float-right  bg-green shadow border-0 legitRipple">
                 Razilash
                 <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
