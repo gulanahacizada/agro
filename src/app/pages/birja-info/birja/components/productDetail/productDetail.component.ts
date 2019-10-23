@@ -39,8 +39,6 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.productResponse = response.responseContent;
-        console.log(this.productResponse);
-        
         if (this.productResponse.user.id == this.selfID) {
           this.myProduct = true;
         }

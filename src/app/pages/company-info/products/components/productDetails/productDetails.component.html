@@ -25,7 +25,7 @@
               <tr>
                 <td class="bold">Şirkət:</td>
                 <td>
-                  <a [routerLink]="['/companyInfo/profile', productResponse?.user?.id ]" title="MARS-FK LTD MMM"
+                  <a *ngIf="productResponse?.user" [routerLink]="['/companyInfo/profile', productResponse.user.id ]" title="MARS-FK LTD MMM"
                     class="bold">
                     {{productResponse?.user?.name}}
                   </a>
@@ -73,7 +73,7 @@
                   <div class="input-group radius-20 shadow-big">
                     <input formControlName="size" (input)='onCountChange($event)' type="number" id="offer-amount"
                       min="0" class="input border-0 radius-20 shadow-big" placeholder="0">
-                    <span class="input-group-addon border-0">{{productResponse?.unit.name_az}}</span>
+                    <span class="input-group-addon border-0">{{productResponse?.unit?.name}}</span>
                   </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
@@ -81,7 +81,7 @@
                   <div class="input-group radius-20 shadow-big">
                     <input (input)='onSellPriceChange($event)' formControlName="sellPrice" type="number"
                       id="offer-price" min="0" class="input border-0 radius-20 shadow-big" placeholder="0">
-                    <span class="input-group-addon border-0">AZN / {{productResponse?.unit.name_az}}</span>
+                    <span class="input-group-addon border-0">AZN / {{productResponse?.unit?.name}}</span>
                   </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
