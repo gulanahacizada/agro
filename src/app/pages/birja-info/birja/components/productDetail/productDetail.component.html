@@ -46,7 +46,7 @@
               <tr>
                 <td class="bold">Şirkət:</td>
                 <td>
-                  <a [routerLink]="['/companyInfo/profile', productResponse?.user?.id ]" title="MARS-FK LTD MMM"
+                  <a *ngIf = "productResponse?.user" [routerLink]="['/companyInfo/profile', productResponse.user.id ]" title="MARS-FK LTD MMM"
                     class="bold">
                     {{productResponse?.user?.name}}
                   </a>
@@ -80,7 +80,7 @@
                 <td class="bold">Saxlanma tarixi</td>
                 <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
               </tr>
-           
+
             </tbody>
           </table>
           <div *ngIf="selfID && !myProduct" class="bg-gray p-10">

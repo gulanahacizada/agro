@@ -52,8 +52,6 @@ export class HomeComponent implements OnInit {
     this.productService.getAllProducts().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.productList = response.responseContent.data;
-        console.log(this.productList);
-        
       }
     });
   }
