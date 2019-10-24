@@ -251,17 +251,12 @@
   <owl-carousel [options]="newOwlOptions" [items]="allNews"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
     <div class="item news-item bg-white" *ngFor="let news of allNews; trackBy: homeService.trackByFn">
-      <a [routerLink]="[ '/news/detail', news.id ]" title="{{news?.description}}" class="d-block clear">
+      <a [routerLink]="[ '/news/detail', news.id ]" title="{{news?.title}}" class="d-block clear">
         <div class="thumb hover scale responsive pb-in-65">
           <img src="{{news?.image}}" alt="title" width="" height="">
         </div>
         <div class="info tr-3s border-top">
           <div class="clear mb-10">
-
-            <span class="type d-in-block text-gray light mr-15">
-              <i aria-hidden="true" class="icon-newspaper-3 text-special mr-10"></i>
-              Category Name
-            </span>
 
             <span class="date-time d-in-block text-gray light">
               <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
