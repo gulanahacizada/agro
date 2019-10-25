@@ -48,11 +48,9 @@ export class AgronomDetailComponent implements OnInit {
          //  return returnValue;
         }
         else {
-          console.log(elem.childNodes[0]);
          returnValue.push(elem.childNodes[0].textContent);
         }
      });
-    //  console.log(returnValue);
       return returnValue;
    }
 }
