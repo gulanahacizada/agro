@@ -558,9 +558,9 @@ body, html {
 /*====================================================================================================================*/
 
 .account-header {
-  background-image: url($imagePath + "account-bg.jpg");
+  background-image: url($imagePath + "Yara-International.png");
   background-position: center;
-  background-size: auto 150%;
+  background-size: cover;
 }
 
 .account-menu {

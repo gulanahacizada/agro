@@ -4,7 +4,7 @@
       <nav aria-label="Breadcrumb navbar">
         <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
+            <a [routerLink]="['/home']" title="AgroBirja.az - Ana səhifə" itemprop="item">
               <span itemprop="name">AgroBirja.az</span>
             </a>
             <meta itemprop="position" content="1">
@@ -36,27 +36,21 @@
 
         <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
-            <span class="d-block">Biz kimik?</span>
+            <span class="d-block"> {{about[0]?.title}} </span>
           </h2>
         </div>
 
         <div class="font-16 light">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloremque ipsum unde.
-            Accusantium animi autem, corporis cum dignissimos enim explicabo fuga id illo in nam quam,
-            quia rem reprehenderit vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-            earum id laboriosam maxime modi mollitia quis velit. Animi aspernatur atque consectetur, corporis
-            deserunt dolor incidunt labore nobis omnis placeat porro.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem </p>
+            <p>
+              {{about[0]?.body}}
+            </p>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="assets/images/ulu.png" alt="LegalStore" width="" height="">
+          <img src="{{about[0]?.image}}" alt="LegalStore" width="" height="">
         </div>
       </div>
 
@@ -72,25 +66,21 @@
 
         <div class="section-title-wrap text-right w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
-            <span class="d-block">Vizyonumuz</span>
+            <span class="d-block"> {{about[1]?.title}} </span>
           </h2>
         </div>
 
         <div class="font-16 light">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem id
-            laboriosam molestiae necessitatibus nesciunt numquam.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem id
-            laboriosam molestiae necessitatibus nesciunt numquam. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.</p>
+          <p>
+            {{about[1]?.body}}
+          </p>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="assets/images/ulu.png" alt="LegalStore" width="" height="">
+          <img src="{{about[1]?.image}}" alt="LegalStore" width="" height="">
         </div>
       </div>
 
@@ -106,28 +96,23 @@
 
         <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
-            <span class="d-block">Missiyamız</span>
+            <span class="d-block"> {{about[2]?.title}} </span>
           </h2>
         </div>
 
         <div class="font-16 light">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem id
-            laboriosam molestiae necessitatibus nesciunt numquam.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur laborum obcaecati
-            odio odit? Harum illum laborum odit quam! Aliquid dolorem eaque excepturi exercitationem id
-            laboriosam molestiae necessitatibus nesciunt numquam. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.</p>
+          <p>
+            {{about[2]?.body}}
+          </p>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="assets/images/ulu.png" alt="LegalStore" width="" height="">
+          <img src="{{about[2]?.image}}" alt="LegalStore" width="" height="">
         </div>
       </div>
-
     </div>
   </div>
 </section>

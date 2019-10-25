@@ -18,7 +18,7 @@ export class AppService extends HttpsService {
   public GET_ALL_UNITS = 'unit';
   public GET_ALL_PACKAGE = 'package';
   public GET_ALL_QUALITY = 'quality';
-  // public GET_ALL_KIND = ''
+  public ABOUT = 'about';
   public GET_ALL_CATEGORY = 'category';
   public GET_ALL_KALIBRY = 'kalibry';
   public PRODUCT = 'product';
@@ -37,6 +37,8 @@ export class AppService extends HttpsService {
   public NEWS = 'news';
   public ANSWER_OFFER = 'dialog/answer';
   public SEND_OFFER = 'dialog/send';
+  public SEND_REQUEST = 'offers';
+  public STATISTIK_PRODUCTS = 'statistics/product/price/avg';
 
   constructor(public http: HttpClient) {
     super();
@@ -83,6 +85,14 @@ export class AppService extends HttpsService {
   }
   public getAllUsers(params: any = {}): Observable<any> {
     return this.get(this.http, this.GET_ALL_USER, params);
+  }
+
+  public about(params: any = {}): Observable<any> {
+    return this.get(this.http, this.ABOUT, params);
+  }
+
+  public getProdStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.STATISTIK_PRODUCTS, params);
   }
 
 }
