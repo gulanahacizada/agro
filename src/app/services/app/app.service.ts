@@ -38,6 +38,7 @@ export class AppService extends HttpsService {
   public ANSWER_OFFER = 'dialog/answer';
   public SEND_OFFER = 'dialog/send';
   public SEND_REQUEST = 'offers';
+  public STATISTIK_PRODUCTS = 'statistics/product/price/avg';
 
   constructor(public http: HttpClient) {
     super();
@@ -88,6 +89,10 @@ export class AppService extends HttpsService {
 
   public about(params: any = {}): Observable<any> {
     return this.get(this.http, this.ABOUT, params);
+  }
+
+  public getProdStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.STATISTIK_PRODUCTS, params);
   }
 
 }

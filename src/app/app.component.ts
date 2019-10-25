@@ -13,7 +13,11 @@ import { Response } from './interfaces/response';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  activeLang: any;
+  activeClass: boolean;
+  az: boolean;
+  en: boolean;
+  ru: boolean;
   registerToken: any;
   title = 'Birja';
   loginForm: FormGroup;
@@ -23,6 +27,7 @@ export class AppComponent implements OnInit {
   jwtHelper = new JwtHelperService();
   myCarouselImages: any;
   currencyResponse: any;
+  prodStatResponse: any;
   metalResponse: any;
   responseMessage: any;
   verifyPhone = false;
@@ -50,6 +55,8 @@ export class AppComponent implements OnInit {
     this.loggedIn();
     this.getMetals();
     this.getCurrency();
+    this.chekLang();
+    this.getProductsStat();
   }
 
   createLoginForm() {
@@ -206,6 +213,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  getProductsStat() {
+    this.appService.getProdStat().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.prodStatResponse = response.responseContent;
+        console.log(this.prodStatResponse);
+
+      }
+    });
+  }
+
   clean(obj) {
     for (const propName in obj) {
       if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
@@ -227,7 +244,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-
+  chekLang() {
+    this.activeLang = localStorage.getItem('lang');
+    this.az = (this.activeLang == 'az') ? true : false;
+    this.en = (this.activeLang == 'en') ? true : false;
+    this.ru = (this.activeLang == 'ru') ? true : false;
+  }
 
 
   reset() {

@@ -23,7 +23,8 @@
               </div>
             </td>
             <td width="30%">
-              <span [routerLink]="[ '/companyInfo/profile', product?.user_id ]" class="bold pointer text-main">{{product?.user?.name}}</span>
+              <span [routerLink]="[ '/companyInfo/profile', product?.user_id ]"
+                class="bold pointer text-main">{{product?.user?.name}}</span>
             </td>
             <td>{{product?.category?.name}}</td>
             <td>{{product?.kind?.name}}</td>
@@ -66,18 +67,13 @@
   </div>
   <owl-carousel [options]="membersOwlOptions" [items]="membersList"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
-    <div class="item news-item bg-white" *ngFor="let news of membersList; trackBy: homeService.trackByFn">
-      <a [routerLink]="[ '/companyInfo/profile', news.id ]" title="{{news?.description}}" class="d-block clear">
+    <div class="item bg-white" *ngFor="let member of membersList; trackBy: homeService.trackByFn">
+      <a [routerLink]="[ '/companyInfo/profile', member.id ]" title="{{member?.description}}" class="block clear">
         <div class="thumb hover scale responsive pb-in-65">
-          <img src="{{news?.avatar}}" alt="title" width="" height="">
+          <img src="{{member?.avatar}}" alt="title" width="" height="">
         </div>
-        <div class="info tr-3s border-top">
-          <span class="title text-black font-16 bold line-clamp line-3 mb-10"> {{news?.name}} </span>
-          <!--
-        <span class="date-time text-gray light">
-          <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-          {{news.created_at |  date}}
-        </span> -->
+        <div class="info p-15 text-center tr-3s">
+          <span class="title font-16 bold line-clamp line-1">{{member?.name}} </span>
         </div>
       </a>
     </div>

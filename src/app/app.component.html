@@ -102,19 +102,19 @@
         <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
           <li role="presentation">
             <a style="cursor: pointer" (click)="useLanguage('az')" role="menuitem" title="Azərbaycan dili"
-              class="menu-item d-block tr-3s ripple-effect active">
+              class="menu-item d-block tr-3s ripple-effect " [ngClass]="{'active': az}">
               AZ
             </a>
           </li>
           <li role="presentation">
             <a style="cursor: pointer" (click)="useLanguage('en')" role="menuitem" title="English language"
-              class="menu-item d-block tr-3s ripple-effect">
+              class="menu-item d-block tr-3s ripple-effect" [ngClass]="{'active': en}">
               EN
             </a>
           </li>
           <li role="presentation">
             <a style="cursor: pointer" (click)="useLanguage('ru')" role="menuitem" title="Русский язык"
-              class="menu-item d-block tr-3s ripple-effect">
+              class="menu-item d-block tr-3s ripple-effect" [ngClass]="{'active': ru}">
               RU
             </a>
           </li>
@@ -349,6 +349,39 @@
                   <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
                 </span>
                 <i aria-hidden="true" class="text-green">▲</i>
+              </div>
+            </div>
+          </div>
+        </owl-carousel>
+        
+      </div>
+      <div class="col as-12 lg-3">
+        <owl-carousel [options]="{items: 1, autoplay: true, dots: false, navigation: false, loop: true}"
+          [carouselClasses]="['owl-theme', 'v-widget ', 'widget-1 ' , 'owl-carousel']">
+          <div class="item d-table" *ngFor="let item of prodStatResponse">
+            <div class="d-row">
+              <div class="d-cell v-align-middle">
+                <i aria-hidden="true" class="icon-golds-fill i1"></i>
+              </div>
+              <div class="d-cell v-align-middle pl-15 pr-15 w-100p">
+                <b class="d-block text-main">
+                  {{item?.category?.name}}
+                </b>
+                <small class="text-gray line-clamp line-1 mt-2">
+                      1 {{item?.unit?.name}}
+                </small>
+              </div>
+              <div class="d-cell text-center">
+                <span class="d-block bold no-wrap">
+                  {{(+item?.avg_price).toFixed(2)}}
+                  <small><i aria-hidden="true" class="icon-currency-azn light"></i></small>
+                </span>
+                <!-- <i *ngIf="metalResponse?.XAU.Value < metalResponse?.XAU.BeforeValue" class="text-center"><i
+                    aria-hidden="true" class="text-red">▼</i></i>
+                <i *ngIf="metalResponse?.XAU.Value === metalResponse?.XAU.BeforeValue" class="text-center"><i
+                    aria-hidden="true" class="text-gray">●</i></i>
+                <i *ngIf="metalResponse?.XAU.Value > metalResponse?.XAU.BeforeValue" class="text-center"><i
+                    aria-hidden="true" class="text-green">▲</i></i> -->
               </div>
             </div>
           </div>
