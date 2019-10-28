@@ -34,6 +34,24 @@
     <div class="account-header shadow-big text-center clear pt-40 pb-40 ripple-effect light-ripple">
         <div class="thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
             <img src="assets/images/ulu.png" alt="User Name" width="120" height="120" class="p-7 radius-50p">
+
+            <div class="avatar-action text-black tr-3s">
+
+                <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple">
+                    <span class="d-block">
+                        <i aria-hidden="true" class="icon-folder-open"></i>
+                        Şəkil seç
+                    </span>
+                </span>
+
+                <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple">
+                    <span class="d-block">
+                        <i aria-hidden="true" class="icon-trash"></i>
+                        Səkli sil
+                    </span>
+                </span>
+
+            </div>
         </div>
         <h2 class="account-name h4 bold mb-0 text-white text-uppercase">Company Name</h2>
     </div>
