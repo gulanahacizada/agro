@@ -39,6 +39,7 @@ export class AppService extends HttpsService {
   public SEND_OFFER = 'dialog/send';
   public SEND_REQUEST = 'offers';
   public STATISTIK_PRODUCTS = 'statistics/product/price/avg';
+  public SALES_PRODUCTS_STATS = 'product/grouped';
 
   constructor(public http: HttpClient) {
     super();

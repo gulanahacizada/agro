@@ -12,5 +12,9 @@ export class HomeService extends AppService {
     super(http);
   }
 
+  public statistics(params: any = {}): Observable<any> {
+    return this.get(this.http, this.SALES_PRODUCTS_STATS, params);
+  }
+
 
 }

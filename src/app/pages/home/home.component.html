@@ -89,9 +89,11 @@
             <span class="d-block">Əraziyə görə məhsuldarlıq</span>
           </h2>
         </div>
-        <div class="responsive pb-in-70 bg-gray">
+        <div class="responsive pb-in-70 bg-gray ">
           <div class="wrap d-flex-center text-center">
-            <span>Map Plugin</span>
+            <div  id="map">
+              <!--<img src="assets/images/azerbaijan.svg" alt="">-->
+            </div>
           </div>
         </div>
       </div>
@@ -107,119 +109,36 @@
               <tr>
                 <th>Məhsul</th>
                 <th>Növ</th>
-                <th>Qiymət</th>
+                <th>Qiymət aşagı</th>
+                <th>Qiymət üxarı</th>
                 <th>Həcm</th>
-                <th>Satış</th>
               </tr>
             </thead>
             <tbody class="no-wrap">
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
+              <tr *ngFor="let item of productStat">
+                <td>{{item?.category?.name}}</td>
+                <td>{{item?.kind?.name}}</td>
                 <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
+                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-red bold">
+                    {{(+item?.min_price).toFixed(2)}}
                     <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
+                    / {{item?.unit?.name}}
                   </span>
                 </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
                 <td>
+                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                    {{(+item?.max_price).toFixed(2)}}
+                    <i aria-hidden="true" class="icon-currency-azn small"></i>
+                    / {{item?.unit?.name}}
+                  </span>
+                </td>
+                <td><span class="text-special bold">{{item?.common}} {{item?.unit?.name}}</span></td>
+                <!-- <td>
                   <div class="progress radius-5 w-100">
                     <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                     </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Nar</td>
-                <td>Gülöyşə</td>
-                <td>
-                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                    2000
-                    <i aria-hidden="true" class="icon-currency-azn small"></i>
-                    / ton
-                  </span>
-                </td>
-                <td><span class="text-special bold">2000 Ton</span></td>
-                <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
-                  </div>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>
@@ -246,25 +165,25 @@
   </div>
   <owl-carousel [options]="newOwlOptions" [items]="allNews"
     [carouselClasses]="['owl-theme','owl-carousel','news-carousel']">
-    <div class="item news-item bg-white" *ngFor="let news of allNews; trackBy: homeService.trackByFn">
-      <a [routerLink]="[ '/news/detail', news.id ]" title="{{news?.title}}" class="d-block clear">
-        <div class="thumb hover scale responsive pb-in-65">
-          <img src="{{news?.image}}" alt="title" width="" height="">
-        </div>
-        <div class="info tr-3s border-top">
-          <div class="clear mb-10">
-
-            <span class="date-time d-in-block text-gray light">
-              <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
-              {{news?.created_at |  date}}
-            </span>
-
+      <div class="item news-item bg-white" *ngFor="let news of allNews; trackBy: homeService.trackByFn">
+        <a [routerLink]="[ '/news/detail', news.id ]" title="{{news?.title}}" class="d-block clear">
+          <div class="thumb hover scale responsive pb-in-65">
+            <img src="{{news?.image}}" alt="title" width="" height="">
           </div>
+          <div class="info tr-3s border-top">
+            <div class="clear mb-10">
 
-          <span class="title text-black font-16 bold line-clamp line-3"> {{news?.description}} </span>
-        </div>
-      </a>
-    </div>
+              <span class="date-time d-in-block text-gray light">
+                <i aria-hidden="true" class="icon-calendar-8 text-special mr-10"></i>
+                {{news?.created_at |  date}}
+              </span>
+
+            </div>
+
+            <span class="title text-black font-16 bold line-clamp line-3"> {{news?.description}} </span>
+          </div>
+        </a>
+      </div>
   </owl-carousel>
 </div>
 <!-- Xeberler  End  -->
