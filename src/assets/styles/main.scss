@@ -2,7 +2,6 @@
 
 body, html {
   letter-spacing: .5px;
-  background-color: #f8f9fa;
 }
 
 :root {
@@ -451,7 +450,7 @@ body, html {
     .info {
       background-color: $main;
 
-      span, small, i {
+      span, i {
         color: $white !important;
       }
     }
@@ -558,9 +557,45 @@ body, html {
 /*====================================================================================================================*/
 
 .account-header {
-  background-image: url($imagePath + "Yara-International.png");
+  background-image: url($imagePath + "account-bg.jpg");
   background-position: center;
-  background-size: cover;
+  background-size: auto 150%;
+
+  .avatar-action{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $blackTr-5;
+    z-index: 2;
+    display: none;
+
+    &:hover{
+      display: block;
+    }
+
+    .action-btn{
+      height: 50%;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+
+      &:hover{
+        background-color: $blackTr-3;
+      }
+
+      &:nth-child(1){
+        border-bottom: 1px solid $whiteTr-2;
+      }
+
+      i{
+        display: block;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 .account-menu {
@@ -756,6 +791,70 @@ body, html {
   .back-top {
     line-height: 80px;
     height: 80px;
+  }
+}
+
+/*====================================================================================================================*/
+/* Error Pages */
+/*====================================================================================================================*/
+
+.error-page {
+  height: calc(100vh - var(--header-height));
+  background: url($imagePath + "bg-404.jpg") center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.error-page .error-code {
+  font-size: 170px;
+  line-height: 1em;
+  background: url($imagePath + 'bg-404.jpg') center fixed;
+  background-size: cover;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text !important;
+  -webkit-text-stroke-width: 3px;
+}
+
+.error-page .error-text {
+  letter-spacing: 4.5px;
+}
+
+.error-page .back-to-home {
+  color: $special;
+}
+
+.glass{
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: $blackTr-8;
+  }
+
+  &.white{
+    &:after {
+      background-color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+
+  .container {
+    z-index: 1;
+  }
+}
+
+/*====================================================================================================================*/
+/* Pagination */
+/*====================================================================================================================*/
+
+body .ui-paginator {
+  background-color: transparent !important;
+  border: 0 !important;
+
+  .ui-paginator-pages .ui-paginator-page{
+    border-radius: 50% !important;
   }
 }
 
