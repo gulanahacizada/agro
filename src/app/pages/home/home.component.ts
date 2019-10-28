@@ -131,8 +131,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getAStatistics() {
-    this.homeService.statistics({ perpage: '7' }).subscribe((response: Response) => {
-        console.log(response.responseContent);
+    this.homeService.statistics({ per_page: 7 }).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           this.productStat = response.responseContent.data;
         }
