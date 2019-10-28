@@ -217,7 +217,6 @@ export class AppComponent implements OnInit {
     this.appService.getProdStat().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.prodStatResponse = response.responseContent;
-        console.log(this.prodStatResponse);
 
       }
     });

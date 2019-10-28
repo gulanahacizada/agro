@@ -353,10 +353,10 @@
             </div>
           </div>
         </owl-carousel>
-        
+
       </div>
       <div class="col as-12 lg-3">
-        <owl-carousel [options]="{items: 1, autoplay: true, dots: false, navigation: false, loop: true}"
+        <owl-carousel [items]="prodStatResponse" [options]="{items: 1, autoplay: true, dots: false, navigation: false, loop: true}"
           [carouselClasses]="['owl-theme', 'v-widget ', 'widget-1 ' , 'owl-carousel']">
           <div class="item d-table" *ngFor="let item of prodStatResponse">
             <div class="d-row">
