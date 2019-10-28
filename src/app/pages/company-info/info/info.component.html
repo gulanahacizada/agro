@@ -1,51 +1,49 @@
 <div class="account-body bg-white shadow-big p-40">
-    <div class="row as-10">
-        <div class="col as-12 lg-8">
-            <h4 class="h5 bold">Haqqında</h4>
-
-            <div class="font-16 light" [innerHTML]="userInfo?.description">
-                <p> {{userInfo?.description}} </p>
-            </div>
-        </div>
-
-        <div class="col as-12 lg-4">
-            <div class="bg-gray p-10">
-                <div class="bg-white p-15">
-                    <h4 class="h5 bold">Əlaqə məlumatları</h4>
-
-                    <table class="account-requisition w-100p">
-                        <tbody>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top">Telefon:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    
-                                    <a *ngFor="let item of phone" 
-                                        class="d-block bold">{{item?.contact}}</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">E-mail:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    <a *ngFor="let item of email"  class="d-block bold"> {{item?.contact}} </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Sayt:</td>
-                                <td class="pb-15 pt-15 border-top">
-                                    <a href="{{userInfo?.website}}" title="Sayta keçid"
-                                        rel="external noopener noreferrer nofollow" class="d-block bold"
-                                        target="_blank">
-                                        {{userInfo?.website}}
-                                        <sup><i aria-hidden="true" class="icon-external-link ml-10"></i></sup>
-                                        
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
+  <div class="row as-10">
+    <div class="col as-12 lg-8">
+      <h4 class="h5 bold">Haqqında</h4>
+      <div class="font-16 light" [innerHTML]="userInfo?.description">
+        <p> {{userInfo?.description}} </p>
+      </div>
     </div>
+    <div class="col as-12 lg-4">
+      <div class="bg-gray p-10">
+        <div class="bg-white p-15">
+          <h4 class="h5 bold">Əlaqə məlumatları</h4>
+          <table class="account-requisition w-100p">
+            <tbody>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top">Telefon:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a *ngFor="let item of phone" class="d-block bold">{{item?.contact}}</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">E-mail:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a *ngFor="let item of email" class="d-block bold"> {{item?.contact}} </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Ünvan:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a *ngFor="let item of email" class="d-block bold"> {{userInfo?.address}} </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-15 pt-15 border-top bold v-align-top pt-5">Sayt:</td>
+                <td class="pb-15 pt-15 border-top">
+                  <a href="//{{userInfo?.website}}" title="Sayta keçid" rel="external noopener noreferrer nofollow"
+                    class="d-block bold" target="_blank">
+                    {{userInfo?.website}}
+                    <sup><i aria-hidden="true" class="icon-external-link ml-10"></i></sup>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

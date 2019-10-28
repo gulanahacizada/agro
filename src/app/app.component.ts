@@ -13,7 +13,11 @@ import { Response } from './interfaces/response';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  activeLang: any;
+  activeClass: boolean;
+  az: boolean;
+  en: boolean;
+  ru: boolean;
   registerToken: any;
   title = 'Birja';
   loginForm: FormGroup;
@@ -23,6 +27,7 @@ export class AppComponent implements OnInit {
   jwtHelper = new JwtHelperService();
   myCarouselImages: any;
   currencyResponse: any;
+  prodStatResponse: any;
   metalResponse: any;
   responseMessage: any;
   verifyPhone = false;
@@ -48,8 +53,10 @@ export class AppComponent implements OnInit {
     this.createCustomerForm();
     this.createVerifyForm();
     this.loggedIn();
-    // this.getMetals();
-    // this.getCurrency();
+    this.getMetals();
+    this.getCurrency();
+    this.chekLang();
+    this.getProductsStat();
   }
 
   createLoginForm() {
@@ -58,10 +65,6 @@ export class AppComponent implements OnInit {
       password: ['', [Validators.required]],
       // navigatorUrl: ['home']
     });
-  }
-
-  onSelectType(event) {
-    console.log(event);
   }
 
   createCompanyForm() {
@@ -100,16 +103,14 @@ export class AppComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       const data = Object.assign({}, this.loginForm.value);
-      console.log(data);
       this.appService.login(data).subscribe((response: Response) => {
         if (response.responseCode == 1) {
-          localStorage.setItem('acc_jwt', response.responseContent.access_token);
+          localStorage.setItem('jwt_c', response.responseContent.access_token);
           localStorage.setItem('isCompany', response.responseContent.user.is_company);
           localStorage.setItem('selfID', response.responseContent.user.id);
           this.router.navigate(['dashboard']);
           $('.login-modal').removeClass('open');
           $('body').removeClass('o-hidden');
-          console.log(response.responseContent);
         }
         if (response.responseCode == 2) {
           // message error
@@ -123,7 +124,7 @@ export class AppComponent implements OnInit {
           if (response.responseContent.type == 0) {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -144,7 +145,7 @@ export class AppComponent implements OnInit {
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -158,7 +159,6 @@ export class AppComponent implements OnInit {
     if (this.customerRegister.valid) {
       const data = Object.assign({}, this.customerRegister.value);
       this.clean(data);
-      console.log(data);
       this.appService.register(data).subscribe((response: Response) => {
         if (response.responseCode == 2) {
           this.responseMessage = response.responseMessage;
@@ -167,7 +167,7 @@ export class AppComponent implements OnInit {
           if (this.companyRegister.value.verify == 'phone') {
             this.verifyPhone = true;
             this.verifyEmail = false;
-          } else{
+          } else {
             this.verifyPhone = false;
             this.verifyEmail = true;
           }
@@ -178,32 +178,46 @@ export class AppComponent implements OnInit {
   }
 
   logOut() {
-    this.appService.logout().subscribe(() => {
-      localStorage.clear();
-      this.router.navigate(['/home']);
+    this.appService.logout().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        localStorage.clear();
+        this.router.navigate(['/home']);
+      }
     });
   }
 
   loggedIn() {
-    const token = localStorage.getItem('acc_jwt');
+    const token = localStorage.getItem('jwt_c');
     return !this.jwtHelper.isTokenExpired(token);
   }
 
   useLanguage(language: string) {
     this.translate.use(language);
-    localStorage.setItem('lang' , language);
+    localStorage.setItem('lang', language);
     window.location.reload();
   }
 
   getCurrency() {
-    this.appService.currency().subscribe(response => {
-      this.currencyResponse = response;
+    this.appService.currency().subscribe((response: Response) => {
+      if (response.responseCode) {
+        this.currencyResponse = response.responseContent;
+      }
     });
   }
 
   getMetals() {
-    this.appService.metals().subscribe(response => {
-      this.metalResponse = response;
+    this.appService.metals().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.metalResponse = response.responseContent;
+      }
+    });
+  }
+
+  getProductsStat() {
+    this.appService.getProdStat().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.prodStatResponse = response.responseContent;
+      }
     });
   }
 
@@ -225,11 +239,15 @@ export class AppComponent implements OnInit {
   submitVerifyForm() {
     this.verifyToken = localStorage.getItem('verifyToken');
     this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
-
     });
   }
 
-
+  chekLang() {
+    this.activeLang = localStorage.getItem('lang');
+    this.az = (this.activeLang == 'az') ? true : false;
+    this.en = (this.activeLang == 'en') ? true : false;
+    this.ru = (this.activeLang == 'ru') ? true : false;
+  }
 
 
   reset() {

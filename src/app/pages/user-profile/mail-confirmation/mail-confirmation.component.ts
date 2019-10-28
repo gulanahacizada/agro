@@ -19,14 +19,13 @@ export class MailConfirmationComponent implements OnInit {
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params => {
-      console.log(params.id);
-      this.confirmService.verify({code: params.id}).subscribe((response: Response) => {
+      this.confirmService.verify({ code: params.id }).subscribe((response: Response) => {
         if (response.responseCode == 1) {
           this.router.navigate(['/home']);
           // Todo: message cixar
         }
       });
-  });
+    });
   }
 
 }

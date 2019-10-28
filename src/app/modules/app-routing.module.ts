@@ -49,6 +49,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('../pages/user-profile/dashboard/modules/dashboard.module').then(m => m.DashboardModule)
   },
+  {
+    path: 'contact-us',
+    loadChildren: () => import('../pages/birja-info/contact-us/modules/contact-us.module').then(m => m.ContactUsModule)
+  },
 
   {
     path: 'confirm-email/:id',

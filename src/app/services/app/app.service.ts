@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpsService } from '../https/https.service';
-import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/index';
 
 @Injectable({
@@ -11,13 +11,14 @@ export class AppService extends HttpsService {
   public LOGIN = 'auth/login';
   public LOGOUT = 'auth/logout';
   public REGISTER = 'auth/singup';
+  public REFRESH = 'auth/refresh';
   public CURRENCY = 'birja';
   public METALS = 'metals';
   public ALLL_NEWS = 'birja-articles';
   public GET_ALL_UNITS = 'unit';
   public GET_ALL_PACKAGE = 'package';
   public GET_ALL_QUALITY = 'quality';
-  // public GET_ALL_KIND = ''
+  public ABOUT = 'about';
   public GET_ALL_CATEGORY = 'category';
   public GET_ALL_KALIBRY = 'kalibry';
   public PRODUCT = 'product';
@@ -36,10 +37,9 @@ export class AppService extends HttpsService {
   public NEWS = 'news';
   public ANSWER_OFFER = 'dialog/answer';
   public SEND_OFFER = 'dialog/send';
- 
-
-
-
+  public SEND_REQUEST = 'offers';
+  public STATISTIK_PRODUCTS = 'statistics/product/price/avg';
+  public SALES_PRODUCTS_STATS = 'product/grouped';
 
   constructor(public http: HttpClient) {
     super();
@@ -52,24 +52,27 @@ export class AppService extends HttpsService {
   public logout(params: any = {}): Observable<any> {
     return this.post(this.http, this.LOGOUT, params);
   }
+  public refresh(params: any = {}): Observable<any> {
+    return this.post(this.http, this.REFRESH, params);
+  }
 
   public register(params: any = {}): Observable<any> {
     return this.post(this.http, this.REGISTER, params);
   }
 
   public currency(params: any = {}): Observable<any> {
-    return this.getTv(this.http, this.CURRENCY, params);
+    return this.get(this.http, this.CURRENCY, params);
   }
 
-  public metals( params: any = {}): Observable<any> {
-    return this.getTv(this.http, this.METALS, params);
+  public metals(params: any = {}): Observable<any> {
+    return this.get(this.http, this.METALS, params);
   }
 
-  public sellerUsers( params: any = {}): Observable<any> {
+  public sellerUsers(params: any = {}): Observable<any> {
     return this.get(this.http, this.USER_SELLERS, params);
   }
 
-  public verify( params: any = {}): Observable<any> {
+  public verify(params: any = {}): Observable<any> {
     return this.post(this.http, this.VERIFY_CONTACT, params);
   }
 
@@ -78,11 +81,19 @@ export class AppService extends HttpsService {
   }
 
 
-  public getNews( params: any = {}): Observable<any> {
+  public getNews(params: any = {}): Observable<any> {
     return this.get(this.http, this.NEWS, params);
- }
- public getAllUsers( params: any = {}): Observable<any> {
-  return this.get(this.http, this.GET_ALL_USER, params);
-}
+  }
+  public getAllUsers(params: any = {}): Observable<any> {
+    return this.get(this.http, this.GET_ALL_USER, params);
+  }
+
+  public about(params: any = {}): Observable<any> {
+    return this.get(this.http, this.ABOUT, params);
+  }
+
+  public getProdStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.STATISTIK_PRODUCTS, params);
+  }
 
 }

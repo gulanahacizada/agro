@@ -9,6 +9,7 @@ import { Unit } from 'src/app/interfaces/unit';
 import { Kalibry } from 'src/app/interfaces/kalibry';
 import { Category } from 'src/app/interfaces/category';
 import { Kinds } from 'src/app/interfaces/kinds';
+import * as $ from 'jquery';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -34,9 +35,10 @@ export class AddProductComponent implements OnInit {
   packages: Packege[];
   units: Unit[];
   quality: Quality[];
+  product_added: boolean = false;
 
   productForm: FormGroup;
-  lang =  'az';
+  lang = 'az';
   imgURL: any;
   file: any;
   fileRaw: string;
@@ -52,16 +54,16 @@ export class AddProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllCategory(); //
-    this.getAllQuality(); //
-    this.getAllPackege(); //
-    this.getAllKalibry(); //
-    this.getAllUnits(); //
+    this.getAllCategory('az'); //
+    this.getAllQuality('az'); //
+    this.getAllPackege('az'); //
+    this.getAllKalibry('az'); //
+    this.getAllUnits('az'); //
     this.createProdForm(); //
   }
 
-  getAllUnits() {
-    this.productService.getUnits().subscribe((response: Response) => {
+  getAllUnits(lang) {
+    this.productService.getUnits({ lang }).subscribe((response: Response) => {
       this.units = response.responseContent;
       this.unitList = (this.units || []).map((r: any) => ({
         label: r.name,
@@ -70,8 +72,8 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  getAllPackege() {
-    this.productService.getPackege().subscribe((response: Response) => {
+  getAllPackege(lang) {
+    this.productService.getPackege({ lang }).subscribe((response: Response) => {
       this.packages = response.responseContent;
       this.packegeList = (this.packages || []).map((r: any) => ({
         label: r.name,
@@ -81,8 +83,8 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  getAllKalibry() {
-    this.productService.getKalibry().subscribe((response: Response) => {
+  getAllKalibry(lang) {
+    this.productService.getKalibry({ lang }).subscribe((response: Response) => {
       this.kalibry = response.responseContent;
       this.kalibryList = (this.kalibry || []).map((r: any) => ({
         label: r.name,
@@ -91,8 +93,8 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  getAllQuality() {
-    this.productService.getQuality().subscribe((response: Response) => {
+  getAllQuality(lang) {
+    this.productService.getQuality({ lang }).subscribe((response: Response) => {
       this.quality = response.responseContent;
       this.qualityList = (this.quality || []).map((r: any) => ({
         label: r.name,
@@ -101,8 +103,8 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  getAllCategory() {
-    this.productService.getCategory().subscribe((response: Response) => {
+  getAllCategory(lang) {
+    this.productService.getCategory({ lang }).subscribe((response: Response) => {
       this.category = response.responseContent;
       this.categoryList = (this.category || []).map((r: any) => ({
         label: r.name,
@@ -111,51 +113,20 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  // getAllCategory() {
-  //   this.productService.getCategory().subscribe((response: Response) => {
-  //     this.category = response.responseContent;
-  //     this.onChangeLanguage('az', 1);
-  //   });
-  // }
 
 
   onChangeLanguage(lang, i) {
     this.selectLang = i;
     this.lang = lang;
-    this.packegeList = (this.packages || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    })),
+    this.getAllCategory(lang); //
+    this.getAllQuality(lang); //
+    this.getAllPackege(lang); //
+    this.getAllKalibry(lang); //
+    this.getAllUnits(lang); //
+    // if (this.productList && this.productList.length == 1) {
 
-    this.qualityList = (this.quality || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
-
-    this.unitList = (this.units || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
-
-    this.kalibryList = (this.kalibry || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
-
-    this.categoryList = (this.category || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r
-    }));
-
-    this.productList = (this.products || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
-
-    this.kindList = (this.kinds || []).map((r: any) => ({
-      label: r[`name_${lang}`],
-      value: r.id
-    }));
+    //   this.getKindByCategory(this.productList[0].value);
+    // }
   }
 
 
@@ -163,7 +134,7 @@ export class AddProductComponent implements OnInit {
     this.products = event.value.sub_categories;
     this.productList = (this.products || []).map((r: any) => ({
       label: r.name,
-      value: r.id
+      value: r.id,
     }));
   }
 
@@ -173,13 +144,13 @@ export class AddProductComponent implements OnInit {
 
   getKindByCategory(id) {
     const params = {
-      category_id: id
+      category_id: id,
+      lang: this.lang
     };
     this.productService.getKinByCategory(params).subscribe((response: Response) => {
       this.kinds = response.responseContent;
-      console.log(this.kinds);
       this.kindList = (this.kinds || []).map((r: any) => ({
-        label: r.name_az,
+        label: r.name,
         value: r.id
       }));
     });
@@ -188,24 +159,24 @@ export class AddProductComponent implements OnInit {
 
   createProdForm() {
     this.productForm = this.fb.group({
-      category_id: [ , [Validators.required]],
-      kind_id:     [ , [Validators.required]],
-      quality_id:  [ , Validators.required],
-      package_id:  [ , Validators.required],
-      kalibry_id:  [ , Validators.required],
-      unit_id:     [ , Validators.required],
-      common:      [ , Validators.required],
-      price:       [ , Validators.required],
-      accumulated_at: [ '', Validators.required],
-      expiry_time:    [ '', Validators.required],
-      image:          [ ''],
+      category_id: [, Validators.required],
+      kind_id: [, Validators.required],
+      quality_id: [, Validators.required],
+      package_id: [, Validators.required],
+      kalibry_id: [],
+      unit_id: [, Validators.required],
+      common: [, Validators.required],
+      price: [, Validators.required],
+      accumulated_at: [''],
+      expiry_time: [''],
+      image: [''],
       description_az: [''],
       description_en: [''],
       description_ru: ['']
     });
-   }
+  }
 
-   onFileChange(event) {
+  onFileChange(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
@@ -223,17 +194,16 @@ export class AddProductComponent implements OnInit {
   onUnitSelect(event) {
     this.selectUnit = event.originalEvent.target.textContent;
   }
-  // deletePhoto() {
-  //   this.fileRaw = null;
-  //   this.url = null;
-  //   $('#photo').val('');
-  //   console.log(this.fileRaw, this.url);
-  // }
 
 
   addProduct() {
-    this.productService.createProduct(this.productForm.value, this.file).subscribe( () => {
-      this.router.navigate(['/dashboard/products']);
+    this.product_added = true;
+    this.productService.createProduct(this.productForm.value, this.file).subscribe((res: any) => {
+      if (res.body && res.body.responseCode == 1) {
+        this.router.navigate(['/dashboard/products']);
+      } else {
+        this.product_added = false;
+      }
     });
   }
 

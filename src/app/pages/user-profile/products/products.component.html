@@ -1,127 +1,70 @@
 <div class="account-body bg-white shadow-big p-40">
+  <div class="pb-20 clear">
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsullar</h3>
+    <a [routerLink]="[ 'add' ]" class="btn bg-white border-0 shadow-big radius-20 float-right" title="Məhsul əlavə et">
+      <i aria-hidden="true" class="icon-plus v-align-middle"></i>
+      <span class="hide-xs v-align-middle ml-10">Məhsul əlavə et</span>
+    </a>
+  </div>
+  <div class="table-responsive border-0 mb-40">
+    <table class="table custom-table bg-gray">
+      <thead class="bg-white">
+        <tr>
+          <th>№</th>
+          <th>Məhsul</th>
+          <th>Növ</th>
+          <th>Qiymət</th>
+          <th>Həcm</th>
+          <th>Satış</th>
+          <th>Tarix</th>
+          <th>Bax</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="no-wrap">
+        <tr *ngFor="let product of productList; let i=index; trackBy: productService.trackByFn ">
 
-        <div class="pb-20 clear">
-            <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsullar</h3>
-          
-            <a [routerLink]="[ 'add' ]" class="btn bg-white border-0 shadow-big radius-20 float-right" title="Məhsul əlavə et">
-                <i aria-hidden="true" class="icon-plus v-align-middle"></i>
-                <span class="hide-xs v-align-middle ml-10">Məhsul əlavə et</span>
+          <td> {{i +1}} </td>
+          <td> {{product?.category?.name}} </td>
+          <td> {{product?.kind?.name}}</td>
+          <td>
+            <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+              {{product?.price}}
+              <i aria-hidden="true" class="icon-currency-azn small"></i>
+              /
+            </span>
+          </td>
+          <td><span class="text-special bold">{{product?.common}}</span></td>
+          <td>
+            <div class="progress radius-5 w-100">
+              <div class="progress-bar radius-5 bg-main text-right" role="progressbar"
+                [ngStyle]="{'width': product.sell + '%'}"> {{product?.sell}} %</div>
+            </div>
+          </td>
+          <td>
+            <span class="text-gray">
+              {{product?.created_at |date: 'dd/MM/yyyy'}}
+            </span>
+          </td>
+          <td class="text-right">
+            <a [routerLink]="[ 'details', product.id ]" aria-label="Ətraflı məlumat" title="Ətraflı məlumat"
+              data-toggle="tooltip" class="btn xs circle border-0 shadow-big text-green">
+              <i aria-hidden="true" class="icon-eye v-align-middle"></i>
             </a>
-        </div>
+          </td>
+          <td class="text-right">
+            <a [routerLink]="[ 'edit', product.id ]" aria-label="Redaktə et" title="Redaktə et" data-toggle="tooltip"
+              class="btn bg-blue xs circle border-0 shadow-big">
+              <i aria-hidden="true" class="icon-pen-5 v-align-middle"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-        <div class="table-responsive border-0 mb-40">
-            <table class="table custom-table bg-gray">
-
-                <thead class="bg-white">
-                <tr>
-                    <th>№</th>
-                    <th>Məhsul</th>
-                    <th>Növ</th>
-                    <th>Qiymət</th>
-                    <th>Həcm</th>
-                    <th>Satış</th>
-                    <th>Tarix</th>
-                    <th>Bax</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody class="no-wrap">
-                
-                <tr *ngFor="let product of productList; let i=index; ">
-
-                    <td> {{i +1}} </td>
-                    <td> {{product?.category?.name}} </td>
-                    <td> {{product?.kind?.name}}</td>
-                    <td>
-                        <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
-                            {{product?.price}}
-                            <i aria-hidden="true" class="icon-currency-azn small"></i>
-                            / 
-                        </span>
-                    </td>
-                    <td><span class="text-special bold">{{product?.common}}</span></td>
-                    <td>
-                        <div class="progress radius-5 w-100">
-                            <div class="progress-bar radius-5 bg-main text-right" role="progressbar" 
-                            [ngStyle]="{'width': product.sell + '%'}"
-                            > {{product?.sell}} %</div>
-                        </div>
-                    </td>
-                    <td>
-                        <span class="text-gray">
-                            {{product?.created_at |date: 'dd/MM/yyyy'}}
-                        </span>
-                    </td>
-                    <td class="text-right">
-                        <a [routerLink]="[ 'details', product.id ]"
-                           aria-label="Ətraflı məlumat"
-                           title="Ətraflı məlumat" data-toggle="tooltip"
-                           class="btn xs circle border-0 shadow-big text-green">
-                            <i aria-hidden="true" class="icon-eye v-align-middle"></i>
-                        </a>
-                    </td>
-                    <td class="text-right">
-                        <a [routerLink]="[ 'edit', product.id ]"
-                           aria-label="Redaktə et"
-                           title="Redaktə et" data-toggle="tooltip"
-                           class="btn bg-blue xs circle border-0 shadow-big">
-                            <i aria-hidden="true" class="icon-pen-5 v-align-middle"></i>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- <nav class="pagination-nav" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
-            <ul class="page-numbers m-0 p-0" role="menubar">
-                <li role="presentation" class="first float-left hide-xs">
-                    <a href="#" role="button" rel="prev" class="btn tr-3s disabled legitRipple" title="Əvvəlki səhifə">
-                        <span>Əvvəlki</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" rel="start" role="menuitem" class="active" aria-current="true" aria-posinset="1" data-pagenum="1" title="Səhifə 1" itemprop="url">
-                        <span itemprop="name">1</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="2" data-pagenum="2" title="Səhifə 2" itemprop="url">
-                        <span itemprop="name">2</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="3" data-pagenum="3" title="Səhifə 3" itemprop="url">
-                        <span itemprop="name">3</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="4" data-pagenum="4" title="Səhifə 4" itemprop="url">
-                        <span itemprop="name">4</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="5" data-pagenum="5" title="Səhifə 5" itemprop="url">
-                        <span itemprop="name">5</span>
-                    </a>
-                </li>
-                <li role="separator" aria-hidden="true">…</li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="10" data-pagenum="10" title="Səhifə 10" itemprop="url">
-                        <span itemprop="name">10</span>
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#" role="menuitem" aria-current="true" aria-posinset="11" data-pagenum="11" title="Səhifə 11" itemprop="url">
-                        <span itemprop="name">11</span>
-                    </a>
-                </li>
-                <li role="presentation" class="last float-right hide-xs">
-                    <a href="#" role="button" rel="next" class="btn tr-3s legitRipple" title="Sonrakı səhifə">
-                        <span>Sonrakı</span>
-                    </a>
-                </li>
-            </ul>
-        </nav> -->
-
+    <div class="panel-footer">
+      <p-paginator *ngIf="productList?.length" [rows]="pagination?.per_page" [totalRecords]="pagination?.total"
+        (onPageChange)="paginate($event)"></p-paginator>
     </div>
+  </div>
+</div>

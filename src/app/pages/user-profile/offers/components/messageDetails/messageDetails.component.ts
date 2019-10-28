@@ -20,10 +20,10 @@ export class MessageDetailsComponent implements OnInit {
   count: number;
 
   constructor(
-    private offersService: OffersService,
+    public offersService: OffersService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router,
+    private router: Router
   ) {
     this.id = this.activateRoute.snapshot.params.id;
   }
@@ -39,7 +39,6 @@ export class MessageDetailsComponent implements OnInit {
   getDialogById() {
     this.offersService.getDialogById(this.id).subscribe((response: Response) => {
       this.dialogInfo = response.responseContent;
-      console.log(response.responseContent);
     });
   }
 
@@ -101,13 +100,19 @@ export class MessageDetailsComponent implements OnInit {
 
   acceptOffer() {
     this.offersService.acceptOffer(this.id).subscribe((response: Response) => {
-      // this.router.navigate(['/dashboard/products']); 
+
+      if (response.responseCode == 1) {
+        this.router.navigate(['/dashboard/offers']);
+      }
     });
   }
 
   rejectOffer() {
     this.offersService.rejectOffer( this.id).subscribe((response: Response) => {
-      console.log(response);
+
+      if (response.responseCode == 1) {
+        this.router.navigate(['/dashboard/offers']);
+      }
     });
   }
 

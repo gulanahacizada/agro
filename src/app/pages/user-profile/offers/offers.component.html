@@ -1,124 +1,60 @@
 <div class="account-body bg-white shadow-big p-40">
-
-    <div class="pb-20 mb-40 border-bottom clear">
-        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Təkliflər</h3>
+  <div class="pb-20 mb-40 border-bottom clear">
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Təkliflər</h3>
+  </div>
+  <div class="row as-5 mb-40">
+    <div class="col xl-2 lg-3 md-4 sm-6 xs-6">
+      <p-dropdown (onChange)="onSelectDialogType($event)" [options]="dialogType" placeholder="Bütün təkliflər"
+        filter="true" class="input custom select border-0  shadow-big">
+      </p-dropdown>
     </div>
-
-    <div class="row as-5 mb-40">
-
-        <div class="col xl-2 lg-3 md-4 sm-6 xs-6">
-                <p-dropdown (onChange)="onSelectDialogType($event)" [options]="dialogType"  placeholder="Bütün təkliflər" filter="true"
-                class="input custom select border-0  shadow-big">
-              </p-dropdown>
-        </div>
-
-        <div class="col xl-2 lg-3 md-4 sm-6 xs-6">
-                <p-dropdown [options]="dialogReadType" (onChange)="onSelectType($event)"   placeholder="Bütün təkliflər" filter="true"
-                class="input custom select border-0  shadow-big">
-              </p-dropdown>
-        </div>
-
+    <div class="col xl-2 lg-3 md-4 sm-6 xs-6">
+      <p-dropdown [options]="dialogReadType" (onChange)="onSelectType($event)" placeholder="Bütün təkliflər"
+        filter="true" class="input custom select border-0  shadow-big">
+      </p-dropdown>
     </div>
-
-    <div class="table-responsive o-auto border-0 mb-40">
-        <table class="table custom-table bg-gray">
-
-            <thead class="bg-white no-wrap">
-            <tr >
-                <th>№</th>
-                <th>Təklif verən</th>
-                <th>Təklif alan</th>
-                <th>Məhsul</th>
-                <th>Nəticə</th>
-                <th>Tarix</th>
-                <th>Bax</th>
-            </tr>
-            </thead>
-
-            <tbody class="text-center no-wrap">
-            <tr *ngFor="let offer of offersList; let i=index">
-                <td>{{i+1}}</td>
-                <td>{{offer?.user_from?.name}}</td>
-                <td>{{offer?.user_to?.name}}</td>
-                <td>{{offer?.product?.category?.name}} ({{offer?.product?.kind?.name}})</td>
-                <td>
-                        <div [ngSwitch]="offer?.status">
-                                <div *ngSwitchCase="2">
-                                    Gözlənilmədə
-                                </div>
-                                <div *ngSwitchCase="1">
-                                    Razılaşmış təkliflər
-                                </div>
-                                <div *ngSwitchCase="0">
-                                    Rəd ədilmiş təkliflər
-                                </div>
-                              </div>
-                </td>
-                <td>21.08.2019, 14:36</td>
-                <td>
-                    <a [routerLink]="[ 'details', offer?.id ]"
-                       rel="external"
-                       aria-label="Bax" title="Bax"
-                       data-toggle="tooltip"
-                       class="btn xs circle bg-white shadow border-0">
-                        <i aria-hidden="true" class="icon-eye v-align-middle"></i>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-
-        </table>
-    </div>
-
-    <!-- <nav class="pagination-nav bg-white p-5 shadow-big radius-30" aria-label="Səhifələmə naviqatoru" itemscope itemtype="https://schema.org/SiteNavigationElement">
-        <ul class="page-numbers m-0 p-0" role="menubar">
-            <li role="presentation" class="first float-left hide-xs">
-                <a href="#" role="button" rel="prev" class="btn tr-3s disabled legitRipple" title="Əvvəlki səhifə">
-                    <span>Əvvəlki</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" rel="start" role="menuitem" class="active" aria-current="true" aria-posinset="1" data-pagenum="1" title="Səhifə 1" itemprop="url">
-                    <span itemprop="name">1</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="2" data-pagenum="2" title="Səhifə 2" itemprop="url">
-                    <span itemprop="name">2</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="3" data-pagenum="3" title="Səhifə 3" itemprop="url">
-                    <span itemprop="name">3</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="4" data-pagenum="4" title="Səhifə 4" itemprop="url">
-                    <span itemprop="name">4</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="5" data-pagenum="5" title="Səhifə 5" itemprop="url">
-                    <span itemprop="name">5</span>
-                </a>
-            </li>
-            <li role="separator" aria-hidden="true">…</li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="10" data-pagenum="10" title="Səhifə 10" itemprop="url">
-                    <span itemprop="name">10</span>
-                </a>
-            </li>
-            <li role="presentation">
-                <a href="#" role="menuitem" aria-current="true" aria-posinset="11" data-pagenum="11" title="Səhifə 11" itemprop="url">
-                    <span itemprop="name">11</span>
-                </a>
-            </li>
-            <li role="presentation" class="last float-right hide-xs">
-                <a href="#" role="button" rel="next" class="btn tr-3s legitRipple" title="Sonrakı səhifə">
-                    <span>Sonrakı</span>
-                </a>
-            </li>
-        </ul>
-    </nav> -->
-
+  </div>
+  <div class="table-responsive o-auto border-0 mb-40">
+    <table class="table custom-table bg-gray">
+      <thead class="bg-white no-wrap">
+        <tr>
+          <th>№</th>
+          <th>Təklif verən</th>
+          <th>Təklif alan</th>
+          <th>Məhsul</th>
+          <th>Nəticə</th>
+          <th>Tarix</th>
+          <th>Bax</th>
+        </tr>
+      </thead>
+      <tbody class="text-center no-wrap">
+        <tr *ngFor="let offer of offersList; let i=index; trackBy: offersService.trackByFn">
+          <td>{{i+1}}</td>
+          <td>{{offer?.user_from?.name}}</td>
+          <td>{{offer?.user_to?.name}}</td>
+          <td>{{offer?.product?.category?.name}} ({{offer?.product?.kind?.name}})</td>
+          <td>
+            <div [ngSwitch]="offer?.status">
+              <div *ngSwitchCase="2">
+                Gözlənilmədə
+              </div>
+              <div *ngSwitchCase="1">
+                Razılaşmış təkliflər
+              </div>
+              <div *ngSwitchCase="0">
+                Rəd ədilmiş təkliflər
+              </div>
+            </div>
+          </td>
+          <td>21.08.2019, 14:36</td>
+          <td>
+            <a [routerLink]="[ 'details', offer?.id ]" rel="external" aria-label="Bax" title="Bax" data-toggle="tooltip"
+              class="btn xs circle bg-white shadow border-0">
+              <i aria-hidden="true" class="icon-eye v-align-middle"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

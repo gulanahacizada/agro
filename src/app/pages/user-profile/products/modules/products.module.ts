@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {DropdownModule} from 'primeng/dropdown';
-import {CalendarModule} from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -10,6 +10,7 @@ import { ProductsComponent } from '../products.component';
 import { ProductsInComponent } from '../components/products-in/products-in.component';
 import { AddProductComponent } from '../components/add-product/add-product.component';
 import { EditProductComponent } from '../components/edit-product/edit-product.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditProductComponent } from '../components/edit-product/edit-product.co
     DropdownModule,
     CalendarModule,
     FormsModule,
+    PaginatorModule,
     ReactiveFormsModule
-    ]
+  ]
 })
 export class ProductsModule { }

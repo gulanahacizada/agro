@@ -4,12 +4,12 @@
       <nav aria-label="Breadcrumb navbar">
         <ol class="breadcrumb" aria-label="Breadcrumb">
           <li itemprop="itemListElement">
-            <a href="/" title="AgroBirja.az - Ana səhifə">
+            <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə">
               <span itemprop="name">AgroBirja.az</span>
             </a>
           </li>
           <li itemprop="itemListElement">
-            <a href="/birja.php" title="Birja">
+            <a title="Birja">
               <span itemprop="name">Birja</span>
             </a>
           </li>
@@ -35,17 +35,17 @@
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <p-dropdown [options]="prodSelectList" formControlName="category_id" (onChange)="onSelectProduct($event)"
-              placeholder="Kategoriya seçin" filter="true" class="input custom select border-0 radius-20 shadow-big">
+              placeholder="Məhsulu seçin" filter="true" class="input custom select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
-            <p-dropdown [options]="kindList" formControlName="kind_id" placeholder="Məhsulu seçin" filter="true"
+            <p-dropdown [options]="kindList" formControlName="kind_id" placeholder="Növü seçin" filter="true"
               class="input custom select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <div class="col md-6 sm-6 xs-6 mb-20">
-              <p-dropdown [options]="sellerList" formControlName="user_id" placeholder="Məhsulu seçin" filter="true"
+              <p-dropdown [options]="sellerList" formControlName="user_id" placeholder="Şirkət seçin" filter="true"
                 class="input custom select border-0 radius-20 shadow-big">
               </p-dropdown>
             </div>
@@ -91,7 +91,7 @@
               </div>
             </td>
             <td width="30%">
-              <span class="bold pointer text-main">{{product?.user?.name}}</span>
+              <span [routerLink]="[ '/companyInfo/profile', product?.user_id ]" class="bold pointer text-main">{{product?.user?.name}}</span>
             </td>
             <td> {{product.category?.name}} </td>
             <td>{{product?.kind?.name}}</td>
@@ -105,7 +105,7 @@
             <td><span class="text-special bold">{{product?.common}} {{product?.unit?.name}} </span></td>
             <td>
               <div class="progress radius-5 w-100">
-                <div [ngStyle]="{'width': product.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
+                <div [ngStyle]="{'width': product?.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
                   role="progressbar">
                   {{product?.sell}} %</div>
               </div>

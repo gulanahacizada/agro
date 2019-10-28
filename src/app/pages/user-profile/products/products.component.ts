@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from './services/products.service';
-import { Product } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-products',
@@ -12,9 +10,14 @@ import { Product } from 'src/app/interfaces/product';
 export class ProductsComponent implements OnInit {
 
   productList: any[];
+  pagination = {
+    per_page: 10,
+    total: null,
+    page: 1
+  };
 
   constructor(
-    private productService: ProductsService,
+    public productService: ProductsService,
   ) { }
 
   ngOnInit() {
@@ -22,10 +25,19 @@ export class ProductsComponent implements OnInit {
   }
 
   getMyProduct() {
-    this.productService.getMyProduct().subscribe((response: Response) => {
-          this.productList = response.responseContent.data;
-          console.log(this.productList);
+    this.productService.getMyProduct({ page: this.pagination.page, per_page: this.pagination.per_page }).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.productList = response.responseContent.data;
+        this.pagination.per_page = response.responseContent.per_page;
+        this.pagination.total = response.responseContent.total;
+      }
     });
+  }
+
+  paginate(e) {
+    this.pagination.page = e.page + 1;
+    this.pagination.per_page = e.rows;
+    this.getMyProduct();
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app/app.service';
+import { Response } from 'src/app/interfaces/response';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  about = [];
+
+  constructor(
+    public appService: AppService,
+  ) { }
 
   ngOnInit() {
+    this.getAboutData();
+  }
+
+  getAboutData() {
+    this.appService.about().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.about = response.responseContent;
+      }
+    });
   }
 
 }

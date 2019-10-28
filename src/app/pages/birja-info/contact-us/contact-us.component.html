@@ -1,0 +1,113 @@
+<div class="panel relative shadow-big">
+    <div class="container as-10 xl-15 lg-15">
+        <div class="panel-header pl-0 pr-0">
+            <nav aria-label="Breadcrumb navbar">
+                <ol class="breadcrumb" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə" itemprop="item">
+                            <span itemprop="name">AgroBirja.az</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span title="Bizimlə əlaqə" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/contact">
+                            <span itemprop="name">Bizimlə əlaqə</span>
+                        </span>
+                        <meta itemprop="position" content="3">
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="panel-header pl-0 pr-0 border-0">
+            <h1 class="m-0 bold text-main text-uppercase">
+                Bizimlə əlaqə
+            </h1>
+        </div>
+    </div>
+</div>
+
+<section class="contact-page bg-white">
+    <div class="container as-15">
+        <div class="row as-15">
+
+            <div class="col as-12 lg-6 md-6">
+                <div class="bg-gray h-100p p-30 pt-60 pb-60">
+
+                    <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
+                        <h2 class="section-title relative bold text-uppercase mb-0">
+                            <span class="d-block">Rekvizitlər</span>
+                        </h2>
+                    </div>
+
+                    <div class="row as-2 mb-15">
+                        <div class="col as-3 sm-4 xxs-4">
+                            <strong>
+                                <i aria-hidden="true" class="icon-map-pin mr-10"></i>
+                                Ünvan:
+                            </strong>
+                        </div>
+                        <div class="col as-9 sm-8 xxs-8">
+                            <address class="d-block">Lorem ipsum dolor sit amet</address>
+                        </div>
+                    </div>
+                    <div class="row as-2 mb-10">
+                        <div class="col as-3 sm-4 xxs-4">
+                            <strong>
+                                <i aria-hidden="true" class="icon-phone mr-10"></i>
+                                Telefon:
+                            </strong>
+                        </div>
+                        <div class="col as-9 sm-8 xxs-8">
+                            <a class="d-block mb-5 bold" href="tel:(+99477)-777-77-77" title="(+99477)-777-77-77">(+99477)-777-77-77</a>
+                            <a class="d-block mb-5 bold" href="tel:(+99477)-777-77-77" title="(+99477)-777-77-77">(+99477)-777-77-77</a>
+                            <a class="d-block mb-5 bold" href="tel:(+99477)-777-77-77" title="(+99477)-777-77-77">(+99477)-777-77-77</a>
+                        </div>
+                    </div>
+                    <div class="row as-2">
+                        <div class="col as-3 sm-4 xxs-4">
+                            <strong>
+                                <i aria-hidden="true" class="icon-envelope mr-10"></i>
+                                E-mail:
+                            </strong>
+                        </div>
+                        <div class="col as-9 sm-8 xxs-8">
+                            <a class="d-block mb-5 bold" href="mailto:info@agrobirja.az.az" title="info@agrobirja.az.az">info@agrobirja.az.az</a>
+                            <a class="d-block mb-5 bold" href="mailto:service@agrobirja.az.az" title="service@agrobirja.az.az">service@agrobirja.az.az</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form [formGroup]="requestForm" id="feedback" class="col as-12 lg-6 md-6 pt-60 pb-40">
+
+                <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">Mesaj göndər</span>
+                    </h2>
+                </div>
+
+                <div class="row as-10">
+                    <div class="col as-6 xxs-12 mb-10 pb-10">
+                        <input formControlName="name" type="text" class="input border-0 shadow radius-20" name="name" placeholder="Ad / Soyad">
+                    </div>
+                    <div class="col as-6 xxs-12 mb-10 pb-10">
+                        <input formControlName="email" type="email" class="input border-0 shadow radius-20" name="email" placeholder="E-mail">
+                    </div>
+                    <div class="col as-12 mb-10 pb-10">
+                        <textarea formControlName="body" class="input border-0 shadow radius-20 no-resize" name="body" cols="30" rows="5" placeholder="Mesaj" style="overflow-x: hidden; overflow-wrap: break-word; height: 108px;"></textarea>
+                    </div>
+                </div>
+                <div class="col as-12">
+                    <button [disabled]="!requestForm.valid" (click)="onSubmit()" id="send" class="btn border-0 shadow radius-20 bg-main legitRipple">
+                        Göndər
+                        <i aria-hidden="true" class="icon-send ml-10"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="map responsive pb-in-25">
+        <iframe frameborder="0" allowfullscreen="" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.832737325825!2d49.82805131497359!3d40.36823297937079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc83004c171%3A0xb41a1a95081be914!2sBakenRoll+Sushi+Bar!5e0!3m2!1saz!2s!4v1525210258627" class="loaded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.832737325825!2d49.82805131497359!3d40.36823297937079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc83004c171%3A0xb41a1a95081be914!2sBakenRoll+Sushi+Bar!5e0!3m2!1saz!2s!4v1525210258627" data-was-processed="true"></iframe>
+    </div>
+</section>
