@@ -2,6 +2,7 @@
 
 body, html {
   letter-spacing: .5px;
+  overflow-x: hidden;
 }
 
 :root {
@@ -441,7 +442,7 @@ body, html {
     padding: 20px;
 
     .title {
-      height: 62px;
+      height: 68px;
       overflow: hidden;
     }
   }
