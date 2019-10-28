@@ -23,7 +23,6 @@ export class AboutComponent implements OnInit {
     this.appService.about().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.about = response.responseContent;
-        console.log(this.about);
       }
     });
   }

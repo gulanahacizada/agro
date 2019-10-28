@@ -32,8 +32,6 @@
     <div class="row as-15 justify-content-center">
 
       <div class="col as-12 lg-8 pb-40">
-
-
         <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
             <span class="d-block"> {{about[0]?.title}} </span>
@@ -41,9 +39,8 @@
         </div>
 
         <div class="font-16 light">
-            <p>
-              {{about[0]?.body}}
-            </p>
+          <div [innerHTML]="about[0]?.body"></div>
+           
         </div>
 
       </div>
@@ -71,9 +68,7 @@
         </div>
 
         <div class="font-16 light">
-          <p>
-            {{about[1]?.body}}
-          </p>
+            <div [innerHTML]="about[1]?.body"></div>
         </div>
 
       </div>
@@ -101,9 +96,7 @@
         </div>
 
         <div class="font-16 light">
-          <p>
-            {{about[2]?.body}}
-          </p>
+            <div [innerHTML]="about[2]?.body"></div>
         </div>
 
       </div>
