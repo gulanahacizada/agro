@@ -422,7 +422,7 @@
     <div class="container as-10 xl-15 pt-40">
         <div class="row as-10 xl-15">
 
-            <div class="col as-12 lg-6 mb-40">
+            <div class="col as-12 lg-5 mb-40">
 
                 <div class="section-title-wrap w-100p d-table mb-20 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
@@ -430,14 +430,14 @@
                     </h2>
                 </div>
 
-                <div class="responsive pb-in-70 bg-gray">
+                <div class="responsive pb-in-90 bg-gray">
                     <div class="wrap d-flex-center text-center">
                         <span>Map Plugin</span>
                     </div>
                 </div>
             </div>
 
-            <div class="col as-12 lg-6 mb-40">
+            <div class="col as-12 lg-7 mb-40">
 
                 <div class="section-title-wrap w-100p d-table mb-20 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
@@ -445,7 +445,7 @@
                     </h2>
                 </div>
 
-                <div class="table-responsive border-0">
+                <div class="table-responsive o-auto border-0">
                     <table class="table custom-table bg-gray">
 
                         <thead class="bg-white">
@@ -629,6 +629,18 @@
                     </h2>
                 </div>
 
+                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
+                    <li role="presentation" class="active">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                </ul>
+
                 <canvas id="chart-1000" class="pt-10 bg-gray"></canvas>
 
             </div>
@@ -684,7 +696,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -701,7 +713,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -718,7 +730,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -735,7 +747,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -752,7 +764,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -769,7 +781,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -786,7 +798,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
@@ -803,7 +815,7 @@
                         18.08.2019
                     </span>
 
-                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                    <span class="title text-black font-16 bold line-clamp line-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, blanditiis debitis doloribus eveniet excepturi expedita, in laudantium magnam magni non nulla, optio provident. Earum reiciendis, sint! Dignissimos non officia voluptate. </span>
 
                 </div>
             </a>
