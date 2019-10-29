@@ -1,7 +1,11 @@
 {
-    "HeaderComponent" : {
-        "homePage": "Home page",
-        "birja": "Birja",
-        "members": "Members"
+    "navigation" : {
+        "home": "Home",
+        "birja": "Биржа",
+        "members": "Üzvlər",
+        "agronoms": "Агрономы",
+        "news": "Новости",
+        "about": "О нас",
+        "aqroTV": "Агро ТВ"
     }
 }

@@ -40,10 +40,11 @@ export class AppComponent implements OnInit {
     private router: Router,
     private translate: TranslateService
   ) {
-    this.translate.setDefaultLang('az');
+  
     if (!localStorage.getItem('lang')) {
       localStorage.setItem('lang', 'az');
     }
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
     this.myCarouselImages = [1, 2, 3, 4, 5, 6].map((i) => `https://picsum.photos/640/480?image=${i}`);
   }
 
