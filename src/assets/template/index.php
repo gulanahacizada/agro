@@ -338,7 +338,7 @@
 
 <div class="container as-10 xl-15 pt-40 pb-40">
 
-    <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+    <div class="section-title-wrap w-100p d-table mb-10 pb-10">
         <h2 class="section-title relative bold text-uppercase mb-5">
             <a href="#" class="d-block" title="Üzvlər" data-see-all="Hamısını gör">Üzvlər</a>
         </h2>
@@ -422,9 +422,57 @@
     <div class="container as-10 xl-15 pt-40">
         <div class="row as-10 xl-15">
 
+            <div class="col as-12 lg-6 mb-40">
+
+                <div class="section-title-wrap w-100p d-table mb-10 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">1000 AZN nə oldu?</span>
+                    </h2>
+                </div>
+
+                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
+                    <li role="presentation" class="active">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                </ul>
+
+                <canvas id="chart-1000" class="pt-10 bg-gray"></canvas>
+
+            </div>
+
+            <div class="col as-12 lg-6 mb-40">
+
+                <div class="section-title-wrap w-100p d-table mb-10 pb-10">
+                    <h2 class="section-title relative bold text-uppercase mb-0">
+                        <span class="d-block">Məhsuldarlıq statistikası</span>
+                    </h2>
+                </div>
+
+                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
+                    <li role="presentation" class="active">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                    <li role="presentation">
+                        <span class="menu-item p-15" role="tab">Item name</span>
+                    </li>
+                </ul>
+
+                <canvas id="chart-capacity" class="pt-10 bg-gray"></canvas>
+
+            </div>
+
             <div class="col as-12 lg-5 mb-40">
 
-                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                <div class="section-title-wrap w-100p d-table mb-10 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
                         <span class="d-block">Əraziyə görə məhsuldarlıq</span>
                     </h2>
@@ -439,7 +487,7 @@
 
             <div class="col as-12 lg-7 mb-40">
 
-                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+                <div class="section-title-wrap w-100p d-table mb-10 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
                         <a href="products-list.php" title="Satışda"  class="d-block" data-see-all="Hamısını gör">Satışda</a>
                     </h2>
@@ -621,61 +669,13 @@
 
             </div>
 
-            <div class="col as-12 lg-6 mb-40">
-
-                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
-                    <h2 class="section-title relative bold text-uppercase mb-0">
-                        <span class="d-block">1000 AZN nə oldu?</span>
-                    </h2>
-                </div>
-
-                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
-                    <li role="presentation" class="active">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                    <li role="presentation">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                    <li role="presentation">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                </ul>
-
-                <canvas id="chart-1000" class="pt-10 bg-gray"></canvas>
-
-            </div>
-
-            <div class="col as-12 lg-6 mb-40">
-
-                <div class="section-title-wrap w-100p d-table mb-20 pb-10">
-                    <h2 class="section-title relative bold text-uppercase mb-0">
-                        <span class="d-block">Məhsuldarlıq statistikası</span>
-                    </h2>
-                </div>
-
-                <ul class="scrolling-menu justify border-top border-left border-right" role="tablist">
-                    <li role="presentation" class="active">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                    <li role="presentation">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                    <li role="presentation">
-                        <span class="menu-item p-15" role="tab">Item name</span>
-                    </li>
-                </ul>
-
-                <canvas id="chart-capacity" class="pt-10 bg-gray"></canvas>
-
-            </div>
-
         </div>
     </div>
 </section>
 
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
 
-    <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+    <div class="section-title-wrap w-100p d-table mb-10 pb-10">
         <h2 class="section-title relative bold text-uppercase mb-5">
             <a href="#" class="d-block" title="Xəbərlər" data-see-all="Hamısını gör">Xəbərlər</a>
         </h2>
