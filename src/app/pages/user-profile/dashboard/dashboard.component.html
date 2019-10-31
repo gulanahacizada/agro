@@ -28,16 +28,35 @@
 </div>
 <div class="account-page container as-10 xl-15 lg-15 pt-20 pb-20">
   <div class="account-header shadow-big text-center clear pt-40 pb-40">
-    <div (click)="fileInput.click()"  class="thumb profImg responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
+    <div class="account-avatar thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
       <img *ngIf="url"  [src]="url " alt="User Name" width="120" height="120"
         class="p-7 radius-50p loading" data-was-processed="true">
-        <input 
+        <input
         #fileInput
         style="display: none"
         (change)="onFileChange($event)"
         type="file" name="" id="photo">
       <!-- <img *ngIf="!userInfo?.avatar" src="assets/images/imagesProf.jpeg" alt="User Name" width="100%"
         class=" radius-50p loading" data-was-processed="true"> -->
+
+
+      <div class="avatar-action text-black tr-3s">
+
+        <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple" (click)="fileInput.click()">
+            <span class="d-block">
+                <i aria-hidden="true" class="icon-folder-open"></i>
+                Şəkil seç
+            </span>
+        </span>
+
+        <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple">
+            <span class="d-block">
+                <i aria-hidden="true" class="icon-trash"></i>
+                Səkli sil
+            </span>
+        </span>
+
+      </div>
 
     </div>
     <h2 class="account-name h4 bold mb-0 text-white text-uppercase"> {{userInfo?.name}} </h2>

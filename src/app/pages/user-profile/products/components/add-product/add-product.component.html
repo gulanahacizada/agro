@@ -93,29 +93,62 @@
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">{{'productImage' | translate}}</label>
-        <input (change)="onFileChange($event)" type="file" id="" class="input custom border-0 radius-20 shadow-big"
-          #fileInput />
+        <span class="btn btn-file w-100p custom border-0 radius-20 shadow-big">
+          <span><i aria-hidden="true" class="icon-folder-open mr-10"></i>{{'select.image' | translate}}</span>
+          <input (change)="onFileChange($event)" type="file" #fileInput />
+        </span>
       </div>
+
+      <div class="col as-12 mb-20 pb-10">
+        <div class="pt-15 pl-15 pr-15 radius-20 shadow-big">
+          <div class="row as-5">
+
+            <div class="col as-2 md-3 sm-4 xs-6 mb-15">
+              <div class="thumb responsive radius-15 pb-in-80">
+                <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" alt="">
+
+                <div class="caption bg-lgr-btt p-10">
+                  <span class="btn bg-red xs border-0 circle icon-trash"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col as-2 md-3 sm-4 xs-6 mb-15">
+              <div class="thumb responsive radius-15 pb-in-80">
+                <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" alt="">
+
+                <div class="caption bg-lgr-btt p-10">
+                  <span class="btn bg-red xs border-0 circle icon-trash"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <div class="col as-12 mb-20 pb-10">
         <label for="description" class="pl-10"> {{'aboutProduct' | translate}} </label>
         <div [ngSwitch]="selectLang">
           <div *ngSwitchCase="1">
             <textarea formControlName="description_az" cols="30" rows="10"
-              class="input no-resize border-0 radius-20 shadow-big">
+                      class="input no-resize border-0 radius-20 shadow-big" >
             </textarea>
           </div>
           <div *ngSwitchCase="2">
             <textarea formControlName="description_en" cols="30" rows="10"
-              class="input no-resize border-0 radius-20 shadow-big">
+                      class="input no-resize border-0 radius-20 shadow-big">
             </textarea>
           </div>
           <div *ngSwitchCase="3">
             <textarea formControlName="description_ru" cols="30" rows="10"
-              class="input no-resize border-0 radius-20 shadow-big">
+                      class="input no-resize border-0 radius-20 shadow-big">
             </textarea>
           </div>
         </div>
       </div>
+
+
     </div>
     <div class="clear radius-30 shadow-big p-5 mt-20">
       <button type="submit" [disabled]="product_added"
