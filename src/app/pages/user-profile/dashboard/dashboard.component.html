@@ -12,7 +12,7 @@
           <li aria-current="page" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
             <span title="Şəxsi Hesab" itemprop="item" itemscope="" itemtype="https://schema.org/Thing"
               id="/products/product-name">
-              <span itemprop="name">Şəxsi Hesab</span>
+              <span itemprop="name">{{'dashboard' | translate}}</span>
             </span>
             <meta itemprop="position" content="2">
           </li>
@@ -21,7 +21,7 @@
     </div>
     <div class="panel-header pl-0 pr-0 border-0">
       <h1 class="m-0 bold text-main text-uppercase">
-        Şəxsi Hesab
+        {{'dashboard' | translate}}
       </h1>
     </div>
   </div>
@@ -48,19 +48,19 @@
 
       <a [routerLink]="['profile']" routerLinkActive="active_tab" title="Hesab bilgiləri" class="menu-item ">
         <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
-        <span class="v-align-middle">Hesab bilgiləri</span>
+        <span class="v-align-middle">{{'dashboardComponent.profileInfo' | translate}}</span>
       </a>
     </li>
     <li role="presentation">
       <a [routerLink]="['products']" routerLinkActive="active_tab" title="Məhsullar" class="menu-item">
         <i aria-hidden="true" class="icon-list-circle v-align-middle mr-10"></i>
-        <span class="v-align-middle">Məhsullar</span>
+        <span class="v-align-middle">{{'dashboardComponent.product' | translate}}</span>
       </a>
     </li>
     <li role="presentation">
       <a [routerLink]="[ 'offers' ]" routerLinkActive="active_tab" title="Təkliflər" class="menu-item">
         <i aria-hidden="true" class="icon-hand-shake v-align-middle mr-10"></i>
-        <span class="v-align-middle">Təkliflər</span>
+        <span class="v-align-middle">{{'dashboardComponent.offers' | translate}}</span>
       </a>
     </li>
   </ul>

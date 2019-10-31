@@ -6,6 +6,9 @@ import { ProfileComponent } from '../profile.component';
 import { ProfileSettingsComponent } from '../components/profileSettings/profileSettings.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,18 @@ import {EditorModule} from 'primeng/editor';
     ProfileRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    EditorModule
+    EditorModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ]
 })
 export class ProfileModule { }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+

@@ -23,7 +23,8 @@
     </div>
     <div class="panel-header pl-0 pr-0 border-0">
       <h1 class="m-0 bold text-main text-uppercase">
-        Şəxsi Hesab
+        {{'dashboard' | translate}}
+        <!-- {{'dashboardComponent.profileInfo' | translate}}  -->
       </h1>
     </div>
   </div>
@@ -43,13 +44,13 @@
     <li role="presentation" class="active">
       <a [routerLink]="[ 'profile', this.id ]" routerLinkActive="active_tab" title="Hesab bilgiləri" class="menu-item ">
         <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
-        <span class="v-align-middle">Hesab bilgiləri</span>
+        <span class="v-align-middle"> {{'dashboardComponent.profileInfo' | translate}}  </span>
       </a>
     </li>
     <li role="presentation">
       <a [routerLink]="[ 'products', this.id]" routerLinkActive="active_tab" title="Məhsullar" class="menu-item">
         <i aria-hidden="true" class="icon-list-circle v-align-middle mr-10"></i>
-        <span class="v-align-middle">Məhsullar</span>
+        <span class="v-align-middle">{{'dashboardComponent.product' | translate}} </span>
       </a>
     </li>
   </ul>

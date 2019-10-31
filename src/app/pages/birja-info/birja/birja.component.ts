@@ -7,6 +7,7 @@ import { AppService } from 'src/app/services/app/app.service';
 import { Kinds } from 'src/app/interfaces/kinds';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BirjaService } from './services/birja.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-birja',
@@ -38,8 +39,11 @@ export class BirjaComponent implements OnInit {
     private productService: ProductsService,
     private appService: AppService,
     private fb: FormBuilder,
-    public birjaService: BirjaService
-  ) { }
+    public birjaService: BirjaService,
+    public translate: TranslateService
+  ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
+   }
 
   ngOnInit() {
     this.getAllProducts();

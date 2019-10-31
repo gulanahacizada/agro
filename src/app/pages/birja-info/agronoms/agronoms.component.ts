@@ -1,5 +1,6 @@
 import { AgronomsService } from './services/agronoms.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-agronoms',
@@ -13,7 +14,10 @@ export class AgronomsComponent implements OnInit {
     total: null,
     page: 1
   };
-  constructor(public agronomService: AgronomsService) { }
+  constructor(
+    public agronomService: AgronomsService,
+    public translate: TranslateService
+    ) { this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getAgronoms();

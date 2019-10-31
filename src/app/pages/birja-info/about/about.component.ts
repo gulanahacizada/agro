@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app/app.service';
 import { Response } from 'src/app/interfaces/response';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -13,7 +14,8 @@ export class AboutComponent implements OnInit {
 
   constructor(
     public appService: AppService,
-  ) { }
+    public translate: TranslateService
+  ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getAboutData();

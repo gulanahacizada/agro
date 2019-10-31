@@ -10,7 +10,7 @@
           </li>
           <li itemprop="itemListElement">
             <a title="Birja">
-              <span itemprop="name">Birja</span>
+              <span itemprop="name">{{'navigation.birja' | translate}}</span>
             </a>
           </li>
         </ol>
@@ -18,7 +18,7 @@
     </div>
     <div class="panel-header pl-0 pr-0 border-0">
       <h1 class="m-0 bold text-main text-uppercase">
-        Agro Birja
+        {{'agroBirja' | translate}}
       </h1>
     </div>
   </div>
@@ -29,23 +29,23 @@
       <div class="pt-20 pl-20 pr-20 bg-gray">
         <div class="row as-5">
           <div class="col md-6 sm-6 xs-6 mb-20">
-            <p-dropdown [options]="categoryList" (onChange)='onSelectCategory($event)' placeholder="Kategoriya seçin"
+            <p-dropdown [options]="categoryList" (onChange)='onSelectCategory($event)' placeholder="{{'select.category' | translate}}"
               filter="true" class="input custom select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <p-dropdown [options]="prodSelectList" formControlName="category_id" (onChange)="onSelectProduct($event)"
-              placeholder="Məhsulu seçin" filter="true" class="input custom select border-0 radius-20 shadow-big">
+            placeholder="{{'select.product' | translate}}" filter="true" class="input custom select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
-            <p-dropdown [options]="kindList" formControlName="kind_id" placeholder="Növü seçin" filter="true"
+            <p-dropdown [options]="kindList" formControlName="kind_id" placeholder="{{'select.kind' | translate}}" filter="true"
               class="input custom select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <div class="col md-6 sm-6 xs-6 mb-20">
-              <p-dropdown [options]="sellerList" formControlName="user_id" placeholder="Şirkət seçin" filter="true"
+              <p-dropdown [options]="sellerList" formControlName="user_id" placeholder="{{'select.company' | translate}}" filter="true"
                 class="input custom select border-0 radius-20 shadow-big">
               </p-dropdown>
             </div>
@@ -61,10 +61,10 @@
             </p-calendar>
           </div>
           <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-20">
-            <button type="submit" class="btn bg-orange w-100p border-0 radius-20 shadow-big">Filter et</button>
+            <button type="submit" class="btn bg-orange w-100p border-0 radius-20 shadow-big">{{'button.filter' | translate}}</button>
           </div>
           <div class="col xl-1 lg-2 md-2 sm-3 xs-4 mb-20">
-            <button class="btn bg-orange w-100p border-0 radius-20 shadow-big" (click)="resetSerch()"> Reset</button>
+            <button class="btn bg-orange w-100p border-0 radius-20 shadow-big" (click)="resetSerch()"> {{'button.reset' | translate}}</button>
           </div>
         </div>
       </div>
@@ -73,13 +73,13 @@
       <table class="table custom-table bg-gray">
         <thead class="bg-white">
           <tr>
-            <th colspan="2">Satıcı</th>
-            <th>Məhsul</th>
-            <th>Növ</th>
-            <th>Qiymət</th>
-            <th>Həcm</th>
-            <th>Satış</th>
-            <th>Tarix</th>
+            <th colspan="2">{{'salesMan' | translate}}</th>
+            <th>{{'product' | translate}}</th>
+            <th>{{'type' | translate}}</th>
+            <th>{{'price' | translate}}</th>
+            <th>{{'quantity' | translate}}</th>
+            <th>{{'sale' | translate}}</th>
+            <th>{{'date' | translate}}</th>
             <th><i aria-hidden="true" class="icon-ellipsis-h-circle"></i></th>
           </tr>
         </thead>

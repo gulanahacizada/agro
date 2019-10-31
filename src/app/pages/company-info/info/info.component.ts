@@ -3,6 +3,7 @@ import { UserInfo } from 'src/app/interfaces/userInfo';
 import { ProfileService } from '../../user-profile/profile/services/profile.service';
 import { Response } from 'src/app/interfaces/response';
 import { UrlSegmentGroup, UrlTree, Router, PRIMARY_OUTLET } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-info',
@@ -22,8 +23,12 @@ export class InfoComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private router: Router
-  ) { this.getRoutes(this.url); }
+    private router: Router,
+    public translate: TranslateService
+  ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
+    this.getRoutes(this.url);
+   }
 
   ngOnInit() {
     this.getCompanyById();

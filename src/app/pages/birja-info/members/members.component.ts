@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MembersService } from './services/members.service';
 import { Response } from 'src/app/interfaces/response';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-members',
@@ -17,8 +18,9 @@ export class MembersComponent implements OnInit {
   };
 
   constructor(
-    public memberService: MembersService
-  ) { }
+    public memberService: MembersService,
+    public translate: TranslateService
+  ) { this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getMembers();
