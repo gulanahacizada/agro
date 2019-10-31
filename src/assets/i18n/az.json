@@ -1,7 +1,11 @@
 {
-    "HeaderComponent" : {
-        "homePage": "Ana səhifə",
+    "navigation" : {
+        "home": "Ana səhifə",
         "birja": "Birja",
-        "members": "Üzvlər"
+        "members": "Üzvlər",
+        "agronoms": "Agronomlar",
+        "news": "Xəbərlər",
+        "about": "Haqqımızda",
+        "aqroTV": "Aqro TV"
     }
 }

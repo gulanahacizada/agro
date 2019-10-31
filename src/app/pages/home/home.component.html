@@ -57,6 +57,7 @@
     </div>
   </div>
 </div>
+
 <!-- Uzvler -->
 <div class="container as-10 xl-10 lg-10 pt-40 pb-40">
   <div class="section-title-wrap w-100p d-table mb-40">
@@ -79,26 +80,41 @@
     </div>
   </owl-carousel>
 </div>
+
 <!-- Uzvler  End-->
 <section class="bg-white">
   <div class="container as-10 xl-15 pt-40">
     <div class="row as-10 xl-15">
-      <div class="col as-12 lg-6 mb-40">
-        <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+
+      <!-- <div class="col as-12 lg-6 mb-40">
+        <div class="section-title-wrap w-100p d-table mb-10 pb-10">
+          <h2 class="section-title relative bold text-uppercase mb-0">
+            <span class="d-block">1000 AZN nə oldu?</span>
+          </h2>
+        </div>
+        <canvas id="chart-1000" class="border"></canvas>
+      </div> -->
+
+      <div class="col as-12 lg-5 mb-40">
+
+        <div class="section-title-wrap w-100p d-table mb-10 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
             <span class="d-block">Əraziyə görə məhsuldarlıq</span>
           </h2>
         </div>
-        <div class="responsive pb-in-70 bg-gray ">
+
+        <div class="responsive o-auto pb-in-90 bg-gray">
           <div class="wrap d-flex-center text-center">
             <div  id="map">
               <!--<img src="assets/images/azerbaijan.svg" alt="">-->
             </div>
           </div>
         </div>
+
       </div>
-      <div class="col as-12 lg-6 mb-40">
-        <div class="section-title-wrap w-100p d-table mb-20 pb-10">
+
+      <div class="col as-12 lg-7 mb-40">
+        <div class="section-title-wrap w-100p d-table mb-10 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
             <a title="Satışda" class="d-block" data-see-all="Hamısını gör">Satışda</a>
           </h2>
@@ -106,52 +122,45 @@
         <div class="table-responsive border-0">
           <table class="table custom-table bg-gray">
             <thead class="bg-white">
-              <tr>
-                <th>Məhsul</th>
-                <th>Növ</th>
-                <th>Qiymət aşagı</th>
-                <th>Qiymət üxarı</th>
-                <th>Həcm</th>
-              </tr>
+            <tr>
+              <th>Məhsul</th>
+              <th>Növ</th>
+              <th>Qiymət aşagı</th>
+              <th>Qiymət üxarı</th>
+              <th>Həcm</th>
+            </tr>
             </thead>
             <tbody class="no-wrap">
-              <tr *ngFor="let item of productStat">
-                <td>{{item?.category?.name}}</td>
-                <td>{{item?.kind?.name}}</td>
-                <td>
+            <tr *ngFor="let item of productStat">
+              <td>{{item?.category?.name}}</td>
+              <td>{{item?.kind?.name}}</td>
+              <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-red bold">
                     {{(+item?.min_price).toFixed(2)}}
                     <i aria-hidden="true" class="icon-currency-azn small"></i>
                     / {{item?.unit?.name}}
                   </span>
-                </td>
-                <td>
+              </td>
+              <td>
                   <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
                     {{(+item?.max_price).toFixed(2)}}
                     <i aria-hidden="true" class="icon-currency-azn small"></i>
                     / {{item?.unit?.name}}
                   </span>
-                </td>
-                <td><span class="text-special bold">{{item?.common}} {{item?.unit?.name}}</span></td>
-                <!-- <td>
-                  <div class="progress radius-5 w-100">
-                    <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                    </div>
+              </td>
+              <td><span class="text-special bold">{{item?.common}} {{item?.unit?.name}}</span></td>
+              <!-- <td>
+                <div class="progress radius-5 w-100">
+                  <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
                   </div>
-                </td> -->
-              </tr>
+                </div>
+              </td> -->
+            </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <!-- <div class="col as-12 lg-6 mb-40">
-        <div class="section-title-wrap w-100p d-table mb-20 pb-10">
-          <h2 class="section-title relative bold text-uppercase mb-0">
-            <span class="d-block">1000 AZN nə oldu?</span>
-          </h2>
-        </div>
-        <canvas id="chart-1000" class="border"></canvas>
-      </div> -->
+
     </div>
   </div>
 </section>
