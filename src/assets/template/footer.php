@@ -1,8 +1,10 @@
 </div>
 
 <footer class="main-footer relative" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+
     <div class="container as-15 pt-60 relative z-index-1">
         <div class="row as-15">
+
             <div class="col as-12 lg-5 mb-60">
                 <p class="footer-description text-white light m-0" itemprop="description">
                     Kənd təsərrafatı ölkəmizdə ərzaq təhlükəsizliyini təmin edib, digər ölkələrdən aqrar aslılığı
@@ -14,8 +16,10 @@
                     verməklə, sahibkarlara, ümumiyyətlə kənd təsərüfatı ilə maraqlanan hər bir şəxsə faydalı olacaq.
                 </p>
             </div>
+
             <div class="col as-12 lg-7">
                 <div class="row as-15">
+
                     <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
                         <h4 class="footer-title text-white text-uppercase bold mb-10">
                             Əsas menyu
@@ -39,7 +43,7 @@
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a [routerLink]="['/']" role="menuitem" title="Title">
+                                <a href="/" role="menuitem" title="Title">
                                     <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                                     <span>Xəbərlər</span>
                                 </a>
@@ -52,6 +56,7 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
 
                         <h4 class="footer-title text-white text-uppercase bold mb-10">Proyektlər </h4>
@@ -89,33 +94,39 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="col as-12 lg-4 md-4 mb-40">
 
                         <h4 class="footer-title text-white text-uppercase bold mb-10"> Bizimlə əlaqə </h4>
 
                         <div class="row as-15">
+
                             <div class="col as-12 xs-6">
                                 <div class="footer-contact-info d-table">
+
                                     <a class="d-row" href="tel:+(994 50) 722 90 94" title="Mobil ilə əlaqə">
                                         <span class="d-cell">
                                             <i aria-hidden="true" class="icon-phone text-special"></i>
                                         </span>
-                                        <span class="d-cell w-100p pl-10 pb-20 v-align-top">
+                                        <span class="d-cell w-100p pl-10 pb-30 v-align-top">
                                             <small class="d-block text-uppercase">Mobil ilə əlaqə</small>
                                             <span>+(994 77) 313 63 13</span>
                                         </span>
                                     </a>
+
                                     <a class="d-row" href="mailto:info@nakliyatci.com" title="E-poçt ilə əlaqə">
                                         <span class="d-cell">
                                             <i aria-hidden="true" class="icon-envelope text-special"></i>
                                         </span>
-                                        <span class="d-cell w-100p pl-10 pb-20 v-align-top">
+                                        <span class="d-cell w-100p pl-10 pb-30 v-align-top">
                                             <small class="d-block text-uppercase">E-poçt ilə əlaqə</small>
                                             <span>info@agrobirja.az</span>
                                         </span>
                                     </a>
+
                                 </div>
                             </div>
+
                             <div class="col as-12 xs-6">
                                 <div class="social-links clear">
                                     <a aria-label="Facebook Sayfamız" class="btn circle radius-0 shadow-big bg-special float-left d-block mr-10" title="Facebook Sayfamız" data-toggle="tooltip" href="#" rel="external noopener noreferrer">
@@ -132,12 +143,17 @@
                                     </a>
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
+
     <div class="container as-15 xs-0 xxs-0 relative z-index-1" role="contentinfo">
         <div class="copyright bg-black d-table relative light">
             <div class="d-row">
@@ -163,6 +179,7 @@
             </div>
         </div>
     </div>
+
 </footer>
 
 <div class="fixed-buttons" hidden>
