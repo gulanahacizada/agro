@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
     private router: Router,
     private translate: TranslateService
   ) {
-  
     if (!localStorage.getItem('lang')) {
       localStorage.setItem('lang', 'az');
     }

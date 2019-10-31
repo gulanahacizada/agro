@@ -15,13 +15,22 @@
     "salesMan": "Satıcı",
     "projets": "Proyektlər",
     "product": "Məhsul",
+    "products": "Məhsullar",
+    "addProduct": "Məhsul əlavə et",
+    "newProduct": "Yeni məhsul",
     "type": "Növ",
     "price": "Qiymət",
+    "productPriceUnit": "Məhsulun qiyməti bir",
+    "productImage": "Məhsulun şəkili",
+    "aboutProduct": "Məhsul haqqında",
     "upPrice": "Üst qiymət",
     "downPrice": "Alt qiymət",
     "quantity": "Həcm",
+    "packege": "Qablaşdırma",
     "sale": "Satış",
     "date": "Tarix",
+    "quality": "Keyfiyyət",
+    "unit": "Ölçü vahidi",
     "contactUs": "Bizimlə əlaqə",
     "support": "Canlı dəstək",
     "registration": "Qeydiyyatdan keç",
@@ -61,7 +70,10 @@
     "company": "Şirkət",
     "category" : "Kategoriya",
     "kalibry": "Kalibri",
-    "common":  "Miqdarı",
+    "productKalibry": "Məhsulun kalibri",
+    "common":  "Miqdar",
+    "edit": "Düzəliş et",
+    
     "accumulated_at": "Yıgılma tarixi",
     "expiry_time": "Saxlanma tarixi",
   
@@ -69,12 +81,17 @@
         "category": "Kategoriya seçin",
         "product": "Məhsulu seçin",
         "kind": "Növü seçin",
-        "company": "Şirkət seçin"
+        "company": "Şirkət seçin",
+        "quality": "Keyfiyyəti seçin",
+        "packege": "Qablaşdırmanı seçin",
+        "productKalibry": "Məhsulun kalibri seçin",
+        "unit": "Ölçü vahidini seçin"
 
     },
     "button": {
         "filter": "Filter et",
-        "reset": "Reset"
+        "reset": "Reset",
+        "save": " Yadda saxla"
     },
 
     "offerComponent": {
@@ -99,7 +116,14 @@
         "address": "Ünvan",
         "webSite": "Sayt",
         "voen": "VÖEN",
-        "iban": "IBAN"
+        "iban": "IBAN",
+        "userInfo": "İstifadəçi məlumatları",
+        "companyInfo": "Şirkət məlumatları",
+        "sownAreas": "Əkin sahələri",
+        "companyName": "Şirkət adı",
+        "companyDesc": "Şirkət haqqında ətraflı məlumat",
+        "save": " Yadda saxla"
+
     },
 
     "contactPage": {

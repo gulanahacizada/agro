@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from './services/products.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
@@ -18,7 +19,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     public productService: ProductsService,
-  ) { }
+    public translate: TranslateService
+    ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getMyProduct();

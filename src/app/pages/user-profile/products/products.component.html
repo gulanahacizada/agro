@@ -1,9 +1,9 @@
 <div class="account-body bg-white shadow-big p-40">
   <div class="pb-20 clear">
-    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsullar</h3>
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">{{'products' | translate}}</h3>
     <a [routerLink]="[ 'add' ]" class="btn bg-white border-0 shadow-big radius-20 float-right" title="Məhsul əlavə et">
       <i aria-hidden="true" class="icon-plus v-align-middle"></i>
-      <span class="hide-xs v-align-middle ml-10">Məhsul əlavə et</span>
+      <span class="hide-xs v-align-middle ml-10">{{'addProduct' | translate}}</span>
     </a>
   </div>
   <div class="table-responsive border-0 mb-40">
@@ -11,13 +11,13 @@
       <thead class="bg-white">
         <tr>
           <th>№</th>
-          <th>Məhsul</th>
-          <th>Növ</th>
-          <th>Qiymət</th>
-          <th>Həcm</th>
-          <th>Satış</th>
-          <th>Tarix</th>
-          <th>Bax</th>
+          <th>{{'product' | translate}}</th>
+          <th>{{'type' | translate}}</th>
+          <th>{{'price' | translate}}</th>
+          <th>{{'quantity' | translate}}</th>
+          <th>{{'sale' | translate}}</th>
+          <th>{{'date' | translate}}</th>
+          <th>{{'see' | translate}}</th>
           <th></th>
         </tr>
       </thead>
@@ -31,7 +31,7 @@
             <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
               {{product?.price}}
               <i aria-hidden="true" class="icon-currency-azn small"></i>
-              /
+              / {{product?.unit?.name}}
             </span>
           </td>
           <td><span class="text-special bold">{{product?.common}}</span></td>

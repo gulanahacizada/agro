@@ -32,6 +32,7 @@ import {HttpClient } from '@angular/common/http';
   ]
 })
 export class ProfileModule { }
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

@@ -22,7 +22,7 @@
           <table class="table mb-20">
             <tbody>
               <tr>
-                <td class="bold">Şirkət:</td>
+                <td class="bold">{{'company' | translate}}:</td>
                 <td>
                   <a [routerLink]="['/companyInfo/profile', userId]" class="bold">
                     {{productResponse?.user?.name}}
@@ -30,31 +30,31 @@
                 </td>
               </tr>
               <tr>
-                <td class="bold">Kategoriya</td>
+                <td class="bold">{{'category' | translate}}:</td>
                 <td>{{productResponse?.category?.parent?.name}}</td>
               </tr>
               <tr>
-                <td class="bold">Növü</td>
+                <td class="bold">{{'type' | translate}}:</td>
                 <td>{{productResponse?.kind?.name}}</td>
               </tr>
               <tr>
-                <td class="bold">Qiymət</td>
+                <td class="bold">{{'price' | translate}}:</td>
                 <td>{{productResponse?.price}} AZN</td>
               </tr>
-              <tr>
-                <td class="bold">Kalibri:</td>
+              <tr *ngIf="productResponse?.kolibry">
+                <td class="bold">{{'kalibry' | translate}}:</td>
                 <td> {{productResponse?.kolibry?.name}} </td>
               </tr>
               <tr>
-                <td class="bold">Miqdarı</td>
+                <td class="bold">{{'common' | translate}}:</td>
                 <td>{{productResponse?.common}} {{productResponse?.unit?.name}}</td>
               </tr>
-              <tr>
-                <td class="bold">Yıgılma tarixi</td>
+              <tr *ngIf="productResponse?.accumulated_at">
+                <td class="bold">{{'accumulated_at' | translate}}</td>
                 <td>{{productResponse?.accumulated_at | date: 'dd/MM/yyyy'}}</td>
               </tr>
-              <tr>
-                <td class="bold">Saxlanma tarixi</td>
+              <tr *ngIf="productResponse?.expiry_time ">
+                <td class="bold">{{'expiry_time' | translate}}</td>
                 <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
               </tr>
             </tbody>

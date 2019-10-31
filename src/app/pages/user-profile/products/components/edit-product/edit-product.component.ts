@@ -11,6 +11,7 @@ import { Category } from 'src/app/interfaces/category';
 import { Kinds } from 'src/app/interfaces/kinds';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-product',
@@ -53,9 +54,11 @@ export class EditProductComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
+    public translate: TranslateService
   ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
     this.id = this.activateRoute.snapshot.params.id;
-  }
+    }
 
   ngOnInit() {
     this.createProdEditForm();
@@ -90,6 +93,7 @@ export class EditProductComponent implements OnInit {
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
+      this.selectUnit = this.productResponse.unit.name;
       this.productEditForm.patchValue({
         // parent_id: this.productResponse.category.parent_id,
         id: this.productResponse.id,
