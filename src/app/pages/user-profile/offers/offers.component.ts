@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OffersService } from './services/offers.service';
 import { Response } from 'src/app/interfaces/response';
 import { SelectItem } from 'primeng/components/common/selectitem';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-offers',
@@ -17,8 +18,10 @@ export class OffersComponent implements OnInit {
   offersList: any;
 
   constructor(
-    public offersService: OffersService
+    public offersService: OffersService,
+    public translate: TranslateService
   ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
     this.dialogType = [
       { label: 'Gələn təkliflər', value: 'to' },
       { label: 'Göndərilən təkliflər', value: 'from' },

@@ -3,6 +3,7 @@ import { OffersService } from '../../services/offers.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-messageDetails',
@@ -23,10 +24,12 @@ export class MessageDetailsComponent implements OnInit {
     public offersService: OffersService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
   ) {
-    this.id = this.activateRoute.snapshot.params.id;
-  }
+      this.translate.setDefaultLang(localStorage.getItem('lang'));
+      this.id = this.activateRoute.snapshot.params.id;
+    }
 
   ngOnInit() {
     this.getDialogById();
