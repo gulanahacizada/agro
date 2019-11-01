@@ -13,6 +13,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import * as ngxOwlCarousel from 'ngx-owl-carousel';
 import { HomeComponent } from '../pages/home/home.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AppSharedModule } from '../shared/appShared.module';
 
 
 
@@ -20,7 +21,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -31,6 +32,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ReactiveFormsModule,
     RadioButtonModule,
     CKEditorModule,
+    AppSharedModule,
     ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {

@@ -14,6 +14,7 @@ import { ProductsInComponent } from '../components/products-in/products-in.compo
 import { AddProductComponent } from '../components/add-product/add-product.component';
 import { EditProductComponent } from '../components/edit-product/edit-product.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PaginatorModule } from 'primeng/paginator';
     FormsModule,
     PaginatorModule,
     ReactiveFormsModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

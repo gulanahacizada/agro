@@ -87,7 +87,7 @@
           <tr *ngFor="let product of productList; let i=index; trackBy:birjaService.trackByFn">
             <td class="pr-0">
               <div class="thumb responsive pb-in-100 radius-50p w-30 border">
-                <img src="{{product?.images[0]?.url}}" width="30" height="30">
+                <img src="{{product?.images[0]?.url | set_image: 3}}" width="30" height="30">
               </div>
             </td>
             <td width="30%">

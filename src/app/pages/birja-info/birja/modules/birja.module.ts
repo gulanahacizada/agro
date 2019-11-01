@@ -11,6 +11,7 @@ import { BirjaRoutingModule } from './birja-routing.module';
 import { BirjaComponent } from '../birja.component';
 import { ProductDetailComponent } from '../components/productDetail/productDetail.component';
 import {PaginatorModule} from 'primeng/paginator';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {PaginatorModule} from 'primeng/paginator';
     ReactiveFormsModule,
     BirjaRoutingModule,
     PaginatorModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

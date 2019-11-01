@@ -6,12 +6,14 @@ import {HttpClient } from '@angular/common/http';
 
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from '../main.component';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 @NgModule({
   declarations: [MainComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

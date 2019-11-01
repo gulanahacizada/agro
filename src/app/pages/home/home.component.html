@@ -18,8 +18,8 @@
         <tbody class="no-wrap">
           <tr *ngFor="let product of productList; let i=index; trackBy: homeService.trackByFn">
             <td class="pr-0">
-              <div *ngIf="product?.images[0]?.url" class="thumb responsive pb-in-100 radius-50p w-30 border">
-                <img src="{{product?.images[0]?.url}}" alt="MARS-FK LTD MMM" width="30" height="30">
+              <div  class="thumb responsive pb-in-100 radius-50p w-30 border">
+                <img src="{{product?.images[0]?.url | set_image: 3}}" alt="MARS-FK LTD MMM" width="30" height="30">
               </div>
             </td>
             <td width="30%">
@@ -71,8 +71,9 @@
     <div class="item bg-white" *ngFor="let member of membersList; trackBy: homeService.trackByFn">
       <a [routerLink]="[ '/companyInfo/profile', member.id ]" title="{{member?.description}}" class="block clear">
         <div class="thumb hover scale responsive pb-in-65">
-          <img src="{{member?.avatar}}" alt="title" width="" height="">
+          <img src = "{{member?.avatar | set_image: 1}}" alt="title" width="" height="">
         </div>
+        <!-- <img src="../../../assets/images/fotorama.png" alt=""> -->
         <div class="info p-15 text-center tr-3s">
           <span class="title font-16 bold line-clamp line-1">{{member?.name}} </span>
         </div>

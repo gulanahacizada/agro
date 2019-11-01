@@ -7,6 +7,7 @@ import {HttpClient } from '@angular/common/http';
 import { MembersRoutingModule } from './members-routing.module';
 import { MembersComponent } from '../members.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 @NgModule({
   declarations: [MembersComponent],
@@ -14,6 +15,7 @@ import { PaginatorModule } from 'primeng/paginator';
     CommonModule,
     MembersRoutingModule,
     PaginatorModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

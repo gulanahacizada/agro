@@ -5,9 +5,9 @@
         <div class="col as-5 sm-6 xs-12 pb-10">
           <div class="thumb responsive pb-in-80">
             <!--Əsas Şəkil-->
-            <img *ngIf="productResponse?.images" src={{productResponse?.images[0]?.url}} alt="Product name" width="480"
-              height="310">
+            <img  src="{{productResponse?.images[0]?.url | set_image:3}}" alt="Product name" width="480" height="310">
             <!--Digər şəkillər-->
+          
             <!-- <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
                       <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
                       <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a> -->

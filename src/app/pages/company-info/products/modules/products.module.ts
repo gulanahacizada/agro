@@ -8,6 +8,7 @@ import {HttpClient } from '@angular/common/http';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from '../products.component';
 import { ProductDetailsComponent } from '../components/productDetails/productDetails.component';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 @NgModule({
   declarations: [ProductsComponent, ProductDetailsComponent],
@@ -16,6 +17,7 @@ import { ProductDetailsComponent } from '../components/productDetails/productDet
     ProductsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

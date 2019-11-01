@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     this.profileService.getUserInfo().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.userInfo = response.responseContent;
-        this.url = ( this.userInfo.avatar) ? this.userInfo.avatar : 'assets/images/imagesProf.jpeg';
+        this.url = this.userInfo.avatar;
       }
     });
   }
