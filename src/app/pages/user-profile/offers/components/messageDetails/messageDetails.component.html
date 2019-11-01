@@ -1,17 +1,17 @@
 <div class="account-body bg-white shadow-big p-40">
     <div class="pb-20 clear">
-        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Məhsulun detalları</h3>
+        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">{{'offerComponent.productDetails' | translate}} </h3>
     </div>
     <div class="table-responsive o-auto border-0 mb-40">
         <table class="table custom-table bg-gray">
             <thead class="no-wrap bg-white">
                 <tr>
-                    <th>Məhsul</th>
-                    <th>Növ</th>
-                    <th>Miqdar</th>
-                    <th>Qiymət</th>
-                    <th>Satış</th>
-                    <th>Satan</th>
+                    <th>{{'offerComponent.product' | translate}} </th>
+                    <th>{{'offerComponent.kind' | translate}} </th>
+                    <th>{{'offerComponent.common' | translate}} </th>
+                    <th>{{'offerComponent.price' | translate}} </th>
+                    <th>{{'offerComponent.sale' | translate}} </th>
+                    <th>{{'offerComponent.sellerMan' | translate}} </th>
                 </tr>
             </thead>
             <tbody>
@@ -37,20 +37,20 @@
         </table>
     </div>
     <div class="pb-20 clear">
-        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Təklif və cavablar</h3>
+        <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">{{'offerComponent.offerAndResponse' | translate}}</h3>
     </div>
     <div class="table-responsive o-auto border-0 mb-0">
         <table class="table custom-table bg-gray">
             <thead class="no-wrap bg-white">
                 <tr>
                     <th>№</th>
-                    <th>Təklif verən</th>
-                    <th>Təklif alan</th>
-                    <th>Miqdar</th>
-                    <th>Qiymət</th>
-                    <th>Ümumi qiymət</th>
-                    <th>Qeyd</th>
-                    <th>Tarix</th>
+                    <th>{{'offerComponent.sendOffer' | translate}}</th>
+                    <th>{{'offerComponent.offerSender' | translate}}</th>
+                    <th>{{'offerComponent.common' | translate}}</th>
+                    <th>{{'offerComponent.price' | translate}}</th>
+                    <th>{{'offerComponent.totalPrice' | translate}}</th>
+                    <th>{{'offerComponent.note' | translate}}</th>
+                    <th>{{'offerComponent.date' | translate}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,8 +58,8 @@
                 <td class="no-wrap"> {{i+1}} </td>
                 <td>{{dialogInfo?.user_from?.name}}</td>
                 <td>{{dialogInfo?.user_to?.name}}</td>
-                <td class="no-wrap"> {{message?.size}} ton</td>
-                <td class="no-wrap">{{+message?.price / +message?.size}} AZN / ton</td>
+                <td class="no-wrap"> {{message?.size}} {{dialogInfo?.product?.unit?.name}}</td>
+                <td class="no-wrap">{{+message?.price / +message?.size}} AZN / {{dialogInfo?.product?.unit?.name}}</td>
                 <td class="no-wrap">{{message?.price}} AZN</td>
                 <td>
                 <span class="d-block text-left">{{message?.body}}</span>
@@ -70,23 +70,23 @@
         <div class="controls" *ngIf="dialogInfo?.status == 2">
             <span aria-label="Cavab ver" title="Cavab ver" data-toggle="tooltip" data-target-modal="offers-reply"
                 class="btn xs float-right bg-white shadow border-0 legitRipple">
-                Cavab yaz
+                {{'offerComponent.write' | translate}}
                 <i aria-hidden="true" class="icon-pen-write-1 v-align-middle"></i>
             </span>
             <span (click)="rejectOffer()" *ngIf="dialogInfo?.to == selfId" aria-label="Rədd et" title="Rədd et"
                 data-toggle="tooltip" class="btn xs float-right   bg-red shadow border-0 legitRipple">
-                Imtina et
+                {{'offerComponent.rejectOffer' | translate}}
                 <i aria-hidden="true" class="icon-close v-align-middle"></i>
             </span>
             <span (click)="acceptOffer()" *ngIf="dialogInfo?.buyer_accept == 0 && dialogInfo?.from == selfId"
                 aria-label="Razılaş" title="Razılaş" data-toggle="tooltip"
                 class="btn xs float-right  bg-green shadow border-0 legitRipple">
-                Razilash
+                {{'offerComponent.agreedOffer' | translate}}
                 <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
             </span>
             <span (click)="acceptOffer()"  *ngIf="dialogInfo?.buyer_accept == 1 && dialogInfo?.to == selfId" aria-label="Razılaş" title="Razılaş"
                 data-toggle="tooltip" class="btn xs float-right  bg-green shadow border-0 legitRipple">
-                Razilash
+                {{'offerComponent.agreedOffer' | translate}}
                 <i aria-hidden="true" class="icon-hand-shake v-align-middle"></i>
             </span>
         </div>
@@ -97,12 +97,12 @@
     <div class="modal-content panel">
         <span role="button" class="close fixed-close icon-close" data-close="offers-reply" aria-label="Bağla"></span>
         <div class="panel-header bg-white">
-            <span class="panel-title bold text-main">Cavab ver</span>
+            <span class="panel-title bold text-main">{{'offerComponent.write' | translate}}</span>
         </div>
         <div class="panel-body p-20">
             <form [formGroup]="sendMessage" (ngSubmit)="sendOffer()" class="row as-10">
                 <div class="col as-4 xs-12 mb-20">
-                    <label for="offer-amount">Tələb olunan miqdarı</label>
+                    <label for="offer-amount">{{'offerComponent.needCommon' | translate}}</label>
                     <div class="input-group radius-20 shadow-big">
                         <input formControlName="size" (input)='onCountChange($event)' type="number" id="offer-amount"
                             class="input border-0 radius-20 shadow-big" placeholder="0" value="100" max="100">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
-                    <label for="offer-price">Təklif edilən qiymət</label>
+                    <label for="offer-price">{{'offerComponent.offerPrice' | translate}}</label>
                     <div class="input-group radius-20 shadow-big">
                         <input formControlName="sellPrice" (input)='onSellPriceChange($event)' type="number"
                             id="offer-price" class="input border-0 radius-20 shadow-big" placeholder="0">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
-                    <label>Ümumi qiymət</label>
+                    <label>{{'offerComponent.totalPrice'}}</label>
                     <div class="input-group radius-20 shadow-big">
                         <input formControlName="price" type="number" class="input border-0 radius-20 shadow-big"
                             value="22.500" placeholder="0.00" readonly>
@@ -126,14 +126,15 @@
                     </div>
                 </div>
                 <div class="col as-12 mb-20">
-                    <label for="offer-note">Əlavə qeyd</label>
+                    <label for="offer-note">{{'offerComponent.commit' | translate}}</label>
                     <textarea formControlName="body" id="offer-note"
                         class="input no-resize border-0 radius-20 shadow-big" cols="30" rows="4"
                         placeholder="Qeyd yazın"></textarea>
                 </div>
                 <div class="col as-12">
-                    <button [disabled]="!sendMessage.valid" class="btn bg-special border-0 radius-20 shadow-big">Təklifi
-                        göndər</button>
+                    <button [disabled]="!sendMessage.valid" class="btn bg-special border-0 radius-20 shadow-big"> 
+                        {{'offerComponent.sendOffer' | translate}} 
+                    </button>
                 </div>
             </form>
         </div>

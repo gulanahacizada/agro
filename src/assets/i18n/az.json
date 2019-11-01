@@ -97,12 +97,32 @@
 
     "offerComponent": {
         "offer": "Təklif",
+        "offerAndResponse": "Təklif və cavablar",
         "needCommon": "Tələb olunan miqdar",
         "offerPrice": "Təklif edilən qiymət",
         "totalPrice": "Ümumi qiymət",
         "commit": "Əlavə qeyd",
         "writeCommit": "Qeyd yazın",
-        "sendOffer": "Təklifi göndər"
+        "sendOffer": "Təklifi göndər",
+        "offerSender" : "Təklif verən",
+        "offerReeiver": "Təklif alan",
+        "product": "Məhsul",
+        "total": "Nəticə",
+        "date": "Tarix",
+        "see": "Bax",
+        "waiting": "Gözlənilmədə",
+        "agreed": "Razılaşmış",
+        "rejected": " Rəd ədilmiş",
+        "productDetails": "Məhsulun detalları",
+        "kind": "Növ",
+        "common": "Miqdar",
+        "price": "Qiymət",
+        "sale": "Satış",
+        "sellerMan": "Satan",
+        "note": "Qeyd",
+        "write": " Cavab yaz",
+        "rejectOffer": "Imtina et",
+        "agreedOffer": "Razilash"
     },
 
     "dashboardComponent" : {

@@ -1,6 +1,6 @@
 <div class="account-body bg-white shadow-big p-40">
   <div class="pb-20 mb-40 border-bottom clear">
-    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">Təkliflər</h3>
+    <h3 class="bold m-0 text-main text-uppercase float-left mt-3 mb-3">{{'dashboardComponent.offers' | translate}}</h3>
   </div>
   <div class="row as-5 mb-40">
     <div class="col xl-2 lg-3 md-4 sm-6 xs-6">
@@ -19,12 +19,12 @@
       <thead class="bg-white no-wrap">
         <tr>
           <th>№</th>
-          <th>Təklif verən</th>
-          <th>Təklif alan</th>
-          <th>Məhsul</th>
-          <th>Nəticə</th>
-          <th>Tarix</th>
-          <th>Bax</th>
+          <th>{{'offerComponent.sendOffer' | translate}}</th>
+          <th>{{'offerComponent.offerSender' | translate}}</th>
+          <th>{{'offerComponent.product' | translate}}</th>
+          <th>{{'offerComponent.total' | translate}}</th>
+          <th>{{'offerComponent.date' | translate}}</th>
+          <th>{{'offerComponent.see' | translate}}</th>
         </tr>
       </thead>
       <tbody class="text-center no-wrap">
@@ -36,13 +36,13 @@
           <td>
             <div [ngSwitch]="offer?.status">
               <div *ngSwitchCase="2">
-                Gözlənilmədə
+                  {{'offerComponent.weiting' | translate}}
               </div>
               <div *ngSwitchCase="1">
-                Razılaşmış təkliflər
+                  {{'offerComponent.agreed' | translate}}
               </div>
               <div *ngSwitchCase="0">
-                Rəd ədilmiş təkliflər
+                  {{'offerComponent.rejected' | translate}}
               </div>
             </div>
           </td>
