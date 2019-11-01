@@ -13,7 +13,7 @@
         <span class="live-support btn light-ripple border-0 radius-20 shadow-big mr-5">
           <i aria-hidden="true" class="icon-call-center"></i>
           <span class="ml-10 hide-lg hide-md hide-sm hide-xs">
-            {{'support' | translate}} 
+            {{'support' | translate}}
           </span>
         </span>
         <span [hidden]="loggedIn()" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5"
@@ -25,21 +25,21 @@
           data-target-modal="registration" data-target-tab="reg-types">
           <i aria-hidden="true" class="icon-user-plus"></i>
           <span class="ml-10 hide-md hide-sm hide-xs">
-            {{'registration' | translate}} 
+            {{'registration' | translate}}
           </span>
         </span>
         <a [hidden]="!loggedIn()" [routerLink]="['/dashboard']" title="Şəxsi kabinet"
           class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
           <i aria-hidden="true" class="icon-user"></i>
           <span class="ml-10 hide-md hide-sm hide-xs">
-            {{'dashboard' | translate}} 
+            {{'dashboard' | translate}}
           </span>
         </a>
         <a [hidden]="!loggedIn()" (click)='logOut()' title="Çıxış"
           class="btn bg-white light-ripple border-0 radius-20 shadow-big">
           <i aria-hidden="true" class="icon-power"></i>
           <span class="ml-10 hide-md hide-sm hide-xs">
-            {{'exit' | translate}} 
+            {{'exit' | translate}}
           </span>
         </a>
       </div>
@@ -59,7 +59,7 @@
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-currency-usd v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.birja' | translate}} 
+                {{'navigation.birja' | translate}}
               </span>
             </a>
           </li>
@@ -68,7 +68,7 @@
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-home-building v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.members' | translate}} 
+                {{'navigation.members' | translate}}
               </span>
             </a>
           </li>
@@ -77,7 +77,7 @@
               class="menu-item  ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-users v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.agronoms' | translate}} 
+                {{'navigation.agronoms' | translate}}
               </span>
             </a>
           </li>
@@ -86,7 +86,7 @@
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.news' | translate}} 
+                {{'navigation.news' | translate}}
               </span>
             </a>
           </li>
@@ -95,16 +95,16 @@
               class="menu-item ripple-effect light-ripple d-block tr-3s legitRipple">
               <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.about' | translate}} 
+                {{'navigation.about' | translate}}
               </span>
             </a>
           </li>
-          <li role="presentation">
+          <li role="presentation" class="hide-lg">
             <a href="http://agrotv.az/" target="_blank" role="menuitem" title="Agro TV"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-tv v-align-middle mr-10"></i>
               <span class="v-align-middle">
-                {{'navigation.aqroTV' | translate}} 
+                {{'navigation.aqroTV' | translate}}
               </span>
             </a>
           </li>
@@ -113,14 +113,14 @@
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-envelope v-align-middle"></i>
               <span class="v-align-middle ml-10 hide-lg">
-                {{'contactUs' | translate}} 
+                {{'contactUs' | translate}}
               </span>
             </a>
           </li>
         </ul>
         <span class="bold pt-40 border-top pl-40 show-md show-sm show-xs" role="presentation">
           <i aria-hidden="true" class="icon-language mr-10"></i>
-          {{'changeLang' | translate}} 
+          {{'changeLang' | translate}}
         </span>
         <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
           <li role="presentation">
@@ -146,6 +146,7 @@
     </div>
   </div>
 </header>
+
 <!-- komponent in shar -->
 <aside class="sub-header-side bg-white shadow-big relative">
   <div class="container xl-15 lg-15 clear pt-7 pb-7">
@@ -435,14 +436,14 @@
         <div class="row as-15">
           <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
             <h4 class="footer-title text-white text-uppercase bold mb-10">
-              {{'mainMenu' | translate}} 
+              {{'mainMenu' | translate}}
             </h4>
             <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
 
               <li role="presentation"><a role="menuitem" title="Birja" [routerLink]="[ '/birja' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                   <span>
-                    {{'navigation.birja' | translate}} 
+                    {{'navigation.birja' | translate}}
                   </span>
                 </a>
               </li>
@@ -450,7 +451,7 @@
                 <a role="menuitem" title="Üzvlər" [routerLink]="[ '/members' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                   <span>
-                    {{'navigation.members' | translate}} 
+                    {{'navigation.members' | translate}}
                   </span>
                 </a>
               </li>
@@ -458,7 +459,7 @@
                 <a role="menuitem" title="Title" [routerLink]="[ '/news' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                   <span>
-                    {{'navigation.news' | translate}} 
+                    {{'navigation.news' | translate}}
                   </span>
                 </a>
               </li>
@@ -466,7 +467,7 @@
                 <a role="menuitem" title="Title" [routerLink]="[ '/agronoms' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                   <span>
-                    {{'navigation.agronoms' | translate}} 
+                    {{'navigation.agronoms' | translate}}
                   </span>
                 </a>
               </li>
@@ -474,7 +475,7 @@
                   <a role="menuitem" title="Title" [routerLink]="[ '/about' ]">
                     <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
                     <span>
-                      {{'navigation.about' | translate}} 
+                      {{'navigation.about' | translate}}
                     </span>
                   </a>
                 </li>
@@ -483,7 +484,7 @@
           <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
 
             <h4 class="footer-title text-white text-uppercase bold mb-10">
-              {{'projets' | translate}} 
+              {{'projets' | translate}}
             </h4>
 
             <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
@@ -520,8 +521,8 @@
             </ul>
           </div>
           <div class="col as-12 lg-4 md-4 mb-40">
-            <h4 class="footer-title text-white text-uppercase bold mb-10"> 
-              {{'contactUs' | translate}} 
+            <h4 class="footer-title text-white text-uppercase bold mb-10">
+              {{'contactUs' | translate}}
             </h4>
             <div class="row as-15">
               <div class="col as-12 xs-6">
@@ -616,7 +617,7 @@
       aria-label="Bağla"></span>
     <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
       <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">
-        {{'loginYourAccount' | translate}} 
+        {{'loginYourAccount' | translate}}
       </span>
     </div>
     <div class="clear p-40">
@@ -650,14 +651,14 @@
 
     <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
       <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">
-        {{'loginYourAccount' | translate}} 
+        {{'loginYourAccount' | translate}}
       </span>
     </div>
     <div class="clear p-40">
       <div class="row as-10 justify-content-center">
         <div class="col as-7 xs-12 mb-20">
           <label for="hr-name" class="pl-10">
-                {{'enterCode' | translate}} 
+                {{'enterCode' | translate}}
                 <sup class="text-red">*</sup>
             </label>
           <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
@@ -665,7 +666,7 @@
         <div class="col as-7 xs-12">
           <button [disabled]="!verifyForm.valid" type="submit"
             class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-            {{'comleteRegister' | translate}} 
+            {{'comleteRegister' | translate}}
           </button>
         </div>
       </div>
@@ -673,12 +674,12 @@
     <div class="panel-footer text-center">
       <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40"
         data-close="registration">
-        {{'close' | translate}} 
+        {{'close' | translate}}
       </button>
     </div>
   </form>
   <p *ngIf="verifyEmail">
-      {{'verifyEmail' | translate}} 
+      {{'verifyEmail' | translate}}
   </p>
 </div>
 <div class="modal registration-modal" data-modal="registration" data-open-animation="zoomIn"
@@ -757,7 +758,7 @@
             <div class="col as-4 xs-6">
               <button type="submit" [disabled]="!customerRegister.valid"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                {{'comleteRegister'| translate}} 
+                {{'comleteRegister'| translate}}
               </button>
             </div>
             <p> {{responseMessage?.email}} </p>
@@ -773,7 +774,7 @@
             <div class="col as-7 xs-12">
               <button [disabled]="!verifyForm.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                {{'comleteRegister'| translate}} 
+                {{'comleteRegister'| translate}}
               </button>
             </div>
           </div>
@@ -784,11 +785,11 @@
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big"
           data-target-tab="reg-types">
           <i aria-hidden="true" class="icon-arrow-left mr-"></i>
-          {{'back'| translate}} 
+          {{'back'| translate}}
         </button>
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right"
           data-close="registration">
-          {{'close'| translate}} 
+          {{'close'| translate}}
         </button>
       </div>
     </div>
