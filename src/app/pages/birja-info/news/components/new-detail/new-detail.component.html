@@ -13,14 +13,14 @@
               </li>
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <a [routerLink]="['/news']" title="Xəbərlər" itemprop="item">
-                  <span itemprop="name">Xəbərlər</span>
+                  <span itemprop="name">{{'navigation.news' | translate}}</span>
                 </a>
                 <meta itemprop="position" content="2">
               </li>
               <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <span title="News title" itemprop="item" itemscope itemtype="https://schema.org/Thing"
                   id="/news/news-title">
-                  <span itemprop="name">News title</span>
+                  <span itemprop="name">{{title}}</span>
                 </span>
                 <meta itemprop="position" content="34">
               </li>
@@ -71,6 +71,6 @@
         </div>
       </article>
     </div>
-    <div class="col as-12 lg-3 mb-20">Other news here</div>
+    <!-- <div class="col as-12 lg-3 mb-20">Other news here</div> -->
   </div>
 </div>

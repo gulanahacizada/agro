@@ -1,5 +1,4 @@
-<!-- <h1> {{'HeaderComponent.birja' | translate}} </h1>
-<h1> {{'HeaderComponent.members' | translate}} </h1> -->
+
 <header class="main-header" aria-label="agrobirja.az" itemscope itemtype="https://schema.org/WPHeader">
   <div class="container xl-15 lg-15 clear">
     <span role="button" aria-label="Nav toggle" aria-controls="main-nav" aria-haspopup="true" aria-expanded="true"
@@ -13,27 +12,35 @@
       <div class="right-side-top relative w-100p clear text-right">
         <span class="live-support btn light-ripple border-0 radius-20 shadow-big mr-5">
           <i aria-hidden="true" class="icon-call-center"></i>
-          <span class="ml-10 hide-lg hide-md hide-sm hide-xs">Canlı dəstək</span>
+          <span class="ml-10 hide-lg hide-md hide-sm hide-xs">
+            {{'support' | translate}} 
+          </span>
         </span>
         <span [hidden]="loggedIn()" class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5"
           data-target-modal="login">
           <i aria-hidden="true" class="icon-user"></i>
-          <span class="ml-10 hide-md hide-sm hide-xs">Daxil ol</span>
+          <span class="ml-10 hide-md hide-sm hide-xs"> {{'login' | translate}} </span>
         </span>
         <span [hidden]="loggedIn()" class="btn bg-special light-ripple border-0 radius-20 shadow-big"
           data-target-modal="registration" data-target-tab="reg-types">
           <i aria-hidden="true" class="icon-user-plus"></i>
-          <span class="ml-10 hide-md hide-sm hide-xs">Qeydiyyatdan keç</span>
+          <span class="ml-10 hide-md hide-sm hide-xs">
+            {{'registration' | translate}} 
+          </span>
         </span>
         <a [hidden]="!loggedIn()" [routerLink]="['/dashboard']" title="Şəxsi kabinet"
           class="btn bg-main light-ripple border-0 radius-20  shadow-bigmr-5">
           <i aria-hidden="true" class="icon-user"></i>
-          <span class="ml-10 hide-md hide-sm hide-xs">Şəxsi kabinet</span>
+          <span class="ml-10 hide-md hide-sm hide-xs">
+            {{'dashboard' | translate}} 
+          </span>
         </a>
         <a [hidden]="!loggedIn()" (click)='logOut()' title="Çıxış"
           class="btn bg-white light-ripple border-0 radius-20 shadow-big">
           <i aria-hidden="true" class="icon-power"></i>
-          <span class="ml-10 hide-md hide-sm hide-xs">Çıxış</span>
+          <span class="ml-10 hide-md hide-sm hide-xs">
+            {{'exit' | translate}} 
+          </span>
         </a>
       </div>
       <nav class="main-nav relative light clear tr-3s" id="main-nav" aria-labelledby="nav-toggle">
@@ -51,55 +58,69 @@
             <a [routerLink]="['/birja']" routerLinkActive="current-page" role="menuitem" title="Birja"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-currency-usd v-align-middle mr-10"></i>
-              <span class="v-align-middle">Birja</span>
+              <span class="v-align-middle">
+                {{'navigation.birja' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation">
             <a [routerLink]="['/members']" routerLinkActive="current-page" role="menuitem" title="Üzvlər"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-home-building v-align-middle mr-10"></i>
-              <span class="v-align-middle">Üzvlər</span>
+              <span class="v-align-middle">
+                {{'navigation.members' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation">
             <a [routerLink]="['/agronoms']" routerLinkActive="current-page" role="menuitem" title="Aqronomlar"
               class="menu-item  ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-users v-align-middle mr-10"></i>
-              <span class="v-align-middle">Aqronomlar</span>
+              <span class="v-align-middle">
+                {{'navigation.agronoms' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation">
             <a [routerLink]="['/news']" routerLinkActive="current-page" role="menuitem" title="Xəbərlər"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-newspaper-3 v-align-middle mr-10"></i>
-              <span class="v-align-middle">Xəbərlər</span>
+              <span class="v-align-middle">
+                {{'navigation.news' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation">
             <a [routerLink]="['/about']" routerLinkActive="current-page" role="menuitem" title="Haqqımızda"
               class="menu-item ripple-effect light-ripple d-block tr-3s legitRipple">
               <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
-              <span class="v-align-middle">Haqqımızda</span>
+              <span class="v-align-middle">
+                {{'navigation.about' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation">
             <a href="http://agrotv.az/" target="_blank" role="menuitem" title="Agro TV"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-tv v-align-middle mr-10"></i>
-              <span class="v-align-middle">Agro TV</span>
+              <span class="v-align-middle">
+                {{'navigation.aqroTV' | translate}} 
+              </span>
             </a>
           </li>
           <li role="presentation" class="contact-us">
             <a [routerLink]="['/contact-us']" routerLinkActive="current-page" role="menuitem" title="Bizimlə əlaqə"
               class="menu-item ripple-effect light-ripple d-block tr-3s">
               <i aria-hidden="true" class="icon-envelope v-align-middle"></i>
-              <span class="v-align-middle ml-10 hide-lg">Bizimlə əlaqə</span>
+              <span class="v-align-middle ml-10 hide-lg">
+                {{'contactUs' | translate}} 
+              </span>
             </a>
           </li>
         </ul>
         <span class="bold pt-40 border-top pl-40 show-md show-sm show-xs" role="presentation">
           <i aria-hidden="true" class="icon-language mr-10"></i>
-          Dili dəyişin
+          {{'changeLang' | translate}} 
         </span>
         <ul class="lang-menu type-none m-0 p-0 text-center" role="menu">
           <li role="presentation">
@@ -414,38 +435,56 @@
         <div class="row as-15">
           <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
             <h4 class="footer-title text-white text-uppercase bold mb-10">
-              Əsas menyu
+              {{'mainMenu' | translate}} 
             </h4>
             <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
 
               <li role="presentation"><a role="menuitem" title="Birja" [routerLink]="[ '/birja' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
-                  <span>Birja</span>
+                  <span>
+                    {{'navigation.birja' | translate}} 
+                  </span>
                 </a>
               </li>
               <li role="presentation">
                 <a role="menuitem" title="Üzvlər" [routerLink]="[ '/members' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
-                  <span>Üzvlər</span>
+                  <span>
+                    {{'navigation.members' | translate}} 
+                  </span>
                 </a>
               </li>
               <li role="presentation">
                 <a role="menuitem" title="Title" [routerLink]="[ '/news' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
-                  <span>Xəbərlər</span>
+                  <span>
+                    {{'navigation.news' | translate}} 
+                  </span>
                 </a>
               </li>
               <li role="presentation">
                 <a role="menuitem" title="Title" [routerLink]="[ '/agronoms' ]">
                   <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
-                  <span>Aqronomlar</span>
+                  <span>
+                    {{'navigation.agronoms' | translate}} 
+                  </span>
                 </a>
               </li>
+              <li role="presentation">
+                  <a role="menuitem" title="Title" [routerLink]="[ '/about' ]">
+                    <i aria-hidden="true" class="icon-arrow-double-right text-special mr-10"></i>
+                    <span>
+                      {{'navigation.about' | translate}} 
+                    </span>
+                  </a>
+                </li>
             </ul>
           </div>
           <div class="col lg-4 md-4 sm-6 xs-12 mb-40 hide-xs hide-xxs">
 
-            <h4 class="footer-title text-white text-uppercase bold mb-10">Proyektlər </h4>
+            <h4 class="footer-title text-white text-uppercase bold mb-10">
+              {{'projets' | translate}} 
+            </h4>
 
             <ul class="footer-menu type-none m-0 p-0 text-uppercase" role="menu">
               <li role="presentation">
@@ -481,7 +520,9 @@
             </ul>
           </div>
           <div class="col as-12 lg-4 md-4 mb-40">
-            <h4 class="footer-title text-white text-uppercase bold mb-10"> Bizimlə əlaqə </h4>
+            <h4 class="footer-title text-white text-uppercase bold mb-10"> 
+              {{'contactUs' | translate}} 
+            </h4>
             <div class="row as-15">
               <div class="col as-12 xs-6">
                 <div class="footer-contact-info d-table">
@@ -490,7 +531,7 @@
                       <i aria-hidden="true" class="icon-phone text-special"></i>
                     </span>
                     <span class="d-cell w-100p pl-10 pb-30 v-align-top">
-                      <small class="d-block text-uppercase">Mobil ilə əlaqə</small>
+                      <small class="d-block text-uppercase">{{'mobielContact' | translate}}  </small>
                       <span>+(994 77) 313 63 13</span>
                     </span>
                   </a>
@@ -499,7 +540,7 @@
                       <i aria-hidden="true" class="icon-envelope text-special"></i>
                     </span>
                     <span class="d-cell w-100p pl-10 pb-30 v-align-top">
-                      <small class="d-block text-uppercase">E-poçt ilə əlaqə</small>
+                      <small class="d-block text-uppercase">{{'mailContact' | translate}} </small>
                       <span>info@agrobirja.az</span>
                     </span>
                   </a>
@@ -547,7 +588,7 @@
           <span class="mr-10 ml-10 float-left">
             AgroTv.az © <span itemprop="copyrightYear">2018</span> - 2019
           </span>
-          <span class="mr-10 ml-10 float-left">Bütün haqqları qorunur.</span>
+          <span class="mr-10 ml-10 float-left">{{'rightsReserved' | translate}}.</span>
           <span aria-label="Created by: TimeSoft" class="d-block mr-10 ml-10 float-right float-xxs-left"
             itemprop="copyrightHolder" itemscope itemtype="https://schema.org/Organization">
             Created by
@@ -574,22 +615,24 @@
     <span (click)="reset()" role="button" class="close fixed-close icon-close" data-close="login"
       aria-label="Bağla"></span>
     <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
-      <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hesabınıza daxil olun</span>
+      <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">
+        {{'loginYourAccount' | translate}} 
+      </span>
     </div>
     <div class="clear p-40">
       <div class="row as-10 justify-content-center">
         <div class="col as-6 xs-12 mb-20">
-          <label for="u-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
+          <label for="u-name" class="pl-10">  {{'userName' | translate}}  <sup class="text-red">*</sup></label>
           <input type="text" id="u-name" class="input border-0 radius-20 shadow-big" formControlName="username" />
         </div>
         <div class="col as-6 xs-12 mb-20">
-          <label for="u-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+          <label for="u-pass" class="pl-10">{{'password' | translate}} <sup class="text-red">*</sup></label>
           <input type="password" id="u-pass" class="input border-0 radius-20 shadow-big" placeholder="*****"
             formControlName="password" />
         </div>
         <div class="col as-3 xs-6">
           <button type="submit" class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-            Daxil ol
+            {{'login' | translate}}
           </button>
         </div>
       </div>
@@ -597,7 +640,7 @@
     <div class="panel-footer text-center">
       <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40"
         data-close="registration">
-        Bağla
+        {{'close' | translate}}
       </button>
     </div>
   </form>
@@ -606,18 +649,23 @@
       aria-label="Bağla"></span>
 
     <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
-      <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hesabınıza daxil olun</span>
+      <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">
+        {{'loginYourAccount' | translate}} 
+      </span>
     </div>
     <div class="clear p-40">
       <div class="row as-10 justify-content-center">
         <div class="col as-7 xs-12 mb-20">
-          <label for="hr-name" class="pl-10">Kodu daxil edin<sup class="text-red">*</sup></label>
+          <label for="hr-name" class="pl-10">
+                {{'enterCode' | translate}} 
+                <sup class="text-red">*</sup>
+            </label>
           <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
         </div>
         <div class="col as-7 xs-12">
           <button [disabled]="!verifyForm.valid" type="submit"
             class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-            Qeydiyyatı tamamla
+            {{'comleteRegister' | translate}} 
           </button>
         </div>
       </div>
@@ -625,11 +673,13 @@
     <div class="panel-footer text-center">
       <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40"
         data-close="registration">
-        Bağla
+        {{'close' | translate}} 
       </button>
     </div>
   </form>
-  <p *ngIf="verifyEmail">Email tesgid edin</p>
+  <p *ngIf="verifyEmail">
+      {{'verifyEmail' | translate}} 
+  </p>
 </div>
 <div class="modal registration-modal" data-modal="registration" data-open-animation="zoomIn"
   data-close-animation="zoomOut" role="dialog" tabindex="-1" aria-label="Login Modal">
@@ -638,16 +688,16 @@
       aria-label="Bağla"></span>
     <div class="tab-panel active" role="tabpanel" data-tab="reg-types">
       <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-60 pb-30 ripple-effect light-ripple">
-        <span class="h3 text-center text-uppercase thin text-white mb-60 d-block">Yeni hesab yaradın</span>
+        <span class="h3 text-center text-uppercase thin text-white mb-60 d-block"> {{'createNewAccount'| translate}} </span>
         <div class="reg-types row as-10">
           <div class="col as-6 xs-12 mb-30">
             <button (click)="reset()" class="btn lg border-0 shadow-big w-100p tr-3s" data-target-tab="fr-registration">
-              Fiziki şəxs olaraq
+                {{'individualUser'| translate}}
             </button>
           </div>
           <div class="col as-6 xs-12 mb-30">
             <button (click)="reset()" class="btn lg border-0 shadow-big w-100p tr-3s" data-target-tab="hr-registration">
-              Hüquqi şəxs olaraq
+                {{'entityUser'| translate}}
             </button>
           </div>
         </div>
@@ -655,57 +705,59 @@
       <div class="panel-footer text-center">
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big pl-40 pr-40"
           data-close="registration">
-          Bağla
+          {{'close'| translate}}
         </button>
       </div>
     </div>
     <div class="tab-panel" role="tabpanel" data-tab="fr-registration">
       <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
-        <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Fiziki şəxs qeydiyyatı</span>
+        <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">
+            {{'individualREgistration'| translate}}
+        </span>
       </div>
       <div class="clear p-40">
         <form *ngIf="!verifyPhone" [formGroup]="customerRegister" (ngSubmit)="registerCustomer()">
           <div class="row as-10 justify-content-center">
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-full-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+              <label for="fr-full-name" class="pl-10"> {{'fullName'| translate}} <sup class="text-red">*</sup></label>
               <input type="text" formControlName="name" id="fr-full-name" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
+              <label for="fr-name" class="pl-10">{{'userName'| translate}}  <sup class="text-red">*</sup></label>
               <input type="text" id="fr-name" formControlName="username" class="input border-0 radius-20 shadow-big" />
               <p> {{responseMessage?.username}} </p>
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
+              <label for="fr-email" class="pl-10">{{'emsilAddress'| translate}}  <sup class="text-red">*</sup></label>
               <input formControlName="email" type="email" id="fr-email" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-email" class="pl-10">Telefon <sup class="text-red">*</sup></label>
+              <label for="fr-email" class="pl-10">{{'phone'| translate}}  <sup class="text-red">*</sup></label>
               <input type="number" placeholder="+994** *** ** **" formControlName="phone"
                 class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+              <label for="fr-pass" class="pl-10">{{'password'| translate}}  <sup class="text-red">*</sup></label>
               <input type="password" formControlName="password" id="fr-pass" class="input border-0 radius-20 shadow-big"
                 placeholder="*****" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-pass-again" class="pl-10">Şifrənin təkrarı <sup class="text-red">*</sup></label>
+              <label for="fr-pass-again" class="pl-10"> {{'confirmPassword'| translate}}  <sup class="text-red">*</sup></label>
               <input type="password" id="fr-pass-again" formControlName="confirmPassword"
                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
             </div>
             <div class="col as-12 xs-12 mb-20">
               <p-radioButton name="groupname" formControlName="verify" class="mr-10"
-                label="Hesabimi email-la tesdig edirem" value="email"></p-radioButton>
+                label="{{'verifyWhitEmail'| translate}} " value="email"></p-radioButton>
             </div>
             <div class="col as-12 xs-12 mb-20">
-              <p-radioButton name="groupname" formControlName="verify" label="Hesabimi telefon-la tesdig edirem"
+              <p-radioButton name="groupname" formControlName="verify" label="{{'verifyWhitPhone'| translate}}"
                 value="phone"></p-radioButton>
             </div>
             <div class="col as-4 xs-6">
               <button type="submit" [disabled]="!customerRegister.valid"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                Qeydiyyatı tamamla
+                {{'comleteRegister'| translate}} 
               </button>
             </div>
             <p> {{responseMessage?.email}} </p>
@@ -715,79 +767,79 @@
         <form *ngIf="verifyPhone" [formGroup]="verifyForm" (ngSubmit)="submitVerifyForm()">
           <div class="row as-10 justify-content-center">
             <div class="col as-7 xs-12 mb-20">
-              <label for="hr-name" class="pl-10">Kodu daxil edin<sup class="text-red">*</sup></label>
+              <label for="hr-name" class="pl-10">{{'enterCode'| translate}} <sup class="text-red">*</sup></label>
               <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-7 xs-12">
               <button [disabled]="!verifyForm.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                Qeydiyyatı tamamla
+                {{'comleteRegister'| translate}} 
               </button>
             </div>
           </div>
         </form>
-        <p *ngIf="verifyEmail">Email tesgid edin</p>
+        <p *ngIf="verifyEmail"> {{'verifyEmail'| translate}} </p>
       </div>
       <div class="panel-footer pl-40 pr-40">
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big"
           data-target-tab="reg-types">
           <i aria-hidden="true" class="icon-arrow-left mr-"></i>
-          Geri
+          {{'back'| translate}} 
         </button>
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right"
           data-close="registration">
-          Bağla
+          {{'close'| translate}} 
         </button>
       </div>
     </div>
     <div class="tab-panel" role="tabpanel" data-tab="hr-registration">
       <div class="login-wrap d-flex-center text-center pl-40 pr-40 pt-100 ripple-effect light-ripple">
-        <span class="h3 text-center text-uppercase thin text-white mb-100 d-block">Hüquqi şəxs qeydiyyatı</span>
+        <span class="h3 text-center text-uppercase thin text-white mb-100 d-block"> {{'entityREgistration'| translate}} </span>
       </div>
       <div class="clear p-40">
         <form *ngIf="!verifyPhone" [formGroup]='companyRegister' (ngSubmit)='registerCompany()'>
           <div class="row as-10 justify-content-center">
             <div class="col as-6 xs-12 mb-20">
-              <label for="hr-name" class="pl-10">Ad, Soyad, Ata adı <sup class="text-red">*</sup></label>
+              <label for="hr-name" class="pl-10">{{'fullName'| translate}} <sup class="text-red">*</sup></label>
               <input type="text" id="hr-name" formControlName='name' class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-name" class="pl-10">İstifadəçi adı <sup class="text-red">*</sup></label>
+              <label for="fr-name" class="pl-10">{{'userName'| translate}} <sup class="text-red">*</sup></label>
               <input type="text" formControlName="username" class="input border-0 radius-20 shadow-big" />
               <p> {{responseMessage?.username}} </p>
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="hr-email" class="pl-10">E-poçt ünvanı <sup class="text-red">*</sup></label>
+              <label for="hr-email" class="pl-10">{{'emailAddress'| translate}} <sup class="text-red">*</sup></label>
               <input type="email" id="hr-email" formControlName="email" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="fr-email" class="pl-10">Telefon <sup class="text-red">*</sup></label>
+              <label for="fr-email" class="pl-10">{{'phone'| translate}} <sup class="text-red">*</sup></label>
               <input placeholder="+994** *** ** **" formControlName="phone"
                 class="input border-0 radius-20 shadow-big" />
               <p> {{responseMessage?.phone}} </p>
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="hr-pass" class="pl-10">Şifrə <sup class="text-red">*</sup></label>
+              <label for="hr-pass" class="pl-10">{{'password'| translate}} <sup class="text-red">*</sup></label>
               <input type="password" id="hr-pass" formControlName='password' class="input border-0 radius-20 shadow-big"
                 placeholder="*****" />
             </div>
             <div class="col as-6 xs-12 mb-20">
-              <label for="hr-pass-again" class="pl-10">Şifrənin təkrarı <sup class="text-red">*</sup></label>
+              <label for="hr-pass-again" class="pl-10">{{'confirmPassword'| translate}} <sup class="text-red">*</sup></label>
               <input type="password" id="hr-pass-again" formControlName='confirmPassword'
                 class="input border-0 radius-20 shadow-big" placeholder="*****" />
             </div>
             <div class="col as-12 xs-12 mb-20">
               <p-radioButton name="groupname" formControlName="verify" class="mr-10"
-                label="Hesabimi email-la tesdig edirem" value="email"></p-radioButton>
+                label="{{'verifyWhitEmail'| translate}}" value="email"></p-radioButton>
             </div>
             <div class="col as-12 xs-12 mb-20">
-              <p-radioButton name="groupname" formControlName="verify" label="Hesabimi telefon-la tesdig edirem"
+              <p-radioButton name="groupname" formControlName="verify"   label="{{'verifyWhitPhone'| translate}}"
                 value="phone"></p-radioButton>
             </div>
             <div class="col as-4 xs-6">
               <button [disabled]="!companyRegister.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                Qeydiyyatı tamamla
+                {{'comleteRegister'| translate}}
               </button>
             </div>
             <p> {{responseMessage?.email}} </p>
@@ -797,28 +849,28 @@
         <form *ngIf="verifyPhone" [formGroup]="verifyForm" (ngSubmit)='submitVerifyForm()'>
           <div class="row as-10 justify-content-center">
             <div class="col as-7 xs-12 mb-20">
-              <label for="hr-name" class="pl-10">Kodu daxil edin<sup class="text-red">*</sup></label>
+              <label for="hr-name" class="pl-10">  {{'enterCode'| translate}}<sup class="text-red">*</sup></label>
               <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-7 xs-12">
               <button [disabled]="!verifyForm.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
-                Qeydiyyatı tamamla
+                {{'comleteRegister'| translate}}
               </button>
             </div>
           </div>
         </form>
-        <p *ngIf="verifyEmail"> Qeydiyyatı Email üzərindən tamamlayın</p>
+        <p *ngIf="verifyEmail"> {{'verifyEmail'| translate}} </p>
       </div>
       <div class="panel-footer pl-40 pr-40">
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big"
           data-target-tab="reg-types">
           <i aria-hidden="true" class="icon-arrow-left mr-"></i>
-          Geri
+          {{'back'| translate}}
         </button>
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right"
           data-close="registration">
-          Bağla
+          {{'close'| translate}}
         </button>
       </div>
     </div>

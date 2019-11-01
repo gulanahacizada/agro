@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../user-profile/products/services/products.service';
 import { Response } from 'src/app/interfaces/response';
 import { UrlSegmentGroup, UrlTree, Router, PRIMARY_OUTLET } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
@@ -19,8 +20,12 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     public productService: ProductsService,
-    private router: Router
-  ) { this.getRoutes(this.url); }
+    private router: Router,
+    public translate: TranslateService
+  ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
+    this.getRoutes(this.url);
+   }
 
 
   ngOnInit() {

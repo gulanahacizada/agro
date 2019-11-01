@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from './services/profile.service';
 import { Response } from 'src/app/interfaces/response';
 import { UserInfo } from 'src/app/interfaces/userInfo';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -18,8 +19,9 @@ export class ProfileComponent implements OnInit {
   email = [];
 
   constructor(
-    public profileService: ProfileService
-  ) { }
+    public profileService: ProfileService,
+    public translate: TranslateService
+  ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getUser();

@@ -3,6 +3,7 @@ import { ProfileService } from '../../user-profile/profile/services/profile.serv
 import { Response } from 'src/app/interfaces/response';
 import { UserInfo } from 'src/app/interfaces/userInfo';
 import { UrlSegmentGroup, UrlTree, Router, PRIMARY_OUTLET } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main',
@@ -19,8 +20,10 @@ export class MainComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
   ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
     this.getRoutes(this.url);
   }
 

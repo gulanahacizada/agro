@@ -3,6 +3,7 @@ import { ProfileService } from '../profile/services/profile.service';
 import { UserInfo } from 'src/app/interfaces/userInfo';
 import { Response } from 'src/app/interfaces/response';
 import { DashboardService } from './services/dashboard.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,8 +22,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private dashbordService: DashboardService
-  ) { }
+    private dashbordService: DashboardService,
+    public translate: TranslateService
+  ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getUserInfo();

@@ -11,14 +11,14 @@
           </li>
           <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a [routerLink]="['/birja']" title="Birja" itemprop="item">
-              <span itemprop="name">Birja</span>
+              <span itemprop="name">{{'navigation.birja' | translate}}</span>
             </a>
             <meta itemprop="position" content="2">
           </li>
           <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <span title="Product Name" itemprop="item" itemscope itemtype="https://schema.org/Thing"
               id="/products/product-name">
-              <span itemprop="name">Product Name</span>
+              <span itemprop="name">{{productResponse?.category?.name}}</span>
             </span>
             <meta itemprop="position" content="4">
           </li>
@@ -30,19 +30,20 @@
         <div class="col as-5 sm-6 xs-12 pb-10">
           <div class="thumb responsive pb-in-80">
             <!--Əsas Şəkil-->
+            <!-- <img *ngIf="!productResponse?.images[0]?.url" src="../../../../../../assets/images/Photo_Add.png" alt=""> -->
             <img *ngIf="productResponse?.images[0]?.url" src="{{productResponse?.images[0]?.url}}" alt="Product name"
               width="480" height="310">
           </div>
         </div>
         <div class="col as-12 lg-7 pt-10">
           <h2 class="title bold h3 text-main mb-20"> {{productResponse?.category?.name}} </h2>
-          <p class="description font-16 light">
-            {{productResponse?.description}}
+          <p class="description font-16 light" *ngIf="description">
+            {{description}}
           </p>
           <table class="table mb-20">
             <tbody>
               <tr>
-                <td class="bold">Şirkət:</td>
+                <td class="bold">{{'company' | translate}}:</td>
                 <td>
                   <a *ngIf = "productResponse?.user" [routerLink]="['/companyInfo/profile', productResponse.user.id ]" title="MARS-FK LTD MMM"
                     class="bold">
@@ -51,44 +52,45 @@
                 </td>
               </tr>
               <tr>
-                <td class="bold">Kategoriya</td>
+                <td class="bold">{{'category' | translate}}:</td>
                 <td>{{productResponse?.category?.parent?.name}}</td>
               </tr>
               <tr>
-                <td class="bold">Növü</td>
+                <td class="bold">{{'type' | translate}}:</td>
                 <td>{{productResponse?.kind?.name}}</td>
               </tr>
               <tr>
-                <td class="bold">Qiymət</td>
+                <td class="bold">{{'price' | translate}}:</td>
                 <td>{{productResponse?.price}} AZN</td>
               </tr>
-              <tr>
-                <td class="bold">Kalibri:</td>
+              <tr *ngIf="productResponse?.kalibry">
+                <td class="bold">{{'kalibry' | translate}}:</td>
                 <td> {{productResponse?.kalibry?.name}} </td>
               </tr>
               <tr>
-                <td class="bold">Miqdarı</td>
+                <td class="bold">{{'common' | translate}}:</td>
                 <td>{{productResponse?.common}} {{productResponse?.unit?.name}}</td>
               </tr>
-              <tr>
-                <td class="bold">Yıgılma tarixi</td>
+              <tr *ngIf="productResponse?.accumulated_at">
+                <td class="bold">{{'accumulated_at' | translate}}:</td>
                 <td>{{productResponse?.accumulated_at | date: 'dd/MM/yyyy'}}</td>
               </tr>
-              <tr>
-                <td class="bold">Saxlanma tarixi</td>
+              <tr *ngIf="productResponse?.expiry_time">
+                <td class="bold">{{'expiry_time' | translate}}:</td>
                 <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
               </tr>
 
             </tbody>
           </table>
+          
           <div *ngIf="selfID && !myProduct" class="bg-gray p-10">
             <div class="panel-header bg-white">
-              <span class="panel-title bold text-main">Təklif ver</span>
+              <span class="panel-title bold text-main">{{'offerComponent.offer' | translate}}</span>
             </div>
             <div class="bg-white p-20">
               <form [formGroup]='proposalForm' (ngSubmit)="submit()" class="row as-10">
                 <div class="col as-4 xs-12 mb-20">
-                  <label for="offer-amount">Tələb olunan miqdarı</label>
+                  <label for="offer-amount">{{'offerComponent.needCommon' | translate}}</label>
                   <div class="input-group radius-20 shadow-big">
                     <input formControlName="size" (input)='onCountChange($event)' type="number" id="offer-amount"
                       min="0" class="input border-0 radius-20 shadow-big" placeholder="0">
@@ -96,7 +98,7 @@
                   </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
-                  <label for="offer-price">Təklif edilən qiymət</label>
+                  <label for="offer-price">{{'offerComponent.offerPrice' | translate}}</label>
                   <div class="input-group radius-20 shadow-big">
                     <input (input)='onSellPriceChange($event)' formControlName="sellPrice" type="number"
                       id="offer-price" min="0" class="input border-0 radius-20 shadow-big" placeholder="0">
@@ -105,7 +107,7 @@
                   </div>
                 </div>
                 <div class="col as-4 xs-12 mb-20">
-                  <label>Ümumi qiymət</label>
+                  <label>{{'offerComponent.totalPrice' | translate}}</label>
                   <div class="input-group radius-20 shadow-big">
                     <input formControlName="price" type="number" class="input border-0 radius-20 shadow-big"
                       placeholder="0.00" readonly>
@@ -113,13 +115,13 @@
                   </div>
                 </div>
                 <div class="col as-12 mb-20">
-                  <label for="offer-note">Əlavə qeyd</label>
+                  <label for="offer-note">{{'offerComponent.commit' | translate}}</label>
                   <textarea formControlName="body" id="offer-note" class="input no-resize border-0 radius-20 shadow-big"
-                    cols="30" rows="4" placeholder="Qeyd yazın"></textarea>
+                    cols="30" rows="4" placeholder="{{'offerComponent.writeCommit' | translate}}"></textarea>
                 </div>
                 <div class="col as-12">
                   <button [disabled]="!proposalForm.valid" type="submit"
-                    class="btn bg-special border-0 radius-20 shadow-big">Təklifi göndər</button>
+                    class="btn bg-special border-0 radius-20 shadow-big">{{'offerComponent.sendOffer' | translate}}</button>
                 </div>
               </form>
             </div>

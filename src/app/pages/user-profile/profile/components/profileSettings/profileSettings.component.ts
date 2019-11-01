@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
 import { Response } from 'src/app/interfaces/response';
 import { UserInfo } from 'src/app/interfaces/userInfo';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profileSettings',
@@ -23,7 +24,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     private profileService: ProfileService,
     private fb: FormBuilder,
     private router: Router,
-  ) { }
+    public translate: TranslateService
+    ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getUser();

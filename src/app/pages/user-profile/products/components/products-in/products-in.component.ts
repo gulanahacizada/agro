@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Response } from 'src/app/interfaces/response';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -23,9 +24,11 @@ export class ProductsInComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private activateRoute: ActivatedRoute,
+    public translate: TranslateService
   ) {
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
     this.id = this.activateRoute.snapshot.params.id;
-  }
+    }
 
   ngOnInit() {
     this.getProdById();

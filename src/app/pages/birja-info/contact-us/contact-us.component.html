@@ -11,7 +11,7 @@
                     </li>
                     <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <span title="Bizimlə əlaqə" itemprop="item" itemscope itemtype="https://schema.org/Thing" id="/contact">
-                            <span itemprop="name">Bizimlə əlaqə</span>
+                            <span itemprop="name">{{'contactUs' | translate}}</span>
                         </span>
                         <meta itemprop="position" content="3">
                     </li>
@@ -21,7 +21,7 @@
 
         <div class="panel-header pl-0 pr-0 border-0">
             <h1 class="m-0 bold text-main text-uppercase">
-                Bizimlə əlaqə
+                {{'contactUs' | translate}}
             </h1>
         </div>
     </div>
@@ -36,7 +36,7 @@
 
                     <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
                         <h2 class="section-title relative bold text-uppercase mb-0">
-                            <span class="d-block">Rekvizitlər</span>
+                            <span class="d-block">{{'contactPage.rekvezit' | translate}}</span>
                         </h2>
                     </div>
 
@@ -44,7 +44,7 @@
                         <div class="col as-3 sm-4 xxs-4">
                             <strong>
                                 <i aria-hidden="true" class="icon-map-pin mr-10"></i>
-                                Ünvan:
+                                {{'contactPage.address' | translate}}:
                             </strong>
                         </div>
                         <div class="col as-9 sm-8 xxs-8">
@@ -55,7 +55,7 @@
                         <div class="col as-3 sm-4 xxs-4">
                             <strong>
                                 <i aria-hidden="true" class="icon-phone mr-10"></i>
-                                Telefon:
+                                {{'contactPage.phone' | translate}}:
                             </strong>
                         </div>
                         <div class="col as-9 sm-8 xxs-8">
@@ -68,7 +68,7 @@
                         <div class="col as-3 sm-4 xxs-4">
                             <strong>
                                 <i aria-hidden="true" class="icon-envelope mr-10"></i>
-                                E-mail:
+                                {{'contactPage.email' | translate}}:
                             </strong>
                         </div>
                         <div class="col as-9 sm-8 xxs-8">
@@ -83,24 +83,24 @@
 
                 <div class="section-title-wrap text-left w-100p d-table mb-20 pb-10">
                     <h2 class="section-title relative bold text-uppercase mb-0">
-                        <span class="d-block">Mesaj göndər</span>
+                        <span class="d-block"> {{'contactPage.sendMessage' | translate}}</span>
                     </h2>
                 </div>
 
                 <div class="row as-10">
                     <div class="col as-6 xxs-12 mb-10 pb-10">
-                        <input formControlName="name" type="text" class="input border-0 shadow radius-20" name="name" placeholder="Ad / Soyad">
+                        <input formControlName="name" type="text" class="input border-0 shadow radius-20" name="name" placeholder="{{'contactPage.fullName' | translate}}">
                     </div>
                     <div class="col as-6 xxs-12 mb-10 pb-10">
-                        <input formControlName="email" type="email" class="input border-0 shadow radius-20" name="email" placeholder="E-mail">
+                        <input formControlName="email" type="email" class="input border-0 shadow radius-20" name="email" placeholder="{{'contactPage.email' | translate}}">
                     </div>
                     <div class="col as-12 mb-10 pb-10">
-                        <textarea formControlName="body" class="input border-0 shadow radius-20 no-resize" name="body" cols="30" rows="5" placeholder="Mesaj" style="overflow-x: hidden; overflow-wrap: break-word; height: 108px;"></textarea>
+                        <textarea formControlName="body" class="input border-0 shadow radius-20 no-resize" name="body" cols="30" rows="5" placeholder="{{'contactPage.message' | translate}}" style="overflow-x: hidden; overflow-wrap: break-word; height: 108px;"></textarea>
                     </div>
                 </div>
                 <div class="col as-12">
                     <button [disabled]="!requestForm.valid" (click)="onSubmit()" id="send" class="btn border-0 shadow radius-20 bg-main legitRipple">
-                        Göndər
+                        {{'contactPage.send' | translate}}
                         <i aria-hidden="true" class="icon-send ml-10"></i>
                     </button>
                 </div>

@@ -1,5 +1,6 @@
 import { NewsService } from './services/news.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news',
@@ -14,7 +15,10 @@ export class NewsComponent implements OnInit {
     total: null,
     page: 1
   };
-  constructor(public newsService: NewsService) { }
+  constructor(
+    public newsService: NewsService,
+    public translate: TranslateService
+    ) {  this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getNews();

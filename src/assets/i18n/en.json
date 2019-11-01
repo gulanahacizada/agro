@@ -1,11 +1,11 @@
 {
     "navigation" : {
         "home": "Home",
-        "birja": "Биржа",
-        "members": "Üzvlər",
-        "agronoms": "Агрономы",
-        "news": "Новости",
-        "about": "О нас",
-        "aqroTV": "Агро ТВ"
+        "birja": "Exschange",
+        "members": "Members",
+        "agronoms": "Agronomists",
+        "news": "News",
+        "about": "About",
+        "aqroTV": "Agro TV"
     }
 }

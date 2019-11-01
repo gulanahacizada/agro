@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient } from '@angular/common/http';
 
 import { AgronomsRoutingModule } from './agronoms-routing.module';
 import { AgronomsComponent } from '../agronoms.component';
@@ -12,7 +15,18 @@ import { SafePipe } from '../../../../safe.pipe';
   imports: [
     CommonModule,
     AgronomsRoutingModule,
-    PaginatorModule
+    PaginatorModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ]
 })
 export class AgronomsModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

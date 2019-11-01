@@ -12,7 +12,7 @@
           <li aria-current="page" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
             <span title="Şəxsi Hesab" itemprop="item" itemscope="" itemtype="https://schema.org/Thing"
               id="/products/product-name">
-              <span itemprop="name">Şəxsi Hesab</span>
+              <span itemprop="name">{{'dashboard' | translate}}</span>
             </span>
             <meta itemprop="position" content="2">
           </li>
@@ -21,23 +21,42 @@
     </div>
     <div class="panel-header pl-0 pr-0 border-0">
       <h1 class="m-0 bold text-main text-uppercase">
-        Şəxsi Hesab
+        {{'dashboard' | translate}}
       </h1>
     </div>
   </div>
 </div>
 <div class="account-page container as-10 xl-15 lg-15 pt-20 pb-20">
   <div class="account-header shadow-big text-center clear pt-40 pb-40">
-    <div (click)="fileInput.click()"  class="thumb profImg responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
+    <div class="account-avatar thumb responsive pb-in-100 w-160 radius-50p float-center mb-30 shadow-big bg-white">
       <img *ngIf="url"  [src]="url " alt="User Name" width="120" height="120"
         class="p-7 radius-50p loading" data-was-processed="true">
-        <input 
+        <input
         #fileInput
         style="display: none"
         (change)="onFileChange($event)"
         type="file" name="" id="photo">
       <!-- <img *ngIf="!userInfo?.avatar" src="assets/images/imagesProf.jpeg" alt="User Name" width="100%"
         class=" radius-50p loading" data-was-processed="true"> -->
+
+
+      <div class="avatar-action text-black tr-3s">
+
+        <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple" (click)="fileInput.click()">
+            <span class="d-block">
+                <i aria-hidden="true" class="icon-folder-open"></i>
+                Şəkil seç
+            </span>
+        </span>
+
+        <span class="action-btn d-flex-center pointer tr-3s ripple-effect light-ripple">
+            <span class="d-block">
+                <i aria-hidden="true" class="icon-trash"></i>
+                Səkli sil
+            </span>
+        </span>
+
+      </div>
 
     </div>
     <h2 class="account-name h4 bold mb-0 text-white text-uppercase"> {{userInfo?.name}} </h2>
@@ -48,19 +67,19 @@
 
       <a [routerLink]="['profile']" routerLinkActive="active_tab" title="Hesab bilgiləri" class="menu-item ">
         <i aria-hidden="true" class="icon-info-circle-thin v-align-middle mr-10"></i>
-        <span class="v-align-middle">Hesab bilgiləri</span>
+        <span class="v-align-middle">{{'dashboardComponent.profileInfo' | translate}}</span>
       </a>
     </li>
     <li role="presentation">
       <a [routerLink]="['products']" routerLinkActive="active_tab" title="Məhsullar" class="menu-item">
         <i aria-hidden="true" class="icon-list-circle v-align-middle mr-10"></i>
-        <span class="v-align-middle">Məhsullar</span>
+        <span class="v-align-middle">{{'dashboardComponent.product' | translate}}</span>
       </a>
     </li>
     <li role="presentation">
       <a [routerLink]="[ 'offers' ]" routerLinkActive="active_tab" title="Təkliflər" class="menu-item">
         <i aria-hidden="true" class="icon-hand-shake v-align-middle mr-10"></i>
-        <span class="v-align-middle">Təkliflər</span>
+        <span class="v-align-middle">{{'dashboardComponent.offers' | translate}}</span>
       </a>
     </li>
   </ul>

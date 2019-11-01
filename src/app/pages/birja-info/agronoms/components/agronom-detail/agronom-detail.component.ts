@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgronomsService } from '../../services/agronoms.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-agronom-detail',
@@ -20,7 +21,11 @@ export class AgronomDetailComponent implements OnInit {
   constructor(
     public agronomService: AgronomsService,
     private activateRoute: ActivatedRoute,
-  ) { this.id = this.activateRoute.snapshot.params.id; }
+    public translate: TranslateService,
+    private router: Router,
+  ) { this.id = this.activateRoute.snapshot.params.id;
+      this.translate.setDefaultLang(localStorage.getItem('lang'));
+    }
 
   ngOnInit() {
     this.getAgronomById();
@@ -34,6 +39,9 @@ export class AgronomDetailComponent implements OnInit {
         this.body = response.responseContent[`body_${this.activeLang}`];
         this.body = this.htmlDecode(this.body);
         this.description = response.responseContent[`description_${this.activeLang}`];
+      }
+      if (response.responseCode == 2) {
+        this.router.navigate(['/agronoms']);
       }
     });
   }

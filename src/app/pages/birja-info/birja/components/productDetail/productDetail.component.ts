@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { ProductsService } from 'src/app/pages/user-profile/products/services/products.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-productDetail',
@@ -19,14 +20,18 @@ export class ProductDetailComponent implements OnInit {
   sellPrice: any;
   count: any;
   myProduct: boolean;
+  description: string;
+  activeLang = localStorage.getItem('lang');
 
   constructor(
     private productService: ProductsService,
     private activateRoute: ActivatedRoute,
     private fb: FormBuilder,
+    public translate: TranslateService
   ) {
     this.id = this.activateRoute.snapshot.params.id;
     this.selfID = localStorage.getItem('selfID');
+    this.translate.setDefaultLang(localStorage.getItem('lang'));
   }
 
   ngOnInit() {
@@ -39,6 +44,7 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.productResponse = response.responseContent;
+        this.description = response.responseContent[`description_${this.activeLang}`];
         if (this.productResponse.user.id == this.selfID) {
           this.myProduct = true;
         }

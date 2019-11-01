@@ -560,7 +560,15 @@ body, html {
 .account-header {
   background-image: url($imagePath + "account-bg.jpg");
   background-position: center;
-  background-size: auto 150%;
+  background-size: cover;
+
+  .account-avatar{
+    &:hover{
+      .avatar-action{
+        display: block;
+      }
+    }
+  }
 
   .avatar-action{
     position: absolute;
@@ -571,10 +579,6 @@ body, html {
     background-color: $blackTr-5;
     z-index: 2;
     display: none;
-
-    &:hover{
-      display: block;
-    }
 
     .action-btn{
       height: 50%;
@@ -1090,5 +1094,51 @@ body .ui-paginator {
 
 /*====================================================================================================================*/
 /*====================================================================================================================*/
+
+body {
+
+  .ui-tabview{
+    .ui-tabview-panels {
+      padding: 20px 0 !important;
+      border: 0 !important;
+    }
+
+    &.ui-tabview-top {
+      .ui-tabview-nav li{
+        border: 0 !important;
+        border-radius: 20px !important;
+        margin-right: 20px !important;
+        box-shadow: 0 0 40px 0 rgba(0,0,0,.1);
+        background-color: #fff !important;
+
+        &.ui-state-active{
+          background-color: $main !important;
+        }
+      }
+    }
+  }
+
+  .ui-editor-container{
+    .ui-editor-toolbar {
+      border: 1px solid #f1f1f1 !important;
+      background-color: transparent !important;
+      border-top-left-radius: 20px !important;
+      border-top-right-radius: 20px !important;
+    }
+
+    .ui-editor-content {
+      border: 1px solid #f1f1f1 !important;
+      border-bottom-left-radius: 20px !important;
+      border-bottom-right-radius: 20px !important;
+
+      .ql-editor{
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+      }
+    }
+
+  }
+}
+
 /*####################################################################################################################*/
 

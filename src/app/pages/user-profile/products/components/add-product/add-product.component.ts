@@ -13,6 +13,7 @@ import * as $ from 'jquery';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-product',
@@ -51,7 +52,8 @@ export class AddProductComponent implements OnInit {
     private productService: ProductsService,
     private router: Router,
     private fb: FormBuilder,
-  ) { }
+    public translate: TranslateService
+    ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getAllCategory('az'); //
