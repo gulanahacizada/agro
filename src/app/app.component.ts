@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from './services/app/app.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
 import { Response } from './interfaces/response';
@@ -57,203 +57,210 @@ export class AppComponent implements OnInit {
     this.getCurrency();
     this.chekLang();
     this.getProductsStat();
-  }
-
-  createLoginForm() {
-    this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      // navigatorUrl: ['home']
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
     });
   }
 
-  createCompanyForm() {
-    this.companyRegister = this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      is_company: [1],
-      role: [3, Validators.required],
-      email: [''],
-      phone: [''],
-      verify: ['', Validators.required]
-    },
-      { validator: this.passwordMatchValidator });
-  }
-  passwordMatchValidator(g: FormGroup) {
-    return g.get('password').value === g.get('confirmPassword').value ? null : { mismatch: true };
-  }
 
-  createCustomerForm() {
-    this.customerRegister = this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      is_company: [0],
-      role: [1, Validators.required],
-      email: [''],
-      phone: [''],
-      verify: ['', Validators.required]
-    },
-      { validator: this.passwordMatchValidator });
-  }
+createLoginForm() {
+  this.loginForm = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+    // navigatorUrl: ['home']
+  });
+}
 
-  login() {
-    if (this.loginForm.valid) {
-      const data = Object.assign({}, this.loginForm.value);
-      this.appService.login(data).subscribe((response: Response) => {
-        if (response.responseCode == 1) {
-          localStorage.setItem('jwt_c', response.responseContent.access_token);
-          localStorage.setItem('isCompany', response.responseContent.user.is_company);
-          localStorage.setItem('selfID', response.responseContent.user.id);
-          this.router.navigate(['dashboard']);
-          $('.login-modal').removeClass('open');
-          $('body').removeClass('o-hidden');
-        }
-        if (response.responseCode == 2) {
-          // message error
-          // localStorage.setItem('verifyToken', response.responseContent.access_token);
-        }
-        if (response.responseCode == 3) {
-          // message
-        }
-        if (response.responseCode == 10) {
+createCompanyForm() {
+  this.companyRegister = this.fb.group({
+    name: ['', Validators.required],
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+    is_company: [1],
+    role: [3, Validators.required],
+    email: [''],
+    phone: [''],
+    verify: ['', Validators.required]
+  },
+    { validator: this.passwordMatchValidator });
+}
+passwordMatchValidator(g: FormGroup) {
+  return g.get('password').value === g.get('confirmPassword').value ? null : { mismatch: true };
+}
 
-          if (response.responseContent.type == 0) {
-            this.verifyPhone = true;
-            this.verifyEmail = false;
-          } else {
-            this.verifyPhone = false;
-            this.verifyEmail = true;
-          }
-        }
-      });
-    }
-  }
+createCustomerForm() {
+  this.customerRegister = this.fb.group({
+    name: ['', Validators.required],
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+    is_company: [0],
+    role: [1, Validators.required],
+    email: [''],
+    phone: [''],
+    verify: ['', Validators.required]
+  },
+    { validator: this.passwordMatchValidator });
+}
 
-  registerCompany() {
-    if (this.companyRegister.valid) {
-      const data = Object.assign({}, this.companyRegister.value);
-      this.clean(data);
-      this.appService.register(data).subscribe((response: Response) => {
-        if (response.responseCode == 2) {
-          this.responseMessage = response.responseMessage;
-        }
-        if (response.responseCode == 10) {
-          if (this.companyRegister.value.verify == 'phone') {
-            this.verifyPhone = true;
-            this.verifyEmail = false;
-          } else {
-            this.verifyPhone = false;
-            this.verifyEmail = true;
-          }
-        }
-      }
-      );
-    }
-  }
-
-  registerCustomer() {
-    if (this.customerRegister.valid) {
-      const data = Object.assign({}, this.customerRegister.value);
-      this.clean(data);
-      this.appService.register(data).subscribe((response: Response) => {
-        if (response.responseCode == 2) {
-          this.responseMessage = response.responseMessage;
-        }
-        if (response.responseCode == 10) {
-          if (this.companyRegister.value.verify == 'phone') {
-            this.verifyPhone = true;
-            this.verifyEmail = false;
-          } else {
-            this.verifyPhone = false;
-            this.verifyEmail = true;
-          }
-        }
-      }
-      );
-    }
-  }
-
-  logOut() {
-    this.appService.logout().subscribe((response: Response) => {
+login() {
+  if (this.loginForm.valid) {
+    const data = Object.assign({}, this.loginForm.value);
+    this.appService.login(data).subscribe((response: Response) => {
       if (response.responseCode == 1) {
-        localStorage.clear();
-        this.router.navigate(['/home']);
+        localStorage.setItem('jwt_c', response.responseContent.access_token);
+        localStorage.setItem('isCompany', response.responseContent.user.is_company);
+        localStorage.setItem('selfID', response.responseContent.user.id);
+        this.router.navigate(['dashboard']);
+        $('.login-modal').removeClass('open');
+        $('body').removeClass('o-hidden');
+      }
+      if (response.responseCode == 2) {
+        // message error
+        // localStorage.setItem('verifyToken', response.responseContent.access_token);
+      }
+      if (response.responseCode == 3) {
+        // message
+      }
+      if (response.responseCode == 10) {
+
+        if (response.responseContent.type == 0) {
+          this.verifyPhone = true;
+          this.verifyEmail = false;
+        } else {
+          this.verifyPhone = false;
+          this.verifyEmail = true;
+        }
       }
     });
   }
+}
 
-  loggedIn() {
-    const token = localStorage.getItem('jwt_c');
-    return !this.jwtHelper.isTokenExpired(token);
-  }
-
-  useLanguage(language: string) {
-    this.translate.use(language);
-    localStorage.setItem('lang', language);
-    window.location.reload();
-  }
-
-  getCurrency() {
-    this.appService.currency().subscribe((response: Response) => {
-      if (response.responseCode) {
-        this.currencyResponse = response.responseContent;
+registerCompany() {
+  if (this.companyRegister.valid) {
+    const data = Object.assign({}, this.companyRegister.value);
+    this.clean(data);
+    this.appService.register(data).subscribe((response: Response) => {
+      if (response.responseCode == 2) {
+        this.responseMessage = response.responseMessage;
       }
-    });
-  }
-
-  getMetals() {
-    this.appService.metals().subscribe((response: Response) => {
-      if (response.responseCode == 1) {
-        this.metalResponse = response.responseContent;
-      }
-    });
-  }
-
-  getProductsStat() {
-    this.appService.getProdStat().subscribe((response: Response) => {
-      if (response.responseCode == 1) {
-        this.prodStatResponse = response.responseContent;
-      }
-    });
-  }
-
-  clean(obj) {
-    for (const propName in obj) {
-      if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
-        delete obj[propName];
+      if (response.responseCode == 10) {
+        if (this.companyRegister.value.verify == 'phone') {
+          this.verifyPhone = true;
+          this.verifyEmail = false;
+        } else {
+          this.verifyPhone = false;
+          this.verifyEmail = true;
+        }
       }
     }
+    );
   }
+}
 
-
-  createVerifyForm() {
-    this.verifyForm = this.fb.group({
-      code: ['', Validators.required]
-    });
+registerCustomer() {
+  if (this.customerRegister.valid) {
+    const data = Object.assign({}, this.customerRegister.value);
+    this.clean(data);
+    this.appService.register(data).subscribe((response: Response) => {
+      if (response.responseCode == 2) {
+        this.responseMessage = response.responseMessage;
+      }
+      if (response.responseCode == 10) {
+        if (this.companyRegister.value.verify == 'phone') {
+          this.verifyPhone = true;
+          this.verifyEmail = false;
+        } else {
+          this.verifyPhone = false;
+          this.verifyEmail = true;
+        }
+      }
+    }
+    );
   }
+}
 
-  submitVerifyForm() {
-    this.verifyToken = localStorage.getItem('verifyToken');
-    this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
-    });
+logOut() {
+  this.appService.logout().subscribe((response: Response) => {
+    if (response.responseCode == 1) {
+      localStorage.clear();
+      this.router.navigate(['/home']);
+    }
+  });
+}
+
+loggedIn() {
+  const token = localStorage.getItem('jwt_c');
+  return !this.jwtHelper.isTokenExpired(token);
+}
+
+useLanguage(language: string) {
+  this.translate.use(language);
+  localStorage.setItem('lang', language);
+  window.location.reload();
+}
+
+getCurrency() {
+  this.appService.currency().subscribe((response: Response) => {
+    if (response.responseCode) {
+      this.currencyResponse = response.responseContent;
+    }
+  });
+}
+
+getMetals() {
+  this.appService.metals().subscribe((response: Response) => {
+    if (response.responseCode == 1) {
+      this.metalResponse = response.responseContent;
+    }
+  });
+}
+
+getProductsStat() {
+  this.appService.getProdStat().subscribe((response: Response) => {
+    if (response.responseCode == 1) {
+      this.prodStatResponse = response.responseContent;
+    }
+  });
+}
+
+clean(obj) {
+  for (const propName in obj) {
+    if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
+      delete obj[propName];
+    }
   }
-
-  chekLang() {
-    this.activeLang = localStorage.getItem('lang');
-    this.az = (this.activeLang == 'az') ? true : false;
-    this.en = (this.activeLang == 'en') ? true : false;
-    this.ru = (this.activeLang == 'ru') ? true : false;
-  }
+}
 
 
-  reset() {
-    this.verifyEmail = false;
-    this.verifyPhone = false;
-  }
+createVerifyForm() {
+  this.verifyForm = this.fb.group({
+    code: ['', Validators.required]
+  });
+}
+
+submitVerifyForm() {
+  this.verifyToken = localStorage.getItem('verifyToken');
+  this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
+  });
+}
+
+chekLang() {
+  this.activeLang = localStorage.getItem('lang');
+  this.az = (this.activeLang == 'az') ? true : false;
+  this.en = (this.activeLang == 'en') ? true : false;
+  this.ru = (this.activeLang == 'ru') ? true : false;
+}
+
+
+reset() {
+  this.verifyEmail = false;
+  this.verifyPhone = false;
+}
 
 
 }

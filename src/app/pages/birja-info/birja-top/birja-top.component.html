@@ -1,1 +1,75 @@
-<p>birja-top works!</p>
+<div class="panel relative shadow-big">
+    <div class="container as-10 xl-15 lg-15">
+        <div class="panel-header pl-0 pr-0">
+            <nav aria-label="Breadcrumb navbar">
+                <ol class="breadcrumb" aria-label="Breadcrumb">
+                    <li itemprop="itemListElement">
+                        <a [routerLink]="['/']" title="AgroBirja.az - Ana səhifə">
+                            <span itemprop="name">AgroBirja.az</span>
+                        </a>
+                    </li>
+                    <li itemprop="itemListElement">
+                        <a title="Birja">
+                            <span itemprop="name">{{'navigation.birja' | translate}}</span>
+                        </a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="panel-header pl-0 pr-0 border-0">
+            <h1 class="m-0 bold text-main text-uppercase">
+                {{'agroBirja' | translate}}
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container as-10 xl-15 lg-15 pt-20 pb-20">
+    <div class="shadow-big">
+
+        <div class="table-responsive border-0 o-auto">
+            <table class="table custom-table bg-gray">
+                <thead class="bg-white">
+                    <tr>
+                        <th>{{'product' | translate}}</th>
+                        <th>{{'type' | translate}}</th>
+                        <th>{{'downPrice' | translate}}</th>
+                        <th> {{'upPrice' | translate}} </th>
+                        <th>{{'quantity' | translate}}</th>
+                        <th>{{'sale' | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody class="no-wrap">
+                        <tr *ngFor="let item of productStat">
+                            <td>{{item?.category?.name}}</td>
+                            <td>{{item?.kind?.name}}</td>
+                            <td>
+                                <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-red bold">
+                                  {{(+item?.min_price).toFixed(2)}}
+                                  <i aria-hidden="true" class="icon-currency-azn small"></i>
+                                  / {{item?.unit?.name}}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">
+                                  {{(+item?.max_price).toFixed(2)}}
+                                  <i aria-hidden="true" class="icon-currency-azn small"></i>
+                                  / {{item?.unit?.name}}
+                                </span>
+                            </td>
+                            <td><span class="text-special bold">{{item?.common}} {{item?.unit?.name}}</span></td>
+                            <td>
+                                <div class="progress radius-5 w-100">
+                                    <div [ngStyle]="{'width': (item?.sell *100 / item?.common) + '%'}" class="progress-bar radius-5 bg-main text-right"
+                                      role="progressbar"> {{ (item?.sell *100 / item?.common) | number}} %</div>
+                                  </div>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <p-paginator *ngIf="productStat?.length" [rows]="pagination?.per_page" [totalRecords]="pagination?.total"
+              (onPageChange)="paginate($event)"></p-paginator>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,12 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
+
+
 import { HomeService } from './service/home.service';
 import { ProductsService } from '../user-profile/products/services/products.service';
 import { Response } from 'src/app/interfaces/response';
+
 
 
 
@@ -12,18 +17,39 @@ import { Response } from 'src/app/interfaces/response';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+  };
+  barChartData: ChartDataSets[];
+  public barChartLabels: Label[] = ['1000 AZN'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+
   allNews: any;
   newOwlOptions: any;
   membersOwlOptions: any;
   productList: any;
   membersList: any;
   productStat: any;
+  currencyStat: any;
+  metalsStat: any;
+  chartProductStat: any;
 
   constructor(
     public homeService: HomeService,
     private productService: ProductsService,
     private elementRef: ElementRef,
-  ) { }
+  ) {
+    this.getCurrencyStat();
+    this.barChartData = [
+      { data: [], label: '' },
+      { data: [], label: '' },
+      { data: [], label: '' },
+      { data: [], label: '' }
+    ];
+  }
 
   ngOnInit() {
     this.getAllNews();
@@ -32,6 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getAllMembers();
     this.getAStatistics();
   }
+
 
   ngAfterViewInit() {
     const mapCreate = document.createElement('script');
@@ -47,6 +74,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getAllNews() {
     this.homeService.getNews().subscribe(response => {
+      // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.allNews = response.responseContent.data;
       }
@@ -55,6 +83,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getAllMembers() {
     this.homeService.getAllUsers().subscribe(response => {
+      // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.membersList = response.responseContent.data;
       }
@@ -63,6 +92,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getAllProduct() {
     this.productService.getAllProducts({ perpage: '7' }).subscribe((response: Response) => {
+      // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.productList = response.responseContent.data;
       }
@@ -132,9 +162,75 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getAStatistics() {
     this.homeService.statistics({ per_page: 7 }).subscribe((response: Response) => {
-        if (response.responseCode == 1) {
-          this.productStat = response.responseContent.data;
-        }
+      // tslint:disable-next-line: triple-equals
+      if (response.responseCode == 1) {
+        this.productStat = response.responseContent.data;
+      }
     });
+  }
+  getCurrencyStat() {
+    this.homeService.curencyStat().subscribe((response: Response) => {
+      // tslint:disable-next-line: triple-equals
+      if (response.responseCode == 1) {
+        this.currencyStat = response.responseContent;
+        this.barChartData = [
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' }
+        ];
+        this.barChartData[0].data = [this.currencyStat.USD.Value];
+        this.barChartData[0].label = this.currencyStat.USD.Name;
+        this.barChartData[1].data = [this.currencyStat.RUB.Value];
+        this.barChartData[1].label = this.currencyStat.RUB.Name;
+        this.barChartData[2].data = [this.currencyStat.EUR.Value];
+        this.barChartData[2].label = this.currencyStat.EUR.Name;
+        this.barChartData[3].data = [this.currencyStat.TRY.Value];
+        this.barChartData[3].label = this.currencyStat.TRY.Name;
+      }
+    });
+  }
+
+  getMetalsStat() {
+    this.homeService.metalStat().subscribe((response: Response) => {
+      // tslint:disable-next-line: triple-equals
+      if (response.responseCode == 1) {
+        this.metalsStat = response.responseContent;
+        this.barChartData = [
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' }
+        ];
+        this.barChartData[0].data = [this.metalsStat.XAG.Value];
+        this.barChartData[0].label = this.metalsStat.XAG.Name;
+        this.barChartData[1].data = [this.metalsStat.XAU.Value];
+        this.barChartData[1].label = this.metalsStat.XAU.Name;
+        this.barChartData[2].data = [this.metalsStat.XPD.Value];
+        this.barChartData[2].label = this.metalsStat.XPD.Name;
+        this.barChartData[3].data = [this.metalsStat.XPT.Value];
+        this.barChartData[3].label = this.metalsStat.XPT.Name;
+      }
+    });
+  }
+
+  getProductStat() {
+    this.homeService.productsStat().subscribe((response: Response) => {
+      // tslint:disable-next-line: triple-equals
+      if (response.responseCode == 1) {
+        this.chartProductStat = response.responseContent;
+        this.chartProductStat = this.chartProductStat.map(r => ({
+          label: r.Name,
+          data: [r.Value]
+        }));
+        this.barChartData = this.chartProductStat;
+      }
+    });
+  }
+  changeMetalChart() {
+    this.getMetalsStat();
+  }
+  changeProductChart() {
+    this.getProductStat();
   }
 }

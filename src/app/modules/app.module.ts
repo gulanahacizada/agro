@@ -14,6 +14,7 @@ import * as ngxOwlCarousel from 'ngx-owl-carousel';
 import { HomeComponent } from '../pages/home/home.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AppSharedModule } from '../shared/appShared.module';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -33,6 +34,7 @@ import { AppSharedModule } from '../shared/appShared.module';
     RadioButtonModule,
     CKEditorModule,
     AppSharedModule,
+    ChartsModule,
     ngxOwlCarousel.OwlModule,
     TranslateModule.forRoot({
       loader: {

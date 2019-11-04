@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'contact-us',
     loadChildren: () => import('../pages/birja-info/contact-us/modules/contact-us.module').then(m => m.ContactUsModule)
   },
+  {
+    path: 'birja-top',
+    loadChildren: () => import('../pages/birja-info/birja-top/modules/birja-top.module').then(m => m.BirjaTopModule)
+  },
 
   {
     path: 'confirm-email/:id',

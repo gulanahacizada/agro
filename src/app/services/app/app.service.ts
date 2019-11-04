@@ -40,6 +40,9 @@ export class AppService extends HttpsService {
   public SEND_REQUEST = 'offers';
   public STATISTIK_PRODUCTS = 'statistics/product/price/avg';
   public SALES_PRODUCTS_STATS = 'product/grouped';
+  public CURRENCY_STATISTICS =  'statistics/1000/manats/currency';
+  public METALS_STATISTICS =  'statistics/1000/manats/metals';
+  public PRODUCTS_STATISTICS =  'statistics/1000/manats/products';
 
   constructor(public http: HttpClient) {
     super();

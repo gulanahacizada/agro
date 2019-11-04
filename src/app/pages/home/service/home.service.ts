@@ -17,4 +17,15 @@ export class HomeService extends AppService {
   }
 
 
+  public curencyStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.CURRENCY_STATISTICS, params);
+  }
+
+  public metalStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.METALS_STATISTICS, params);
+  }
+  public productsStat(params: any = {}): Observable<any> {
+    return this.get(this.http, this.PRODUCTS_STATISTICS, params);
+  }
+
 }
