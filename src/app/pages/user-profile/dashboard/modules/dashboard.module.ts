@@ -6,12 +6,14 @@ import {HttpClient } from '@angular/common/http';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from '../dashboard.component';
+import { AppSharedModule } from 'src/app/shared/appShared.module';
 
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    AppSharedModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -9,7 +9,6 @@ import { Unit } from 'src/app/interfaces/unit';
 import { Kalibry } from 'src/app/interfaces/kalibry';
 import { Category } from 'src/app/interfaces/category';
 import { Kinds } from 'src/app/interfaces/kinds';
-import * as $ from 'jquery';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -179,19 +178,27 @@ export class AddProductComponent implements OnInit {
   }
 
   onFileChange(event) {
+    console.log(event.target.files)
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
       this.file = file;
       reader.readAsDataURL(file);
-      // reader.onload = () => {
-      //   this.imgURL = reader.result;
-      //   this.fileRaw = (<string>reader.result).split(',')[1];
-      //   this.url = reader.result.toString();
-
-      // };
+      console.log('wwww');
+      reader.onload = () => {
+        this.imgURL = reader.result;
+        this.fileRaw = (<string>reader.result).split(',')[1];
+        this.url = reader.result.toString();
+      };
     }
   }
+
+  delatePhoto() {
+    this.imgURL = null,
+    this.url = null,
+    this.file = {}
+  }
+
 
   onUnitSelect(event) {
     this.selectUnit = event.originalEvent.target.textContent;

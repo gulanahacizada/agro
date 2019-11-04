@@ -87,7 +87,7 @@
           <tr *ngFor="let product of productList; let i=index; trackBy:birjaService.trackByFn">
             <td class="pr-0">
               <div class="thumb responsive pb-in-100 radius-50p w-30 border">
-                <img src="{{product?.images[0]?.url}}" width="30" height="30">
+                <img src="{{product?.images[0]?.url | set_image: 3}}" width="30" height="30">
               </div>
             </td>
             <td width="30%">
@@ -105,9 +105,9 @@
             <td><span class="text-special bold">{{product?.common}} {{product?.unit?.name}} </span></td>
             <td>
               <div class="progress radius-5 w-100">
-                <div [ngStyle]="{'width': product?.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
+                <div [ngStyle]="{'width': (product?.sell *100 / product?.common | number)  + '%'}" class="progress-bar radius-5 bg-main text-right"
                   role="progressbar">
-                  {{product?.sell}} %</div>
+                  {{ (product?.sell *100 / product?.common) | number}} %</div>
               </div>
             </td>
             <td>

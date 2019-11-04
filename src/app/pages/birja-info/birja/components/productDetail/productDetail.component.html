@@ -30,8 +30,7 @@
         <div class="col as-5 sm-6 xs-12 pb-10">
           <div class="thumb responsive pb-in-80">
             <!--Əsas Şəkil-->
-            <!-- <img *ngIf="!productResponse?.images[0]?.url" src="../../../../../../assets/images/Photo_Add.png" alt=""> -->
-            <img *ngIf="productResponse?.images[0]?.url" src="{{productResponse?.images[0]?.url}}" alt="Product name"
+            <img  src="{{productResponse?.images[0]?.url | set_image:3}}" alt="Product name"
               width="480" height="310">
           </div>
         </div>
@@ -61,7 +60,11 @@
               </tr>
               <tr>
                 <td class="bold">{{'price' | translate}}:</td>
-                <td>{{productResponse?.price}} AZN</td>
+                <td>
+                    <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">{{productResponse?.price}}
+                        <i aria-hidden="true" class="icon-currency-azn small"></i> / {{productResponse?.unit?.name}}
+                      </span>
+                </td>
               </tr>
               <tr *ngIf="productResponse?.kalibry">
                 <td class="bold">{{'kalibry' | translate}}:</td>

@@ -2,6 +2,7 @@
 <div class="bg-white">
   <div class="container as-10 xl-15 lg-15 pt-20 pb-20">
     <div class="table-responsive border-0">
+   
       <table class="table custom-table bg-gray shadow-big">
         <thead class="bg-white">
           <tr>
@@ -18,8 +19,8 @@
         <tbody class="no-wrap">
           <tr *ngFor="let product of productList; let i=index; trackBy: homeService.trackByFn">
             <td class="pr-0">
-              <div *ngIf="product?.images[0]?.url" class="thumb responsive pb-in-100 radius-50p w-30 border">
-                <img src="{{product?.images[0]?.url}}" alt="MARS-FK LTD MMM" width="30" height="30">
+              <div  class="thumb responsive pb-in-100 radius-50p w-30 border">
+                <img src="{{product?.images[0]?.url | set_image: 3}}" alt="MARS-FK LTD MMM" width="30" height="30">
               </div>
             </td>
             <td width="30%">
@@ -38,8 +39,8 @@
             <td><span class="text-special bold">{{product?.common}} {{product?.unit?.name}} </span></td>
             <td>
               <div class="progress radius-5 w-100">
-                <div [ngStyle]="{'width': product?.sell + '%'}" class="progress-bar radius-5 bg-main text-right"
-                  role="progressbar"> {{product?.sell}} %</div>
+                <div [ngStyle]="{'width': (product?.sell *100 / product?.common) + '%'}" class="progress-bar radius-5 bg-main text-right"
+                  role="progressbar"> {{ (product?.sell *100 / product?.common) | number}} %</div>
               </div>
             </td>
             <td>
@@ -71,8 +72,9 @@
     <div class="item bg-white" *ngFor="let member of membersList; trackBy: homeService.trackByFn">
       <a [routerLink]="[ '/companyInfo/profile', member.id ]" title="{{member?.description}}" class="block clear">
         <div class="thumb hover scale responsive pb-in-65">
-          <img src="{{member?.avatar}}" alt="title" width="" height="">
+          <img src = "{{member?.avatar | set_image: 1}}" alt="title" width="" height="">
         </div>
+        <!-- <img src="../../../assets/images/fotorama.png" alt=""> -->
         <div class="info p-15 text-center tr-3s">
           <span class="title font-16 bold line-clamp line-1">{{member?.name}} </span>
         </div>
@@ -117,7 +119,7 @@
       <div class="col as-12 lg-7 mb-40">
         <div class="section-title-wrap w-100p d-table mb-10 pb-10">
           <h2 class="section-title relative bold text-uppercase mb-0">
-            <a title="Satışda" class="d-block" [attr.data-see-all]="'seeAll'| translate"> {{'onSale'| translate }}</a>
+            <a [routerLink]="['/news']"  title="Satışda" class="d-block" [attr.data-see-all]="'seeAll'| translate"> {{'onSale'| translate }}</a>
           </h2>
         </div>
         <div class="table-responsive border-0">
@@ -151,10 +153,10 @@
               </td>
               <td><span class="text-special bold">{{item?.common}} {{item?.unit?.name}}</span></td>
               <!-- <td>
-                <div class="progress radius-5 w-100">
-                  <div class="progress-bar radius-5 bg-main text-right" role="progressbar" style="width: 70%">70%
-                  </div>
-                </div>
+                  <div class="progress radius-5 w-100">
+                      <div [ngStyle]="{'width': (item?.sell *100 / item?.common) + '%'}" class="progress-bar radius-5 bg-main text-right"
+                        role="progressbar"> {{ (item?.sell *100 / item?.common) | number}} %</div>
+                    </div>
               </td> -->
             </tr>
             </tbody>
