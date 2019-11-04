@@ -29,8 +29,8 @@
                 <td>
                     <div class="progress radius-5 w-100">
                         <div class="progress-bar radius-5 bg-main text-right" role="progressbar"
-                        [ngStyle]="{'width': product?.sell + '%'}"
-                        > {{product?.sell}} %</div>
+                        [ngStyle]="{'width': (product?.sell *100 / product?.common |number)  + '%'}"
+                        > {{(product?.sell *100 / product?.common)|number }} %</div>
                     </div>
                 </td>
                 <td>

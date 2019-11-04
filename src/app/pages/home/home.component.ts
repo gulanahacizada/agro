@@ -132,7 +132,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getAStatistics() {
     this.homeService.statistics({ perpage: '7' }).subscribe((response: Response) => {
-        console.log(response.responseContent);
+        console.log(response.responseContent.data);
         if (response.responseCode == 1) {
           this.productStat = response.responseContent.data;
         }

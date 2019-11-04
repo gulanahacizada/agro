@@ -46,7 +46,7 @@
               </div>
             </div>
           </td>
-          <td>21.08.2019, 14:36</td>
+          <td>{{offer?.messages[0]?.created_at | date : 'dd/MM/yyyy'}}</td>
           <td>
             <a [routerLink]="[ 'details', offer?.id ]" rel="external" aria-label="Bax" title="Bax" data-toggle="tooltip"
               class="btn xs circle bg-white shadow border-0">

@@ -60,7 +60,11 @@
               </tr>
               <tr>
                 <td class="bold">{{'price' | translate}}:</td>
-                <td>{{productResponse?.price}} AZN</td>
+                <td>
+                    <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">{{productResponse?.price}}
+                        <i aria-hidden="true" class="icon-currency-azn small"></i> / {{productResponse?.unit?.name}}
+                      </span>
+                </td>
               </tr>
               <tr *ngIf="productResponse?.kalibry">
                 <td class="bold">{{'kalibry' | translate}}:</td>

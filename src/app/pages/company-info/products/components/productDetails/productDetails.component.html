@@ -5,9 +5,9 @@
         <div class="col as-5 sm-6 xs-12 pb-10">
           <div class="thumb responsive pb-in-80">
             <!--Əsas Şəkil-->
-            <img  src="{{productResponse?.images[0]?.url | set_image:3}}" alt="Product name" width="480" height="310">
+            <img src="{{productResponse?.images[0]?.url | set_image:3}}" alt="Product name" width="480" height="310">
             <!--Digər şəkillər-->
-          
+
             <!-- <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
                       <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a>
                       <a href="assets/images/ulu.png" data-thumb="assets/images/ulu.png"></a> -->
@@ -23,8 +23,8 @@
               <tr>
                 <td class="bold">Şirkət:</td>
                 <td>
-                  <a *ngIf="productResponse?.user" [routerLink]="['/companyInfo/profile', productResponse.user.id ]" title="MARS-FK LTD MMM"
-                    class="bold">
+                  <a *ngIf="productResponse?.user" [routerLink]="['/companyInfo/profile', productResponse.user.id ]"
+                    title="MARS-FK LTD MMM" class="bold">
                     {{productResponse?.user?.name}}
                   </a>
                 </td>
@@ -39,9 +39,13 @@
               </tr>
               <tr>
                 <td class="bold">Qiymət</td>
-                <td>{{productResponse?.price}} AZN</td>
+                <td>
+                  <span class="p-5 pl-7 pr-7 bg-gray radius-4 text-green bold">{{productResponse?.price}}
+                    <i aria-hidden="true" class="icon-currency-azn small"></i> / {{productResponse?.unit?.name}}
+                  </span>
+                </td>
               </tr>
-              <tr>
+              <tr *ngIf="productResponse.kolibry" >
                 <td class="bold">Kalibri:</td>
                 <td> {{productResponse?.kolibry?.name}} </td>
               </tr>
@@ -49,11 +53,11 @@
                 <td class="bold">Miqdarı</td>
                 <td>{{productResponse?.common}} {{productResponse?.unit?.name}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="productResponse.accumulated_at">
                 <td class="bold">Yıgılma tarixi</td>
                 <td>{{productResponse?.accumulated_at | date: 'dd/MM/yyyy'}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="productResponse.expiry_time">
                 <td class="bold">Saxlanma tarixi</td>
                 <td>{{productResponse?.expiry_time | date: 'dd/MM/yyyy'}}</td>
               </tr>
