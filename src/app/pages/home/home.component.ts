@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   barChartData: ChartDataSets[];
-  pieChartData: ChartDataSets[];
 
   public barChartLabels: Label[] = ['1000 AZN'];
   public barChartType: ChartType = 'bar';
@@ -241,7 +240,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (response.responseCode == 1) {
         this.chartProductStat = response.responseContent;
         this.chartProductStat = this.chartProductStat.map(r => ({
-          label: r.Name,
+          label: r.Name + ' ' + '1' + r.Unit,
           data: [r.Value]
         }));
         this.barChartData = this.chartProductStat;
