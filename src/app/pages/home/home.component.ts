@@ -22,6 +22,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     legend: {
       position: 'bottom',
     },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data[ctx.dataIndex];
+          return label;
+        },
+      },
+    },
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
       xAxes: [{}],
@@ -29,32 +37,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
   };
 
-  public pieChartOption: ChartOptions = {
-    responsive: true,
-    legend: {
-      position: 'bottom',
-    },
-    plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
-    }
 
-  };
   barChartData: ChartDataSets[];
   pieChartData: ChartDataSets[];
 
   public barChartLabels: Label[] = ['1000 AZN'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
-
-
-  public pieChartType: ChartType = 'pie';
-  public pieChartLabels: Label[] = ['', '', '', ''];
-  public pieChartPlugins = [pluginDataLabels];
+  public barChartPlugins = [pluginDataLabels];
 
 
   allNews: any;
@@ -78,9 +68,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       { data: [], label: '' },
       { data: [], label: '' },
       { data: [], label: '' }
-    ];
-    this.pieChartData = [
-      { data: [0, 0, 0, 0] },
     ];
   }
 
@@ -206,20 +193,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
       // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.currencyStat = response.responseContent;
-        // this.barChartData = [
-        //   { data: [], label: '' },
-        //   { data: [], label: '' },
-        //   { data: [], label: '' },
-        //   { data: [], label: '' }
-        // ];
-        // tslint:disable-next-line: max-line-length
-        this.pieChartData[0].data = [
-          this.currencyStat.USD.Value.toFixed(1),
-          this.currencyStat.RUB.Value.toFixed(1),
-          this.currencyStat.EUR.Value.toFixed(1),
-          this.currencyStat.TRY.Value.toFixed(1)
+        this.barChartData = [
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' },
+          { data: [], label: '' }
         ];
-        this.pieChartLabels = ['USD', 'RUB', 'EUR', 'TL'];
+        // tslint:disable-next-line: max-line-length
+        this.barChartData[0].data = [this.currencyStat.USD.Value];
+        this.barChartData[0].label = this.currencyStat.USD.Name;
+        this.barChartData[1].data = [this.currencyStat.RUB.Value];
+        this.barChartData[1].label = this.currencyStat.RUB.Name;
+        this.barChartData[2].data = [this.currencyStat.EUR.Value];
+        this.barChartData[2].label = this.currencyStat.EUR.Name;
+        this.barChartData[3].data = [this.currencyStat.TRY.Value];
+        this.barChartData[3].label = this.currencyStat.TRY.Name;
       }
     });
   }
@@ -235,20 +223,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           { data: [], label: '' },
           { data: [], label: '' }
         ];
-
-        this.pieChartData[0].data = [
-          this.metalsStat.XAG.Value.toFixed(1),
-          this.metalsStat.XAU.Value.toFixed(1),
-          this.metalsStat.XPD.Value.toFixed(1),
-          this.metalsStat.XPT.Value.toFixed(1)
-        ];
-        this.pieChartLabels = [
-          this.metalsStat.XAG.Name,
-          this.metalsStat.XAU.Name,
-          this.metalsStat.XPD.Name,
-          this.metalsStat.XPT.Name
-          ];
-
         this.barChartData[0].data = [this.metalsStat.XAG.Value];
         this.barChartData[0].label = this.metalsStat.XAG.Name;
         this.barChartData[1].data = [this.metalsStat.XAU.Value];
