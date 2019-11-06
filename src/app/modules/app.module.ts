@@ -15,6 +15,9 @@ import { HomeComponent } from '../pages/home/home.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AppSharedModule } from '../shared/appShared.module';
 import { ChartsModule } from 'ng2-charts';
+import { LoaderInterceptor } from '../services/loader/loader.interceptor';
+import { LoaderService } from '../services/loader/loader.service';
+import { SpinerComponent } from '../services/loader/spiner/spiner.component';
 
 
 
@@ -23,6 +26,7 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     HomeComponent,
+    SpinerComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -45,8 +49,10 @@ import { ChartsModule } from 'ng2-charts';
   })
   ],
   providers: [
+    LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
