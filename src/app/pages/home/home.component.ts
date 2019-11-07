@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 import { HomeService } from './service/home.service';
 import { ProductsService } from '../user-profile/products/services/products.service';
@@ -19,13 +19,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
+    legend: {
+      position: 'bottom',
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data[ctx.dataIndex];
+          return label;
+        },
+      },
+    },
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
+    scales: {
+      xAxes: [{}],
+      yAxes: [{}]
+    },
   };
+
+
   barChartData: ChartDataSets[];
+
   public barChartLabels: Label[] = ['1000 AZN'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
+  public barChartPlugins = [pluginDataLabels];
+
 
   allNews: any;
   newOwlOptions: any;
@@ -161,7 +180,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getAStatistics() {
-    this.homeService.statistics({ per_page: 7 }).subscribe((response: Response) => {
+    this.homeService.statistics({ per_page: 8 }).subscribe((response: Response) => {
       // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.productStat = response.responseContent.data;
@@ -179,6 +198,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           { data: [], label: '' },
           { data: [], label: '' }
         ];
+        // tslint:disable-next-line: max-line-length
         this.barChartData[0].data = [this.currencyStat.USD.Value];
         this.barChartData[0].label = this.currencyStat.USD.Name;
         this.barChartData[1].data = [this.currencyStat.RUB.Value];
@@ -220,7 +240,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (response.responseCode == 1) {
         this.chartProductStat = response.responseContent;
         this.chartProductStat = this.chartProductStat.map(r => ({
-          label: r.Name,
+          label: r.Name + ' ' + '1' + r.Unit,
           data: [r.Value]
         }));
         this.barChartData = this.chartProductStat;

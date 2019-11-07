@@ -105,19 +105,33 @@
                     <span class="menu-item p-15" role="tab">{{'products' | translate}}</span>
                 </li>
             </ul>
-
+<!-- 
+            <canvas baseChart
+            [datasets]="pieChartData"
+            [labels]="pieChartLabels"
+            [options]="pieChartOption"
+            [plugins]="pieChartPlugins"
+            [chartType]="pieChartType">
+        </canvas> -->
+          
             <canvas baseChart
               [datasets]="barChartData"
               [labels]="barChartLabels"
-              [options]="barChartOptions"
+              [options]="barChartOptions" 
               [legend]="barChartLegend"
+              [plugins]="barChartPlugins"
               [chartType]="barChartType">
           </canvas>
 
         </div>
 
         <div class="col as-12 lg-6 mb-40">
-
+            <div class="section-title-wrap w-100p d-table mb-10 pb-10">
+                <h2 class="section-title relative bold text-uppercase mb-0">
+                    <span class="d-block">1000 AZN nə oldu?</span>
+                </h2>
+            </div>
+ 
             <!-- <div class="section-title-wrap w-100p d-table mb-10 pb-10">
                 <h2 class="section-title relative bold text-uppercase mb-0">
                     <span class="d-block">Məhsuldarlıq statistikası</span>
