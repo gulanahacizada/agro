@@ -178,13 +178,11 @@ export class AddProductComponent implements OnInit {
   }
 
   onFileChange(event) {
-    console.log(event.target.files)
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
       this.file = file;
       reader.readAsDataURL(file);
-      console.log('wwww');
       reader.onload = () => {
         this.imgURL = reader.result;
         this.fileRaw = (<string>reader.result).split(',')[1];

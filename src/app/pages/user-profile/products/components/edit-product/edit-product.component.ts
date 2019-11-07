@@ -94,7 +94,6 @@ export class EditProductComponent implements OnInit {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
       this.productResponse = response.responseContent;
       this.selectUnit = this.productResponse.unit.name;
-      console.log(this.productResponse);
       this.productEditForm.patchValue({
         // parent_id: this.productResponse.category.parent_id,
         id: this.productResponse.id,
@@ -217,13 +216,11 @@ export class EditProductComponent implements OnInit {
   }
 
   onFileChange(event) {
-    console.log(event.target.files)
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
       this.file = file;
       reader.readAsDataURL(file);
-      console.log('wwww');
       reader.onload = () => {
         this.imgURL = reader.result;
         this.fileRaw = (<string>reader.result).split(',')[1];
