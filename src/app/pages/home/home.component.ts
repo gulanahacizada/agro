@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
           const label = ctx.chart.data[ctx.dataIndex];
           return label;
         },
+        anchor: 'end',
+        align: 'end',
       },
     },
     // We use these empty structures as placeholders for dynamic theming.
@@ -241,7 +243,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.chartProductStat = response.responseContent;
         this.chartProductStat = this.chartProductStat.map(r => ({
           label: r.Name + ' ' + '1' + r.Unit,
-          data: [r.Value]
+          data: [r.Value + 'dfd']
         }));
         this.barChartData = this.chartProductStat;
       }

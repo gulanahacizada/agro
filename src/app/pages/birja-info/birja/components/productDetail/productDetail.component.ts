@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'app-productDetail',
   templateUrl: './productDetail.component.html',
   styleUrls: ['./productDetail.component.scss']
@@ -14,6 +15,7 @@ export class ProductDetailComponent implements OnInit {
 
   productResponse: any;
   id: '';
+  chekLogin: boolean = false;
   selfID: any;
   proposalForm: FormGroup;
   totalPrice: any;
@@ -37,14 +39,22 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.getProdById();
     this.createProposalForm();
+    if (!localStorage.getItem('jwt_c')) {
+      this.chekLogin = true;
+    }
+    console.log(this.chekLogin + '111');
+    
+
     // this.myProducts();
   }
 
   getProdById() {
     this.productService.getProdById(this.id).subscribe((response: Response) => {
+      // tslint:disable-next-line: triple-equals
       if (response.responseCode == 1) {
         this.productResponse = response.responseContent;
         this.description = response.responseContent[`description_${this.activeLang}`];
+        // tslint:disable-next-line: triple-equals
         if (this.productResponse.user.id == this.selfID) {
           this.myProduct = true;
         }
@@ -94,11 +104,13 @@ export class ProductDetailComponent implements OnInit {
     });
     if (this.proposalForm.valid) {
       this.productService.createDialog(this.proposalForm.value).subscribe((res: Response) => {
+        // tslint:disable-next-line: triple-equals
         if (res.responseCode == 1) {
           this.proposalForm.reset();
         }
       });
     }
   }
+
 
 }

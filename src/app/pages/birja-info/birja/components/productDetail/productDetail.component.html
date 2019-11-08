@@ -86,12 +86,12 @@
             </tbody>
           </table>
           
-          <div *ngIf="selfID && !myProduct" class="bg-gray p-10">
+          <div *ngIf="!myProduct" class="bg-gray p-10">
             <div class="panel-header bg-white">
               <span class="panel-title bold text-main">{{'offerComponent.offer' | translate}}</span>
             </div>
             <div class="bg-white p-20">
-              <form [formGroup]='proposalForm' (ngSubmit)="submit()" class="row as-10">
+              <form  [formGroup]='proposalForm' class="row as-10">
                 <div class="col as-4 xs-12 mb-20">
                   <label for="offer-amount">{{'offerComponent.needCommon' | translate}}</label>
                   <div class="input-group radius-20 shadow-big">
@@ -123,7 +123,9 @@
                     cols="30" rows="4" placeholder="{{'offerComponent.writeCommit' | translate}}"></textarea>
                 </div>
                 <div class="col as-12">
-                  <button [disabled]="!proposalForm.valid" type="submit"
+                  <button *ngIf="!chekLogin" [disabled]="!proposalForm.valid" (click)="submit()" type="submit"
+                    class="btn bg-special border-0 radius-20 shadow-big">{{'offerComponent.sendOffer' | translate}}</button>
+                    <button data-target-modal="login" *ngIf="chekLogin"   type="button"
                     class="btn bg-special border-0 radius-20 shadow-big">{{'offerComponent.sendOffer' | translate}}</button>
                 </div>
               </form>
