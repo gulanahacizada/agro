@@ -224,13 +224,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
           { data: [], label: '' },
           { data: [], label: '' }
         ];
-        this.barChartData[0].data = [this.metalsStat.XAG.Value];
+        this.barChartData[0].data = [this.metalsStat.XAG.Value.toFixed(2)];
         this.barChartData[0].label = this.metalsStat.XAG.Name;
-        this.barChartData[1].data = [this.metalsStat.XAU.Value];
+        this.barChartData[1].data = [this.metalsStat.XAU.Value.toFixed(2)];
         this.barChartData[1].label = this.metalsStat.XAU.Name;
-        this.barChartData[2].data = [this.metalsStat.XPD.Value];
+        this.barChartData[2].data = [this.metalsStat.XPD.Value.toFixed(2)];
         this.barChartData[2].label = this.metalsStat.XPD.Name;
-        this.barChartData[3].data = [this.metalsStat.XPT.Value];
+        this.barChartData[3].data = [this.metalsStat.XPT.Value.toFixed(2)];
         this.barChartData[3].label = this.metalsStat.XPT.Name;
       }
     });
