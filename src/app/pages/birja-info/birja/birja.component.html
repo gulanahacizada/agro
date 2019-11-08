@@ -30,33 +30,33 @@
         <div class="row as-5">
           <div class="col md-6 sm-6 xs-6 mb-20">
             <p-dropdown [options]="categoryList" (onChange)='onSelectCategory($event)' placeholder="{{'select.category' | translate}}"
-              filter="true" class="input custom select border-0 radius-20 shadow-big">
+              filter="true" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <p-dropdown [options]="prodSelectList" formControlName="category_id" (onChange)="onSelectProduct($event)"
-            placeholder="{{'select.product' | translate}}" filter="true" class="input custom select border-0 radius-20 shadow-big">
+            placeholder="{{'select.product' | translate}}" filter="true" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <p-dropdown [options]="kindList" formControlName="kind_id" placeholder="{{'select.kind' | translate}}" filter="true"
-              class="input custom select border-0 radius-20 shadow-big">
+              class="input custom-input o-inherit select border-0 radius-20 shadow-big">
             </p-dropdown>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
             <div class="col md-6 sm-6 xs-6 mb-20">
               <p-dropdown [options]="sellerList" formControlName="user_id" placeholder="{{'select.company' | translate}}" filter="true"
-                class="input custom select border-0 radius-20 shadow-big">
+                class="input custom-input o-inherit select border-0 radius-20 shadow-big">
               </p-dropdown>
             </div>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
-            <p-calendar class="input custom select border-0 radius-20 shadow-big" placeholder="../../...."
+            <p-calendar class="input custom-input o-inherit select border-0 radius-20 shadow-big" placeholder="../../...."
               name="preparingDate" formControlName="from" dateFormat="yy-mm-dd" [dataType]="'string'">
             </p-calendar>
           </div>
           <div class="col md-6 sm-6 xs-6 mb-20">
-            <p-calendar class="input custom select border-0 radius-20 shadow-big" placeholder="../../...."
+            <p-calendar class="input custom-input o-inherit select border-0 radius-20 shadow-big" placeholder="../../...."
               name="preparingDate" formControlName="to" dateFormat="yy-mm-dd" [dataType]="'string'">
             </p-calendar>
           </div>

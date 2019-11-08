@@ -28,47 +28,47 @@
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'category' | translate}}</label>
         <p-dropdown [options]="categoryList" (onChange)="onSelectCategory($event)" placeholder="{{'select.category' | translate}}"
-          filter="true" class="input custom select border-0 radius-20 shadow-big">
+          filter="true" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'product' | translate}}</label>
         <p-dropdown formControlName='category_id' [options]="productList" (onChange)="onSelectProduct($event)"
           placeholder=" {{productResponse?.category?.name}} " filter="true"
-          class="input custom select border-0 radius-20 shadow-big">
+          class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'type' | translate}}</label>
         <p-dropdown formControlName='kind_id' filter="true" [options]="kindList"
-          placeholder="{{productResponse?.kind?.name}}" class="input custom select border-0 radius-20 shadow-big">
+          placeholder="{{productResponse?.kind?.name}}" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'quality' | translate}}</label>
         <p-dropdown formControlName="quality_id" [options]="qualityList"
           placeholder="{{productResponse?.quality?.name}}" filter="true"
-          class="input custom select border-0 radius-20 shadow-big">
+          class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'packege' | translate}}</label>
         <p-dropdown formControlName="package_id" [options]="packegeList" placeholder="{{productResponse?.packeg?.name}}"
-          filter="true" class="input custom select border-0 radius-20 shadow-big">
+          filter="true" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10"> {{'productKalibry' | translate}}</label>
         <p-dropdown formControlName="kalibry_id" [options]="kalibryList"
           placeholder="{{productResponse?.kalibry?.name}}" filter="true"
-          class="input custom select border-0 radius-20 shadow-big">
+          class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
 
       <div class="col as-3 md-4 sm-6 mb-20">
         <label for="prod_name" class="pl-10">{{'unit' | translate}}</label>
         <p-dropdown formControlName="unit_id" [options]="unitList" (onChange)="onUnitSelect($event)"  placeholder="{{productResponse?.unit?.name}}"
-          filter="true" class="input custom select border-0 radius-20 shadow-big">
+          filter="true" class="input custom-input o-inherit select border-0 radius-20 shadow-big">
         </p-dropdown>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
@@ -81,13 +81,13 @@
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">{{'accumulated_at' | translate}}</label>
-        <p-calendar formControlName="accumulated_at" class="input custom border-0 radius-20 shadow-big"
+        <p-calendar formControlName="accumulated_at" class="input custom-input o-inherit border-0 radius-20 shadow-big"
           placeholder="../../...." name="preparingDate" dateFormat="yy-mm-dd" [dataType]="'string'">
         </p-calendar>
       </div>
       <div class="col as-3 md-4 sm-6 xs-12 mb-20 pb-10">
         <label for="" class="pl-10">{{'expiry_time' | translate}}</label>
-        <p-calendar formControlName="expiry_time" class="input custom border-0 radius-20 shadow-big"
+        <p-calendar formControlName="expiry_time" class="input custom-input o-inherit border-0 radius-20 shadow-big"
           placeholder="../../...." name="preparingDate" dateFormat="yy-mm-dd" [dataType]="'string'">
         </p-calendar>
       </div>
