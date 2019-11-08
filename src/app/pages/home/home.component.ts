@@ -243,7 +243,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.chartProductStat = response.responseContent;
         this.chartProductStat = this.chartProductStat.map(r => ({
           label: r.Name + ' ' + '1' + r.Unit,
-          data: [r.Value + 'dfd']
+          data: [r.Value]
         }));
         this.barChartData = this.chartProductStat;
       }
