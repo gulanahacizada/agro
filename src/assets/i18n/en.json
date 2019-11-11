@@ -48,7 +48,7 @@
     "mission": "Our mission",
     "mainMenu": "Main menu",
     "rightsReserved": "Rights reserved",
-    "loginYourAccount": "Logi your account",
+    "loginYourAccount": "Login your account",
     "userName": "UserName",
     "password": "Password",
     "confirmPassword": "Confirm password",
@@ -58,7 +58,7 @@
     "comleteRegister": "Comlete register",
     "verifyEmail": "Verify e-mail",
     "verifyWhitEmail": "Verify account Whit Email",
-    "verifyWhitPhone": "Verify account Whith Phone", 
+    "verifyWhitPhone": "Verify account Whith Phone",
     "createNewAccount": "Create new account",
     "entityUser": "As a legal entity",
     "entityREgistration": "Legal entity registration",
@@ -73,10 +73,10 @@
     "productKalibry": "Calibr of product",
     "common":  "Amount",
     "edit": "Edit",
-    
+
     "accumulated_at": "Date of accumulation",
     "expiry_time": "Storage date",
-  
+
     "select" : {
         "category": "Select a category",
         "product": "Select the product",
@@ -170,5 +170,5 @@
         "apricot": "Apricot",
         "nut": "Nuts"
     }
-    
+
 }

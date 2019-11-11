@@ -58,7 +58,6 @@ export class DashboardComponent implements OnInit {
 
     this.dashbordService.createUserAvatar(file).subscribe((res: any) => {
       if (res.body && res.body.responseCode == 1) {
-          console.log('ok');
       }
     });
   }

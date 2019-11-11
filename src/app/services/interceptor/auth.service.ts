@@ -38,13 +38,11 @@ export class AuthService {
         window.location.reload();
       }
     });
-    // console.log(this.authTokenNew)
     return of(this.authTokenNew);
     // return of(this.authTokenNew).pipe(delay(1000))
 
     // return Observable.create(obs => {
     //   obs.next(this.authTokenNew);
-    //   console.log(this.authTokenNew)
     //   obs.complete();
     // }).delay(3000);
   }
