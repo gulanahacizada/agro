@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-.custom{
-    overflow: inherit !important;
+.custom-input{
     .ui-inputtext{
         padding: 0.729em !important;
     }
@@ -20,6 +19,10 @@
      }
 }
 input:read-only {
-    opacity: .3;
+  pointer-events: none;
+}
+
+.o-inherit{
+  overflow: inherit !important;
 }
 

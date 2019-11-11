@@ -42,8 +42,6 @@ export class ProductDetailComponent implements OnInit {
     if (!localStorage.getItem('jwt_c')) {
       this.chekLogin = true;
     }
-
-
     // this.myProducts();
   }
 

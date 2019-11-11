@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,YAAY,CACV,QAAQ,CAAE,KAAK,CACf,GAAG,CAAE,CAAC,CACN,IAAI,CAAE,CAAC,CACP,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,OAAO,CAAE,OAAO,CAChB,gBAAgB,CAAE,OAAO,CACzB,gBAAgB,CAAE,iCAAiC,CACnD,mBAAmB,CAAE,MAAM,CAC3B,eAAe,CAAE,QAAQ,CACzB,iBAAiB,CAAE,SAAS",
+"sources": ["spiner.component.scss"],
+"names": [],
+"file": "spiner.component.min.css"
+}

@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import * as $ from 'jquery';
 
 import { HomeService } from './service/home.service';
 import { ProductsService } from '../user-profile/products/services/products.service';
@@ -41,8 +42,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   barChartData: ChartDataSets[];
+  barAreaStatData: ChartDataSets[];
 
   public barChartLabels: Label[] = ['1000 AZN'];
+  public barAreaStatLabels: Label[] = [''];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
@@ -64,12 +67,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private elementRef: ElementRef,
   ) {
     this.getCurrencyStat();
+    this.getAppleStat();
     this.barChartData = [
       { data: [], label: '' },
       { data: [], label: '' },
       { data: [], label: '' },
       { data: [], label: '' }
     ];
+
+    this.barAreaStatData = [
+      {data: [358], label: 'Bakı şəhəri'},
+      {data: [23966], label: 'Gəncə-Qazax'},
+      {data: [26057], label: 'Şəki-Zaqatala'},
+      {data: [1323], label: 'Lənkəran'},
+      {data: [196623], label: 'Guba-Xaçmaz'},
+      {data: [5795], label: 'Aran rayonu'},
+      {data: [6695], label: 'Daglıg Şırvan rayonu'},
+      {data: [14915], label: 'Naxçıvan MR'},
+    ];
+    this.barAreaStatLabels = ['Alma (Ton)'];
   }
 
   ngOnInit() {
@@ -78,6 +94,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getAllProduct();
     this.getAllMembers();
     this.getAStatistics();
+    $('.chart-menu li').click(function() {
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+    });
   }
 
 
@@ -224,13 +244,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
           { data: [], label: '' },
           { data: [], label: '' }
         ];
-        this.barChartData[0].data = [this.metalsStat.XAG.Value];
+        this.barChartData[0].data = [this.metalsStat.XAG.Value.toFixed(2)];
         this.barChartData[0].label = this.metalsStat.XAG.Name;
-        this.barChartData[1].data = [this.metalsStat.XAU.Value];
+        this.barChartData[1].data = [this.metalsStat.XAU.Value.toFixed(2)];
         this.barChartData[1].label = this.metalsStat.XAU.Name;
-        this.barChartData[2].data = [this.metalsStat.XPD.Value];
+        this.barChartData[2].data = [this.metalsStat.XPD.Value.toFixed(2)];
         this.barChartData[2].label = this.metalsStat.XPD.Name;
-        this.barChartData[3].data = [this.metalsStat.XPT.Value];
+        this.barChartData[3].data = [this.metalsStat.XPT.Value.toFixed(2)];
         this.barChartData[3].label = this.metalsStat.XPT.Name;
       }
     });
@@ -243,7 +263,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.chartProductStat = response.responseContent;
         this.chartProductStat = this.chartProductStat.map(r => ({
           label: r.Name + ' ' + '1' + r.Unit,
-          data: [r.Value + 'dfd']
+          data: [r.Value]
         }));
         this.barChartData = this.chartProductStat;
       }
@@ -254,5 +274,78 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
   changeProductChart() {
     this.getProductStat();
+  }
+
+  getAppleStat() {
+    this.barAreaStatLabels = ['Alma (Ton)'];
+    this.barAreaStatData = [
+      {data: [358], label: 'Bakı şəhəri'},
+      {data: [23966], label: 'Gəncə-Qazax'},
+      {data: [26057], label: 'Şəki-Zaqatala'},
+      {data: [1323], label: 'Lənkəran'},
+      {data: [196623], label: 'Guba-Xaçmaz'},
+      {data: [5795], label: 'Aran rayonu'},
+      {data: [6695], label: 'Daglıg Şırvan rayonu'},
+      {data: [14915], label: 'Naxçıvan MR'},
+
+    ];
+  }
+
+  getPeachStat() {
+    this.barAreaStatLabels = ['Şaftalı (Ton)'];
+    this.barAreaStatData = [
+      {data: [142], label: 'Bakı şəhəri'},
+      {data: [5495], label: 'Gəncə-Qazax'},
+      {data: [1902], label: 'Şəki-Zaqatala'},
+      {data: [424], label: 'Lənkəran'},
+      {data: [7737], label: 'Guba-Xaçmaz'},
+      {data: [3873], label: 'Aran rayonu'},
+      {data: [5802], label: 'Naxçıvan MR'},
+    ];
+  }
+
+  getCornStat() {
+    this.barAreaStatLabels = ['Buğda (Ton)'];
+    this.barAreaStatData = [
+      {data: [229908], label: 'Gəncə-Qazax'},
+      {data: [292466], label: 'Şəki-Zaqatala'},
+      {data: [153018], label: 'Guba-Xaçmaz'},
+      {data: [685930], label: 'Aran rayonu'},
+    ];
+  }
+
+  getPalmStat() {
+    this.barAreaStatLabels = ['Xurma (Ton)'];
+    this.barAreaStatData = [
+      {data: [66828], label: 'Gəncə-Qazax'},
+      {data: [22158], label: 'Şəki-Zaqatala'},
+      {data: [8591], label: 'Guba-Xaçmaz'},
+      {data: [54930], label: 'Aran rayonu'},
+    ];
+  }
+
+  getNutStat() {
+    this.barAreaStatLabels = ['Fındıq (Ton)'];
+    this.barAreaStatData = [
+      {data: [1141], label: 'Gəncə-Qazax'},
+      {data: [39543], label: 'Şəki-Zaqatala'},
+      {data: [10071], label: 'Guba-Xaçmaz'},
+      {data: [160001], label: 'Aran rayonu'},
+    ];
+  }
+
+  getApricotStat() {
+    this.barAreaStatLabels = ['Ərik (Ton)'];
+    this.barAreaStatData = [
+      {data: [170], label: 'Bakı şəhəri'},
+      {data: [7108], label: 'Gəncə-Qazax'},
+      {data: [1882], label: 'Şəki-Zaqatala'},
+      {data: [271], label: 'Lənkəran'},
+      {data: [1354], label: 'Guba-Xaçmaz'},
+      {data: [7160], label: 'Aran rayonu'},
+      {data: [1342], label: 'Daglıg Şırvan rayonu'},
+      {data: [9106], label: 'Naxçıvan MR'},
+
+    ];
   }
 }
