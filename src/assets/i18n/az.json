@@ -156,7 +156,19 @@
         "send": "Göndər",
         "fullName": "Ad / Soyad",
         "message": "Mesaj"
+    },
 
+    "cartComponent" : {
+        "1000azn" : "1000 AZN nə oldu?",
+        "curenncy": "Valyuta",
+        "metals" : "Metallar",
+        "areaStat" : "MƏHSULDARLIQ STATİSTİKASI",
+        "apple": "Alma",
+        "peach" : "Şaftalı",
+        "corn": "Buğda",
+        "palm": "Xurma",
+        "apricot": "Ərik",
+        "nut": "Fındıq"
     }
     
 }

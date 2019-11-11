@@ -223,7 +223,6 @@ export class EditProductComponent implements OnInit {
       const file = event.target.files[0];
       this.file = file;
       reader.readAsDataURL(file);
-      console.log('wwww');
       reader.onload = () => {
         this.imgURL = reader.result;
         this.fileRaw = (<string>reader.result).split(',')[1];

@@ -127,6 +127,7 @@
 
     "dashboardComponent" : {
         "profileInfo": "Profile info",
+        "product": "Products",
         "profileSettings": "Profile settings",
         "offers": "Offers",
         "about": "About",
@@ -156,6 +157,18 @@
         "fullName": "Fullname",
         "message": "Message"
 
+    },
+    "cartComponent" : {
+        "1000azn" : "Standing 1000 AZN?",
+        "curenncy": "Curenncy",
+        "metals" : "Metals",
+        "areaStat" : "Poducts statistics",
+        "apple": "Apple",
+        "peach" : "Peach",
+        "corn": "Corn",
+        "palm": "Palm",
+        "apricot": "Apricot",
+        "nut": "Nuts"
     }
     
 }
