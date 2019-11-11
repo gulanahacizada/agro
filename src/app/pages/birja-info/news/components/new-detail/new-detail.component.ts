@@ -17,6 +17,7 @@ export class NewDetailComponent implements OnInit {
   title: string;
   body: string;
   description: string;
+  newsList: any;
 
   constructor(
     public newsService: NewsService,
@@ -30,10 +31,34 @@ export class NewDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getNewById();
+    this.getNews();
   }
 
   getNewById() {
     this.newsService.getNewById(this.id).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.newInfo = response.responseContent;
+        this.title = response.responseContent[`title_${this.activeLang}`];
+        this.body = response.responseContent[`body_${this.activeLang}`];
+        this.description = response.responseContent[`description_${this.activeLang}`];
+      }
+      if (response.responseCode == 2) {
+        this.router.navigate(['/news']);
+      }
+    });
+  }
+
+  getNews() {
+    this.newsService.getNews({ per_page: 4}).subscribe(response => {
+      if (response.responseCode == 1) {
+        this.newsList = response.responseContent.data;
+        console.log(this.newsList);
+      }
+    });
+  }
+
+  test(id: any) {
+    this.newsService.getNewById(id).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.newInfo = response.responseContent;
         this.title = response.responseContent[`title_${this.activeLang}`];
