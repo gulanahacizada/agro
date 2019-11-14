@@ -16,7 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       tap(evt => {
         if (evt instanceof HttpResponse) {
           // Validation Error
-          const errorCodes = [2, 3, 12, 8, 9, 10, 6, 7, 13];
+          const errorCodes = [2, 3, 12, 8, 9, 6, 7, 13];
+          const successCodes = [1, 10];
           if (evt.body && errorCodes.includes(evt.body.responseCode)) {
             const message = (evt.body.responseMessage.length) ? evt.body.responseMessage : 'Məlumatları düzgün doldurun';
             Swal.fire({
@@ -30,7 +31,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // this.router.navigate([request.body.navigatorUrl]);
               }
             });
-          } else if ((request.method === "POST") && (evt.body.responseCode == 1)) {
+          } else if ((request.method === "POST") && (successCodes.includes(evt.body.responseCode))) {
             Swal.fire({
               title: 'Əməliyyat uğurla tamamlandı!',
               text: evt.body.responseMessage,

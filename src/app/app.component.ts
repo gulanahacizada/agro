@@ -84,7 +84,7 @@ createCompanyForm() {
     is_company: [1],
     role: [3, Validators.required],
     email: [''],
-    phone: [''],
+    phone: ['+994'],
     verify: ['', Validators.required]
   },
     { validator: this.passwordMatchValidator });
@@ -102,7 +102,7 @@ createCustomerForm() {
     is_company: [0],
     role: [1, Validators.required],
     email: [''],
-    phone: [''],
+    phone: ['+994'],
     verify: ['', Validators.required]
   },
     { validator: this.passwordMatchValidator });
@@ -167,6 +167,7 @@ registerCustomer() {
   if (this.customerRegister.valid) {
     const data = Object.assign({}, this.customerRegister.value);
     this.clean(data);
+    console.log(data);
     this.appService.register(data).subscribe((response: Response) => {
       if (response.responseCode == 2) {
         this.responseMessage = response.responseMessage;
@@ -263,6 +264,12 @@ reset() {
   this.verifyPhone = false;
 }
 
+top() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+});
+}
 
 }
 

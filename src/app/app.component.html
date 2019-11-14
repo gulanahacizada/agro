@@ -423,13 +423,7 @@
     <div class="row as-15">
       <div class="col as-12 lg-5 mb-60">
         <p class="footer-description text-white light m-0" itemprop="description">
-          Kənd təsərrafatı ölkəmizdə ərzaq təhlükəsizliyini təmin edib, digər ölkələrdən aqrar aslılığı
-          azaldacaq, həm də neft sektoruna alternativ ola biləcək ən prioritet sahələrdən biri kimi dövlət
-          proqramlarında geniş yer tutur. Bu baxımdan kənd təsərüfatı məhsullarının qiymətləndirilməsi çox
-          böyük əhəmiyyət daşıyır. Agrobirja saytı da məhz kənd təsərüfatı məhsullarının qiymətləndirilməsini
-          aparmaq, müxtəlif təsərrüfatlara məxsus məhsulların qarşılıqlı qiymətlərini göstərmək məqsədi ilə
-          yaradılmışdır. Saytımız alıcıya seçim etmək, müxtəlif məhsulların qiymətini dəyərləndirmək imkanı
-          verməklə, sahibkarlara, ümumiyyətlə kənd təsərüfatı ilə maraqlanan hər bir şəxsə faydalı olacaq.
+          {{'footerText' | translate}}
         </p>
       </div>
       <div class="col as-12 lg-7">
@@ -580,7 +574,7 @@
   <div class="container as-15 xs-0 xxs-0 relative z-index-1" role="contentinfo">
     <div class="copyright bg-black d-table relative light">
       <div class="d-row">
-        <div class="d-cell">
+        <div class="d-cell" (click)="top()">
           <span aria-label="Səhifə başına dön" class="back-top text-white bg-special" role="button">
             <i aria-hidden="true" class="icon-arrow-up"></i>
           </span>
@@ -605,11 +599,11 @@
     </div>
   </div>
 </footer>
-<div class="fixed-buttons" hidden>
+<!-- <div class="fixed-buttons" hidden>
   <span class="button back-top pointer icon-arrow-up shadow ripple-effect mt-10" role="button" data-toggle="tooltip"
     data-placement="left" title="Yuxarı qayıt" aria-hidden="true" aria-label="Yuxarı qayıt">
   </span>
-</div>
+</div> -->
 <div class="modal login-modal" data-modal="login" data-open-animation="zoomIn" data-close-animation="zoomOut"
   role="dialog" tabindex="-1" aria-label="Login Modal">
   <form *ngIf="!verifyPhone" class="modal-content panel" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -734,7 +728,7 @@
             </div>
             <div class="col as-6 xs-12 mb-20">
               <label for="fr-email" class="pl-10">{{'phone'| translate}}  <sup class="text-red">*</sup></label>
-              <input type="number" placeholder="+994** *** ** **" formControlName="phone"
+              <input  placeholder="+994** *** ** **" formControlName="phone"
                 class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-6 xs-12 mb-20">
