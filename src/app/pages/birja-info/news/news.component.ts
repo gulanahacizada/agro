@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
   newsList: any;
 
   pagination = {
-    per_page: 10,
+    per_page: 12,
     total: null,
     page: 1
   };

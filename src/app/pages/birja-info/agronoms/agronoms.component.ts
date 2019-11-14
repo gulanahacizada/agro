@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AgronomsComponent implements OnInit {
   agronomList: any;
   pagination = {
-    per_page: 10,
+    per_page: 12,
     total: null,
     page: 1
   };

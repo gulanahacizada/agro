@@ -36,7 +36,7 @@
     "registration": "Qeydiyyatdan keç",
     "dashboard": "Şəxsi kabinet",
     "exit": "Çıxış",
-    "areaProductivity": "Əraziyə göre məhsuldarlıq",
+    "areaProductivity": "Əraziyə görə məhsuldarlıq",
     "onSale": "Satışda",
     "seeAll": "Hamsını gör",
     "whatWeCan": " 1000 AZN ilə nə etmək olar?",
@@ -58,7 +58,7 @@
     "comleteRegister": "Qeydiyyatı tamamla",
     "verifyEmail": "Email tesgid edin",
     "verifyWhitEmail": "Hesabimi email-la tesdig edirem",
-    "verifyWhitPhone": "Hesabimi telefon-la tesdig edirem", 
+    "verifyWhitPhone": "Hesabimi telefon-la tesdig edirem",
     "createNewAccount": "Yeni hesab yaradın",
     "entityUser": "Hüquqi şəxs olaraq ",
     "entityREgistration": "Hüquqi şəxs qeydiyyatı",
@@ -73,10 +73,10 @@
     "productKalibry": "Məhsulun kalibri",
     "common":  "Miqdar",
     "edit": "Düzəliş et",
-    
+
     "accumulated_at": "Yıgılma tarixi",
     "expiry_time": "Saxlanma tarixi",
-  
+
     "select" : {
         "category": "Kategoriya seçin",
         "product": "Məhsulu seçin",
@@ -172,5 +172,4 @@
     },
 
     "footerText": "Kənd təsərrafatı ölkəmizdə ərzaq təhlükəsizliyini təmin edib, digər ölkələrdən aqrar aslılığı azaldacaq, həm də neft sektoruna alternativ ola biləcək ən prioritet sahələrdən biri kimi dövlət proqramlarında geniş yer tutur. Bu baxımdan kənd təsərüfatı məhsullarının qiymətləndirilməsi çox böyük əhəmiyyət daşıyır. Agrobirja saytı da məhz kənd təsərüfatı məhsullarının qiymətləndirilməsini aparmaq, müxtəlif təsərrüfatlara məxsus məhsulların qarşılıqlı qiymətlərini göstərmək məqsədi ilə yaradılmışdır. Saytımız alıcıya seçim etmək, müxtəlif məhsulların qiymətini dəyərləndirmək imkanı verməklə, sahibkarlara, ümumiyyətlə kənd təsərüfatı ilə maraqlanan hər bir şəxsə faydalı olacaq."
-    
 }
