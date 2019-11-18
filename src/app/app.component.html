@@ -639,7 +639,7 @@
       </button>
     </div>
   </form>
-  <form *ngIf="verifyPhone" class="modal-content panel" [formGroup]="verifyForm" (ngSubmit)="submitVerifyForm()">
+  <form *ngIf="verifyPhone" class="modal-content panel" [formGroup]="verifyForm">
     <span (click)="reset()" role="button" class="close fixed-close icon-close" data-close="login"
       aria-label="Bağla"></span>
 
@@ -658,10 +658,14 @@
           <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
         </div>
         <div class="col as-7 xs-12">
-          <button [disabled]="!verifyForm.valid" type="submit"
+          <button (click)="submitVerifyForm()" [disabled]="!verifyForm.valid" type="submit"
             class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
             {{'comleteRegister' | translate}}
           </button>
+          <button (click)="resendCode()" type="button"
+          class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple mt-10">
+            Resend code
+        </button>
         </div>
       </div>
     </div>
@@ -759,17 +763,21 @@
             <p> {{responseMessage?.phone}} </p>
           </div>
         </form>
-        <form *ngIf="verifyPhone" [formGroup]="verifyForm" (ngSubmit)="submitVerifyForm()">
+        <form *ngIf="verifyPhone" [formGroup]="verifyForm">
           <div class="row as-10 justify-content-center">
             <div class="col as-7 xs-12 mb-20">
               <label for="hr-name" class="pl-10">{{'enterCode'| translate}} <sup class="text-red">*</sup></label>
               <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-7 xs-12">
-              <button [disabled]="!verifyForm.valid" type="submit"
+              <button (click)="submitVerifyForm()" [disabled]="!verifyForm.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
                 {{'comleteRegister'| translate}}
               </button>
+              <button (click)="resendCode()" type="button"
+              class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple mt-10">
+                Resend code
+            </button>
             </div>
           </div>
         </form>
@@ -841,17 +849,21 @@
             <p> {{responseMessage?.phone}} </p>
           </div>
         </form>
-        <form *ngIf="verifyPhone" [formGroup]="verifyForm" (ngSubmit)='submitVerifyForm()'>
+        <form *ngIf="verifyPhone" [formGroup]="verifyForm">
           <div class="row as-10 justify-content-center">
             <div class="col as-7 xs-12 mb-20">
               <label for="hr-name" class="pl-10">  {{'enterCode'| translate}}<sup class="text-red">*</sup></label>
               <input type="text" id="hr-name" formControlName="code" class="input border-0 radius-20 shadow-big" />
             </div>
             <div class="col as-7 xs-12">
-              <button [disabled]="!verifyForm.valid" type="submit"
+              <button (click)="submitVerifyForm()" [disabled]="!verifyForm.valid" type="submit"
                 class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple">
                 {{'comleteRegister'| translate}}
               </button>
+              <button (click)="resendCode()" type="button"
+              class="btn bg-main border-0 radius-20 shadow-big w-100p light-ripple mt-10">
+                Resend code
+            </button>
             </div>
           </div>
         </form>
@@ -863,6 +875,7 @@
           <i aria-hidden="true" class="icon-arrow-left mr-"></i>
           {{'back'| translate}}
         </button>
+        
         <button (click)="reset()" type="reset" class="btn bg-gray border-0 radius-20 shadow-big float-right"
           data-close="registration">
           {{'close'| translate}}

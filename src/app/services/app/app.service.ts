@@ -32,6 +32,7 @@ export class AppService extends HttpsService {
   public GET_ALL_USER = 'user';
   public CREATEDIALOG = 'dialog/create';
   public VERIFY_CONTACT = 'user/contact/verify';
+  public RESEND_CODE = 'user/contact/resend';
   public DIALOGS = 'dialog';
   public AGRONOMS = 'agronoms';
   public NEWS = 'news';
@@ -77,6 +78,10 @@ export class AppService extends HttpsService {
 
   public verify(params: any = {}): Observable<any> {
     return this.post(this.http, this.VERIFY_CONTACT, params);
+  }
+
+  public resendCode(params: any = {}): Observable<any> {
+    return this.post(this.http, this.RESEND_CODE, params);
   }
 
   public trackByFn(index, item) {

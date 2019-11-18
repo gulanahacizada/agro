@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   responseMessage: any;
   verifyPhone = false;
   verifyEmail = false;
+  verifyID: any;
   verifyToken: any;
 
   constructor(
@@ -132,9 +133,13 @@ login() {
         if (response.responseContent.type == 0) {
           this.verifyPhone = true;
           this.verifyEmail = false;
+          console.log(this.verifyPhone);
+          this.verifyID = response.responseContent.id;
+          localStorage.setItem('verifyID', this.verifyID);
         } else {
           this.verifyPhone = false;
           this.verifyEmail = true;
+          console.log(this.verifyPhone);
         }
       }
     });
@@ -150,9 +155,11 @@ registerCompany() {
         this.responseMessage = response.responseMessage;
       }
       if (response.responseCode == 10) {
-        if (this.companyRegister.value.verify == 'phone') {
+        if (response.responseContent.type == 0) {
           this.verifyPhone = true;
           this.verifyEmail = false;
+          this.verifyID = response.responseContent.id;
+          localStorage.setItem('verifyID', this.verifyID);
         } else {
           this.verifyPhone = false;
           this.verifyEmail = true;
@@ -173,9 +180,11 @@ registerCustomer() {
         this.responseMessage = response.responseMessage;
       }
       if (response.responseCode == 10) {
-        if (this.companyRegister.value.verify == 'phone') {
+        if (response.responseContent.type == 0) {
           this.verifyPhone = true;
           this.verifyEmail = false;
+          this.verifyID = response.responseContent.id;
+          localStorage.setItem('verifyID', this.verifyID);
         } else {
           this.verifyPhone = false;
           this.verifyEmail = true;
@@ -248,7 +257,17 @@ createVerifyForm() {
 submitVerifyForm() {
   this.verifyToken = localStorage.getItem('verifyToken');
   this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
+    if (response.responseCode == 1) {
+      $('.login-modal').removeClass('open');
+      $('.registration-modal').removeClass('open');
+      $('body').removeClass('o-hidden');
+    }
   });
+}
+
+resendCode() {
+  this.verifyID = localStorage.getItem('verifyID');
+  this.appService.resendCode( {id: this.verifyID} ).subscribe( (response: Response) => {});
 }
 
 chekLang() {

@@ -16,8 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       tap(evt => {
         if (evt instanceof HttpResponse) {
           // Validation Error
-          const errorCodes = [2, 3, 12, 8, 9, 6, 7, 13];
-          const successCodes = [1, 10];
+          const errorCodes = [2, 3, 12, 8, 9, 7, 13];
+          const successCodes = [1, 10, 6];
           if (evt.body && errorCodes.includes(evt.body.responseCode)) {
             const message = (evt.body.responseMessage.length) ? evt.body.responseMessage : 'Məlumatları düzgün doldurun';
             Swal.fire({
