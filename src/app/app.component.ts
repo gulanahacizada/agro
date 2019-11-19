@@ -86,7 +86,8 @@ createCompanyForm() {
     role: [3, Validators.required],
     email: [''],
     phone: ['+994'],
-    verify: ['', Validators.required]
+    verify: ['', Validators.required],
+    voen: ['', Validators.required]
   },
     { validator: this.passwordMatchValidator });
 }

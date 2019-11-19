@@ -75,6 +75,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
         role: this.userInfo.role,
         is_company: this.userInfo.is_company,
       });
+      console.log(this.updateUserForm.value);
+      
       const text = this.userInfo.description_az;
     });
   }
