@@ -261,6 +261,7 @@ submitVerifyForm() {
       $('.login-modal').removeClass('open');
       $('.registration-modal').removeClass('open');
       $('body').removeClass('o-hidden');
+      this.verifyPhone = false;
     }
   });
 }
