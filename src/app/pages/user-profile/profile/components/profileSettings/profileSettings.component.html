@@ -63,12 +63,15 @@
                     </div>
                   </ng-container>
                 </div>
+              
                 <div formArrayName="phone" *ngFor="let item of phone.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
+               
                   <ng-container [formGroupName]="i">
                     <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      <input formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
+                      
+                      <input  formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
                       <button (click)="addPhone()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>
@@ -129,12 +132,13 @@
                   <input type="text" formControlName="address"
                     class="input border-0 radius-20 shadow-big" />
                 </div>
+           
                 <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <ng-container [formGroupName]="i">
                     <label for="email" class="pl-10">{{'dashboardComponent.email' | translate}} <sup class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      <input type="email" formControlName="contact" id="email" class="input border-0 radius-20" />
+                      <input [readOnly]="this.updateUserForm.value.email[i]?.base == 1"  type="email" formControlName="contact" id="email" class="input border-0 radius-20" />
                       <button (click)="addEmail()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>
@@ -146,7 +150,7 @@
                   <ng-container [formGroupName]="i">
                     <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      <input formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
+                      <input [readOnly]="this.updateUserForm.value.phone[i]?.base == 1" formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
                       <button (click)="addPhone()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>

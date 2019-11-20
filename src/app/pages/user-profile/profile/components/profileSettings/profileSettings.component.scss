@@ -8,3 +8,6 @@
     transition: 0.3s ease;
     transition: color 0.1s ease !important;
 }
+input:read-only{
+    background-color: lightgray;
+}

@@ -16,6 +16,7 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
   isCompany = localStorage.getItem('isCompany');
   updateUserForm: FormGroup;
   userInfo: UserInfo;
+  disable: boolean;
   phones = [];
   emails = [];
 
@@ -30,6 +31,7 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.getUser();
     this.createUserForm();
+  
   }
 
   ngAfterViewInit() {
@@ -47,6 +49,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
   getUser() {
     this.profileService.getUserInfo().subscribe((response: Response) => {
       this.userInfo = response.responseContent;
+      console.log(this.userInfo.contacts);
+      
       this.phones = this.userInfo.contacts.filter(e => e.type == 0);
       this.emails = this.userInfo.contacts.filter(e => e.type == 1);
       this.resetData();
@@ -75,8 +79,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
         role: this.userInfo.role,
         is_company: this.userInfo.is_company,
       });
-      console.log(this.updateUserForm.value);
       
+      console.log(this.updateUserForm.value.phone);
       const text = this.userInfo.description_az;
     });
   }
@@ -102,14 +106,21 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     const tEmail = [];
     const tPhone = [];
     this.updateUserForm.value.email.forEach(element => {
-      tEmail.push(element.contact);
+      if (element.contact) {
+        tEmail.push(element.contact);
+      }
     });
     this.updateUserForm.value.phone.forEach(element => {
-      tPhone.push(element.contact);
+      if (element.contact) {
+        tPhone.push(element.contact);
+      }
     });
     this.updateUserForm.value.phone = tPhone;
     this.updateUserForm.value.email = tEmail;
     this.clean(this.updateUserForm.value);
+    // this.cleanArr(this.updateUserForm.value.email);
+    // this.cleanArr(this.updateUserForm.value.phone);
+    console.log(this.updateUserForm.value);
     this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.router.navigate(['/dashboard']);
@@ -128,19 +139,22 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
 
   createEmailArray(): FormGroup {
     return this.fb.group({
-      contact: ['']
+      contact: [''],
+      base: ['0']
     });
   }
 
   createEmailFormData(data: any): FormGroup {
     return this.fb.group({
-      contact: data.contact
+      contact: data.contact,
+      base: data.is_base
     });
   }
 
   createPhoneFormData(data: any): FormGroup {
     return this.fb.group({
-      contact: data.contact
+      contact: data.contact,
+      base: data.is_base
     });
   }
 
@@ -157,7 +171,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
 
   createPhonelArray(): FormGroup {
     return this.fb.group({
-      contact: ['']
+      contact: [''],
+      base: ['0']
     });
   }
 
@@ -176,5 +191,10 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     while (this.phone.length > 0) {
       this.phone.removeAt(0);
     }
+  }
+  cleanArr(arr) {
+    arr.forEach(el => {
+      this.clean(el)
+    });
   }
 }
