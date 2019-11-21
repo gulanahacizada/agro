@@ -19,6 +19,8 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
   disable: boolean;
   phones = [];
   emails = [];
+  lang = 'az';
+  selectLang = 1;
 
   constructor(
     private cd: ChangeDetectorRef,
@@ -196,5 +198,10 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     arr.forEach(el => {
       this.clean(el)
     });
+  }
+
+  onChangeLanguage(lang, i) {
+    this.selectLang = i;
+    this.lang = lang;
   }
 }

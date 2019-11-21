@@ -198,7 +198,9 @@ registerCustomer() {
 logOut() {
   this.appService.logout().subscribe((response: Response) => {
     if (response.responseCode == 1) {
-      localStorage.clear();
+      localStorage.removeItem('jwt_c');
+      localStorage.removeItem('isCompany');
+      localStorage.removeItem('selfID');
       this.router.navigate(['/home']);
     }
   });

@@ -9,6 +9,20 @@
         <i aria-hidden="true" class="icon-arrow-left v-align-middle"></i>
         <span class="hide-xs v-align-middle ml-10">{{'back' | translate}}</span>
       </a>
+      <ul class="form-lang type-none mb-0 p-0 clear float-left" role="tablist">
+        <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('az', 1)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 1}"
+            class="btn  circle border-0 shadow-big ">AZ</span>
+        </li>
+        <li role="presentation" class="float-left ml-10 " (click)="onChangeLanguage('en', 2)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 2}"
+            class="btn  circle border-0 shadow-big">EN</span>
+        </li>
+        <li role="presentation" class="float-left ml-10" (click)="onChangeLanguage('ru', 3)">
+          <span role="button" [ngClass]="{'bg-green': selectLang === 3}"
+            class="btn circle border-0 shadow-big">RU</span>
+        </li>
+      </ul>
     </div>
   </div>
   <p-tabView>
@@ -18,43 +32,55 @@
           <div class="row as-20">
             <div class="col as-12 xl-8">
               <div class="clear mb-10 pb-10">
-                <label for="company-name" class="pl-10">{{'dashboardComponent.companyName' | translate}} <sup class="text-red">*</sup></label>
+                <label for="company-name" class="pl-10">{{'dashboardComponent.companyName' | translate}} <sup
+                    class="text-red">*</sup></label>
                 <input type="text" formControlName="name" id="company-name"
                   class="input border-0 radius-20 shadow-big" />
               </div>
               <div class="clear">
                 <label for="about-me" class="pl-10">{{'dashboardComponent.companyDesc' | translate}}</label>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_az">
-                </p-editor>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_ru">
-                </p-editor>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_en">
-                </p-editor>
+                <div [ngSwitch]="selectLang">
+                  <div *ngSwitchCase="1">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_az">
+                    </p-editor>
+                  </div>
+                  <div *ngSwitchCase="2">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_ru">
+                    </p-editor>
+                  </div>
+                  <div *ngSwitchCase="3">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_en">
+                    </p-editor>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col as-12 xl-4">
               <div class="row as-10">
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="voen" class="pl-10">{{'dashboardComponent.voen' | translate}} <sup class="text-red">*</sup></label>
+                  <label for="voen" class="pl-10">{{'dashboardComponent.voen' | translate}} <sup
+                      class="text-red">*</sup></label>
                   <input type="text" formControlName="voen" id="voen" class="input border-0 radius-20 shadow-big" />
                 </div>
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="iban" class="pl-10">{{'dashboardComponent.iban' | translate}} <sup class="text-red">*</sup></label>
+                  <label for="iban" class="pl-10">{{'dashboardComponent.iban' | translate}} <sup
+                      class="text-red">*</sup></label>
                   <input type="text" formControlName="bank_account" id="iban"
                     class="input border-0 radius-20 shadow-big" />
                 </div>
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="iban" class="pl-10">{{'dashboardComponent.address' | translate}} <sup class="text-red">*</sup></label>
-                  <input type="text" formControlName="address"
-                    class="input border-0 radius-20 shadow-big" />
+                  <label for="iban" class="pl-10">{{'dashboardComponent.address' | translate}} <sup
+                      class="text-red">*</sup></label>
+                  <input type="text" formControlName="address" class="input border-0 radius-20 shadow-big" />
                 </div>
                 <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <ng-container [formGroupName]="i">
-                    <label for="email" class="pl-10">{{'dashboardComponent.email' | translate}} <sup class="text-red">*</sup></label>
+                    <label for="email" class="pl-10">{{'dashboardComponent.email' | translate}} <sup
+                        class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
                       <input type="email" formControlName="contact" id="email" class="input border-0 radius-20" />
                       <button (click)="addEmail()" type="button" class="btn border-0 radius-20" aria-label="Artır">
@@ -63,15 +89,16 @@
                     </div>
                   </ng-container>
                 </div>
-              
+
                 <div formArrayName="phone" *ngFor="let item of phone.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-               
+
                   <ng-container [formGroupName]="i">
-                    <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup class="text-red">*</sup></label>
+                    <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup
+                        class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      
-                      <input  formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
+
+                      <input formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
                       <button (click)="addPhone()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>
@@ -93,52 +120,68 @@
         </div>
       </form>
     </p-tabPanel>
-    <p-tabPanel *ngIf="returnAdmin()"  header="{{'dashboardComponent.companyInfo' | translate}}"leftIcon="pi pi-info">
+    <p-tabPanel *ngIf="returnAdmin()" header="{{'dashboardComponent.companyInfo' | translate}}" leftIcon="pi pi-info">
       <form [formGroup]="updateUserForm" (ngSubmit)="submitForm()">
         <div class="tab-panel mb-40" role="tabpanel" data-tab="about-company">
           <div class="row as-20">
             <div class="col as-12 xl-8">
               <div class="clear mb-10 pb-10">
-                <label for="company-name" class="pl-10">{{'dashboardComponent.companyName' | translate}} <sup class="text-red">*</sup></label>
+                <label for="company-name" class="pl-10">{{'dashboardComponent.companyName' | translate}} <sup
+                    class="text-red">*</sup></label>
                 <input type="text" formControlName="name" id="company-name"
                   class="input border-0 radius-20 shadow-big" />
               </div>
               <div class="clear">
                 <label for="about-me" class="pl-10">{{'dashboardComponent.companyDesc' | translate}}</label>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_az">
-                </p-editor>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_ru">
-                </p-editor>
-                <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
-                   formControlName="description_en">
-                </p-editor>
+                <div [ngSwitch]="selectLang">
+                  <div *ngSwitchCase="1">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_az">
+                    </p-editor>
+                  </div>
+                  <div *ngSwitchCase="2">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_ru">
+                    </p-editor>
+                  </div>
+                  <div *ngSwitchCase="3">
+                    <p-editor [style]="{'height':'320px'}" class="input no-resize border-0 radius-20 shadow-big"
+                      formControlName="description_en">
+                    </p-editor>
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
             <div class="col as-12 xl-4">
               <div class="row as-10">
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="voen" class="pl-10">{{'dashboardComponent.voen' | translate}} <sup class="text-red">*</sup></label>
+                  <label for="voen" class="pl-10">{{'dashboardComponent.voen' | translate}} <sup
+                      class="text-red">*</sup></label>
                   <input type="text" formControlName="voen" id="voen" class="input border-0 radius-20 shadow-big" />
                 </div>
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="iban" class="pl-10">{{'dashboardComponent.iban' | translate}} <sup class="text-red">*</sup></label>
+                  <label for="iban" class="pl-10">{{'dashboardComponent.iban' | translate}} <sup
+                      class="text-red">*</sup></label>
                   <input type="text" formControlName="bank_account" id="iban"
                     class="input border-0 radius-20 shadow-big" />
                 </div>
                 <div class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
-                  <label for="iban" class="pl-10">{{'dashboardComponent.address' | translate}} <sup class="text-red">*</sup></label>
-                  <input type="text" formControlName="address"
-                    class="input border-0 radius-20 shadow-big" />
+                  <label for="iban" class="pl-10">{{'dashboardComponent.address' | translate}} <sup
+                      class="text-red">*</sup></label>
+                  <input type="text" formControlName="address" class="input border-0 radius-20 shadow-big" />
                 </div>
-           
+
                 <div formArrayName="email" *ngFor="let item of email.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <ng-container [formGroupName]="i">
-                    <label for="email" class="pl-10">{{'dashboardComponent.email' | translate}} <sup class="text-red">*</sup></label>
+                    <label for="email" class="pl-10">{{'dashboardComponent.email' | translate}} <sup
+                        class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      <input [readOnly]="this.updateUserForm.value.email[i]?.base == 1"  type="email" formControlName="contact" id="email" class="input border-0 radius-20" />
+                      <input [readOnly]="this.updateUserForm.value.email[i]?.base == 1" type="email"
+                        formControlName="contact" id="email" class="input border-0 radius-20" />
                       <button (click)="addEmail()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>
@@ -148,9 +191,11 @@
                 <div formArrayName="phone" *ngFor="let item of phone.controls; let i = index;"
                   class="col as-4 xl-12 sm-6 xs-12 mb-10 pb-10">
                   <ng-container [formGroupName]="i">
-                    <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup class="text-red">*</sup></label>
+                    <label for="tel" class="pl-10">{{'dashboardComponent.phone' | translate}} <sup
+                        class="text-red">*</sup></label>
                     <div class="input-group radius-20 shadow-big">
-                      <input [readOnly]="this.updateUserForm.value.phone[i]?.base == 1" formControlName="contact" type="tel" id="tel" class="input border-0 radius-20" />
+                      <input [readOnly]="this.updateUserForm.value.phone[i]?.base == 1" formControlName="contact"
+                        type="tel" id="tel" class="input border-0 radius-20" />
                       <button (click)="addPhone()" type="button" class="btn border-0 radius-20" aria-label="Artır">
                         <i aria-hidden="true" class="icon-plus v-align-middle text-gray"></i>
                       </button>
@@ -172,7 +217,8 @@
         </div>
       </form>
     </p-tabPanel>
-    <p-tabPanel *ngIf="returnAdmin()"  header="{{'dashboardComponent.sownAreas' | translate}}" leftIcon="pi pi-map-marker">
+    <!-- <p-tabPanel *ngIf="returnAdmin()" header="{{'dashboardComponent.sownAreas' | translate}}"
+      leftIcon="pi pi-map-marker">
       <div class="tab-panel mb-40" role="tabpanel" data-tab="sown-areas">
         <div class="row as-10 justify-content-center">
           <div class="col as-12 xl-8">
@@ -269,7 +315,7 @@
           </div>
         </div>
       </div>
-    </p-tabPanel>
+    </p-tabPanel> -->
   </p-tabView>
   <div class="clear radius-30 shadow-big p-5">
   </div>
