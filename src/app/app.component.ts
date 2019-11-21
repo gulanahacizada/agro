@@ -104,7 +104,8 @@ createCustomerForm() {
     role: [1, Validators.required],
     email: [''],
     phone: ['+994'],
-    verify: ['', Validators.required]
+    verify: ['', Validators.required],
+    voen: ['', Validators.required]
   },
     { validator: this.passwordMatchValidator });
 }

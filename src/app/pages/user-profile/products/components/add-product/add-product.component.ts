@@ -194,7 +194,7 @@ export class AddProductComponent implements OnInit {
   delatePhoto() {
     this.imgURL = null,
     this.url = null,
-    this.file = {}
+    this.file = {};
   }
 
 
@@ -206,6 +206,7 @@ export class AddProductComponent implements OnInit {
   addProduct() {
     this.product_added = true;
     this.productService.createProduct(this.productForm.value, this.file).subscribe((res: any) => {
+      // tslint:disable-next-line: triple-equals
       if (res.body && res.body.responseCode == 1) {
         this.router.navigate(['/dashboard/products']);
       } else {
