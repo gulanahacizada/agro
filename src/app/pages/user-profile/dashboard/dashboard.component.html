@@ -69,7 +69,7 @@
         <span class="v-align-middle">{{'dashboardComponent.profileInfo' | translate}}</span>
       </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" *ngIf="role !== 1">
       <a [routerLink]="['products']" routerLinkActive="active_tab" title="Məhsullar" class="menu-item">
         <i aria-hidden="true" class="icon-list-circle v-align-middle mr-10"></i>
         <span class="v-align-middle">{{'dashboardComponent.product' | translate}}</span>

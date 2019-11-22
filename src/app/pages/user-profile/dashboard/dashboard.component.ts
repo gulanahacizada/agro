@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   fileRaw: string;
   url: string;
   file: any;
-
+  role: any;
 
 
   constructor(
@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
       if (response.responseCode == 1) {
         this.userInfo = response.responseContent;
         this.url = this.userInfo.avatar;
+        this.role = this.userInfo.role;
       }
     });
   }
@@ -55,13 +56,9 @@ export class DashboardComponent implements OnInit {
   }
 
   addAvatar(file: any) {
-
     this.dashbordService.createUserAvatar(file).subscribe((res: any) => {
       if (res.body && res.body.responseCode == 1) {
       }
     });
   }
-
-
-
 }
