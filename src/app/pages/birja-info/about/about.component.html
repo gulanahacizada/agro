@@ -40,7 +40,7 @@
 
         <div class="font-16 light">
           <div [innerHTML]="about[0]?.body"></div>
-           
+
         </div>
 
       </div>
@@ -55,7 +55,7 @@
   </div>
 </section>
 
-<section class="page-wrap pt-60">
+<section class="page-wrap pt-60 rtl">
   <div class="container as-15 text-right">
     <div class="row as-15 justify-content-center">
 
@@ -106,6 +106,34 @@
           <img src="{{about[2]?.image}}" alt="">
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-wrap pt-60 rtl">
+  <div class="container as-15 text-right">
+    <div class="row as-15 justify-content-center">
+
+      <div class="col as-12 lg-8 pb-40 xl-or-1 lg-or-1">
+
+        <div class="section-title-wrap text-right w-100p d-table mb-20 pb-10">
+          <h2 class="section-title relative bold text-uppercase mb-0">
+            <span class="d-block"> {{about[3]?.title}} </span>
+          </h2>
+        </div>
+
+        <div class="font-16 light">
+            <div [innerHTML]="about[3]?.body"></div>
+        </div>
+
+      </div>
+
+      <div class="col as-10 lg-4 md-7 pb-40">
+        <div class="thumb responsive pb-in-56 contain">
+          <img src="{{about[3]?.image}}" alt="">
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

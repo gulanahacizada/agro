@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,8BAA+B,CAC3B,gBAAgB,CAAE,OAAO,CAE7B,sBAAwB,CACpB,eAAe,CAAE,SAAS,CAC1B,cAAc,CAAE,SAAS,CACzB,aAAa,CAAE,SAAS,CACxB,UAAU,CAAE,SAAS,CACrB,UAAU,CAAE,0BAA0B,CAE1C,eAAe,CACX,gBAAgB,CAAE,SAAS",
+"sources": ["profileSettings.component.scss"],
+"names": [],
+"file": "profileSettings.component.min.css"
+}
