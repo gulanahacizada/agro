@@ -1,0 +1,8 @@
+.page-wrap{
+  &.rtl{
+    ul, ol{
+      direction: rtl;
+      padding-right: 0;
+    }
+  }
+}
