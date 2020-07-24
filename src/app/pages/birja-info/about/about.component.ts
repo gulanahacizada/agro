@@ -12,6 +12,7 @@ export class AboutComponent implements OnInit {
 
   about = [];
 
+
   constructor(
     public appService: AppService,
     public translate: TranslateService
@@ -26,9 +27,7 @@ export class AboutComponent implements OnInit {
       if (response.responseCode == 1) {
         this.about = response.responseContent;
         console.log(this.about);
-        
       }
     });
   }
-
 }

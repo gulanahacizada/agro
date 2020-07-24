@@ -18,13 +18,11 @@ const routes: Routes = [
   {
     path: 'birja',
     loadChildren: () => import('../pages/birja-info/birja/modules/birja.module').then(m => m.BirjaModule)
-
   },
 
   {
     path: 'members',
     loadChildren: () => import('../pages/birja-info/members/modules/members.module').then(m => m.MembersModule)
-
   },
 
   {
