@@ -54,10 +54,10 @@ export class AppComponent implements OnInit {
     this.createCustomerForm();
     this.createVerifyForm();
     this.loggedIn();
-    this.getMetals();
-    this.getCurrency();
+    // this.getMetals();
+    // this.getCurrency();
     this.chekLang();
-    this.getProductsStat();
+    // this.getProductsStat();
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;

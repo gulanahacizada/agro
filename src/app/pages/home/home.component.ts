@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private productService: ProductsService,
     private elementRef: ElementRef,
   ) {
-    this.getCurrencyStat();
+    // this.getCurrencyStat();
     this.getAppleStat();
     this.barChartData = [
       { data: [], label: '' },
