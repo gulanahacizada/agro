@@ -16,7 +16,7 @@ export class HttpsService {
   post_headers = new HttpHeaders().set('Content-type', 'text/plain');
   constructor() { }
 
-  public rootUrl: string = 'http://' + prop.host;
+  public rootUrl: string = 'https://' + prop.host;
   public tvRoot: string =  prop.tv;
 
 
