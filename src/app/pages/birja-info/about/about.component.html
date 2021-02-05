@@ -21,7 +21,7 @@
 
     <div class="panel-header pl-0 pr-0 border-0">
       <h1 class="m-0 bold text-main text-uppercase">
-          {{'navigation.about' | translate}}
+        {{'navigation.about' | translate}}
       </h1>
     </div>
   </div>
@@ -47,7 +47,7 @@
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="{{about[0]?.image}}" alt="" >
+          <img src="{{env + about[0]?.image}}" alt="">
         </div>
       </div>
 
@@ -68,14 +68,14 @@
         </div>
 
         <div class="font-16 light">
-            <div [innerHTML]="about[1]?.body"></div>
+          <div [innerHTML]="about[1]?.body"></div>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="{{about[1]?.image}}" alt="">
+          <img src="{{ env + about[1]?.image}}" alt="">
         </div>
       </div>
 
@@ -96,14 +96,14 @@
         </div>
 
         <div class="font-16 light">
-            <div [innerHTML]="about[2]?.body"></div>
+          <div [innerHTML]="about[2]?.body"></div>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="{{about[2]?.image}}" alt="">
+          <img src="{{env + about[2]?.image}}" alt="">
         </div>
       </div>
     </div>
@@ -123,14 +123,14 @@
         </div>
 
         <div class="font-16 light">
-            <div [innerHTML]="about[3]?.body"></div>
+          <div [innerHTML]="about[3]?.body"></div>
         </div>
 
       </div>
 
       <div class="col as-10 lg-4 md-7 pb-40">
         <div class="thumb responsive pb-in-56 contain">
-          <img src="{{about[3]?.image}}" alt="">
+          <img src="{{env + about[3]?.image}}" alt="">
         </div>
       </div>
 

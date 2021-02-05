@@ -67,232 +67,229 @@ export class AppComponent implements OnInit {
   }
 
 
-createLoginForm() {
-  this.loginForm = this.fb.group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-    // navigatorUrl: ['home']
-  });
-}
+  createLoginForm() {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      // navigatorUrl: ['home']
+    });
+  }
 
-createCompanyForm() {
-  this.companyRegister = this.fb.group({
-    name: ['', Validators.required],
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
-    is_company: [1],
-    role: [3, Validators.required],
-    email: [''],
-    phone: ['+994'],
-    verify: ['', Validators.required],
-    voen: ['', Validators.required]
-  },
-    { validator: this.passwordMatchValidator });
-}
-passwordMatchValidator(g: FormGroup) {
-  return g.get('password').value === g.get('confirmPassword').value ? null : { mismatch: true };
-}
+  createCompanyForm() {
+    this.companyRegister = this.fb.group({
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      is_company: [1],
+      role: [3, Validators.required],
+      email: [''],
+      phone: ['+994'],
+      verify: ['', Validators.required],
+      voen: ['', Validators.required]
+    },
+      { validator: this.passwordMatchValidator });
+  }
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value ? null : { mismatch: true };
+  }
 
-createCustomerForm() {
-  this.customerRegister = this.fb.group({
-    name: ['', Validators.required],
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
-    is_company: [0],
-    role: [1, Validators.required],
-    email: [''],
-    phone: ['+994'],
-    verify: ['', Validators.required],
-    voen: ['', Validators.required]
-  },
-    { validator: this.passwordMatchValidator });
-}
+  createCustomerForm() {
+    this.customerRegister = this.fb.group({
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      is_company: [0],
+      role: [1, Validators.required],
+      email: [''],
+      phone: ['+994'],
+      verify: ['', Validators.required],
+      voen: ['', Validators.required]
+    },
+      { validator: this.passwordMatchValidator });
+  }
 
-login() {
-  if (this.loginForm.valid) {
-    const data = Object.assign({}, this.loginForm.value);
-    this.appService.login(data).subscribe((response: Response) => {
-      if (response.responseCode == 1) {
-        localStorage.setItem('jwt_c', response.responseContent.access_token);
-        localStorage.setItem('isCompany', response.responseContent.user.is_company);
-        localStorage.setItem('selfID', response.responseContent.user.id);
-        this.router.navigate(['dashboard']);
-        $('.login-modal').removeClass('open');
-        $('body').removeClass('o-hidden');
-      }
-      if (response.responseCode == 2) {
-        // message error
-        // localStorage.setItem('verifyToken', response.responseContent.access_token);
-      }
-      if (response.responseCode == 3) {
-        // message
-      }
-      if (response.responseCode == 10) {
-
-        if (response.responseContent.type == 0) {
-          this.verifyPhone = true;
-          this.verifyEmail = false;
-          console.log(this.verifyPhone);
-          this.verifyID = response.responseContent.id;
-          localStorage.setItem('verifyID', this.verifyID);
-        } else {
-          this.verifyPhone = false;
-          this.verifyEmail = true;
-          console.log(this.verifyPhone);
+  login() {
+    if (this.loginForm.valid) {
+      const data = Object.assign({}, this.loginForm.value);
+      this.appService.login(data).subscribe((response: Response) => {
+        if (response.responseCode == 1) {
+          localStorage.setItem('jwt_c', response.responseContent.access_token);
+          localStorage.setItem('isCompany', response.responseContent.user.is_company);
+          localStorage.setItem('selfID', response.responseContent.user.id);
+          this.router.navigate(['dashboard']);
+          $('.login-modal').removeClass('open');
+          $('body').removeClass('o-hidden');
         }
+        if (response.responseCode == 2) {
+          // message error
+          // localStorage.setItem('verifyToken', response.responseContent.access_token);
+        }
+        if (response.responseCode == 3) {
+          // message
+        }
+        if (response.responseCode == 10) {
+
+          if (response.responseContent.type == 0) {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+            this.verifyID = response.responseContent.id;
+            localStorage.setItem('verifyID', this.verifyID);
+          } else {
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
+        }
+      });
+    }
+  }
+
+  registerCompany() {
+    if (this.companyRegister.valid) {
+      const data = Object.assign({}, this.companyRegister.value);
+      this.clean(data);
+      this.appService.register(data).subscribe((response: Response) => {
+        if (response.responseCode == 2) {
+          this.responseMessage = response.responseMessage;
+        }
+        if (response.responseCode == 10) {
+          if (response.responseContent.type == 0) {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+            this.verifyID = response.responseContent.id;
+            localStorage.setItem('verifyID', this.verifyID);
+          } else {
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
+        }
+      }
+      );
+    }
+  }
+
+  registerCustomer() {
+    if (this.customerRegister.valid) {
+      const data = Object.assign({}, this.customerRegister.value);
+      this.clean(data);
+      this.appService.register(data).subscribe((response: Response) => {
+        if (response.responseCode == 2) {
+          this.responseMessage = response.responseMessage;
+        }
+        if (response.responseCode == 10) {
+          if (response.responseContent.type == 0) {
+            this.verifyPhone = true;
+            this.verifyEmail = false;
+            this.verifyID = response.responseContent.id;
+            localStorage.setItem('verifyID', this.verifyID);
+          } else {
+            this.verifyPhone = false;
+            this.verifyEmail = true;
+          }
+        }
+      }
+      );
+    }
+  }
+
+  logOut() {
+    this.appService.logout().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        localStorage.removeItem('jwt_c');
+        localStorage.removeItem('isCompany');
+        localStorage.removeItem('selfID');
+        this.router.navigate(['/home']);
       }
     });
   }
-}
 
-registerCompany() {
-  if (this.companyRegister.valid) {
-    const data = Object.assign({}, this.companyRegister.value);
-    this.clean(data);
-    this.appService.register(data).subscribe((response: Response) => {
-      if (response.responseCode == 2) {
-        this.responseMessage = response.responseMessage;
-      }
-      if (response.responseCode == 10) {
-        if (response.responseContent.type == 0) {
-          this.verifyPhone = true;
-          this.verifyEmail = false;
-          this.verifyID = response.responseContent.id;
-          localStorage.setItem('verifyID', this.verifyID);
-        } else {
-          this.verifyPhone = false;
-          this.verifyEmail = true;
-        }
-      }
-    }
-    );
+  loggedIn() {
+    const token = localStorage.getItem('jwt_c');
+    return !this.jwtHelper.isTokenExpired(token);
   }
-}
 
-registerCustomer() {
-  if (this.customerRegister.valid) {
-    const data = Object.assign({}, this.customerRegister.value);
-    this.clean(data);
-    console.log(data);
-    this.appService.register(data).subscribe((response: Response) => {
-      if (response.responseCode == 2) {
-        this.responseMessage = response.responseMessage;
-      }
-      if (response.responseCode == 10) {
-        if (response.responseContent.type == 0) {
-          this.verifyPhone = true;
-          this.verifyEmail = false;
-          this.verifyID = response.responseContent.id;
-          localStorage.setItem('verifyID', this.verifyID);
-        } else {
-          this.verifyPhone = false;
-          this.verifyEmail = true;
-        }
-      }
-    }
-    );
+  useLanguage(language: string) {
+    this.translate.use(language);
+    localStorage.setItem('lang', language);
+    window.location.reload();
   }
-}
 
-logOut() {
-  this.appService.logout().subscribe((response: Response) => {
-    if (response.responseCode == 1) {
-      localStorage.removeItem('jwt_c');
-      localStorage.removeItem('isCompany');
-      localStorage.removeItem('selfID');
-      this.router.navigate(['/home']);
-    }
-  });
-}
+  getCurrency() {
+    this.appService.currency().subscribe((response: Response) => {
+      if (response.responseCode) {
+        this.currencyResponse = response.responseContent;
+      }
+    });
+  }
 
-loggedIn() {
-  const token = localStorage.getItem('jwt_c');
-  return !this.jwtHelper.isTokenExpired(token);
-}
+  getMetals() {
+    this.appService.metals().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.metalResponse = response.responseContent;
+      }
+    });
+  }
 
-useLanguage(language: string) {
-  this.translate.use(language);
-  localStorage.setItem('lang', language);
-  window.location.reload();
-}
+  getProductsStat() {
+    this.appService.getProdStat().subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        this.prodStatResponse = response.responseContent;
+      }
+    });
+  }
 
-getCurrency() {
-  this.appService.currency().subscribe((response: Response) => {
-    if (response.responseCode) {
-      this.currencyResponse = response.responseContent;
-    }
-  });
-}
-
-getMetals() {
-  this.appService.metals().subscribe((response: Response) => {
-    if (response.responseCode == 1) {
-      this.metalResponse = response.responseContent;
-    }
-  });
-}
-
-getProductsStat() {
-  this.appService.getProdStat().subscribe((response: Response) => {
-    if (response.responseCode == 1) {
-      this.prodStatResponse = response.responseContent;
-    }
-  });
-}
-
-clean(obj) {
-  for (const propName in obj) {
-    if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
-      delete obj[propName];
+  clean(obj) {
+    for (const propName in obj) {
+      if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName][0] == [""]) {
+        delete obj[propName];
+      }
     }
   }
-}
 
 
-createVerifyForm() {
-  this.verifyForm = this.fb.group({
-    code: ['', Validators.required]
-  });
-}
+  createVerifyForm() {
+    this.verifyForm = this.fb.group({
+      code: ['', Validators.required]
+    });
+  }
 
-submitVerifyForm() {
-  this.verifyToken = localStorage.getItem('verifyToken');
-  this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
-    if (response.responseCode == 1) {
-      $('.login-modal').removeClass('open');
-      $('.registration-modal').removeClass('open');
-      $('body').removeClass('o-hidden');
-      this.verifyPhone = false;
-    }
-  });
-}
+  submitVerifyForm() {
+    this.verifyToken = localStorage.getItem('verifyToken');
+    this.appService.verify(this.verifyForm.value).subscribe((response: Response) => {
+      if (response.responseCode == 1) {
+        $('.login-modal').removeClass('open');
+        $('.registration-modal').removeClass('open');
+        $('body').removeClass('o-hidden');
+        this.verifyPhone = false;
+      }
+    });
+  }
 
-resendCode() {
-  this.verifyID = localStorage.getItem('verifyID');
-  this.appService.resendCode( {id: this.verifyID} ).subscribe( (response: Response) => {});
-}
+  resendCode() {
+    this.verifyID = localStorage.getItem('verifyID');
+    this.appService.resendCode({ id: this.verifyID }).subscribe((response: Response) => { });
+  }
 
-chekLang() {
-  this.activeLang = localStorage.getItem('lang');
-  this.az = (this.activeLang == 'az') ? true : false;
-  this.en = (this.activeLang == 'en') ? true : false;
-  this.ru = (this.activeLang == 'ru') ? true : false;
-}
+  chekLang() {
+    this.activeLang = localStorage.getItem('lang');
+    this.az = (this.activeLang == 'az') ? true : false;
+    this.en = (this.activeLang == 'en') ? true : false;
+    this.ru = (this.activeLang == 'ru') ? true : false;
+  }
 
 
-reset() {
-  this.verifyEmail = false;
-  this.verifyPhone = false;
-}
+  reset() {
+    this.verifyEmail = false;
+    this.verifyPhone = false;
+  }
 
-top() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-});
-}
+  top() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
 }
 

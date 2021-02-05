@@ -49,10 +49,9 @@ export class NewDetailComponent implements OnInit {
   }
 
   getNews() {
-    this.newsService.getNews({ per_page: 4}).subscribe(response => {
+    this.newsService.getNews({ per_page: 4 }).subscribe(response => {
       if (response.responseCode == 1) {
         this.newsList = response.responseContent.data;
-        console.log(this.newsList);
       }
     });
   }

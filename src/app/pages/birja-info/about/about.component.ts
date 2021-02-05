@@ -1,3 +1,4 @@
+import { prop } from './../../../../environments/properties';
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app/app.service';
 import { Response } from 'src/app/interfaces/response';
@@ -11,12 +12,13 @@ import { TranslateService } from '@ngx-translate/core';
 export class AboutComponent implements OnInit {
 
   about = [];
+  env = 'https://api.agrobirja.az/images/about/';
 
 
   constructor(
     public appService: AppService,
     public translate: TranslateService
-  ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
+  ) { this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getAboutData();
@@ -26,7 +28,6 @@ export class AboutComponent implements OnInit {
     this.appService.about().subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.about = response.responseContent;
-        console.log(this.about);
       }
     });
   }

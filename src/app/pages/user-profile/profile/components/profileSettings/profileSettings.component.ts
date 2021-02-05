@@ -28,12 +28,12 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private router: Router,
     public translate: TranslateService
-    ) {this.translate.setDefaultLang(localStorage.getItem('lang')); }
+  ) { this.translate.setDefaultLang(localStorage.getItem('lang')); }
 
   ngOnInit() {
     this.getUser();
     this.createUserForm();
-  
+
   }
 
   ngAfterViewInit() {
@@ -51,8 +51,7 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
   getUser() {
     this.profileService.getUserInfo().subscribe((response: Response) => {
       this.userInfo = response.responseContent;
-      console.log(this.userInfo.contacts);
-      
+
       this.phones = this.userInfo.contacts.filter(e => e.type == 0);
       this.emails = this.userInfo.contacts.filter(e => e.type == 1);
       this.resetData();
@@ -81,8 +80,7 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
         role: this.userInfo.role,
         is_company: this.userInfo.is_company,
       });
-      
-      console.log(this.updateUserForm.value.phone);
+
       const text = this.userInfo.description_az;
     });
   }
@@ -122,7 +120,6 @@ export class ProfileSettingsComponent implements OnInit, AfterViewInit {
     this.clean(this.updateUserForm.value);
     // this.cleanArr(this.updateUserForm.value.email);
     // this.cleanArr(this.updateUserForm.value.phone);
-    console.log(this.updateUserForm.value);
     this.profileService.userInfoUpdate(this.updateUserForm.value).subscribe((response: Response) => {
       if (response.responseCode == 1) {
         this.router.navigate(['/dashboard']);
